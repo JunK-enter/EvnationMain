@@ -30,7 +30,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-              EV charger installation, panel upgrades, permits, and energy savings — all handled by licensed electricians.
+              Home & commercial EV charging, Tesla Powerwall battery storage, and warranty-backed installs — all handled by licensed electricians.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-sm mx-auto lg:mx-0 lg:max-w-none">

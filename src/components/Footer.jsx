@@ -12,16 +12,17 @@ export default function Footer() {
               <Logo size="md" />
             </Link>
             <p className="text-sm text-slate-400 leading-relaxed">
-              Premium home electrification services. EV chargers, panel upgrades, permits, and solar — done right.
+              Premium home electrification. EV charging, commercial stations, Tesla Powerwall battery, and warranty-backed installs — done right.
             </p>
           </div>
 
           <div>
             <h4 className="font-display font-semibold mb-4">Services</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link to="/ev-charger" className="hover:text-neon transition-colors">EV Charger Installation</Link></li>
-              <li><Link to="/panel-upgrade" className="hover:text-neon transition-colors">Panel Upgrade</Link></li>
-              <li><Link to="/solar-energy" className="hover:text-neon transition-colors">Solar & Energy</Link></li>
+              <li><Link to="/ev-charger" className="hover:text-neon transition-colors">Home EV Charging</Link></li>
+              <li><Link to="/commercial-charging" className="hover:text-neon transition-colors">Commercial Charging</Link></li>
+              <li><Link to="/battery" className="hover:text-neon transition-colors">Battery · Tesla Powerwall</Link></li>
+              <li><Link to="/warranty" className="hover:text-neon transition-colors">Warranty</Link></li>
               <li><Link to="/shop" className="hover:text-neon transition-colors">Shop All Services</Link></li>
             </ul>
           </div>
@@ -29,10 +30,12 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold mb-4">Company</h4>
             <ul className="space-y-2 text-sm text-slate-400">
+              <li><Link to="/about" className="hover:text-neon transition-colors">About Us</Link></li>
+              <li><Link to="/auto-dealers" className="hover:text-neon transition-colors">Auto Dealer Partners</Link></li>
+              <li><Link to="/blog" className="hover:text-neon transition-colors">Blog</Link></li>
               <li><Link to="/quote" className="hover:text-neon transition-colors">Get a Quote</Link></li>
-              <li><Link to="/calculator" className="hover:text-neon transition-colors">Savings Calculator</Link></li>
+              <li><Link to="/intake" className="hover:text-neon transition-colors">Customer Intake</Link></li>
               <li><Link to="/contact" className="hover:text-neon transition-colors">Contact Us</Link></li>
-              <li><Link to="/employee" className="hover:text-neon transition-colors">Employee Portal</Link></li>
             </ul>
           </div>
 
@@ -46,9 +49,18 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-          <p>&copy; {new Date().getFullYear()} EVnation. All rights reserved.</p>
-          <p>Licensed electricians. Permit support included.</p>
+        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col gap-4">
+          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-400">
+            <Link to="/terms" className="hover:text-neon transition-colors">Terms & Conditions</Link>
+            <Link to="/racial-equality" className="hover:text-neon transition-colors">Racial Equality</Link>
+            <Link to="/privacy" className="hover:text-neon transition-colors">Privacy Policy</Link>
+            <Link to="/sitemap" className="hover:text-neon transition-colors">Site Map</Link>
+            <Link to="/blog" className="hover:text-neon transition-colors">Blog</Link>
+          </div>
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+            <p>&copy; {new Date().getFullYear()} EVnation. All rights reserved.</p>
+            <p>Licensed C10 Electrical Contractor. Permit support included.</p>
+          </div>
         </div>
       </div>
     </footer>

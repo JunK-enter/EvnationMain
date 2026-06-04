@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { Zap, Sun, Home, BatteryCharging, Gauge } from 'lucide-react'
+import { Zap, Battery, Home, BatteryCharging, Gauge } from 'lucide-react'
 
 const nodes = [
   { id: 'ev', x: 78, y: 18, icon: Zap, color: '#00ff88', label: 'Level 2', sub: '40 mi/hr', stat: '32A', delay: 0 },
-  { id: 'solar', x: 14, y: 72, icon: Sun, color: '#facc15', label: 'Solar Ready', sub: 'Clean energy', stat: '4.2 kW', delay: 0.15 },
+  { id: 'battery', x: 14, y: 72, icon: Battery, color: '#34d399', label: 'Powerwall', sub: 'Backup ready', stat: '13.5 kWh', delay: 0.15 },
   { id: 'price', x: 72, y: 78, icon: null, color: '#00ff88', label: '$1,200', sub: 'avg. install', stat: null, delay: 0.3 },
   { id: 'panel', x: 12, y: 22, icon: BatteryCharging, color: '#60a5fa', label: '200A Panel', sub: 'Upgrade ready', stat: 'OK', delay: 0.45 },
 ]

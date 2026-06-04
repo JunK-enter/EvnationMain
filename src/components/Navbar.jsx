@@ -3,24 +3,31 @@ import { Link, useLocation } from 'react-router-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
-  Bolt, LayoutGrid, Sun, Calculator, FileText, Mail,
-  Users, Wrench, ArrowRight,
+  Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText, Mail,
+  Users, Wrench, ArrowRight, Info, Handshake, Newspaper,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
 import { useAuth } from '../context/AuthContext'
 import Logo from './Logo'
 
 const serviceLinks = [
-  { to: '/ev-charger', label: 'EV Charger', desc: 'Level 2 installation', icon: Bolt },
-  { to: '/panel-upgrade', label: 'Panel Upgrade', desc: '200A service upgrade', icon: LayoutGrid },
-  { to: '/solar-energy', label: 'Solar & Energy', desc: 'Clean power solutions', icon: Sun },
+  { to: '/ev-charger', label: 'Home Charging', desc: 'Level 2 home install', icon: Bolt },
+  { to: '/commercial-charging', label: 'Commercial Charging', desc: 'Business & fleet', icon: Building2 },
+  { to: '/battery', label: 'Battery · Tesla Powerwall', desc: 'Home energy storage', icon: BatteryCharging },
+  { to: '/warranty', label: 'Warranty', desc: 'Protection & support', icon: ShieldCheck },
+  { to: '/shop', label: 'Shop All Services', desc: 'Browse & build a quote', icon: ShoppingCart },
 ]
 
 const mainLinks = [
   { to: '/', label: 'Home' },
-  { to: '/shop', label: 'Shop' },
   { to: '/calculator', label: 'Calculator', icon: Calculator },
   { to: '/contact', label: 'Contact', icon: Mail },
+]
+
+const companyLinks = [
+  { to: '/about', label: 'About Us', desc: 'Who we are', icon: Info },
+  { to: '/auto-dealers', label: 'Auto Dealer Partners', desc: 'Partner with us', icon: Handshake },
+  { to: '/blog', label: 'Blog', desc: 'Insights & tips', icon: Newspaper },
 ]
 
 const portalLinks = [
@@ -185,6 +192,30 @@ export default function Navbar() {
                   <NavLink key={link.to} to={link.to} label={link.label} icon={link.icon} />
                 ))}
 
+                <NavDropdown label="Company">
+                  <div className="p-2">
+                    {companyLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
+                          location.pathname === link.to
+                            ? 'bg-neon/10 text-neon'
+                            : 'text-slate-300 hover:bg-white/5 hover:text-white'
+                        }`}
+                      >
+                        <div className="w-9 h-9 rounded-lg bg-neon/10 flex items-center justify-center shrink-0">
+                          <link.icon className="w-4 h-4 text-neon" />
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium leading-tight">{link.label}</p>
+                          <p className="text-[11px] text-slate-500 mt-0.5">{link.desc}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </NavDropdown>
+
                 <div className="w-px h-5 bg-white/10 mx-1" />
 
                 <Link
@@ -319,15 +350,6 @@ export default function Navbar() {
                       Home
                     </Link>
                     <Link
-                      to="/shop"
-                      onClick={() => setMobileOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        location.pathname === '/shop' ? 'bg-neon/10 text-neon' : 'text-slate-300'
-                      }`}
-                    >
-                      Shop
-                    </Link>
-                    <Link
                       to="/calculator"
                       onClick={() => setMobileOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-sm font-medium ${
@@ -345,6 +367,25 @@ export default function Navbar() {
                     >
                       Contact
                     </Link>
+                  </div>
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Company</p>
+                  <div className="space-y-1">
+                    {companyLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
+                          location.pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        }`}
+                      >
+                        <link.icon className="w-4 h-4 opacity-70" />
+                        {link.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
