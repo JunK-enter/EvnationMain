@@ -4,7 +4,7 @@ import { calculateGasSavings } from '../services/quoteCalculator'
 
 const benefits = [
   { icon: Fuel, title: 'Save on Fuel', desc: 'Home charging costs a fraction of gas. Most drivers save $800–$1,500 per year.' },
-  { icon: Clock, title: 'Charge While You Sleep', desc: 'Wake up to a full battery every morning. No more gas station stops.' },
+  { icon: Clock, title: 'Overnight Charging', desc: 'Plug in at home and wake up with a full battery. No more gas station stops.' },
   { icon: TrendingUp, title: 'Boost Home Value', desc: 'EV-ready homes sell faster and command higher prices in today\'s market.' },
   { icon: BatteryCharging, title: 'Backup & Peak Savings', desc: 'Add a Tesla Powerwall to store energy and power through outages.' },
   { icon: BadgeDollarSign, title: 'Rebates & Incentives', desc: 'Federal tax credits, state rebates, and utility programs can offset install costs.' },

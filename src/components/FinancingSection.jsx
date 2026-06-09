@@ -1,5 +1,7 @@
+'use client'
+
 import { CreditCard, Clock, Shield } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import Link from '@/components/Link'
 
 export default function FinancingSection() {
   return (

@@ -1,7 +1,7 @@
 // Blog content migrated from evnation.us. Intros are the original published
 // excerpts; remaining body copy is editorial placeholder to be refined later.
 
-export const blogPosts = [
+export const defaultBlogPosts = [
   {
     slug: 'workplace-ev-charger-employee-experience',
     title: 'A Workplace EV Charger System Transforms Employee Experience',
@@ -141,8 +141,11 @@ export const blogPosts = [
   },
 ]
 
-export function getPostBySlug(slug) {
-  return blogPosts.find((p) => p.slug === slug) || null
+/** Static seed data — used at build time; runtime uses localStorage via blogStorage */
+export const blogPosts = defaultBlogPosts
+
+export function getPostBySlug(slug, posts = defaultBlogPosts) {
+  return posts.find((p) => p.slug === slug) || null
 }
 
 export function formatPostDate(iso) {

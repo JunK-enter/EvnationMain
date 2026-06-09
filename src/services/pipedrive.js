@@ -87,8 +87,5 @@ export async function sendToPipedrive(intakeData) {
 
   console.info('[EVnation] sendToPipedrive() placeholder — payload ready for Pipedrive:', payload)
 
-  // Simulate a short async round-trip so the UI can show a loading state.
-  await new Promise((resolve) => setTimeout(resolve, 600))
-
   return { success: true, simulated: true, payload }
 }

@@ -1,4 +1,6 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from '@/components/Link'
 import { motion } from 'framer-motion'
 import { Check, ArrowRight } from 'lucide-react'
 

@@ -1,10 +1,6 @@
 /**
  * Supabase/Firebase-ready API layer.
  * Replace stub implementations with real backend calls when ready.
- *
- * Example Supabase:
- *   import { createClient } from '@supabase/supabase-js'
- *   const supabase = createClient(import.meta.env.VITE_SUPABASE_URL, import.meta.env.VITE_SUPABASE_ANON_KEY)
  */
 
 import { mockSubmissions } from '../data/mockCustomers'
@@ -29,7 +25,6 @@ function seedIfEmpty() {
 
 export async function fetchSubmissions(filters = {}) {
   seedIfEmpty()
-  await delay(300)
   let data = getSubmissions()
 
   if (filters.status) data = data.filter((s) => s.status === filters.status)
@@ -50,7 +45,6 @@ export async function fetchSubmissions(filters = {}) {
 }
 
 export async function createSubmission(formData) {
-  await delay(500)
   const submission = {
     id: generateSubmissionId(),
     createdAt: new Date().toISOString(),
@@ -64,13 +58,11 @@ export async function createSubmission(formData) {
 }
 
 export async function patchSubmission(id, updates) {
-  await delay(200)
   return updateSubmission(id, updates)
 }
 
 export async function fetchStats() {
   seedIfEmpty()
-  await delay(200)
   const data = getSubmissions()
   const pending = data.filter((s) => ['submitted', 'under_review'].includes(s.status)).length
   const scheduled = data.filter((s) => s.status === 'scheduled').length
@@ -87,16 +79,10 @@ export async function fetchStats() {
 }
 
 export async function uploadPhoto(_file, _type) {
-  await delay(400)
   return { url: URL.createObjectURL(_file), name: _file.name }
 }
 
 export async function sendNotificationEmail(submission) {
-  await delay(300)
   console.info('[EVnation] Email notification sent for', submission.id)
   return { success: true }
-}
-
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms))
 }

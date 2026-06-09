@@ -1,12 +1,16 @@
-import { createContext, useContext, useState, useCallback } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect } from 'react'
 import { shopServices } from '../data/services'
 import { getQuoteCart, saveQuoteCart } from '../services/storage'
 
 const QuoteContext = createContext(null)
 
 export function QuoteProvider({ children }) {
-  const [cart, setCart] = useState(() => getQuoteCart())
+  const [cart, setCart] = useState([])
   const [assessment, setAssessment] = useState({})
+
+  useEffect(() => {
+    setCart(getQuoteCart())
+  }, [])
 
   const addToQuote = useCallback((serviceId) => {
     setCart((prev) => {

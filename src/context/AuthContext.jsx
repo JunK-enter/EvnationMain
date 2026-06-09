@@ -1,16 +1,19 @@
-import { createContext, useContext, useState, useCallback } from 'react'
+import { createContext, useContext, useState, useCallback, useEffect } from 'react'
 import { getUser, saveUser, clearUser } from '../services/storage'
 
 const AuthContext = createContext(null)
 
 const DEMO_USERS = {
-  employee: { email: 'employee@evnation.com', password: 'demo', role: 'employee', name: 'Admin User' },
-  electrician: { email: 'electrician@evnation.com', password: 'demo', role: 'electrician', name: 'Mike Johnson' },
+  employee: { email: 'employee@evnation.com', password: 'green111', role: 'employee', name: 'Admin User' },
   customer: { email: 'customer@email.com', password: 'demo', role: 'customer', name: 'Demo Customer' },
 }
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(() => getUser())
+  const [user, setUser] = useState(null)
+
+  useEffect(() => {
+    setUser(getUser())
+  }, [])
 
   const login = useCallback((email, password) => {
     const match = Object.values(DEMO_USERS).find(

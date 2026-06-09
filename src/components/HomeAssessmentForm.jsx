@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { US_STATES } from '../data/states'
+import { DEFAULT_ZONE_ID } from '../data/serviceZones'
 import { homeTypes, parkingTypes, panelSizes } from '../data/services'
 import UploadBox from './UploadBox'
+import ZoneSelect from './ZoneSelect'
 import { useQuote } from '../context/QuoteContext'
 import { ArrowRight, CheckCircle } from 'lucide-react'
 
@@ -11,7 +12,7 @@ export default function HomeAssessmentForm({ onSubmit, compact = false }) {
   const { assessment, setAssessment, cart } = useQuote()
   const [submitted, setSubmitted] = useState(false)
   const [form, setForm] = useState({
-    state: assessment.state || '',
+    zone: assessment.zone || DEFAULT_ZONE_ID,
     city: assessment.city || '',
     zip: assessment.zip || '',
     homeType: assessment.homeType || '',
@@ -54,11 +55,8 @@ export default function HomeAssessmentForm({ onSubmit, compact = false }) {
 
       <div className="grid sm:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">State *</label>
-          <select required value={form.state} onChange={(e) => update('state', e.target.value)} className={inputClass}>
-            <option value="">Select state</option>
-            {US_STATES.map((s) => <option key={s.code} value={s.code}>{s.name}</option>)}
-          </select>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">Service Area *</label>
+          <ZoneSelect required value={form.zone} onChange={(v) => update('zone', v)} className={inputClass} />
         </div>
         <div>
           <label className="block text-xs font-medium text-slate-400 mb-1.5">City *</label>

@@ -53,6 +53,9 @@ export const US_STATES = [
 
 export const stateRebates = {
   CA: { federal: '$7,500 EV tax credit', state: 'Up to $2,000 EV charger rebate', utility: 'PG&E / SCE charger incentives' },
+  IL: { federal: '$7,500 EV tax credit', state: 'Illinois EV rebate programs', utility: 'ComEd / Ameren EV rates' },
+  NV: { federal: '$7,500 EV tax credit', state: 'NV Energy EV incentives', utility: 'Time-of-use rate savings' },
+  AZ: { federal: '$7,500 EV tax credit', state: 'Limited state EV incentives', utility: 'APS / SRP charger programs' },
   NY: { federal: '$7,500 EV tax credit', state: 'Drive Clean Rebate up to $2,000', utility: 'Con Edison EV rates' },
   TX: { federal: '$7,500 EV tax credit', state: 'Limited state incentives', utility: 'Utility TOU rate savings' },
   FL: { federal: '$7,500 EV tax credit', state: 'No state EV rebate', utility: 'FPL EV charging program' },
@@ -69,9 +72,13 @@ export function getRebatesForState(stateCode) {
 
 export const statePricingMultipliers = {
   CA: 1.25,
+  IL: 1.05,
+  NV: 1.0,
+  AZ: 0.98,
   NY: 1.2,
   TX: 0.95,
   FL: 0.9,
   WA: 1.1,
+  NJ: 1.15,
   DEFAULT: 1.0,
 }

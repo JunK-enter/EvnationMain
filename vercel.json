@@ -1,0 +1,19 @@
+{
+  "framework": "nextjs",
+  "redirects": [
+    { "source": "/residential-ev-charging-installation", "destination": "/residential-ev-charging", "permanent": true },
+    { "source": "/ev-charger-installation", "destination": "/residential-ev-charging", "permanent": true },
+    { "source": "/home-ev-charger-installation", "destination": "/residential-ev-charging", "permanent": true },
+    { "source": "/ev-charger", "destination": "/residential-ev-charging", "permanent": true },
+    { "source": "/panel-upgrade", "destination": "/panel-upgrades", "permanent": true },
+    { "source": "/panel-upgrade-services", "destination": "/panel-upgrades", "permanent": true },
+    { "source": "/solar-energy", "destination": "/solar", "permanent": true },
+    { "source": "/commercial-charging", "destination": "/commercial", "permanent": true },
+    { "source": "/commercial-ev-charging", "destination": "/commercial", "permanent": true },
+    { "source": "/get-a-quote", "destination": "/quote", "permanent": true },
+    { "source": "/contact-us", "destination": "/contact", "permanent": true },
+    { "source": "/about-us", "destination": "/about", "permanent": true },
+    { "source": "/portfolio", "destination": "/projects", "permanent": true },
+    { "source": "/auto-dealers", "destination": "/auto-dealer", "permanent": true }
+  ]
+}

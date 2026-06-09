@@ -1,7 +1,10 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from '@/components/Link'
 import { motion } from 'framer-motion'
-import { ArrowRight, Play, Zap } from 'lucide-react'
+import { ArrowRight, Play, Zap, MapPin } from 'lucide-react'
 import HeroVisual from './HeroVisual'
+import { stats, serviceArea } from '@/data/localSeo'
 
 export default function Hero() {
   return (
@@ -19,35 +22,35 @@ export default function Hero() {
             className="text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 rounded-full glass-light text-xs sm:text-sm text-neon mb-5 sm:mb-6">
-              <Zap className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
-              <span className="hidden sm:inline">Trusted by 2,000+ homeowners nationwide</span>
-              <span className="sm:hidden">2,000+ homeowners trust us</span>
+              <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
+              <span className="hidden sm:inline">Serving {serviceArea.regionShort}</span>
+              <span className="sm:hidden">{stats.serviceArea}</span>
             </div>
 
             <h1 className="font-display text-[1.75rem] leading-[1.12] sm:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight mb-4 sm:mb-6">
-              Electrify Your Home{' '}
-              <span className="neon-text">with Confidence</span>
+              Your Regional{' '}
+              <span className="neon-text">EV & Solar Experts</span>
             </h1>
 
             <p className="text-base sm:text-lg lg:text-xl text-slate-400 leading-relaxed mb-6 sm:mb-8 max-w-xl mx-auto lg:mx-0">
-              Home & commercial EV charging, Tesla Powerwall battery storage, and warranty-backed installs — all handled by licensed electricians.
+              Licensed EV charger installation, panel upgrades, and solar across {serviceArea.regionShort}. Build your quote online in minutes.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 sm:mb-10 max-w-sm mx-auto lg:mx-0 lg:max-w-none">
-              <Link to="/quote" className="btn-primary w-full sm:w-auto justify-center !py-3.5">
-                Get a Quote
+              <Link href="/quote" className="btn-primary w-full sm:w-auto justify-center !py-3.5">
+                Build Your Quote
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link to="/quote#assessment" className="btn-secondary w-full sm:w-auto justify-center !py-3.5">
+              <Link href="/quote#assessment" className="btn-secondary w-full sm:w-auto justify-center !py-3.5">
                 <Play className="w-4 h-4" />
-                Start Home Assessment
+                Home Assessment
               </Link>
             </div>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-2.5 sm:gap-6 text-xs sm:text-sm text-slate-500 items-center lg:items-start">
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-neon shrink-0" /> Licensed & Insured</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-neon shrink-0" /> Permit Support</span>
-              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-neon shrink-0" /> Transparent Pricing</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-neon shrink-0" /> {stats.installations} installs</span>
+              <span className="flex items-center gap-2"><span className="w-2 h-2 rounded-full bg-neon shrink-0" /> {stats.rating} avg. rating</span>
+              <span className="flex items-center gap-2"><Zap className="w-3.5 h-3.5 text-neon shrink-0" /> {stats.serviceArea} coverage</span>
             </div>
           </motion.div>
 

@@ -1,37 +1,39 @@
-import { Link } from 'react-router-dom'
+'use client'
+
+import Link from '@/components/Link'
 import { ArrowUpRight, Bolt, Building2, BatteryCharging, ShieldCheck } from 'lucide-react'
 
 const pillars = [
   {
-    title: 'Home EV Charging',
-    desc: 'Level 2 chargers installed by licensed electricians — wake up to a full battery every day.',
+    title: 'Residential EV Charging',
+    desc: 'Level 2 chargers across our regional service areas — licensed, permitted, done right.',
     img: '/images/solutions/domestic-ev-charger-768x308.jpg',
-    to: '/ev-charger',
+    to: '/residential-ev-charging',
     icon: Bolt,
     span: 'lg:col-span-2 lg:row-span-2',
     big: true,
   },
   {
-    title: 'Commercial Charging',
-    desc: 'Scalable networked charging for workplaces, fleets, and multifamily properties.',
+    title: 'Solar',
+    desc: 'Roof-mounted systems sized for California sun and your driving habits.',
     img: '/images/solutions/commercial-ev-charger-768x308.jpg',
-    to: '/commercial-charging',
+    to: '/solar',
     icon: Building2,
     span: 'lg:col-span-2',
   },
   {
-    title: 'Battery · Tesla Powerwall',
-    desc: 'Whole-home backup and peak-rate savings.',
+    title: 'Panel Upgrades',
+    desc: '200A service upgrades for safe EV charging at home.',
     img: '/images/battery-hero.png',
-    to: '/battery',
+    to: '/panel-upgrades',
     icon: BatteryCharging,
     span: 'lg:col-span-1',
   },
   {
-    title: 'Warranty',
-    desc: 'Workmanship guarantee & priority support.',
+    title: 'Commercial',
+    desc: 'Workplace & fleet charging in select metro service areas.',
     img: '/images/warranty-hero.png',
-    to: '/warranty',
+    to: '/commercial',
     icon: ShieldCheck,
     span: 'lg:col-span-1',
   },
@@ -76,9 +78,9 @@ export default function SolutionsSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">What We Do</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">One partner for your whole electric home</h2>
+          <h2 className="font-display text-3xl sm:text-4xl font-bold">Your regional electrification partner</h2>
           <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            From home and commercial charging to Tesla Powerwall battery storage — all backed by our warranty.
+            EV charging, solar, panel upgrades, and commercial installs — one licensed team across regional service areas.
           </p>
         </div>
 

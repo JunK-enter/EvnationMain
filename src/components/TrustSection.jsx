@@ -1,5 +1,8 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { Shield, FileCheck, Sparkles, DollarSign, Users, Award } from 'lucide-react'
+import { stats as localStats, serviceArea } from '@/data/localSeo'
 
 const reasons = [
   { icon: Shield, title: 'Licensed Electricians', desc: 'Every install is performed by state-licensed, insured electricians — not handymen.' },
@@ -17,7 +20,7 @@ export default function TrustSection() {
         <div className="text-center mb-16">
           <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Why EVnation?</p>
           <h2 className="font-display text-3xl sm:text-4xl font-bold">Built on Trust, Backed by Pros</h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">We make home electrification simple because we've done it thousands of times.</p>
+          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">Licensed electricians across {serviceArea.region} — EV charging, solar, and panel upgrades done right.</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -41,10 +44,10 @@ export default function TrustSection() {
 
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
           {[
-            { value: '2,000+', label: 'Installations' },
-            { value: '4.9/5', label: 'Customer Rating' },
-            { value: '48', label: 'States Served' },
-            { value: '24hr', label: 'Quote Turnaround' },
+            { value: localStats.installations, label: 'Regional Installs' },
+            { value: localStats.rating, label: 'Customer Rating' },
+            { value: localStats.serviceArea, label: 'Service Areas' },
+            { value: localStats.quoteTurnaround, label: 'Quote Turnaround' },
           ].map((stat) => (
             <div key={stat.label} className="glass-light rounded-2xl p-6">
               <p className="font-display text-3xl font-bold text-neon">{stat.value}</p>

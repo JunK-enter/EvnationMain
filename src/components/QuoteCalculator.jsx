@@ -1,11 +1,13 @@
 import { useState, useMemo } from 'react'
 import { chargerTypes, complexityLevels } from '../data/services'
-import { US_STATES } from '../data/states'
+import { DEFAULT_ZONE_ID, getZoneStateCode } from '../data/serviceZones'
 import { calculateQuote } from '../services/quoteCalculator'
+import ZoneSelect from './ZoneSelect'
 import { Calculator, Info } from 'lucide-react'
 
 export default function QuoteCalculator() {
-  const [state, setState] = useState('CA')
+  const [zone, setZone] = useState(DEFAULT_ZONE_ID)
+  const state = getZoneStateCode(zone)
   const [chargerType, setChargerType] = useState('hardwired')
   const [distance, setDistance] = useState(25)
   const [panelUpgrade, setPanelUpgrade] = useState(false)
@@ -33,10 +35,8 @@ export default function QuoteCalculator() {
 
       <div className="grid sm:grid-cols-2 gap-4 mb-6">
         <div>
-          <label className="block text-xs font-medium text-slate-400 mb-1.5">State</label>
-          <select value={state} onChange={(e) => setState(e.target.value)} className="w-full bg-navy-800 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white">
-            {US_STATES.map((s) => <option key={s.code} value={s.code}>{s.name}</option>)}
-          </select>
+          <label className="block text-xs font-medium text-slate-400 mb-1.5">Service Area</label>
+          <ZoneSelect value={zone} onChange={setZone} className="w-full bg-navy-800 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white" placeholder="Select area" />
         </div>
         <div>
           <label className="block text-xs font-medium text-slate-400 mb-1.5">Charger Type</label>

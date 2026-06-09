@@ -1,38 +1,38 @@
+'use client'
+
 import { useState, useEffect, useRef } from 'react'
-import { Link, useLocation } from 'react-router-dom'
+import { usePathname } from 'next/navigation'
+import Link from '@/components/Link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
   Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText, Mail,
-  Users, Wrench, ArrowRight, Info, Handshake, Newspaper,
+  Users, ArrowRight, Info, Handshake, Newspaper,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
 import { useAuth } from '../context/AuthContext'
 import Logo from './Logo'
 
 const serviceLinks = [
-  { to: '/ev-charger', label: 'Home Charging', desc: 'Level 2 home install', icon: Bolt },
-  { to: '/commercial-charging', label: 'Commercial Charging', desc: 'Business & fleet', icon: Building2 },
-  { to: '/battery', label: 'Battery · Tesla Powerwall', desc: 'Home energy storage', icon: BatteryCharging },
-  { to: '/warranty', label: 'Warranty', desc: 'Protection & support', icon: ShieldCheck },
+  { to: '/residential-ev-charging', label: 'Residential EV Charging', desc: 'Level 2 home install', icon: Bolt },
+  { to: '/solar', label: 'Solar', desc: 'Roof & battery-ready', icon: BatteryCharging },
+  { to: '/panel-upgrades', label: 'Panel Upgrades', desc: '200A service upgrades', icon: ShieldCheck },
+  { to: '/commercial', label: 'Commercial', desc: 'Workplace & fleet', icon: Building2 },
+  { to: '/battery', label: 'Battery Storage', desc: 'Tesla Powerwall & more', icon: BatteryCharging },
   { to: '/shop', label: 'Shop All Services', desc: 'Browse & build a quote', icon: ShoppingCart },
 ]
 
 const mainLinks = [
   { to: '/', label: 'Home' },
+  { to: '/projects', label: 'Projects' },
   { to: '/calculator', label: 'Calculator', icon: Calculator },
   { to: '/contact', label: 'Contact', icon: Mail },
 ]
 
 const companyLinks = [
-  { to: '/about', label: 'About Us', desc: 'Who we are', icon: Info },
-  { to: '/auto-dealers', label: 'Auto Dealer Partners', desc: 'Partner with us', icon: Handshake },
-  { to: '/blog', label: 'Blog', desc: 'Insights & tips', icon: Newspaper },
-]
-
-const portalLinks = [
-  { to: '/employee', label: 'Employee Portal', icon: Users },
-  { to: '/electrician', label: 'Electrician Portal', icon: Wrench },
+  { to: '/about', label: 'About', desc: 'Regional install team', icon: Info },
+  { to: '/auto-dealer', label: 'Auto Dealer Partners', desc: 'Partner with us', icon: Handshake },
+  { to: '/blog', label: 'Blog', desc: 'EV & solar insights', icon: Newspaper },
 ]
 
 function scrollToTop() {
@@ -84,8 +84,8 @@ function NavDropdown({ label, children, align = 'left' }) {
 }
 
 function NavLink({ to, label, icon: Icon, scrollTop = false }) {
-  const location = useLocation()
-  const active = location.pathname === to
+  const pathname = usePathname()
+  const active = pathname === to
 
   return (
     <Link
@@ -114,13 +114,11 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
-  const location = useLocation()
+  const pathname = usePathname()
   const { cart } = useQuote()
   const { user } = useAuth()
 
-  const isPortal =
-    location.pathname.startsWith('/employee') ||
-    location.pathname.startsWith('/electrician')
+  const isPortal = pathname.startsWith('/employee')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -131,7 +129,7 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false)
     setServicesOpen(false)
-  }, [location.pathname])
+  }, [pathname])
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
@@ -140,7 +138,7 @@ export default function Navbar() {
 
   if (isPortal) return null
 
-  const servicesActive = serviceLinks.some((l) => l.to === location.pathname)
+  const servicesActive = serviceLinks.some((l) => l.to === pathname)
 
   return (
     <>
@@ -171,7 +169,7 @@ export default function Navbar() {
                         key={link.to}
                         to={link.to}
                         className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
-                          location.pathname === link.to
+                          pathname === link.to
                             ? 'bg-neon/10 text-neon'
                             : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         }`}
@@ -199,7 +197,7 @@ export default function Navbar() {
                         key={link.to}
                         to={link.to}
                         className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
-                          location.pathname === link.to
+                          pathname === link.to
                             ? 'bg-neon/10 text-neon'
                             : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         }`}
@@ -221,7 +219,7 @@ export default function Navbar() {
                 <Link
                   to="/quote"
                   className={`relative flex items-center gap-1.5 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 ${
-                    location.pathname === '/quote'
+                    pathname === '/quote'
                       ? 'bg-neon text-navy-950 shadow-[0_0_20px_rgba(0,255,136,0.3)]'
                       : 'bg-neon/90 text-navy-950 hover:bg-neon hover:shadow-[0_0_20px_rgba(0,255,136,0.25)]'
                   }`}
@@ -247,20 +245,12 @@ export default function Navbar() {
                 )}
               </Link>
 
-              <NavDropdown label="Portals" align="right">
-                <div className="p-2">
-                  {portalLinks.map((link) => (
-                    <Link
-                      key={link.to}
-                      to={link.to}
-                      className="flex items-center gap-3 px-3 py-2.5 rounded-xl text-slate-300 hover:bg-white/5 hover:text-white transition-colors"
-                    >
-                      <link.icon className="w-4 h-4 text-slate-500" />
-                      <span className="text-sm font-medium">{link.label}</span>
-                    </Link>
-                  ))}
-                </div>
-              </NavDropdown>
+              <Link
+                to="/employee"
+                className="ml-1 px-4 py-2 rounded-full text-[13px] font-medium text-slate-300 border border-white/10 hover:border-neon/30 hover:text-white transition-all duration-200"
+              >
+                Employee Portal
+              </Link>
 
               {user ? (
                 <div className="flex items-center gap-2 pl-2 ml-1 border-l border-white/10">
@@ -344,7 +334,7 @@ export default function Navbar() {
                       to="/"
                       onClick={() => { scrollToTop(); setMobileOpen(false) }}
                       className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        location.pathname === '/' ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        pathname === '/' ? 'bg-neon/10 text-neon' : 'text-slate-300'
                       }`}
                     >
                       Home
@@ -353,7 +343,7 @@ export default function Navbar() {
                       to="/calculator"
                       onClick={() => setMobileOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        location.pathname === '/calculator' ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        pathname === '/calculator' ? 'bg-neon/10 text-neon' : 'text-slate-300'
                       }`}
                     >
                       Savings Calculator
@@ -362,7 +352,7 @@ export default function Navbar() {
                       to="/contact"
                       onClick={() => setMobileOpen(false)}
                       className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        location.pathname === '/contact' ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        pathname === '/contact' ? 'bg-neon/10 text-neon' : 'text-slate-300'
                       }`}
                     >
                       Contact
@@ -379,7 +369,7 @@ export default function Navbar() {
                         to={link.to}
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
-                          location.pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                          pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
                         }`}
                       >
                         <link.icon className="w-4 h-4 opacity-70" />
@@ -415,7 +405,7 @@ export default function Navbar() {
                               to={link.to}
                               onClick={() => setMobileOpen(false)}
                               className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm ${
-                                location.pathname === link.to ? 'text-neon' : 'text-slate-400'
+                                pathname === link.to ? 'text-neon' : 'text-slate-400'
                               }`}
                             >
                               <link.icon className="w-4 h-4" />
@@ -429,20 +419,14 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Portals</p>
-                  <div className="grid grid-cols-2 gap-2">
-                    {portalLinks.map((link) => (
-                      <Link
-                        key={link.to}
-                        to={link.to}
-                        onClick={() => setMobileOpen(false)}
-                        className="flex flex-col items-center gap-2 px-3 py-4 rounded-xl border border-white/10 text-slate-400 hover:border-neon/30 hover:text-neon transition-colors text-center"
-                      >
-                        <link.icon className="w-5 h-5" />
-                        <span className="text-[11px] font-medium leading-tight">{link.label}</span>
-                      </Link>
-                    ))}
-                  </div>
+                  <Link
+                    to="/employee"
+                    onClick={() => setMobileOpen(false)}
+                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-300 hover:bg-white/5"
+                  >
+                    <Users className="w-4 h-4" />
+                    Employee Portal
+                  </Link>
                 </div>
 
                 {!user && (

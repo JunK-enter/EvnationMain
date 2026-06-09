@@ -2,10 +2,10 @@ import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 
 const reviews = [
-  { name: 'Sarah M.', location: 'San Jose, CA', rating: 5, text: 'EVnation made the whole process effortless. From the online assessment to installation day, everything was transparent and professional.' },
-  { name: 'James T.', location: 'Austin, TX', rating: 5, text: 'Got my Tesla Wall Connector installed in one afternoon. The electrician was knowledgeable and left my garage cleaner than he found it.' },
-  { name: 'Lisa K.', location: 'Denver, CO', rating: 5, text: 'They handled the panel upgrade AND the charger install. Permits, inspection, everything. Worth every penny for the peace of mind.' },
-  { name: 'Robert H.', location: 'Miami, FL', rating: 4, text: 'Great experience overall. The quote was accurate and the install team showed up on time. Highly recommend for any EV owner.' },
+  { name: 'Sarah M.', location: 'Irvine, CA — Southern Cal', rating: 5, text: 'EVnation made the whole process effortless. From the online assessment to installation day, everything was transparent and professional.' },
+  { name: 'James T.', location: 'San Antonio, TX', rating: 5, text: 'Got my Tesla Wall Connector installed in one afternoon. The electrician was knowledgeable and left my garage cleaner than he found it.' },
+  { name: 'Lisa K.', location: 'Las Vegas, NV', rating: 5, text: 'They handled the panel upgrade AND the charger install. Permits, inspection, everything. Worth every penny for the peace of mind.' },
+  { name: 'Robert H.', location: 'Chicago, IL', rating: 4, text: 'Great experience overall. The quote was accurate and the install team showed up on time. Highly recommend for any EV owner.' },
 ]
 
 export default function TestimonialSection() {

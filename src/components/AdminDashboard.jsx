@@ -1,19 +1,22 @@
+'use client'
+
 import { useState, useEffect } from 'react'
 import {
   Users, DollarSign, Clock, CheckCircle, Search, Filter,
-  BarChart3, TrendingUp, Zap, Edit2, Trash2, Plus, X, Save,
+  BarChart3, TrendingUp, Zap, Edit2, Trash2, Plus, X, Save, Newspaper,
 } from 'lucide-react'
 import { fetchSubmissions, fetchStats, patchSubmission } from '../services/api'
 import { shopServices, statusFlow } from '../data/services'
 import { US_STATES } from '../data/states'
 import StatusBadge from './StatusBadge'
+import BlogManager from './BlogManager'
 
-export default function AdminDashboard() {
+export default function AdminDashboard({ initialTab = 'submissions', openBlogNew = false }) {
   const [submissions, setSubmissions] = useState([])
   const [stats, setStats] = useState(null)
   const [selected, setSelected] = useState(null)
   const [filters, setFilters] = useState({ search: '', status: '', state: '', service: '' })
-  const [tab, setTab] = useState('submissions')
+  const [tab, setTab] = useState(initialTab === 'blog' ? 'blog' : initialTab === 'shop' ? 'shop' : initialTab === 'analytics' ? 'analytics' : 'submissions')
   const [shopItems, setShopItems] = useState(shopServices)
   const [editingItem, setEditingItem] = useState(null)
   const [loading, setLoading] = useState(true)
@@ -51,6 +54,7 @@ export default function AdminDashboard() {
 
   const tabs = [
     { id: 'submissions', label: 'Submissions', icon: Users },
+    { id: 'blog', label: 'Blog', icon: Newspaper },
     { id: 'shop', label: 'Shop Items', icon: Zap },
     { id: 'analytics', label: 'Analytics', icon: BarChart3 },
   ]
@@ -60,7 +64,7 @@ export default function AdminDashboard() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
           <h1 className="font-display text-3xl font-bold">Employee Portal</h1>
-          <p className="text-slate-400 mt-1">Manage customers, quotes, and shop inventory</p>
+          <p className="text-slate-400 mt-1">Manage customers, quotes, shop inventory, and blog content</p>
         </div>
 
         {stats && (
@@ -190,6 +194,8 @@ export default function AdminDashboard() {
             </div>
           </>
         )}
+
+        {tab === 'blog' && <BlogManager autoOpenNew={openBlogNew} />}
 
         {tab === 'shop' && (
           <div>
