@@ -7,8 +7,8 @@ const faqs = [
   { q: 'Do I need a panel upgrade for an EV charger?', a: 'It depends on your existing panel size and current electrical load. A 200A panel typically supports an EV charger without upgrade. We perform a load calculation to determine this.' },
   { q: 'Will EVnation handle permits?', a: 'Yes! Permit handling is included in our service packages. We file with your local authority, schedule inspections, and ensure code compliance.' },
   { q: 'What charger brands do you install?', a: 'We install all major brands including Tesla Wall Connector, ChargePoint Home Flex, Grizzl-E, Emporia, and more. You can purchase your own or buy through us.' },
-  { q: 'How much does installation cost?', a: 'Level 2 installations typically range from $800–$1,800 depending on distance, complexity, and your state. Use our quote calculator for a personalized estimate.' },
-  { q: 'Are there rebates available?', a: 'Many states and utilities offer rebates for EV charger installation. Use our Rebate Finder to see what\'s available in your area. The federal EV tax credit may also apply.' },
+  { q: 'How much does installation cost?', a: 'Level 2 EV charger installation starts at $575. Panel upgrades start at $3,250 and permit service starts at $250. Tesla Powerwall and charger + battery packages start at $9,995. Use our quote calculator for a personalized estimate.' },
+  { q: 'Are there rebates available?', a: 'Yes. California customers can search official programs by ZIP on Drive Clean (driveclean.ca.gov) — use our Rebate Finder on the home or calculator page. We help coordinate SCE, PG&E, SDG&E, and other charger rebates during your install.' },
 ]
 
 export default function FAQSection() {

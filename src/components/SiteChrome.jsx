@@ -7,10 +7,8 @@ import AIAssistant from '@/components/AIAssistant'
 
 export default function SiteChrome({ children }) {
   const pathname = usePathname()
-  const isPortal = pathname.startsWith('/employee')
   const isAdmin = pathname.startsWith('/admin')
-  const isLogin = pathname === '/login'
-  const chromeless = isPortal || isAdmin || isLogin
+  const chromeless = isAdmin
 
   return (
     <>

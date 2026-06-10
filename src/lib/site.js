@@ -17,7 +17,7 @@ export const siteConfig = {
 export const defaultMetadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: 'evNation | EV Charger Installation & Solar — Regional Service Areas',
+    default: 'evNation | Electrify Your Home with Confidence',
     template: '%s | evNation',
   },
   description: siteConfig.description,
@@ -35,7 +35,7 @@ export const defaultMetadata = {
     locale: 'en_US',
     url: siteUrl,
     siteName: 'evNation',
-    title: 'evNation | EV Charger & Solar — Regional Service Areas',
+    title: 'evNation | Electrify Your Home with Confidence',
     description: siteConfig.description,
   },
   twitter: {

@@ -1,38 +1,34 @@
-import { createContext, useContext, useState, useCallback, useEffect } from 'react'
-import { getUser, saveUser, clearUser } from '../services/storage'
+'use client'
+
+import { createContext, useContext, useCallback } from 'react'
+import { findBlogEditor, isBlogEditor as checkBlogEditor } from '@/data/blogEditors'
+import { useLocalStorage } from '@/hooks/useLocalStorage'
 
 const AuthContext = createContext(null)
 
-const DEMO_USERS = {
-  employee: { email: 'employee@evnation.com', password: 'green111', role: 'employee', name: 'Admin User' },
-  customer: { email: 'customer@email.com', password: 'demo', role: 'customer', name: 'Demo Customer' },
-}
+const SESSION_KEY = 'evnation_blog_editor'
 
 export function AuthProvider({ children }) {
-  const [user, setUser] = useState(null)
-
-  useEffect(() => {
-    setUser(getUser())
-  }, [])
+  const [user, setUser] = useLocalStorage(SESSION_KEY, null)
 
   const login = useCallback((email, password) => {
-    const match = Object.values(DEMO_USERS).find(
-      (u) => u.email === email && u.password === password
-    )
-    if (!match) return { error: 'Invalid credentials' }
-    const session = { email: match.email, role: match.role, name: match.name }
-    saveUser(session)
+    const match = findBlogEditor(email, password)
+    if (!match) {
+      return { ok: false, error: 'Invalid email or password' }
+    }
+    const session = { email: match.email, name: match.name, role: match.role }
     setUser(session)
-    return { user: session }
-  }, [])
+    return { ok: true, user: session }
+  }, [setUser])
 
   const logout = useCallback(() => {
-    clearUser()
     setUser(null)
-  }, [])
+  }, [setUser])
+
+  const isBlogEditor = checkBlogEditor(user)
 
   return (
-    <AuthContext.Provider value={{ user, login, logout, isAuthenticated: !!user }}>
+    <AuthContext.Provider value={{ user, login, logout, isBlogEditor, isAuthenticated: !!user }}>
       {children}
     </AuthContext.Provider>
   )

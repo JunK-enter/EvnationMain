@@ -3,6 +3,7 @@
 import Link from '@/components/Link'
 import { motion } from 'framer-motion'
 import { MapPin, ChevronRight, Zap } from 'lucide-react'
+import ServiceAreaMap from '@/components/ServiceAreaMap'
 import {
   SERVICE_REGIONS,
   SERVICE_COUNTIES,
@@ -43,6 +44,8 @@ export default function ServiceAreasPage() {
         </div>
       </section>
 
+      <ServiceAreaMap />
+
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         {SERVICE_REGIONS.map((region, ri) => {
           const counties = getCountiesByRegion(region.id)
@@ -51,6 +54,8 @@ export default function ServiceAreasPage() {
           return (
             <motion.div
               key={region.id}
+              id={region.id}
+              className="scroll-mt-28"
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}

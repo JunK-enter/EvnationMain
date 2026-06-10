@@ -7,10 +7,9 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
   Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText, Mail,
-  Users, ArrowRight, Info, Handshake, Newspaper,
+  ArrowRight, Info, Handshake, Newspaper,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
-import { useAuth } from '../context/AuthContext'
 import Logo from './Logo'
 
 const serviceLinks = [
@@ -116,9 +115,6 @@ export default function Navbar() {
   const [servicesOpen, setServicesOpen] = useState(false)
   const pathname = usePathname()
   const { cart } = useQuote()
-  const { user } = useAuth()
-
-  const isPortal = pathname.startsWith('/employee')
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -135,8 +131,6 @@ export default function Navbar() {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
-
-  if (isPortal) return null
 
   const servicesActive = serviceLinks.some((l) => l.to === pathname)
 
@@ -244,29 +238,6 @@ export default function Navbar() {
                   </span>
                 )}
               </Link>
-
-              <Link
-                to="/employee"
-                className="ml-1 px-4 py-2 rounded-full text-[13px] font-medium text-slate-300 border border-white/10 hover:border-neon/30 hover:text-white transition-all duration-200"
-              >
-                Employee Portal
-              </Link>
-
-              {user ? (
-                <div className="flex items-center gap-2 pl-2 ml-1 border-l border-white/10">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-br from-neon/30 to-neon/10 border border-neon/30 flex items-center justify-center">
-                    <span className="text-xs font-bold text-neon">{user.name?.[0]}</span>
-                  </div>
-                  <span className="text-sm text-slate-300 max-w-[100px] truncate">{user.name}</span>
-                </div>
-              ) : (
-                <Link
-                  to="/login"
-                  className="ml-1 px-4 py-2 rounded-full text-[13px] font-medium text-slate-300 border border-white/10 hover:border-neon/30 hover:text-white transition-all duration-200"
-                >
-                  Sign In
-                </Link>
-              )}
             </div>
 
             {/* Mobile toggle */}
@@ -417,27 +388,6 @@ export default function Navbar() {
                     )}
                   </AnimatePresence>
                 </div>
-
-                <div>
-                  <Link
-                    to="/employee"
-                    onClick={() => setMobileOpen(false)}
-                    className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium text-slate-300 hover:bg-white/5"
-                  >
-                    <Users className="w-4 h-4" />
-                    Employee Portal
-                  </Link>
-                </div>
-
-                {!user && (
-                  <Link
-                    to="/login"
-                    onClick={() => setMobileOpen(false)}
-                    className="block w-full text-center py-3 rounded-xl border border-white/10 text-sm font-medium text-slate-300"
-                  >
-                    Sign In
-                  </Link>
-                )}
               </div>
             </motion.div>
           </>

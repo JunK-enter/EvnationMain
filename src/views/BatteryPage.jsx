@@ -1,3 +1,4 @@
+import { PRICING } from '../data/services'
 import { BatteryCharging, Sun, ShieldCheck, Zap, Home } from 'lucide-react'
 import ServicePageLayout from '../components/ServicePageLayout'
 
@@ -24,7 +25,7 @@ export default function BatteryPage() {
       title="Home Battery"
       highlight="Storage"
       description="Store energy, power through outages, and cut your peak-hour costs with the Tesla Powerwall. As an installation partner, EVnation designs and installs whole-home battery backup that pairs perfectly with your EV charger."
-      tagline="Powered by Tesla Powerwall"
+      tagline={PRICING.teslaPowerwall.label}
       image="/images/battery-hero.png"
       imageAlt="Home battery storage unit mounted on a wall"
       stats={[

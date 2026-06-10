@@ -52,7 +52,7 @@ export const US_STATES = [
 ]
 
 export const stateRebates = {
-  CA: { federal: '$7,500 EV tax credit', state: 'Up to $2,000 EV charger rebate', utility: 'PG&E / SCE charger incentives' },
+  CA: { federal: 'Federal EV & charger tax credits (if eligible)', state: 'Use Drive Clean by ZIP — state & local programs', utility: 'SCE, PG&E, SDG&E, LADWP & more via driveclean.ca.gov' },
   IL: { federal: '$7,500 EV tax credit', state: 'Illinois EV rebate programs', utility: 'ComEd / Ameren EV rates' },
   NV: { federal: '$7,500 EV tax credit', state: 'NV Energy EV incentives', utility: 'Time-of-use rate savings' },
   AZ: { federal: '$7,500 EV tax credit', state: 'Limited state EV incentives', utility: 'APS / SRP charger programs' },

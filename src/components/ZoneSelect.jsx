@@ -1,4 +1,4 @@
-import { SERVICE_ZONES } from '@/data/serviceZones'
+import { getCaliforniaZones, getStateZones } from '@/data/serviceZones'
 
 export default function ZoneSelect({
   value,
@@ -7,6 +7,9 @@ export default function ZoneSelect({
   className = '',
   placeholder = 'Select service area',
 }) {
+  const california = getCaliforniaZones()
+  const states = getStateZones()
+
   return (
     <select
       value={value}
@@ -15,11 +18,16 @@ export default function ZoneSelect({
       className={className}
     >
       <option value="">{placeholder}</option>
-      {SERVICE_ZONES.map((z) => (
-        <option key={z.id} value={z.id}>
-          {z.label}
-        </option>
-      ))}
+      <optgroup label="California">
+        {california.map((z) => (
+          <option key={z.id} value={z.id}>{z.label}</option>
+        ))}
+      </optgroup>
+      <optgroup label="States">
+        {states.map((z) => (
+          <option key={z.id} value={z.id}>{z.label}</option>
+        ))}
+      </optgroup>
     </select>
   )
 }

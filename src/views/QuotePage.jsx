@@ -8,6 +8,7 @@ import QuoteCalculator from '../components/QuoteCalculator'
 import StatusTracker from '../components/StatusTracker'
 import { createSubmission, sendNotificationEmail } from '../services/api'
 import { calculateQuote } from '../services/quoteCalculator'
+import { DEFAULT_ZONE_ID, getZoneStateCode, getZoneLabel } from '../data/serviceZones'
 import { CheckCircle, ShoppingCart, Trash2 } from 'lucide-react'
 
 export default function QuotePage() {
@@ -21,7 +22,7 @@ export default function QuotePage() {
     setSubmitting(true)
 
     const quote = calculateQuote({
-      state: formData.state || 'CA',
+      zoneId: formData.zone || DEFAULT_ZONE_ID,
       distance: Number(formData.distance) || 25,
       panelUpgrade: cartItems.some((i) => i.id === 'panel-upgrade'),
       permitNeeded: cartItems.some((i) => i.id === 'permit-handling'),
@@ -30,7 +31,9 @@ export default function QuotePage() {
     const submission = await createSubmission({
       personal,
       home: {
-        state: formData.state,
+        zone: formData.zone,
+        zoneLabel: getZoneLabel(formData.zone),
+        state: getZoneStateCode(formData.zone),
         city: formData.city,
         zip: formData.zip,
         homeType: formData.homeType,
@@ -139,7 +142,7 @@ export default function QuotePage() {
               <Link to="/shop" className="block text-center text-sm text-neon mt-4 hover:underline">Browse Services</Link>
             </div>
 
-            <QuoteCalculator />
+            <QuoteCalculator compact />
           </div>
         </div>
       </div>

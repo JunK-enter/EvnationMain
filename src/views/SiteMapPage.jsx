@@ -46,9 +46,8 @@ const groups = [
     ],
   },
   {
-    title: 'Portals',
+    title: 'Internal',
     links: [
-      { to: '/employee', label: 'Employee Portal' },
       { to: '/admin/intake', label: 'Admin · Customer Intake' },
       { to: '/sitemap', label: 'Site Map' },
     ],

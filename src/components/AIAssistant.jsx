@@ -7,8 +7,8 @@ const responses = {
   charger: "A Level 2 charger is like a fast phone charger for your car. It uses a 240V outlet (same as your dryer) and adds about 25–40 miles of range per hour. Most homeowners choose a hardwired unit mounted on the garage wall.",
   panel: "Your electrical panel is the heart of your home's power system. If it's 100A or less, you may need an upgrade to safely add an EV charger. A 200A panel gives you plenty of room for charging plus future needs like solar.",
   permit: "Permits ensure your installation meets local electrical codes. EVnation handles all permit paperwork — you don't need to visit city hall or deal with inspectors. We take care of everything.",
-  cost: "Installation typically costs $800–$1,800 for a Level 2 charger, depending on distance from your panel and complexity. Panel upgrades add $2,500–$5,500. Use our quote calculator for a personalized estimate!",
-  rebate: "Great question! Many states offer rebates for EV charger installation. California, New York, Colorado, and others have programs. Check our Rebate Finder on the Savings Calculator page for your state.",
+  cost: 'Level 2 EV charger installation starts at $575. Electric panel upgrades start at $3,250 and permit service starts at $250. Tesla Powerwall and charger + battery bundles start at $9,995. Use our quote calculator for a personalized estimate!',
+  rebate: 'For California, use our Rebate Finder with your ZIP code — it links to the official Drive Clean tool at driveclean.ca.gov for charger, utility, and income-based incentives. Other states may have utility or local programs too.',
 }
 
 function getResponse(input) {

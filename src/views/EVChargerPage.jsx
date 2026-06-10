@@ -1,4 +1,5 @@
 import { Zap } from 'lucide-react'
+import { PRICING } from '../data/services'
 import ServicePageLayout from '../components/ServicePageLayout'
 
 const features = [
@@ -17,7 +18,7 @@ export default function EVChargerPage() {
       title="Home EV"
       highlight="Charging"
       description="Wake up to a full battery every morning. Our licensed electricians install Level 2 chargers that add 25–40 miles of range per hour — right in your garage or driveway."
-      tagline="$800 – $1,800"
+      tagline={PRICING.l2Charger.label}
       image="/images/solutions/domestic-ev-charger-768x308.jpg"
       imageAlt="Home EV charger installation"
       stats={[

@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react'
 import Link from '@/components/Link'
 import { motion } from 'framer-motion'
-import { Sparkles, Plus, Settings, Zap } from 'lucide-react'
+import { Sparkles, Plus, Settings, Zap, LogOut, PenLine } from 'lucide-react'
 import { formatPostDate } from '../data/blogPosts'
 import { useBlogPosts } from '@/hooks/useBlogPosts'
 import { useAuth } from '@/context/AuthContext'
@@ -13,12 +13,10 @@ import { serviceArea } from '@/data/localSeo'
 
 export default function BlogPage() {
   const { posts, ready } = useBlogPosts()
-  const { user } = useAuth()
+  const { isBlogEditor, logout, user } = useAuth()
   const [activeCategory, setActiveCategory] = useState('All')
   const [managing, setManaging] = useState(false)
   const [openNew, setOpenNew] = useState(false)
-
-  const isEmployee = user?.role === 'employee'
 
   const categories = useMemo(
     () => ['All', ...Array.from(new Set(posts.map((p) => p.category)))],
@@ -50,11 +48,9 @@ export default function BlogPage() {
 
   return (
     <div className="relative overflow-hidden">
-      {/* Ambient background */}
       <div className="absolute inset-0 grid-bg opacity-30 pointer-events-none" />
       <div className="glow-orb w-[600px] h-[600px] bg-neon/5 top-[-20%] right-[-10%] pointer-events-none" />
 
-      {/* Hero header */}
       <section className="relative pt-28 pb-10 sm:pb-14">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
@@ -79,7 +75,7 @@ export default function BlogPage() {
               </p>
             </motion.div>
 
-            {isEmployee && (
+            {isBlogEditor ? (
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -100,11 +96,26 @@ export default function BlogPage() {
                 >
                   <Settings className="w-4 h-4" /> Manage
                 </button>
+                <button
+                  type="button"
+                  onClick={logout}
+                  className="btn-secondary justify-center !py-3 !px-4 flex items-center gap-2 !text-slate-400"
+                  title={`Signed in as ${user?.name}`}
+                >
+                  <LogOut className="w-4 h-4" /> Sign out
+                </button>
               </motion.div>
+            ) : (
+              <Link
+                href="/login?from=/blog"
+                className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-neon transition-colors shrink-0"
+              >
+                <PenLine className="w-3.5 h-3.5" />
+                Editor sign in
+              </Link>
             )}
           </div>
 
-          {/* Category filter — horizontal scroll on mobile */}
           <div className="mt-10 flex gap-2 overflow-x-auto pb-2 scrollbar-hide -mx-1 px-1">
             {categories.map((c) => (
               <button
@@ -124,7 +135,6 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {/* Featured + grid */}
       <section className="relative pb-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           {featured && (
@@ -159,7 +169,6 @@ export default function BlogPage() {
             </div>
           )}
 
-          {/* CTA band */}
           <div className="glass rounded-3xl p-8 sm:p-12 text-center neon-border mt-8">
             <h3 className="font-display text-2xl font-bold mb-3">Ready to go electric?</h3>
             <p className="text-slate-400 mb-6 max-w-lg mx-auto">
@@ -172,7 +181,7 @@ export default function BlogPage() {
         </div>
       </section>
 
-      {managing && isEmployee && (
+      {managing && isBlogEditor && (
         <div className="fixed inset-0 z-[100] bg-navy-950/98 overflow-y-auto">
           <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-8 py-4 bg-navy-950/95 backdrop-blur border-b border-white/10">
             <h2 className="font-display font-semibold text-lg">Blog editor</h2>

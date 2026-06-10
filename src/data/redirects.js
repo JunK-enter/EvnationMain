@@ -20,7 +20,9 @@ export const legacyRedirects = [
   { source: '/our-work', destination: '/projects', permanent: true },
   { source: '/ev-charger', destination: '/residential-ev-charging', permanent: true },
   { source: '/auto-dealers', destination: '/auto-dealer', permanent: true },
-  { source: '/electrician', destination: '/employee', permanent: true },
+  { source: '/electrician', destination: '/', permanent: true },
+  { source: '/employee', destination: '/', permanent: true },
+  { source: '/employee/:path*', destination: '/', permanent: true },
 
   // Southern California landing pages → main service + anchor
   { source: '/ev-charger-installation-newport-beach', destination: '/service-areas/orange-county', permanent: true },

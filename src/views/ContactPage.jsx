@@ -27,8 +27,12 @@ export default function ContactPage() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-    const state = getZoneStateCode(form.zone)
-    const quote = calculateQuote({ state, distance: Number(form.distance) || 25 })
+    const quote = calculateQuote({
+      zoneId: form.zone,
+      distance: Number(form.distance) || 25,
+      panelUpgrade: cartItems.some((i) => i.id === 'panel-upgrade'),
+      permitNeeded: cartItems.some((i) => i.id === 'permit-handling'),
+    })
 
     const submission = await createSubmission({
       personal: { firstName: form.firstName, lastName: form.lastName, email: form.email, phone: form.phone },

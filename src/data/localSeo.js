@@ -2,10 +2,10 @@ import { SERVICE_ZONES, DEFAULT_ZONE_ID } from './serviceZones'
 import { localSeoKeywords as countyKeywords } from './serviceAreasSeo'
 
 export const serviceArea = {
-  region: 'Southern California, Central California & Nevada',
-  regionShort: 'SoCal, Central CA & Nevada',
+  region: 'Southern, Central & Northern California + select states',
+  regionShort: 'CA regions & select states',
   tagline:
-    'Licensed EV charger, solar & panel upgrade installers serving Southern California, Central California, and Nevada — Orange County, Los Angeles, San Diego, Riverside, San Bernardino, Ventura, San Luis Obispo, Clark County & Maricopa County.',
+    'Licensed EV charger, solar & panel upgrade installers across Southern, Central & Northern California — plus Illinois, Nevada, Texas, New Jersey & Arizona.',
   zones: SERVICE_ZONES,
   defaultZoneId: DEFAULT_ZONE_ID,
   primaryZone: SERVICE_ZONES[0],
@@ -27,6 +27,6 @@ export const localKeywords = [
 export const stats = {
   installations: '500+',
   rating: '4.9/5',
-  serviceArea: 'SoCal · Central CA · NV',
+  serviceArea: 'CA · 5 States',
   quoteTurnaround: '24hr',
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { PRICING } from '../data/services'
 import Link from '@/components/Link'
 import { LayoutGrid, Check, ArrowRight } from 'lucide-react'
 
@@ -25,7 +26,7 @@ export default function PanelUpgradePage() {
             <p className="text-lg text-slate-400 leading-relaxed mb-6">
               Older 100A panels often can't safely support an EV charger alongside your home's existing loads. We upgrade your panel to 200A service so you have room to grow.
             </p>
-            <p className="font-display text-3xl font-bold text-neon mb-6">$2,500 – $5,500</p>
+            <p className="font-display text-3xl font-bold text-neon mb-6">{PRICING.panelUpgrade.label}</p>
             <Link to="/quote" className="btn-primary">Get Your Quote <ArrowRight className="w-4 h-4" /></Link>
           </div>
           <div className="aspect-square rounded-3xl neon-border bg-gradient-to-br from-navy-800 to-navy-900 flex items-center justify-center">
