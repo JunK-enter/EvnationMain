@@ -11,15 +11,19 @@ import FinancingSection from '../components/FinancingSection'
 import GallerySection from '../components/GallerySection'
 import FAQSection from '../components/FAQSection'
 import RebateFinder from '../components/RebateFinder'
+import InstallationReadinessCard from '../components/InstallationReadinessCard'
 import LogoMarquee from '../components/LogoMarquee'
 import SolutionsSection from '../components/SolutionsSection'
 import ServiceZonesSection from '../components/ServiceZonesSection'
+import SectionAmbient from '../components/SectionAmbient'
+import SectionHeader from '../components/SectionHeader'
 import { evChargerBrands, evPartners } from '../data/brandLogos'
 
 function TeslaPowerwallBand() {
   return (
-    <section className="section-padding">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="section-padding relative overflow-hidden">
+      <SectionAmbient sweep />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="glass rounded-3xl overflow-hidden neon-border grid lg:grid-cols-2">
           <div className="p-8 lg:p-12 flex flex-col justify-center">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon/10 border border-neon/20 text-neon text-sm mb-5 w-fit">
@@ -47,71 +51,59 @@ function TeslaPowerwallBand() {
   )
 }
 
+function RebatesReadinessSection() {
+  return (
+    <section id="rebates" className="section-padding relative overflow-hidden section-scrim">
+      <SectionAmbient />
+      <div className="max-w-7xl mx-auto relative">
+        <SectionHeader
+          className="text-center mb-10 sm:mb-12 max-w-2xl mx-auto"
+          subtitleClassName="text-sm text-slate-400 leading-relaxed"
+          eyebrow="Savings & incentives"
+          title="Rebates & install readiness"
+          subtitle="Search official incentive programs for your area, then complete a quick home assessment so we can quote faster."
+        />
+
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 items-stretch">
+          <RebateFinder />
+          <InstallationReadinessCard />
+        </div>
+      </div>
+    </section>
+  )
+}
+
 export default function HomePage() {
   return (
     <>
       <Hero />
 
-      {/* Why EVnation — lead with trust */}
-      <TrustSection />
-
-      {/* Core offerings: Home / Commercial charging, Battery, Warranty */}
       <SolutionsSection />
-
-      <ServiceZonesSection />
 
       <CustomerJourney />
 
-      {/* Tesla Powerwall partnership highlight */}
-      <TeslaPowerwallBand />
+      <TrustSection />
+
+      <RebatesReadinessSection />
 
       <SavingsSection />
 
-      {/* EV brands we install chargers for */}
-      <LogoMarquee
-        eyebrow="Compatibility"
-        title="We Install Chargers For"
-        subtitle="Professional Level 2 charger installation for every major EV brand."
-        logos={evChargerBrands}
-        speed={38}
-      />
-
-      {/* Industry partners — no solar in title */}
-      <LogoMarquee
-        eyebrow="Trusted Brands"
-        title="Our EV Partners"
-        subtitle="We work with the industry's leading charging and energy partners."
-        logos={evPartners}
-        speed={34}
-        reverse
-        compact
-      />
-
-      <section className="section-padding">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-8 items-start">
-            <RebateFinder />
-            <div className="glass rounded-2xl p-8">
-              <h3 className="font-display font-semibold text-xl mb-4">Installation Readiness Score</h3>
-              <p className="text-sm text-slate-400 mb-6">Complete your home assessment and upload photos to see how ready your home is for EV charger installation.</p>
-              <div className="relative w-40 h-40 mx-auto">
-                <svg className="w-full h-full -rotate-90" viewBox="0 0 100 100">
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="rgba(255,255,255,0.05)" strokeWidth="8" />
-                  <circle cx="50" cy="50" r="42" fill="none" stroke="#00ff88" strokeWidth="8" strokeDasharray="264" strokeDashoffset="79" strokeLinecap="round" />
-                </svg>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="font-display text-3xl font-bold text-neon">70%</span>
-                </div>
-              </div>
-              <p className="text-center text-xs text-slate-500 mt-4">Start assessment to get your personalized score</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ServiceZonesSection />
 
       <GallerySection />
 
       <TestimonialSection />
+
+      <LogoMarquee
+        eyebrow="Trusted brands"
+        title="EV brands & partners we work with"
+        subtitle="Professional Level 2 installation for every major EV — backed by industry-leading charging and energy partners."
+        logos={evChargerBrands}
+        speed={38}
+      />
+      <LogoMarquee logos={evPartners} speed={34} reverse compact />
+
+      <TeslaPowerwallBand />
 
       <FinancingSection />
 

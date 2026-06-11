@@ -1,6 +1,7 @@
 import { complexityLevels } from '../data/services'
 import { DEFAULT_ZONE_ID, getMasterZoneKey } from '../data/serviceZones'
 import {
+  formatFromPrice,
   formatRetailRange,
   getRetailLineItem,
   getRetailPerFootTotal,
@@ -181,6 +182,34 @@ export function calculateQuote({
     permitCost: permitCost ? roundRange(permitCost) : null,
     total: roundRange(total),
     lineItemCount: items.length,
+  }
+}
+
+/** Quiz funnel — base starting price only (no cable run, permits, or add-ons) */
+const QUIZ_SERVICE_LINE_ITEM = {
+  'ev-charger': 'Base Installation',
+  'nema-outlet': 'Base Installation',
+  'panel-upgrade': 'Panel Upgrade',
+  'ev-panel': 'Base Installation',
+  'charger-swap': 'Base Installation',
+  solar: 'DCC Load device',
+  'not-sure': 'Base Installation',
+}
+
+const QUIZ_LINE_FALLBACK = {
+  'Base Installation': { low: 575, high: 575 },
+  'Panel Upgrade': { low: 3500, high: 4500 },
+  'DCC Load device': { low: 225, high: 225 },
+}
+
+export function calculateQuizBaseEstimate(zoneId, serviceNeedId) {
+  const lineItem = QUIZ_SERVICE_LINE_ITEM[serviceNeedId] || 'Base Installation'
+  const raw = getRetailLineItem(zoneId, lineItem) || QUIZ_LINE_FALLBACK[lineItem] || { low: 575, high: 575 }
+  const from = { low: Math.round(raw.low), high: Math.round(raw.high) }
+  return {
+    lineItem,
+    from,
+    display: formatFromPrice(from),
   }
 }
 

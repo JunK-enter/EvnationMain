@@ -14,6 +14,13 @@ export const siteConfig = {
   email: 'hello@evnation.com',
 }
 
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#04060f',
+}
+
 export const defaultMetadata = {
   metadataBase: new URL(siteUrl),
   title: {

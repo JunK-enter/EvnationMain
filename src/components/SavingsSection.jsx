@@ -1,6 +1,8 @@
 import { motion } from 'framer-motion'
 import { Fuel, Clock, TrendingUp, BatteryCharging, BadgeDollarSign } from 'lucide-react'
 import { calculateGasSavings } from '../services/quoteCalculator'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const benefits = [
   { icon: Fuel, title: 'Save on Fuel', desc: 'Home charging costs a fraction of gas. Most drivers save $800–$1,500 per year.' },
@@ -14,13 +16,14 @@ export default function SavingsSection() {
   const savings = calculateGasSavings()
 
   return (
-    <section className="section-padding relative overflow-hidden">
-      <div className="glow-orb w-[400px] h-[400px] bg-neon/5 top-0 left-1/2 -translate-x-1/2" />
+    <section className="section-padding relative overflow-hidden section-scrim-alt">
+      <SectionAmbient sweep />
       <div className="max-w-7xl mx-auto relative">
-        <div className="text-center mb-16">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Why Go Electric</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">The Savings Add Up Fast</h2>
-        </div>
+        <SectionHeader
+          eyebrow="Why Go Electric"
+          title="The Savings Add Up Fast"
+          className="text-center mb-16"
+        />
 
         <div className="grid lg:grid-cols-3 gap-8 mb-16">
           <motion.div

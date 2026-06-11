@@ -7,10 +7,11 @@ import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
   Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText, Mail,
-  ArrowRight, Info, Handshake, Newspaper,
+  ArrowRight, Info, Handshake, Newspaper, MapPin, ClipboardList,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
 import Logo from './Logo'
+import QuoteCartDrawer from './QuoteCartDrawer'
 
 const serviceLinks = [
   { to: '/residential-ev-charging', label: 'Residential EV Charging', desc: 'Level 2 home install', icon: Bolt },
@@ -24,8 +25,15 @@ const serviceLinks = [
 const mainLinks = [
   { to: '/', label: 'Home' },
   { to: '/projects', label: 'Projects' },
+  { to: '/service-areas', label: 'Service Areas', icon: MapPin },
+  { to: '/shop', label: 'Shop', icon: ShoppingCart },
   { to: '/calculator', label: 'Calculator', icon: Calculator },
   { to: '/contact', label: 'Contact', icon: Mail },
+]
+
+const mobileExtraLinks = [
+  { to: '/intake', label: 'Home Assessment', icon: ClipboardList },
+  { to: '/warranty', label: 'Warranty', icon: ShieldCheck },
 ]
 
 const companyLinks = [
@@ -113,6 +121,7 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [servicesOpen, setServicesOpen] = useState(false)
+  const [cartOpen, setCartOpen] = useState(false)
   const pathname = usePathname()
   const { cart } = useQuote()
 
@@ -125,7 +134,12 @@ export default function Navbar() {
   useEffect(() => {
     setMobileOpen(false)
     setServicesOpen(false)
+    setCartOpen(false)
   }, [pathname])
+
+  useEffect(() => {
+    if (mobileOpen) setServicesOpen(true)
+  }, [mobileOpen])
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
@@ -137,9 +151,9 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 max-lg:bg-navy-950/92 max-lg:backdrop-blur-xl max-lg:border-b max-lg:border-white/[0.06] ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] max-lg:bg-navy-950/92 max-lg:backdrop-blur-xl max-lg:border-b max-lg:border-white/[0.06] ${
           scrolled
-            ? 'lg:bg-navy-950/80 lg:backdrop-blur-xl lg:border-b lg:border-white/[0.06] lg:shadow-lg lg:shadow-black/20'
+            ? 'lg:bg-navy-950/92 lg:border-b lg:border-white/[0.06] lg:shadow-lg lg:shadow-black/20'
             : 'lg:bg-transparent lg:border-b lg:border-transparent'
         }`}
       >
@@ -226,10 +240,11 @@ export default function Navbar() {
 
             {/* Desktop right actions */}
             <div className="hidden lg:flex items-center gap-2 shrink-0">
-              <Link
-                to="/quote"
+              <button
+                type="button"
+                onClick={() => setCartOpen(true)}
                 className="relative flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:border-neon/30 hover:bg-neon/5 transition-all duration-200"
-                aria-label="Quote cart"
+                aria-label="Open quote cart"
               >
                 <ShoppingCart className="w-[18px] h-[18px] text-slate-300" />
                 {cart.length > 0 && (
@@ -237,19 +252,24 @@ export default function Navbar() {
                     {cart.length}
                   </span>
                 )}
-              </Link>
+              </button>
             </div>
 
             {/* Mobile toggle */}
             <div className="flex lg:hidden items-center gap-2">
-              <Link to="/quote" className="relative p-2.5 rounded-full border border-white/10 bg-white/[0.03]">
+              <button
+                type="button"
+                onClick={() => setCartOpen(true)}
+                className="relative p-2.5 rounded-full border border-white/10 bg-white/[0.03]"
+                aria-label="Open quote cart"
+              >
                 <ShoppingCart className="w-5 h-5 text-slate-300" />
                 {cart.length > 0 && (
                   <span className="absolute -top-0.5 -right-0.5 w-4 h-4 bg-neon text-navy-950 text-[10px] font-bold rounded-full flex items-center justify-center">
                     {cart.length}
                   </span>
                 )}
-              </Link>
+              </button>
               <button
                 type="button"
                 onClick={() => setMobileOpen(!mobileOpen)}
@@ -279,7 +299,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-navy-950 border-l border-white/10 lg:hidden overflow-y-auto"
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-navy-950 border-l border-white/10 lg:hidden overflow-y-auto scroll-touch pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
             >
               <div className="flex items-center justify-between p-5 border-b border-white/5">
                 <Logo size="sm" />
@@ -288,7 +308,7 @@ export default function Navbar() {
                 </button>
               </div>
 
-              <div className="p-5 space-y-6">
+              <div className="p-5 space-y-6 pb-8">
                 <Link
                   to="/quote"
                   onClick={() => setMobileOpen(false)}
@@ -299,35 +319,82 @@ export default function Navbar() {
                 </Link>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Navigate</p>
+                  <button
+                    type="button"
+                    onClick={() => setServicesOpen(!servicesOpen)}
+                    className={`flex items-center justify-between w-full px-1 mb-3 ${
+                      servicesActive ? 'text-neon' : 'text-slate-500'
+                    }`}
+                  >
+                    <p className="text-[11px] uppercase tracking-widest font-semibold">Services</p>
+                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  <AnimatePresence initial={false}>
+                    {servicesOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        className="overflow-hidden"
+                      >
+                        <div className="space-y-1">
+                          {serviceLinks.map((link) => (
+                            <Link
+                              key={link.to}
+                              to={link.to}
+                              onClick={() => setMobileOpen(false)}
+                              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
+                                pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                              }`}
+                            >
+                              <link.icon className="w-4 h-4 opacity-70 shrink-0" />
+                              <span>{link.label}</span>
+                            </Link>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+
+                <div>
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Explore</p>
                   <div className="space-y-1">
                     <Link
                       to="/"
                       onClick={() => { scrollToTop(); setMobileOpen(false) }}
-                      className={`block px-4 py-3 rounded-xl text-sm font-medium ${
+                      className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
                         pathname === '/' ? 'bg-neon/10 text-neon' : 'text-slate-300'
                       }`}
                     >
                       Home
                     </Link>
-                    <Link
-                      to="/calculator"
-                      onClick={() => setMobileOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        pathname === '/calculator' ? 'bg-neon/10 text-neon' : 'text-slate-300'
-                      }`}
-                    >
-                      Savings Calculator
-                    </Link>
-                    <Link
-                      to="/contact"
-                      onClick={() => setMobileOpen(false)}
-                      className={`block px-4 py-3 rounded-xl text-sm font-medium ${
-                        pathname === '/contact' ? 'bg-neon/10 text-neon' : 'text-slate-300'
-                      }`}
-                    >
-                      Contact
-                    </Link>
+                    {mainLinks.slice(1).map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
+                          pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        }`}
+                      >
+                        {link.icon && <link.icon className="w-4 h-4 opacity-70 shrink-0" />}
+                        {link.label === 'Calculator' ? 'Savings Calculator' : link.label}
+                      </Link>
+                    ))}
+                    {mobileExtraLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
+                          pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        }`}
+                      >
+                        <link.icon className="w-4 h-4 opacity-70 shrink-0" />
+                        {link.label}
+                      </Link>
+                    ))}
                   </div>
                 </div>
 
@@ -343,56 +410,19 @@ export default function Navbar() {
                           pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
                         }`}
                       >
-                        <link.icon className="w-4 h-4 opacity-70" />
+                        <link.icon className="w-4 h-4 opacity-70 shrink-0" />
                         {link.label}
                       </Link>
                     ))}
                   </div>
-                </div>
-
-                <div>
-                  <button
-                    type="button"
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className={`flex items-center justify-between w-full px-4 py-3 rounded-xl text-sm font-medium ${
-                      servicesActive ? 'bg-neon/10 text-neon' : 'text-slate-300'
-                    }`}
-                  >
-                    Services
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
-                      >
-                        <div className="mt-1 ml-2 pl-3 border-l border-white/10 space-y-1">
-                          {serviceLinks.map((link) => (
-                            <Link
-                              key={link.to}
-                              to={link.to}
-                              onClick={() => setMobileOpen(false)}
-                              className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm ${
-                                pathname === link.to ? 'text-neon' : 'text-slate-400'
-                              }`}
-                            >
-                              <link.icon className="w-4 h-4" />
-                              {link.label}
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
                 </div>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
+
+      <QuoteCartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
     </>
   )
 }

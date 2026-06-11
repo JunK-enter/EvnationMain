@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const reviews = [
   { name: 'Sarah M.', location: 'Irvine, CA — Southern Cal', rating: 5, text: 'EVnation made the whole process effortless. From the online assessment to installation day, everything was transparent and professional.' },
@@ -10,12 +12,10 @@ const reviews = [
 
 export default function TestimonialSection() {
   return (
-    <section className="section-padding bg-navy-900/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Reviews</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">What Homeowners Say</h2>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim-alt">
+      <SectionAmbient />
+      <div className="max-w-7xl mx-auto relative">
+        <SectionHeader eyebrow="Reviews" title="What Homeowners Say" />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reviews.map((r, i) => (

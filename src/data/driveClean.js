@@ -21,3 +21,15 @@ export const DRIVE_CLEAN_CHARGER_PROGRAMS = [
   { name: 'LADWP Charge Up LA!', note: 'Los Angeles DWP — Level 2 charger rebates' },
   { name: 'South Coast AQMD', note: 'Orange County & LA basin — EV charging incentive' },
 ]
+
+const PROGRAMS_BY_ZONE = {
+  'zone-1': ['SCE Charge Ready Home', 'LADWP Charge Up LA!', 'South Coast AQMD'],
+  'zone-2': ['PG&E EV Charge Network'],
+  'zone-3': ['PG&E EV Charge Network', 'SDG&E Power Your Drive'],
+}
+
+export function getChargerProgramsForZone(zoneId) {
+  const names = PROGRAMS_BY_ZONE[zoneId]
+  if (!names) return DRIVE_CLEAN_CHARGER_PROGRAMS.slice(0, 3)
+  return DRIVE_CLEAN_CHARGER_PROGRAMS.filter((p) => names.includes(p.name))
+}

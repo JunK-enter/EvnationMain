@@ -1,4 +1,6 @@
 import { motion } from 'framer-motion'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const gallery = [
   { label: 'Clean Conduit Run', before: 'Messy temporary extension cord setup', after: 'Professional hardwired Level 2 install' },
@@ -9,12 +11,10 @@ const gallery = [
 
 export default function GallerySection() {
   return (
-    <section className="section-padding bg-navy-900/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Gallery</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Before & After Installations</h2>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim">
+      <SectionAmbient sweep />
+      <div className="max-w-7xl mx-auto relative">
+        <SectionHeader eyebrow="Gallery" title="Before & After Installations" />
 
         <div className="grid sm:grid-cols-2 gap-6">
           {gallery.map((item, i) => (

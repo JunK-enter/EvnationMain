@@ -2,8 +2,8 @@
 import QuotePage from '@/views/QuotePage'
 
 export const metadata = pageMetadata({
-  title: 'Get a Quote â€” Build Your Install',
-  description: 'Build your custom EV charger, panel upgrade, or solar quote online. Free assessment for Southern California homeowners.',
+  title: 'Get a Quote — Free EV Install Estimate',
+  description: 'Answer a few quick questions and get an instant EV charger install estimate. Licensed electricians across California and select states.',
   path: '/quote',
 })
 

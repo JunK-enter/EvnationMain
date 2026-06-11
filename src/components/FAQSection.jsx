@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import SectionHeader from './SectionHeader'
 
 const faqs = [
   { q: 'How long does EV charger installation take?', a: 'Most Level 2 installations are completed in 3–6 hours. Panel upgrades may require a full day and a follow-up inspection visit.' },
@@ -15,12 +16,9 @@ export default function FAQSection() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section className="section-padding">
-      <div className="max-w-3xl mx-auto">
-        <div className="text-center mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">FAQ</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Common Questions</h2>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim">
+      <div className="max-w-3xl mx-auto relative">
+        <SectionHeader eyebrow="FAQ" title="Common Questions" />
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (

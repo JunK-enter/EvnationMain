@@ -16,17 +16,19 @@ export default function LogoMarquee({
 
   return (
     <section
-      className={`section-padding bg-navy-900/30 overflow-hidden ${compact ? '!pt-0' : ''}`}
+      className={`section-padding section-scrim overflow-hidden ${compact ? '!pt-0' : ''}`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          {eyebrow && (
-            <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{eyebrow}</p>
-          )}
-          {title && <h2 className="font-display text-3xl sm:text-4xl font-bold">{title}</h2>}
-          {subtitle && <p className="text-slate-400 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
+      {(eyebrow || title || subtitle) && (
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            {eyebrow && (
+              <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{eyebrow}</p>
+            )}
+            {title && <h2 className="font-display text-3xl sm:text-4xl font-bold">{title}</h2>}
+            {subtitle && <p className="text-slate-400 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="marquee-mask marquee-pause">
         <div

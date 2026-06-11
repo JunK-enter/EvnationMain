@@ -1,7 +1,10 @@
 'use client'
 
 import Link from '@/components/Link'
+import { motion } from 'framer-motion'
 import { ArrowUpRight, Bolt, Building2, BatteryCharging, ShieldCheck } from 'lucide-react'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const pillars = [
   {
@@ -39,11 +42,18 @@ const pillars = [
   },
 ]
 
-function PillarCard({ title, desc, img, to, icon: Icon, span, big }) {
+function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
   return (
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: '-40px', amount: 0.15 }}
+      transition={{ delay: index * 0.05, duration: 0.35 }}
+      className={span}
+    >
     <Link
       to={to}
-      className={`group relative block rounded-3xl overflow-hidden border border-white/10 hover:border-neon/40 transition-colors min-h-[220px] ${span} ${big ? 'lg:min-h-[460px]' : ''}`}
+      className={`group relative block rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-neon/40 active:scale-[0.99] transition-all min-h-[200px] sm:min-h-[220px] h-full ${big ? 'lg:min-h-[460px]' : ''}`}
     >
       <img
         src={img}
@@ -63,30 +73,30 @@ function PillarCard({ title, desc, img, to, icon: Icon, span, big }) {
             <h3 className={`font-display font-bold text-white drop-shadow ${big ? 'text-2xl sm:text-3xl' : 'text-lg sm:text-xl'}`}>{title}</h3>
             <p className={`text-slate-300/90 mt-1.5 leading-relaxed ${big ? 'text-sm max-w-md' : 'text-xs'}`}>{desc}</p>
           </div>
-          <span className="w-9 h-9 rounded-full bg-neon text-navy-950 flex items-center justify-center shrink-0 opacity-0 -translate-y-1 group-hover:opacity-100 group-hover:translate-y-0 transition-all">
+          <span className="w-9 h-9 rounded-full bg-neon text-navy-950 flex items-center justify-center shrink-0 opacity-100 sm:opacity-0 sm:-translate-y-1 sm:group-hover:opacity-100 sm:group-hover:translate-y-0 transition-all">
             <ArrowUpRight className="w-4 h-4" />
           </span>
         </div>
       </div>
     </Link>
+    </motion.div>
   )
 }
 
 export default function SolutionsSection() {
   return (
-    <section className="section-padding">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">What We Do</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Your regional electrification partner</h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            EV charging, solar, panel upgrades, and commercial installs — one licensed team across regional service areas.
-          </p>
-        </div>
+    <section className="section-padding relative overflow-hidden">
+      <SectionAmbient sweep />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <SectionHeader
+          eyebrow="What We Do"
+          title="Your regional electrification partner"
+          subtitle="EV charging, solar, panel upgrades, and commercial installs — one licensed team across regional service areas."
+        />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[220px] gap-5">
-          {pillars.map((p) => (
-            <PillarCard key={p.title} {...p} />
+          {pillars.map((p, i) => (
+            <PillarCard key={p.title} {...p} index={i} />
           ))}
         </div>
       </div>

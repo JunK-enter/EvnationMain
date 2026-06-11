@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion'
 import { Shield, FileCheck, Sparkles, DollarSign, Users, Award } from 'lucide-react'
 import { stats as localStats, serviceArea } from '@/data/localSeo'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const reasons = [
   { icon: Shield, title: 'Licensed Electricians', desc: 'Every install is performed by state-licensed, insured electricians — not handymen.' },
@@ -15,13 +17,15 @@ const reasons = [
 
 export default function TrustSection() {
   return (
-    <section className="section-padding bg-navy-900/30">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Why EVnation?</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Built on Trust, Backed by Pros</h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">Licensed electricians across {serviceArea.region} — EV charging, solar, and panel upgrades done right.</p>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim">
+      <SectionAmbient />
+      <div className="max-w-7xl mx-auto relative">
+        <SectionHeader
+          eyebrow="Why EVnation?"
+          title="Built on Trust, Backed by Pros"
+          subtitle={`Licensed electricians across ${serviceArea.region} — EV charging, solar, and panel upgrades done right.`}
+          className="text-center mb-16"
+        />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((r, i) => (

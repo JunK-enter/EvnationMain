@@ -239,3 +239,8 @@ export function formatRetailRange({ low, high }) {
   if (low === high) return `$${Math.round(low).toLocaleString()}`
   return `$${Math.round(low).toLocaleString()} – $${Math.round(high).toLocaleString()}`
 }
+
+export function formatFromPrice({ low, high }) {
+  if (low == null && high == null) return 'Contact for quote'
+  return `From $${Math.round(low ?? high).toLocaleString()}`
+}

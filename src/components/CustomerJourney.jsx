@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion'
 import { Home, Camera, FileText, CalendarCheck } from 'lucide-react'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 const steps = [
   { icon: Home, title: 'Tell us about your home', desc: 'Share your address, panel size, parking setup, and vehicle details in a simple form.' },
@@ -31,32 +33,34 @@ function StepCard({ step, index, className = '' }) {
 
 export default function CustomerJourney() {
   return (
-    <section className="section-padding relative">
-      <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-8 lg:mb-16 px-4 lg:px-1">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">How It Works</p>
-          <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold">Your Simple Path to Home Charging</h2>
-          <p className="text-slate-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base">
-            Four easy steps from curious homeowner to fully installed EV charger.
-          </p>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim-alt">
+      <SectionAmbient />
+      <div className="max-w-7xl mx-auto relative">
+        <SectionHeader
+          className="text-center mb-8 lg:mb-16 px-4 lg:px-1"
+          titleClassName="font-display text-2xl sm:text-3xl lg:text-4xl font-bold"
+          subtitleClassName="text-slate-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base"
+          eyebrow="How It Works"
+          title="Your Simple Path to Home Charging"
+          subtitle="Four easy steps from curious homeowner to fully installed EV charger."
+        />
 
-        {/* Mobile & tablet: full-width swipe cards */}
-        <div className="lg:hidden w-[100vw] relative left-1/2 -translate-x-1/2">
+        {/* Mobile & tablet: swipe cards with peek */}
+        <div className="lg:hidden -mx-4 sm:-mx-6">
           <div
-            className="flex overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-hide"
-            style={{ scrollPaddingInline: '0px' }}
+            className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-touch scrollbar-hide px-4 sm:px-6 pb-1"
+            style={{ scrollPaddingInline: '1rem' }}
           >
             {steps.map((step, i) => (
               <StepCard
                 key={step.title}
                 step={step}
                 index={i}
-                className="snap-center shrink-0 w-[100vw] px-6 sm:px-10 box-border min-h-[300px] flex flex-col justify-center !rounded-none border-x-0"
+                className="snap-center shrink-0 w-[min(88vw,320px)] sm:w-[340px] min-h-[280px] flex flex-col justify-center"
               />
             ))}
           </div>
-          <p className="text-center text-[11px] text-slate-600 mt-3">Swipe for next step →</p>
+          <p className="text-center text-[11px] text-slate-600 mt-3 px-4">Swipe for next step →</p>
         </div>
 
         {/* Desktop: 4-column grid */}

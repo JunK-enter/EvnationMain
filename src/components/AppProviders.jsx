@@ -7,7 +7,7 @@ import SiteChrome from '@/components/SiteChrome'
 
 export default function AppProviders({ children }) {
   return (
-    <MotionConfig reducedMotion="user" initial={false} transition={{ type: 'tween' }}>
+    <MotionConfig reducedMotion="user" transition={{ type: 'tween', duration: 0.35 }}>
       <AuthProvider>
         <QuoteProvider>
           <SiteChrome>{children}</SiteChrome>

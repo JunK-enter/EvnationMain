@@ -36,6 +36,12 @@ export function QuoteProvider({ children }) {
     saveQuoteCart([])
   }, [])
 
+  const replaceCart = useCallback((serviceIds) => {
+    const ids = [...new Set(serviceIds)]
+    setCart(ids)
+    saveQuoteCart(ids)
+  }, [])
+
   const cartItems = useMemo(
     () =>
       shopServices
@@ -60,6 +66,7 @@ export function QuoteProvider({ children }) {
         addToQuote,
         removeFromQuote,
         clearCart,
+        replaceCart,
         assessment,
         setAssessment,
         isInCart: (id) => cart.includes(id),

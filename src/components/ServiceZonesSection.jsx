@@ -4,21 +4,22 @@ import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import Link from '@/components/Link'
 import { getCaliforniaZones, getStateZones } from '@/data/serviceZones'
+import SectionAmbient from './SectionAmbient'
+import SectionHeader from './SectionHeader'
 
 export default function ServiceZonesSection() {
   const california = getCaliforniaZones()
   const states = getStateZones()
 
   return (
-    <section className="section-padding bg-navy-900/20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Where We Serve</p>
-          <h2 className="font-display text-3xl sm:text-4xl font-bold">Regional Service Areas</h2>
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            California by region — Southern, Central & Northern. All other markets by state.
-          </p>
-        </div>
+    <section className="section-padding relative overflow-hidden section-scrim-alt">
+      <SectionAmbient />
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <SectionHeader
+          eyebrow="Where We Serve"
+          title="Regional Service Areas"
+          subtitle="California by region — Southern, Central & Northern. All other markets by state."
+        />
 
         <div className="space-y-8">
           <div>

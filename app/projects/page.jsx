@@ -3,7 +3,7 @@ import ProjectsPage from '@/views/ProjectsPage'
 
 export const metadata = pageMetadata({
   title: 'Projects & Portfolio',
-  description: 'Real EV charger, panel upgrade, and solar installations across Southern California.',
+  description: 'Permitted EV charger, panel upgrade, and solar-ready electrical installs across California and our service states.',
   path: '/projects',
 })
 

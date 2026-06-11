@@ -6,8 +6,8 @@ import { SERVICE_COUNTIES } from '@/data/serviceAreasSeo'
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/5 bg-navy-900/50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="border-t border-white/5 bg-navy-950/40 max-lg:backdrop-blur-sm pb-[env(safe-area-inset-bottom,0px)]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div>
             <Link href="/" className="inline-block mb-4 hover:opacity-90 transition-opacity">
@@ -63,8 +63,16 @@ export default function Footer() {
           <div>
             <h4 className="font-display font-semibold mb-4">Contact</h4>
             <ul className="space-y-3 text-sm text-slate-400">
-              <li className="flex items-center gap-2"><Mail className="w-4 h-4 text-neon" /> hello@evnation.com</li>
-              <li className="flex items-center gap-2"><Phone className="w-4 h-4 text-neon" /> (888) 384-6287</li>
+              <li>
+                <a href="mailto:hello@evnation.com" className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]">
+                  <Mail className="w-4 h-4 text-neon shrink-0" /> hello@evnation.com
+                </a>
+              </li>
+              <li>
+                <a href="tel:+18883846287" className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]">
+                  <Phone className="w-4 h-4 text-neon shrink-0" /> (888) 384-6287
+                </a>
+              </li>
               <li className="flex items-start gap-2"><MapPin className="w-4 h-4 text-neon shrink-0 mt-0.5" /> {serviceArea.region}</li>
             </ul>
           </div>
