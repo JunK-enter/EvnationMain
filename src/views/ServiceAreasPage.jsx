@@ -2,12 +2,10 @@
 
 import Link from '@/components/Link'
 import { motion } from 'framer-motion'
-import { MapPin, ChevronRight, Zap } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import ServiceAreaMap from '@/components/ServiceAreaMap'
 import {
-  SERVICE_REGIONS,
   SERVICE_COUNTIES,
-  getCountiesByRegion,
   getTotalCityCount,
 } from '@/data/serviceAreasSeo'
 
@@ -45,80 +43,6 @@ export default function ServiceAreasPage() {
       </section>
 
       <ServiceAreaMap />
-
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-        {SERVICE_REGIONS.map((region, ri) => {
-          const counties = getCountiesByRegion(region.id)
-          if (!counties.length) return null
-
-          return (
-            <motion.div
-              key={region.id}
-              id={region.id}
-              className="scroll-mt-28"
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: ri * 0.05 }}
-            >
-              <div className="mb-8">
-                <h2 className="font-display text-2xl sm:text-3xl font-bold flex items-center gap-2">
-                  <MapPin className="w-6 h-6 text-neon shrink-0" />
-                  {region.name}
-                </h2>
-                <p className="text-slate-400 mt-2 max-w-2xl">{region.summary}</p>
-              </div>
-
-              <div className="grid lg:grid-cols-2 gap-6">
-                {counties.map((county) => (
-                  <article
-                    key={county.slug}
-                    className="glass rounded-2xl p-6 sm:p-7 border border-white/10 hover:border-neon/25 transition-colors"
-                  >
-                    <div className="flex items-start justify-between gap-4 mb-4">
-                      <div>
-                        <h3 className="font-display text-xl font-semibold">
-                          <Link
-                            href={`/service-areas/${county.slug}`}
-                            className="hover:text-neon transition-colors"
-                          >
-                            {county.name}
-                          </Link>
-                        </h3>
-                        <p className="text-xs text-slate-500 mt-1">
-                          {county.state} · {county.cities.length} cities served
-                        </p>
-                      </div>
-                      <Link
-                        href={`/service-areas/${county.slug}`}
-                        className="text-neon text-sm font-medium shrink-0 hover:underline"
-                      >
-                        View all →
-                      </Link>
-                    </div>
-
-                    <p className="text-sm text-slate-400 leading-relaxed line-clamp-3">
-                      {county.cities.slice(0, 12).join(', ')}
-                      {county.cities.length > 12 && `, and ${county.cities.length - 12} more`}
-                    </p>
-                  </article>
-                ))}
-              </div>
-            </motion.div>
-          )
-        })}
-
-        <div className="glass rounded-3xl p-8 sm:p-12 text-center neon-border">
-          <Zap className="w-10 h-10 text-neon mx-auto mb-4" />
-          <h2 className="font-display text-2xl font-bold mb-3">Don&apos;t see your city?</h2>
-          <p className="text-slate-400 mb-6 max-w-lg mx-auto">
-            We may still serve your area. Request a quote and our team will confirm availability in your community.
-          </p>
-          <Link href="/quote" className="btn-primary inline-flex items-center gap-2">
-            Check Availability
-          </Link>
-        </div>
-      </section>
     </div>
   )
 }

@@ -1,21 +1,30 @@
+'use client'
+
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
-
-const reviews = [
-  { name: 'Sarah M.', location: 'Irvine, CA — Southern Cal', rating: 5, text: 'EVnation made the whole process effortless. From the online assessment to installation day, everything was transparent and professional.' },
-  { name: 'James T.', location: 'San Antonio, TX', rating: 5, text: 'Got my Tesla Wall Connector installed in one afternoon. The electrician was knowledgeable and left my garage cleaner than he found it.' },
-  { name: 'Lisa K.', location: 'Las Vegas, NV', rating: 5, text: 'They handled the panel upgrade AND the charger install. Permits, inspection, everything. Worth every penny for the peace of mind.' },
-  { name: 'Robert H.', location: 'Illinois', rating: 4, text: 'Great experience overall. The quote was accurate and the install team showed up on time. Highly recommend for any EV owner.' },
-]
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function TestimonialSection() {
+  const { t } = useTranslation()
+
+  const reviews = useMemo(
+    () => [
+      { name: 'Sarah M.', location: t('home.reviews.review1Location'), rating: 5, text: t('home.reviews.review1Text') },
+      { name: 'James T.', location: t('home.reviews.review2Location'), rating: 5, text: t('home.reviews.review2Text') },
+      { name: 'Lisa K.', location: t('home.reviews.review3Location'), rating: 5, text: t('home.reviews.review3Text') },
+      { name: 'Robert H.', location: t('home.reviews.review4Location'), rating: 4, text: t('home.reviews.review4Text') },
+    ],
+    [t]
+  )
+
   return (
     <section className="section-padding relative overflow-hidden section-scrim-alt">
       <SectionAmbient />
       <div className="max-w-7xl mx-auto relative">
-        <SectionHeader eyebrow="Reviews" title="What Homeowners Say" />
+        <SectionHeader eyebrow={t('home.reviews.eyebrow')} title={t('home.reviews.title')} />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reviews.map((r, i) => (
@@ -32,7 +41,7 @@ export default function TestimonialSection() {
                   <Star key={j} className="w-4 h-4 fill-neon text-neon" />
                 ))}
               </div>
-              <p className="text-sm text-slate-300 leading-relaxed mb-4">"{r.text}"</p>
+              <p className="text-sm text-slate-300 leading-relaxed mb-4">&ldquo;{r.text}&rdquo;</p>
               <div>
                 <p className="text-sm font-semibold">{r.name}</p>
                 <p className="text-xs text-slate-500">{r.location}</p>

@@ -6,41 +6,15 @@ import Link from '@/components/Link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
-  Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText, Mail,
-  ArrowRight, Info, Handshake, Newspaper, MapPin, ClipboardList,
+  Calculator, FileText,
+  ArrowRight,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
+import { useNavLinks } from '@/i18n/useNavLinks'
+import { useTranslation } from '@/i18n/LocaleProvider'
 import Logo from './Logo'
 import QuoteCartDrawer from './QuoteCartDrawer'
-
-const serviceLinks = [
-  { to: '/residential-ev-charging', label: 'Residential EV Charging', desc: 'Level 2 home install', icon: Bolt },
-  { to: '/solar', label: 'Solar', desc: 'Roof & battery-ready', icon: BatteryCharging },
-  { to: '/panel-upgrades', label: 'Panel Upgrades', desc: '200A service upgrades', icon: ShieldCheck },
-  { to: '/commercial', label: 'Commercial', desc: 'Workplace & fleet', icon: Building2 },
-  { to: '/battery', label: 'Battery Storage', desc: 'Tesla Powerwall & more', icon: BatteryCharging },
-  { to: '/shop', label: 'Shop All Services', desc: 'Browse & build a quote', icon: ShoppingCart },
-]
-
-const mainLinks = [
-  { to: '/', label: 'Home' },
-  { to: '/projects', label: 'Projects' },
-  { to: '/service-areas', label: 'Service Areas', icon: MapPin },
-  { to: '/shop', label: 'Shop', icon: ShoppingCart },
-  { to: '/calculator', label: 'Calculator', icon: Calculator },
-  { to: '/contact', label: 'Contact', icon: Mail },
-]
-
-const mobileExtraLinks = [
-  { to: '/intake', label: 'Home Assessment', icon: ClipboardList },
-  { to: '/warranty', label: 'Warranty', icon: ShieldCheck },
-]
-
-const companyLinks = [
-  { to: '/about', label: 'About', desc: 'Regional install team', icon: Info },
-  { to: '/auto-dealer', label: 'Auto Dealer Partners', desc: 'Partner with us', icon: Handshake },
-  { to: '/blog', label: 'Blog', desc: 'EV & solar insights', icon: Newspaper },
-]
+import LanguageSwitcher from './LanguageSwitcher'
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: 'smooth' })
@@ -124,6 +98,8 @@ export default function Navbar() {
   const [cartOpen, setCartOpen] = useState(false)
   const pathname = usePathname()
   const { cart } = useQuote()
+  const { t } = useTranslation()
+  const { serviceLinks, mainLinks, mobileExtraLinks, companyLinks } = useNavLinks()
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12)
@@ -168,9 +144,9 @@ export default function Navbar() {
             {/* Desktop center nav — pill container */}
             <nav className="hidden lg:flex items-center">
               <div className="flex items-center gap-0.5 px-1.5 py-1.5 rounded-full bg-white/[0.03] border border-white/[0.06] backdrop-blur-sm">
-                <NavLink to="/" label="Home" scrollTop />
+                <NavLink to="/" label={t('nav.home')} scrollTop />
 
-                <NavDropdown label="Services">
+                <NavDropdown label={t('nav.services')}>
                   <div className="p-2">
                     {serviceLinks.map((link) => (
                       <Link
@@ -194,11 +170,11 @@ export default function Navbar() {
                   </div>
                 </NavDropdown>
 
-                {mainLinks.slice(1).map((link) => (
+                {mainLinks.map((link) => (
                   <NavLink key={link.to} to={link.to} label={link.label} icon={link.icon} />
                 ))}
 
-                <NavDropdown label="Company">
+                <NavDropdown label={t('nav.company')}>
                   <div className="p-2">
                     {companyLinks.map((link) => (
                       <Link
@@ -233,18 +209,19 @@ export default function Navbar() {
                   }`}
                 >
                   <FileText className="w-3.5 h-3.5" />
-                  Get a Quote
+                  {t('nav.getQuote')}
                 </Link>
               </div>
             </nav>
 
             {/* Desktop right actions */}
             <div className="hidden lg:flex items-center gap-2 shrink-0">
+              <LanguageSwitcher />
               <button
                 type="button"
                 onClick={() => setCartOpen(true)}
                 className="relative flex items-center justify-center w-10 h-10 rounded-full border border-white/10 bg-white/[0.03] hover:border-neon/30 hover:bg-neon/5 transition-all duration-200"
-                aria-label="Open quote cart"
+                aria-label={t('nav.openCart')}
               >
                 <ShoppingCart className="w-[18px] h-[18px] text-slate-300" />
                 {cart.length > 0 && (
@@ -257,11 +234,12 @@ export default function Navbar() {
 
             {/* Mobile toggle */}
             <div className="flex lg:hidden items-center gap-2">
+              <LanguageSwitcher compact />
               <button
                 type="button"
                 onClick={() => setCartOpen(true)}
                 className="relative p-2.5 rounded-full border border-white/10 bg-white/[0.03]"
-                aria-label="Open quote cart"
+                aria-label={t('nav.openCart')}
               >
                 <ShoppingCart className="w-5 h-5 text-slate-300" />
                 {cart.length > 0 && (
@@ -314,7 +292,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex items-center justify-between w-full px-4 py-3.5 rounded-2xl bg-neon text-navy-950 font-semibold"
                 >
-                  Get a Quote
+                  {t('nav.getQuote')}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
@@ -326,7 +304,7 @@ export default function Navbar() {
                       servicesActive ? 'text-neon' : 'text-slate-500'
                     }`}
                   >
-                    <p className="text-[11px] uppercase tracking-widest font-semibold">Services</p>
+                    <p className="text-[11px] uppercase tracking-widest font-semibold">{t('nav.services')}</p>
                     <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
                   </button>
                   <AnimatePresence initial={false}>
@@ -358,7 +336,7 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Explore</p>
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">{t('nav.explore')}</p>
                   <div className="space-y-1">
                     <Link
                       to="/"
@@ -367,9 +345,9 @@ export default function Navbar() {
                         pathname === '/' ? 'bg-neon/10 text-neon' : 'text-slate-300'
                       }`}
                     >
-                      Home
+                      {t('nav.home')}
                     </Link>
-                    {mainLinks.slice(1).map((link) => (
+                    {mainLinks.map((link) => (
                       <Link
                         key={link.to}
                         to={link.to}
@@ -379,7 +357,7 @@ export default function Navbar() {
                         }`}
                       >
                         {link.icon && <link.icon className="w-4 h-4 opacity-70 shrink-0" />}
-                        {link.label === 'Calculator' ? 'Savings Calculator' : link.label}
+                        {link.to === '/calculator' ? t('nav.savingsCalculator') : link.label}
                       </Link>
                     ))}
                     {mobileExtraLinks.map((link) => (
@@ -399,7 +377,7 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">Company</p>
+                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">{t('nav.company')}</p>
                   <div className="space-y-1">
                     {companyLinks.map((link) => (
                       <Link

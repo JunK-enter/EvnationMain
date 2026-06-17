@@ -1,38 +1,46 @@
+'use client'
+
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Fuel, Clock, TrendingUp, BatteryCharging, BadgeDollarSign } from 'lucide-react'
 import { calculateGasSavings } from '../services/quoteCalculator'
+import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 
-const benefits = [
-  { icon: Fuel, title: 'Save on Fuel', desc: 'Home charging costs a fraction of gas. Most drivers save $800–$1,500 per year.' },
-  { icon: Clock, title: 'Overnight Charging', desc: 'Plug in at home and wake up with a full battery. No more gas station stops.' },
-  { icon: TrendingUp, title: 'Boost Home Value', desc: 'EV-ready homes sell faster and command higher prices in today\'s market.' },
-  { icon: BatteryCharging, title: 'Backup & Peak Savings', desc: 'Add a Tesla Powerwall to store energy and power through outages.' },
-  { icon: BadgeDollarSign, title: 'Rebates & Incentives', desc: 'Federal tax credits, state rebates, and utility programs can offset install costs.' },
-]
-
-export default function SavingsSection() {
+export default function SavingsSection({ embedded = false }) {
+  const { t } = useTranslation()
   const savings = calculateGasSavings()
 
+  const benefits = useMemo(
+    () => [
+      { icon: Fuel, title: t('home.savings.benefit1Title'), desc: t('home.savings.benefit1Desc') },
+      { icon: Clock, title: t('home.savings.benefit2Title'), desc: t('home.savings.benefit2Desc') },
+      { icon: TrendingUp, title: t('home.savings.benefit3Title'), desc: t('home.savings.benefit3Desc') },
+      { icon: BatteryCharging, title: t('home.savings.benefit4Title'), desc: t('home.savings.benefit4Desc') },
+      { icon: BadgeDollarSign, title: t('home.savings.benefit5Title'), desc: t('home.savings.benefit5Desc') },
+    ],
+    [t]
+  )
+
   return (
-    <section className="section-padding relative overflow-hidden section-scrim-alt">
-      <SectionAmbient sweep />
-      <div className="max-w-7xl mx-auto relative">
+    <section className={embedded ? 'relative pt-14 sm:pt-16 lg:pt-20 mt-2 border-t border-white/[0.06]' : 'section-padding relative overflow-hidden section-scrim-alt'}>
+      {!embedded && <SectionAmbient sweep />}
+      <div className={embedded ? '' : 'max-w-7xl mx-auto relative'}>
         <SectionHeader
-          eyebrow="Why Go Electric"
-          title="The Savings Add Up Fast"
-          className="text-center mb-16"
+          eyebrow={t('home.savings.eyebrow')}
+          title={t('home.savings.title')}
+          className={`text-center ${embedded ? 'mb-10' : 'mb-16'}`}
         />
 
-        <div className="grid lg:grid-cols-3 gap-8 mb-16">
+        <div className={`grid lg:grid-cols-3 gap-6 sm:gap-8 ${embedded ? 'mb-10' : 'mb-16'}`}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="glass rounded-2xl p-8 text-center neon-border"
           >
-            <p className="text-sm text-slate-400 mb-2">Annual Gas Cost</p>
+            <p className="text-sm text-slate-400 mb-2">{t('home.savings.annualGas')}</p>
             <p className="font-display text-4xl font-bold text-red-400 line-through decoration-2">${savings.annualGasCost.toLocaleString()}</p>
           </motion.div>
           <motion.div
@@ -42,7 +50,7 @@ export default function SavingsSection() {
             transition={{ delay: 0.1 }}
             className="glass rounded-2xl p-8 text-center neon-border"
           >
-            <p className="text-sm text-slate-400 mb-2">Annual Home Charging</p>
+            <p className="text-sm text-slate-400 mb-2">{t('home.savings.annualEv')}</p>
             <p className="font-display text-4xl font-bold text-neon">${savings.annualEvCost.toLocaleString()}</p>
           </motion.div>
           <motion.div
@@ -52,7 +60,7 @@ export default function SavingsSection() {
             transition={{ delay: 0.2 }}
             className="glass rounded-2xl p-8 text-center neon-border"
           >
-            <p className="text-sm text-slate-400 mb-2">5-Year Savings</p>
+            <p className="text-sm text-slate-400 mb-2">{t('home.savings.fiveYear')}</p>
             <p className="font-display text-4xl font-bold text-white">${savings.fiveYearSavings.toLocaleString()}</p>
           </motion.div>
         </div>

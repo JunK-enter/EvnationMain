@@ -1,4 +1,5 @@
 import { serviceArea } from '@/data/localSeo'
+import { companyContact } from '@/data/companyContact'
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ||
@@ -10,15 +11,15 @@ export const siteConfig = {
   description: serviceArea.tagline,
   locale: 'en_US',
   region: serviceArea.region,
-  phone: '(888) 384-6287',
-  email: 'hello@evnation.com',
+  phone: companyContact.phone,
+  email: companyContact.email,
 }
 
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
   viewportFit: 'cover',
-  themeColor: '#04060f',
+  themeColor: '#0a1020',
 }
 
 export const defaultMetadata = {

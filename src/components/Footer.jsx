@@ -1,12 +1,18 @@
+'use client'
+
 import Link from '@/components/Link'
 import { Mail, Phone, MapPin } from 'lucide-react'
 import Logo from './Logo'
 import { serviceArea } from '@/data/localSeo'
+import { companyContact } from '@/data/companyContact'
 import { SERVICE_COUNTIES } from '@/data/serviceAreasSeo'
+import { useFooterLinks } from '@/i18n/useNavLinks'
 
 export default function Footer() {
+  const { services, company, headings } = useFooterLinks()
+
   return (
-    <footer className="border-t border-white/5 bg-navy-950/40 max-lg:backdrop-blur-sm pb-[env(safe-area-inset-bottom,0px)]">
+    <footer className="border-t border-white/[0.04] bg-transparent pb-[env(safe-area-inset-bottom,0px)]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           <div>
@@ -19,31 +25,29 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-4">Services</h4>
+            <h4 className="font-display font-semibold mb-4">{headings.services}</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/residential-ev-charging" className="hover:text-neon transition-colors">Residential EV Charging</Link></li>
-              <li><Link href="/solar" className="hover:text-neon transition-colors">Solar</Link></li>
-              <li><Link href="/panel-upgrades" className="hover:text-neon transition-colors">Panel Upgrades</Link></li>
-              <li><Link href="/commercial" className="hover:text-neon transition-colors">Commercial</Link></li>
-              <li><Link href="/battery" className="hover:text-neon transition-colors">Battery Storage</Link></li>
+              {services.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-neon transition-colors">{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-4">Company</h4>
+            <h4 className="font-display font-semibold mb-4">{headings.company}</h4>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link href="/about" className="hover:text-neon transition-colors">About</Link></li>
-              <li><Link href="/projects" className="hover:text-neon transition-colors">Projects</Link></li>
-              <li><Link href="/service-areas" className="hover:text-neon transition-colors">Service Areas</Link></li>
-              <li><Link href="/auto-dealer" className="hover:text-neon transition-colors">Auto Dealer Partners</Link></li>
-              <li><Link href="/blog" className="hover:text-neon transition-colors">Blog</Link></li>
-              <li><Link href="/quote" className="hover:text-neon transition-colors">Get a Quote</Link></li>
-              <li><Link href="/contact" className="hover:text-neon transition-colors">Contact</Link></li>
+              {company.map((item) => (
+                <li key={item.href}>
+                  <Link href={item.href} className="hover:text-neon transition-colors">{item.label}</Link>
+                </li>
+              ))}
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-4">Service Areas</h4>
+            <h4 className="font-display font-semibold mb-4">{headings.serviceAreas}</h4>
             <ul className="space-y-1.5 text-xs text-slate-400">
               {SERVICE_COUNTIES.slice(0, 6).map((c) => (
                 <li key={c.slug}>
@@ -54,40 +58,55 @@ export default function Footer() {
               ))}
               <li className="pt-1">
                 <Link href="/service-areas" className="text-neon hover:underline">
-                  View all cities →
+                  {headings.viewAllCities}
                 </Link>
               </li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-display font-semibold mb-4">Contact</h4>
+            <h4 className="font-display font-semibold mb-4">{headings.contact}</h4>
             <ul className="space-y-3 text-sm text-slate-400">
+              <li className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-neon shrink-0 mt-0.5" />
+                <span>
+                  <span className="text-white font-semibold">{headings.address} </span>
+                  {companyContact.address.line1}
+                  <br />
+                  {companyContact.address.line2}
+                </span>
+              </li>
               <li>
-                <a href="mailto:hello@evnation.com" className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]">
-                  <Mail className="w-4 h-4 text-neon shrink-0" /> hello@evnation.com
+                <a
+                  href={`mailto:${companyContact.email}`}
+                  className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]"
+                >
+                  <Mail className="w-4 h-4 text-neon shrink-0" />
+                  <span>
+                    <span className="text-white font-semibold">{headings.email} </span>
+                    <span className="text-neon font-semibold">{companyContact.email}</span>
+                  </span>
                 </a>
               </li>
               <li>
-                <a href="tel:+18883846287" className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]">
-                  <Phone className="w-4 h-4 text-neon shrink-0" /> (888) 384-6287
+                <a
+                  href={`tel:${companyContact.phoneTel}`}
+                  className="flex items-center gap-2 hover:text-neon transition-colors min-h-[44px]"
+                >
+                  <Phone className="w-4 h-4 text-neon shrink-0" />
+                  <span>
+                    <span className="text-white font-semibold">{headings.telephone} </span>
+                    <span className="text-neon font-semibold">{companyContact.phone}</span>
+                  </span>
                 </a>
               </li>
-              <li className="flex items-start gap-2"><MapPin className="w-4 h-4 text-neon shrink-0 mt-0.5" /> {serviceArea.region}</li>
             </ul>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 flex flex-col gap-4">
-          <div className="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-400">
-            <Link href="/sitemap" className="hover:text-neon transition-colors">Site Map</Link>
-            <Link href="/blog" className="hover:text-neon transition-colors">Blog</Link>
-            <Link href="/calculator" className="hover:text-neon transition-colors">Savings Calculator</Link>
-          </div>
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
-            <p suppressHydrationWarning>&copy; {new Date().getFullYear()} evNation. All rights reserved.</p>
-            <p>Licensed electrical contractor · {serviceArea.primaryZone.label}</p>
-          </div>
+        <div className="mt-12 pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 text-xs text-slate-500">
+          <p>{headings.copyright}</p>
+          <p>{headings.license}</p>
         </div>
       </div>
     </footer>

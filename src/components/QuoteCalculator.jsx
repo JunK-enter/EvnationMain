@@ -29,7 +29,9 @@ const COMPLEXITY_HINTS = {
 }
 
 const inputClass =
-  'w-full bg-navy-800 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white'
+  'w-full bg-navy-800 border border-white/10 rounded-xl px-4 py-2.5 text-sm text-white [color-scheme:dark]'
+
+const selectClass = `${inputClass} appearance-none bg-[length:1rem] bg-[right_0.75rem_center] bg-no-repeat pr-10`
 
 function StepHeader({ step, title, subtitle, icon: Icon }) {
   return (
@@ -48,9 +50,13 @@ function StepHeader({ step, title, subtitle, icon: Icon }) {
   )
 }
 
-export default function QuoteCalculator({ compact = false }) {
+export default function QuoteCalculator({
+  compact = false,
+  zone: controlledZone,
+  onZoneChange,
+}) {
   const { assessment } = useQuote()
-  const [zone, setZone] = useState(assessment.zone || DEFAULT_ZONE_ID)
+  const [internalZone, setInternalZone] = useState(assessment.zone || DEFAULT_ZONE_ID)
   const [chargerType, setChargerType] = useState('hardwired')
   const [distance, setDistance] = useState(25)
   const [panelSize, setPanelSize] = useState('')
@@ -62,8 +68,14 @@ export default function QuoteCalculator({ compact = false }) {
   const [panelHintDismissed, setPanelHintDismissed] = useState(false)
 
   useEffect(() => {
-    if (assessment.zone) setZone(assessment.zone)
-  }, [assessment.zone])
+    if (assessment.zone) {
+      if (onZoneChange) onZoneChange(assessment.zone)
+      else setInternalZone(assessment.zone)
+    }
+  }, [assessment.zone, onZoneChange])
+
+  const zone = controlledZone ?? internalZone
+  const setZone = onZoneChange ?? setInternalZone
 
   useEffect(() => {
     if (distance > 50 && complexity === 'simple') setComplexity('moderate')
@@ -109,7 +121,8 @@ export default function QuoteCalculator({ compact = false }) {
         </div>
       </div>
 
-      <div className={compact ? 'space-y-5' : 'space-y-8'}>
+      <div className={compact ? 'space-y-5' : 'xl:grid xl:grid-cols-[1fr_minmax(280px,340px)] xl:items-start xl:gap-8'}>
+        <div className={compact ? 'space-y-5' : 'space-y-8'}>
         {/* Step 1 — Location */}
         <section>
           {!compact && (
@@ -124,6 +137,7 @@ export default function QuoteCalculator({ compact = false }) {
             <label className="block text-xs font-medium text-slate-400 mb-1.5">Service area</label>
           )}
           <ZoneSelect
+            variant="menu"
             value={zone}
             onChange={setZone}
             className={inputClass}
@@ -156,7 +170,7 @@ export default function QuoteCalculator({ compact = false }) {
               <select
                 value={chargerType}
                 onChange={(e) => setChargerType(e.target.value)}
-                className={inputClass}
+                className={selectClass}
               >
                 {chargerTypes.map((c) => (
                   <option key={c.id} value={c.id}>
@@ -243,7 +257,7 @@ export default function QuoteCalculator({ compact = false }) {
                 <select
                   value={complexity}
                   onChange={(e) => setComplexity(e.target.value)}
-                  className={inputClass}
+                  className={selectClass}
                 >
                   {complexityLevels.map((c) => (
                     <option key={c.id} value={c.id}>
@@ -263,7 +277,7 @@ export default function QuoteCalculator({ compact = false }) {
                 <select
                   value={panelSize}
                   onChange={(e) => setPanelSize(e.target.value)}
-                  className={inputClass}
+                  className={selectClass}
                 >
                   <option value="">Not sure / skip</option>
                   {panelSizes.filter((s) => s !== 'Unknown').map((s) => (
@@ -388,9 +402,10 @@ export default function QuoteCalculator({ compact = false }) {
             )}
           </div>
         </section>
+        </div>
 
-        {/* Estimate */}
-        <section className={`rounded-2xl bg-navy-900/60 border border-white/10 ${compact ? 'p-4' : 'p-5'}`}>
+        {/* Estimate — sticky sidebar on desktop */}
+        <section className={`rounded-2xl bg-navy-900/60 border border-white/10 ${compact ? 'p-4' : 'p-5 xl:sticky xl:top-24'}`}>
           {!compact && (
             <div className="flex items-center justify-between mb-4">
               <h4 className="font-display font-semibold">Your estimate</h4>

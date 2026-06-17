@@ -46,11 +46,11 @@ function HeroVisualMobile() {
         <div
           className="absolute inset-0 opacity-25"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,255,136,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.05) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)`,
             backgroundSize: '20px 20px',
           }}
         />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,136,0.1),transparent_60%)]" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,255,136,0.08),transparent_60%)]" />
 
         <div className="absolute top-2.5 inset-x-3 flex items-center justify-between text-[9px] font-mono z-10">
           <span className="flex items-center gap-1 text-neon">
@@ -80,7 +80,7 @@ function HeroVisualDesktop() {
         <div
           className="absolute inset-0 opacity-30"
           style={{
-            backgroundImage: `linear-gradient(rgba(0,255,136,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(0,255,136,0.04) 1px, transparent 1px)`,
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px)`,
             backgroundSize: '24px 24px',
           }}
         />

@@ -1,24 +1,31 @@
-import { useState } from 'react'
+'use client'
+
+import { useMemo, useState } from 'react'
 import { ChevronDown } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import SectionHeader from './SectionHeader'
-
-const faqs = [
-  { q: 'How long does EV charger installation take?', a: 'Most Level 2 installations are completed in 3–6 hours. Panel upgrades may require a full day and a follow-up inspection visit.' },
-  { q: 'Do I need a panel upgrade for an EV charger?', a: 'It depends on your existing panel size and current electrical load. A 200A panel typically supports an EV charger without upgrade. We perform a load calculation to determine this.' },
-  { q: 'Will EVnation handle permits?', a: 'Yes! Permit handling is included in our service packages. We file with your local authority, schedule inspections, and ensure code compliance.' },
-  { q: 'What charger brands do you install?', a: 'We install all major brands including Tesla Wall Connector, ChargePoint Home Flex, Grizzl-E, Emporia, and more. You can purchase your own or buy through us.' },
-  { q: 'How much does installation cost?', a: 'Level 2 EV charger installation starts at $575. Panel upgrades start at $3,250 and permit service starts at $250. Tesla Powerwall and charger + battery packages start at $9,995. Use our quote calculator for a personalized estimate.' },
-  { q: 'Are there rebates available?', a: 'Yes. California customers can search official programs by ZIP on Drive Clean (driveclean.ca.gov) — use our Rebate Finder on the home or calculator page. We help coordinate SCE, PG&E, SDG&E, and other charger rebates during your install.' },
-]
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function FAQSection() {
+  const { t } = useTranslation()
   const [open, setOpen] = useState(null)
+
+  const faqs = useMemo(
+    () => [
+      { q: t('home.faq.q1'), a: t('home.faq.a1') },
+      { q: t('home.faq.q2'), a: t('home.faq.a2') },
+      { q: t('home.faq.q3'), a: t('home.faq.a3') },
+      { q: t('home.faq.q4'), a: t('home.faq.a4') },
+      { q: t('home.faq.q5'), a: t('home.faq.a5') },
+      { q: t('home.faq.q6'), a: t('home.faq.a6') },
+    ],
+    [t]
+  )
 
   return (
     <section className="section-padding relative overflow-hidden section-scrim">
       <div className="max-w-3xl mx-auto relative">
-        <SectionHeader eyebrow="FAQ" title="Common Questions" />
+        <SectionHeader eyebrow={t('home.faq.eyebrow')} title={t('home.faq.title')} />
 
         <div className="space-y-3">
           {faqs.map((faq, i) => (

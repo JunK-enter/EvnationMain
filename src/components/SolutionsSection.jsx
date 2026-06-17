@@ -2,45 +2,11 @@
 
 import Link from '@/components/Link'
 import { motion } from 'framer-motion'
+import { useMemo } from 'react'
 import { ArrowUpRight, Bolt, Building2, BatteryCharging, ShieldCheck } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
-
-const pillars = [
-  {
-    title: 'Residential EV Charging',
-    desc: 'Level 2 chargers across our regional service areas — licensed, permitted, done right.',
-    img: '/images/solutions/domestic-ev-charger-768x308.jpg',
-    to: '/residential-ev-charging',
-    icon: Bolt,
-    span: 'lg:col-span-2 lg:row-span-2',
-    big: true,
-  },
-  {
-    title: 'Solar',
-    desc: 'Roof-mounted systems sized for California sun and your driving habits.',
-    img: '/images/solutions/commercial-ev-charger-768x308.jpg',
-    to: '/solar',
-    icon: Building2,
-    span: 'lg:col-span-2',
-  },
-  {
-    title: 'Panel Upgrades',
-    desc: '200A service upgrades for safe EV charging at home.',
-    img: '/images/battery-hero.png',
-    to: '/panel-upgrades',
-    icon: BatteryCharging,
-    span: 'lg:col-span-1',
-  },
-  {
-    title: 'Commercial',
-    desc: 'Workplace & fleet charging in select metro service areas.',
-    img: '/images/warranty-hero.png',
-    to: '/commercial',
-    icon: ShieldCheck,
-    span: 'lg:col-span-1',
-  },
-]
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
   return (
@@ -53,7 +19,7 @@ function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
     >
     <Link
       to={to}
-      className={`group relative block rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-neon/40 active:scale-[0.99] transition-all min-h-[200px] sm:min-h-[220px] h-full ${big ? 'lg:min-h-[460px]' : ''}`}
+      className={`group relative block rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-neon/40 hover:shadow-[0_0_36px_rgba(0,255,136,0.12)] active:scale-[0.99] transition-all min-h-[200px] sm:min-h-[220px] h-full ${big ? 'lg:min-h-[460px] ring-1 ring-neon/0 hover:ring-neon/25' : ''}`}
     >
       <img
         src={img}
@@ -84,14 +50,56 @@ function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
 }
 
 export default function SolutionsSection() {
+  const { t } = useTranslation()
+
+  const pillars = useMemo(
+    () => [
+      {
+        title: t('home.solutions.residentialTitle'),
+        desc: t('home.solutions.residentialDesc'),
+        img: '/images/solutions/domestic-ev-charger-768x308.jpg',
+        to: '/residential-ev-charging',
+        icon: Bolt,
+        span: 'lg:col-span-2 lg:row-span-2',
+        big: true,
+      },
+      {
+        title: t('home.solutions.solarTitle'),
+        desc: t('home.solutions.solarDesc'),
+        img: '/images/solutions/commercial-ev-charger-768x308.jpg',
+        to: '/solar',
+        icon: Building2,
+        span: 'lg:col-span-2',
+      },
+      {
+        title: t('home.solutions.panelTitle'),
+        desc: t('home.solutions.panelDesc'),
+        img: '/images/battery-hero.png',
+        to: '/panel-upgrades',
+        icon: BatteryCharging,
+        span: 'lg:col-span-1',
+      },
+      {
+        title: t('home.solutions.commercialTitle'),
+        desc: t('home.solutions.commercialDesc'),
+        img: '/images/warranty-hero.png',
+        to: '/commercial',
+        icon: ShieldCheck,
+        span: 'lg:col-span-1',
+      },
+    ],
+    [t]
+  )
+
   return (
     <section className="section-padding relative overflow-hidden">
       <SectionAmbient sweep />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
-          eyebrow="What We Do"
-          title="Your regional electrification partner"
-          subtitle="EV charging, solar, panel upgrades, and commercial installs — one licensed team across regional service areas."
+          eyebrow={t('home.solutions.eyebrow')}
+          title={t('home.solutions.title')}
+          accent
+          subtitle={t('home.solutions.subtitle')}
         />
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 lg:auto-rows-[220px] gap-5">

@@ -1,10 +1,23 @@
 'use client'
 
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { CreditCard, Clock, Shield } from 'lucide-react'
 import Link from '@/components/Link'
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function FinancingSection() {
+  const { t } = useTranslation()
+
+  const items = useMemo(
+    () => [
+      { icon: CreditCard, title: t('home.financing.item1Title'), desc: t('home.financing.item1Desc') },
+      { icon: Clock, title: t('home.financing.item2Title'), desc: t('home.financing.item2Desc') },
+      { icon: Shield, title: t('home.financing.item3Title'), desc: t('home.financing.item3Desc') },
+    ],
+    [t]
+  )
+
   return (
     <section className="section-padding relative overflow-hidden section-scrim-alt">
       <div className="max-w-7xl mx-auto relative">
@@ -17,19 +30,13 @@ export default function FinancingSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Financing</p>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">Flexible Payment Options</h2>
-              <p className="text-slate-400 leading-relaxed mb-6">
-                Spread your installation cost over time with 0% APR financing for qualified customers. No impact to your credit score to check rates.
-              </p>
-              <Link to="/quote" className="btn-primary">Check Your Rate</Link>
+              <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{t('home.financing.eyebrow')}</p>
+              <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">{t('home.financing.title')}</h2>
+              <p className="text-slate-400 leading-relaxed mb-6">{t('home.financing.subtitle')}</p>
+              <Link href="/quote" className="btn-primary">{t('common.checkYourRate')}</Link>
             </motion.div>
             <div className="grid gap-4">
-              {[
-                { icon: CreditCard, title: '0% APR for 12 Months', desc: 'Qualified customers pay no interest for the first year.' },
-                { icon: Clock, title: 'Instant Approval', desc: 'Get a decision in minutes with a soft credit check.' },
-                { icon: Shield, title: 'No Prepayment Penalty', desc: 'Pay off early anytime with zero fees.' },
-              ].map((item, i) => (
+              {items.map((item, i) => (
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 16 }}

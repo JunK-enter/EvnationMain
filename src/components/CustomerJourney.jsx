@@ -1,91 +1,127 @@
+'use client'
+
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
-import { Home, Camera, FileText, CalendarCheck } from 'lucide-react'
+import { Home, Camera, FileText, CalendarCheck, ArrowRight } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
+import { useTranslation } from '@/i18n/LocaleProvider'
 
-const steps = [
-  { icon: Home, title: 'Tell us about your home', desc: 'Share your address, panel size, parking setup, and vehicle details in a simple form.' },
-  { icon: Camera, title: 'Upload panel & garage photos', desc: 'Snap a few photos of your electrical panel and where you want the charger installed.' },
-  { icon: FileText, title: 'Get an estimated quote', desc: 'Our system calculates a transparent price range based on your home\'s specific needs.' },
-  { icon: CalendarCheck, title: 'EVnation reviews & schedules', desc: 'A licensed electrician reviews your project and schedules your professional installation.' },
-]
-
-function StepCard({ step, index, className = '' }) {
+function MobileStepCard({ step, index, className = '' }) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
+      initial={{ opacity: 0, y: 16 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className={`glass rounded-2xl p-6 sm:p-8 text-center ${className}`}
+      transition={{ delay: index * 0.08 }}
+      className={`glass rounded-2xl p-5 sm:p-6 ${className}`}
     >
-      <div className="w-8 h-8 rounded-full bg-neon text-navy-950 text-sm font-bold flex items-center justify-center mx-auto mb-4">
-        {index + 1}
+      <div className="flex items-start gap-4">
+        <div className="shrink-0 flex flex-col items-center gap-2">
+          <span className="w-8 h-8 rounded-full bg-neon text-navy-950 text-sm font-bold flex items-center justify-center">
+            {index + 1}
+          </span>
+          <div className="w-12 h-12 rounded-xl bg-neon/10 border border-neon/15 flex items-center justify-center">
+            <step.icon className="w-6 h-6 text-neon" />
+          </div>
+        </div>
+        <div className="min-w-0 pt-0.5">
+          <h3 className="font-display font-semibold text-base sm:text-lg mb-2 leading-snug">{step.title}</h3>
+          <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+        </div>
       </div>
-      <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-neon/10 flex items-center justify-center mx-auto mb-4 sm:mb-5">
-        <step.icon className="w-7 h-7 sm:w-8 sm:h-8 text-neon" />
-      </div>
-      <h3 className="font-display font-semibold text-lg sm:text-xl mb-3 leading-snug">{step.title}</h3>
-      <p className="text-sm sm:text-base text-slate-400 leading-relaxed max-w-sm mx-auto">{step.desc}</p>
     </motion.div>
   )
 }
 
+function DesktopStepCard({ step, index, isLast }) {
+  return (
+    <motion.li
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ delay: index * 0.1 }}
+      className="relative flex flex-col"
+    >
+      {!isLast && (
+        <ArrowRight
+          className="absolute -right-3 top-[calc(50%-0.75rem)] w-5 h-5 text-neon/35 z-10 hidden xl:block"
+          aria-hidden
+        />
+      )}
+
+      <div className="glass rounded-2xl p-6 h-full flex flex-col">
+        <div className="flex items-center gap-3 mb-5">
+          <span className="w-9 h-9 rounded-full bg-neon text-navy-950 text-sm font-bold flex items-center justify-center shrink-0">
+            {index + 1}
+          </span>
+          <div className="w-11 h-11 rounded-xl bg-neon/10 border border-neon/15 flex items-center justify-center shrink-0">
+            <step.icon className="w-5 h-5 text-neon" />
+          </div>
+        </div>
+        <h3 className="font-display font-semibold text-lg mb-2 leading-snug">{step.title}</h3>
+        <p className="text-sm text-slate-400 leading-relaxed flex-1">{step.desc}</p>
+      </div>
+    </motion.li>
+  )
+}
+
 export default function CustomerJourney() {
+  const { t } = useTranslation()
+
+  const steps = useMemo(
+    () => [
+      { icon: Home, title: t('home.journey.step1Title'), desc: t('home.journey.step1Desc') },
+      { icon: Camera, title: t('home.journey.step2Title'), desc: t('home.journey.step2Desc') },
+      { icon: FileText, title: t('home.journey.step3Title'), desc: t('home.journey.step3Desc') },
+      { icon: CalendarCheck, title: t('home.journey.step4Title'), desc: t('home.journey.step4Desc') },
+    ],
+    [t]
+  )
+
   return (
     <section className="section-padding relative overflow-hidden section-scrim-alt">
+      <div className="section-glow section-glow-blue" aria-hidden />
       <SectionAmbient />
-      <div className="max-w-7xl mx-auto relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
-          className="text-center mb-8 lg:mb-16 px-4 lg:px-1"
+          className="text-center mb-8 lg:mb-12"
           titleClassName="font-display text-2xl sm:text-3xl lg:text-4xl font-bold"
           subtitleClassName="text-slate-400 mt-3 sm:mt-4 max-w-2xl mx-auto text-sm sm:text-base"
-          eyebrow="How It Works"
-          title="Your Simple Path to Home Charging"
-          subtitle="Four easy steps from curious homeowner to fully installed EV charger."
+          eyebrow={t('home.journey.eyebrow')}
+          title={t('home.journey.title')}
+          subtitle={t('home.journey.subtitle')}
         />
 
-        {/* Mobile & tablet: swipe cards with peek */}
+        {/* Mobile & tablet: swipe cards */}
         <div className="lg:hidden -mx-4 sm:-mx-6">
           <div
             className="flex gap-3 overflow-x-auto snap-x snap-mandatory scroll-smooth scroll-touch scrollbar-hide px-4 sm:px-6 pb-1"
             style={{ scrollPaddingInline: '1rem' }}
           >
             {steps.map((step, i) => (
-              <StepCard
+              <MobileStepCard
                 key={step.title}
                 step={step}
                 index={i}
-                className="snap-center shrink-0 w-[min(88vw,320px)] sm:w-[340px] min-h-[280px] flex flex-col justify-center"
+                className="snap-center shrink-0 w-[min(88vw,340px)] sm:w-[360px]"
               />
             ))}
           </div>
-          <p className="text-center text-[11px] text-slate-600 mt-3 px-4">Swipe for next step →</p>
+          <p className="text-center text-[11px] text-slate-600 mt-3 px-4">{t('home.journey.swipeHint')}</p>
         </div>
 
-        {/* Desktop: 4-column grid */}
-        <div className="hidden lg:grid lg:grid-cols-4 gap-6">
+        {/* Desktop: connected step cards */}
+        <ol className="hidden lg:grid lg:grid-cols-4 gap-5 xl:gap-6 list-none m-0 p-0">
           {steps.map((step, i) => (
-            <div key={step.title} className="relative pt-3">
-              <div className="absolute -top-0 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-neon text-navy-950 text-xs font-bold flex items-center justify-center z-10">
-                {i + 1}
-              </div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="glass rounded-2xl p-6 text-center h-full pt-8"
-              >
-                <div className="w-14 h-14 rounded-2xl bg-neon/10 flex items-center justify-center mx-auto mb-4">
-                  <step.icon className="w-7 h-7 text-neon" />
-                </div>
-                <h3 className="font-display font-semibold mb-2">{step.title}</h3>
-                <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
-              </motion.div>
-            </div>
+            <DesktopStepCard
+              key={step.title}
+              step={step}
+              index={i}
+              isLast={i === steps.length - 1}
+            />
           ))}
-        </div>
+        </ol>
       </div>
     </section>
   )

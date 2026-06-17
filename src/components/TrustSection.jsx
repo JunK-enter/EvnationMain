@@ -1,29 +1,47 @@
 'use client'
 
+import { useMemo } from 'react'
 import { motion } from 'framer-motion'
 import { Shield, FileCheck, Sparkles, DollarSign, Users, Award } from 'lucide-react'
 import { stats as localStats, serviceArea } from '@/data/localSeo'
+import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 
-const reasons = [
-  { icon: Shield, title: 'Licensed Electricians', desc: 'Every install is performed by state-licensed, insured electricians — not handymen.' },
-  { icon: FileCheck, title: 'Permit Support', desc: 'We handle all permit applications, inspections, and code compliance for you.' },
-  { icon: Sparkles, title: 'Clean Installation', desc: 'Neat conduit runs, proper labeling, and professional finish you\'ll be proud to show off.' },
-  { icon: DollarSign, title: 'Transparent Pricing', desc: 'No hidden fees. You see the price range upfront before anyone visits your home.' },
-  { icon: Users, title: 'Residential EV Experts', desc: 'We specialize in home EV charging — not commercial, not general electrical.' },
-  { icon: Award, title: 'Satisfaction Guaranteed', desc: 'Not happy with the install? We\'ll make it right. That\'s our promise.' },
-]
-
 export default function TrustSection() {
+  const { t } = useTranslation()
+
+  const reasons = useMemo(
+    () => [
+      { icon: Shield, title: t('home.trust.reason1Title'), desc: t('home.trust.reason1Desc') },
+      { icon: FileCheck, title: t('home.trust.reason2Title'), desc: t('home.trust.reason2Desc') },
+      { icon: Sparkles, title: t('home.trust.reason3Title'), desc: t('home.trust.reason3Desc') },
+      { icon: DollarSign, title: t('home.trust.reason4Title'), desc: t('home.trust.reason4Desc') },
+      { icon: Users, title: t('home.trust.reason5Title'), desc: t('home.trust.reason5Desc') },
+      { icon: Award, title: t('home.trust.reason6Title'), desc: t('home.trust.reason6Desc') },
+    ],
+    [t]
+  )
+
+  const statLabels = useMemo(
+    () => [
+      { value: localStats.installations, label: t('home.trust.statInstalls') },
+      { value: localStats.rating, label: t('home.trust.statRating') },
+      { value: localStats.serviceArea, label: t('home.trust.statAreas') },
+      { value: localStats.quoteTurnaround, label: t('home.trust.statQuote') },
+    ],
+    [t]
+  )
+
   return (
     <section className="section-padding relative overflow-hidden section-scrim">
+      <div className="section-glow section-glow-neon" aria-hidden />
       <SectionAmbient />
       <div className="max-w-7xl mx-auto relative">
         <SectionHeader
-          eyebrow="Why EVnation?"
-          title="Built on Trust, Backed by Pros"
-          subtitle={`Licensed electricians across ${serviceArea.region} — EV charging, solar, and panel upgrades done right.`}
+          eyebrow={t('home.trust.eyebrow')}
+          title={t('home.trust.title')}
+          subtitle={t('home.trust.subtitle', { region: serviceArea.region })}
           className="text-center mb-16"
         />
 
@@ -47,12 +65,7 @@ export default function TrustSection() {
         </div>
 
         <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
-          {[
-            { value: localStats.installations, label: 'Regional Installs' },
-            { value: localStats.rating, label: 'Customer Rating' },
-            { value: localStats.serviceArea, label: 'Service Areas' },
-            { value: localStats.quoteTurnaround, label: 'Quote Turnaround' },
-          ].map((stat) => (
+          {statLabels.map((stat) => (
             <div key={stat.label} className="glass-light rounded-2xl p-6">
               <p className="font-display text-3xl font-bold text-neon">{stat.value}</p>
               <p className="text-sm text-slate-400 mt-1">{stat.label}</p>

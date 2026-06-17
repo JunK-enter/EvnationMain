@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import Link from '@/components/Link'
 import { getCaliforniaZones, getStateZones } from '@/data/serviceZones'
+import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 
 export default function ServiceZonesSection() {
+  const { t } = useTranslation()
   const california = getCaliforniaZones()
   const states = getStateZones()
 
@@ -16,23 +18,23 @@ export default function ServiceZonesSection() {
       <SectionAmbient />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <SectionHeader
-          eyebrow="Where We Serve"
-          title="Regional Service Areas"
-          subtitle="California by region — Southern, Central & Northern. All other markets by state."
+          eyebrow={t('home.zones.eyebrow')}
+          title={t('home.zones.title')}
+          subtitle={t('home.zones.subtitle')}
         />
 
         <div className="space-y-8">
           <div>
-            <p className="text-xs uppercase tracking-wider text-neon/80 font-semibold mb-3">California</p>
+            <p className="text-xs uppercase tracking-wider text-neon/80 font-semibold mb-3">{t('common.california')}</p>
             <div className="grid sm:grid-cols-3 gap-3">
               {california.map((zone, i) => (
-                <ZoneCard key={zone.id} zone={zone} index={i} featured={zone.id === 'zone-1'} subtitle="California" />
+                <ZoneCard key={zone.id} zone={zone} index={i} featured={zone.id === 'zone-1'} subtitle={t('common.california')} />
               ))}
             </div>
           </div>
 
           <div>
-            <p className="text-xs uppercase tracking-wider text-neon/80 font-semibold mb-3">By State</p>
+            <p className="text-xs uppercase tracking-wider text-neon/80 font-semibold mb-3">{t('common.byState')}</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-3">
               {states.map((zone, i) => (
                 <ZoneCard key={zone.id} zone={zone} index={i} subtitle={zone.state} />
@@ -42,13 +44,13 @@ export default function ServiceZonesSection() {
         </div>
 
         <p className="text-center text-sm text-slate-500 mt-8">
-          Outside these areas?{' '}
+          {t('home.zones.outsideAreas')}{' '}
           <Link href="/service-areas" className="text-neon hover:underline">
-            View all cities we serve
+            {t('common.viewAllCities')}
           </Link>
-          {' '}or{' '}
+          {' '}{t('common.or')}{' '}
           <Link href="/contact" className="text-neon hover:underline">
-            contact us
+            {t('common.contactUs')}
           </Link>
           .
         </p>

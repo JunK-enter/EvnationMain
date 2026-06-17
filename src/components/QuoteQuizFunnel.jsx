@@ -274,6 +274,23 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
     notes: '',
   })
 
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem('evn_readiness_prefill')
+      if (!raw) return
+      const prefill = JSON.parse(raw)
+      sessionStorage.removeItem('evn_readiness_prefill')
+      setAnswers((prev) => ({
+        ...prev,
+        serviceNeed: prefill.serviceNeed || prev.serviceNeed,
+        mainServiceAmps: prefill.mainServiceAmps || prev.mainServiceAmps,
+        notes: prefill.notes ? [prefill.notes, prev.notes].filter(Boolean).join('\n') : prev.notes,
+      }))
+    } catch {
+      /* ignore */
+    }
+  }, [])
+
   const step = QUOTE_QUIZ_STEPS[stepIndex]
   const totalSteps = QUOTE_QUIZ_STEPS.length
   const progress = ((stepIndex + 1) / totalSteps) * 100

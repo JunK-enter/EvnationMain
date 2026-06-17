@@ -166,6 +166,142 @@ export const SERVICE_COUNTIES = [
   },
 ]
 
+export const STATE_NAMES = {
+  CA: 'California',
+  NV: 'Nevada',
+  AZ: 'Arizona',
+  IL: 'Illinois',
+  TX: 'Texas',
+  NJ: 'New Jersey',
+}
+
+/** Markets without full county lists in SERVICE_COUNTIES */
+export const OTHER_STATE_MARKETS = [
+  {
+    state: 'IL',
+    name: 'Illinois',
+    summary: 'Chicago metro & statewide',
+    cities: [
+      'Chicago', 'Aurora', 'Naperville', 'Joliet', 'Rockford', 'Springfield',
+      'Peoria', 'Elgin', 'Waukegan', 'Champaign', 'Bloomington', 'Decatur',
+    ],
+  },
+  {
+    state: 'TX',
+    name: 'Texas',
+    summary: 'San Antonio & surrounding areas',
+    cities: [
+      'San Antonio', 'New Braunfels', 'Schertz', 'Converse', 'Boerne', 'San Marcos',
+      'Austin', 'Houston', 'Dallas', 'Fort Worth', 'Corpus Christi', 'El Paso',
+    ],
+  },
+  {
+    state: 'NJ',
+    name: 'New Jersey',
+    summary: 'Statewide service',
+    cities: [
+      'Newark', 'Jersey City', 'Trenton', 'Paterson', 'Elizabeth', 'Edison',
+      'Camden', 'Woodbridge', 'Lakewood', 'Toms River', 'Hamilton', 'Clifton',
+    ],
+  },
+]
+
+export const NORTHERN_CALIFORNIA = {
+  title: 'Northern California',
+  summary: 'Bay Area · Sacramento · North Coast',
+  cities: [
+    'San Francisco', 'Oakland', 'San Jose', 'Sacramento', 'Fremont', 'Santa Rosa',
+    'Stockton', 'Modesto', 'Salinas', 'Berkeley', 'Palo Alto', 'Walnut Creek',
+    'Santa Clara', 'Sunnyvale', 'Hayward', 'San Mateo', 'Redwood City', 'Napa',
+  ],
+}
+
+/** Flat card list — CA split into Southern / Central / Northern for even grid layout */
+export function getServiceAreaCards() {
+  const cards = []
+  const countySection = (c) => ({
+    id: c.slug,
+    title: c.name,
+    slug: c.slug,
+    cities: c.cities,
+  })
+
+  const southern = SERVICE_COUNTIES.filter((c) => c.regionId === 'southern-california')
+  if (southern.length) {
+    cards.push({
+      id: 'southern-california',
+      name: 'Southern Cal',
+      state: 'CA',
+      sections: southern.map(countySection),
+    })
+  }
+
+  const central = SERVICE_COUNTIES.filter((c) => c.regionId === 'central-california')
+  if (central.length) {
+    cards.push({
+      id: 'central-california',
+      name: 'Central Cal',
+      state: 'CA',
+      sections: central.map(countySection),
+    })
+  }
+
+  cards.push({
+    id: 'northern-california',
+    name: 'Northern Cal',
+    state: 'CA',
+    sections: [{
+      id: 'northern-california',
+      title: null,
+      slug: null,
+      cities: NORTHERN_CALIFORNIA.cities,
+    }],
+  })
+
+  for (const county of SERVICE_COUNTIES.filter((c) => c.state === 'NV' || c.state === 'AZ')) {
+    const existing = cards.find((c) => c.id === (county.state === 'NV' ? 'nevada' : 'arizona'))
+    const section = countySection(county)
+    if (existing) {
+      existing.sections.push(section)
+    } else {
+      cards.push({
+        id: county.state === 'NV' ? 'nevada' : 'arizona',
+        name: STATE_NAMES[county.state],
+        state: county.state,
+        sections: [section],
+      })
+    }
+  }
+
+  for (const market of OTHER_STATE_MARKETS) {
+    cards.push({
+      id: market.state === 'IL' ? 'illinois' : market.state === 'TX' ? 'texas' : 'new-jersey',
+      name: market.name,
+      state: market.state,
+      sections: [{
+        id: market.state.toLowerCase(),
+        title: null,
+        slug: null,
+        cities: market.cities,
+      }],
+    })
+  }
+
+  return cards
+}
+
+/** @deprecated use getServiceAreaCards */
+export function getServiceAreaDirectory() {
+  return getServiceAreaCards()
+}
+
+export function getDirectoryCityCount() {
+  return getServiceAreaCards().reduce(
+    (sum, card) => sum + card.sections.reduce((s, sec) => s + sec.cities.length, 0),
+    0
+  )
+}
+
 export function getCountyBySlug(slug) {
   return SERVICE_COUNTIES.find((c) => c.slug === slug) || null
 }

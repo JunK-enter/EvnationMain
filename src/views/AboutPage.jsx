@@ -1,6 +1,9 @@
 'use client'
 
 import Link from '@/components/Link'
+import TeamMemberCard from '@/components/TeamMemberCard'
+import { leadershipTeam } from '@/data/team'
+import { companyContact } from '@/data/companyContact'
 import {
   BatteryCharging, Bolt, ShieldCheck, HeartHandshake, Leaf, Award, MapPin, ArrowRight,
 } from 'lucide-react'
@@ -80,6 +83,16 @@ export default function AboutPage() {
           ))}
         </div>
 
+        {/* Leadership */}
+        <div className="mb-16">
+          <h2 className="font-display text-3xl sm:text-4xl font-bold text-white mb-8 sm:mb-10">Our Team</h2>
+          <div className="space-y-10 sm:space-y-12 lg:space-y-14">
+            {leadershipTeam.map((member) => (
+              <TeamMemberCard key={member.id} member={member} />
+            ))}
+          </div>
+        </div>
+
         {/* Location */}
         <div className="glass rounded-3xl p-8 lg:p-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-16">
           <div className="flex items-start gap-4">
@@ -88,8 +101,8 @@ export default function AboutPage() {
             </div>
             <div>
               <h3 className="font-display font-semibold mb-1">Visit Us</h3>
-              <p className="text-sm text-slate-400">3100 Airway Avenue, Suite 133<br />Costa Mesa, CA 92626</p>
-              <p className="text-sm text-slate-400 mt-2">GoGreen@evnation.us · 866-913-6199</p>
+              <p className="text-sm text-slate-400">{companyContact.address.line1}<br />{companyContact.address.line2}</p>
+              <p className="text-sm text-slate-400 mt-2">{companyContact.email} · {companyContact.phone}</p>
             </div>
           </div>
           <Award className="w-16 h-16 text-neon/20 hidden md:block" />
