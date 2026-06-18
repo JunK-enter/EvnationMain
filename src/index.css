@@ -221,21 +221,6 @@ body {
     animation: none;
   }
 
-  .animate-marquee {
-    animation: none;
-    will-change: auto;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 100%;
-    max-width: 42rem;
-    margin-inline: auto;
-    row-gap: 1.25rem;
-  }
-
-  .marquee-track > *:nth-child(n + 9) {
-    display: none;
-  }
-
   .animate-ping {
     animation: none !important;
   }

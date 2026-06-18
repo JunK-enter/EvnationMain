@@ -2,15 +2,15 @@
 // Files are the original white/monochrome assets, ideal for the dark theme.
 
 export const evChargerBrands = [
-  { src: '/logos/ev/Vector-2.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/path828.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/svg_1.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/layer1.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/Group-6.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/Vector-1.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/Group-1.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/Group-2.svg', alt: 'EV brand we install chargers for' },
-  { src: '/logos/ev/Vector-3.svg', alt: 'EV brand we install chargers for' },
+  { src: '/logos/ev/Vector-2.svg', alt: '' },
+  { src: '/logos/ev/path828.svg', alt: '' },
+  { src: '/logos/ev/svg_1.svg', alt: '' },
+  { src: '/logos/ev/layer1.svg', alt: '' },
+  { src: '/logos/ev/Group-6.svg', alt: '' },
+  { src: '/logos/ev/Vector-1.svg', alt: '' },
+  { src: '/logos/ev/Group-1.svg', alt: '' },
+  { src: '/logos/ev/Group-2.svg', alt: '' },
+  { src: '/logos/ev/Vector-3.svg', alt: '' },
 ]
 
 export const evPartners = [
