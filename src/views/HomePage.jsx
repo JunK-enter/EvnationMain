@@ -45,7 +45,7 @@ function TeslaPowerwallBand() {
             </div>
           </div>
           <div className="relative min-h-[280px] lg:min-h-0">
-            <img src="/images/battery-hero.png" alt="Tesla Powerwall home battery" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/images/battery-hero.png" alt="Tesla Powerwall home battery" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-950/10 to-transparent" />
           </div>
         </div>

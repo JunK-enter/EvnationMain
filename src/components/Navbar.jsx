@@ -102,7 +102,23 @@ export default function Navbar() {
   const { serviceLinks, mainLinks, mobileExtraLinks, companyLinks } = useNavLinks()
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12)
+    let ticking = false
+    let lastScrolled = window.scrollY > 12
+
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        const next = window.scrollY > 12
+        if (next !== lastScrolled) {
+          lastScrolled = next
+          setScrolled(next)
+        }
+        ticking = false
+      })
+    }
+
+    onScroll()
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -127,7 +143,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] max-lg:bg-navy-950/92 max-lg:backdrop-blur-xl max-lg:border-b max-lg:border-white/[0.06] ${
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] max-lg:bg-navy-950/95 max-lg:border-b max-lg:border-white/[0.06] ${
           scrolled
             ? 'lg:bg-navy-950/92 lg:border-b lg:border-white/[0.06] lg:shadow-lg lg:shadow-black/20'
             : 'lg:bg-transparent lg:border-b lg:border-transparent'
@@ -269,7 +285,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm lg:hidden"
+              className="fixed inset-0 z-40 bg-black/75 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div

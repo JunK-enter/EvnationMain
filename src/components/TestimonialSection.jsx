@@ -1,11 +1,11 @@
 'use client'
 
 import { useMemo } from 'react'
-import { motion } from 'framer-motion'
 import { Star } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import Reveal from '@/lib/Reveal'
 
 export default function TestimonialSection() {
   const { t } = useTranslation()
@@ -28,12 +28,9 @@ export default function TestimonialSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {reviews.map((r, i) => (
-            <motion.div
+            <Reveal
               key={r.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              delay={i * 0.1}
               className="glass rounded-2xl p-6"
             >
               <div className="flex gap-0.5 mb-3">
@@ -46,7 +43,7 @@ export default function TestimonialSection() {
                 <p className="text-sm font-semibold">{r.name}</p>
                 <p className="text-xs text-slate-500">{r.location}</p>
               </div>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

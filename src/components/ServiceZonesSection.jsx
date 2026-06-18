@@ -1,12 +1,12 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import { MapPin } from 'lucide-react'
 import Link from '@/components/Link'
 import { getCaliforniaZones, getStateZones } from '@/data/serviceZones'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
+import Reveal from '@/lib/Reveal'
 
 export default function ServiceZonesSection() {
   const { t } = useTranslation()
@@ -61,11 +61,9 @@ export default function ServiceZonesSection() {
 
 function ZoneCard({ zone, index, featured = false, subtitle }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.04 }}
+    <Reveal
+      delay={index * 0.04}
+      y={12}
       className={`glass rounded-2xl p-4 border transition-colors ${
         featured ? 'border-neon/40 bg-neon/[0.04]' : 'border-white/10 hover:border-neon/25'
       }`}
@@ -79,6 +77,6 @@ function ZoneCard({ zone, index, featured = false, subtitle }) {
           <p className="text-xs text-slate-500 mt-1">{subtitle}</p>
         </div>
       </div>
-    </motion.div>
+    </Reveal>
   )
 }

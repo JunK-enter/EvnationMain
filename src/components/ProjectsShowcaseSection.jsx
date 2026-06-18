@@ -1,6 +1,5 @@
 'use client'
 
-import { motion } from 'framer-motion'
 import Link from '@/components/Link'
 import { ArrowRight, MapPin } from 'lucide-react'
 import BeforeAfterReveal, { TYPE_ACCENT } from './BeforeAfterReveal'
@@ -8,17 +7,16 @@ import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import { getFeaturedProject, getFeaturedProjects } from '@/lib/projectMedia'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import Reveal from '@/lib/Reveal'
 
 function ProjectTeaserCard({ project, index }) {
   const accent = TYPE_ACCENT[project.type] || TYPE_ACCENT.ev
   const cover = project.images?.cover || project.images?.after
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
+    <Reveal
+      delay={index * 0.08}
+      y={16}
       className="shrink-0 w-[min(78vw,280px)] sm:w-auto sm:shrink"
     >
       <Link
@@ -31,7 +29,7 @@ function ProjectTeaserCard({ project, index }) {
               src={cover}
               alt={project.title}
               loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              className="absolute inset-0 w-full h-full object-cover lg:group-hover:scale-105 transition-transform duration-700"
             />
           ) : null}
           <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/20 to-transparent" />
@@ -52,7 +50,7 @@ function ProjectTeaserCard({ project, index }) {
           </p>
         </div>
       </Link>
-    </motion.div>
+    </Reveal>
   )
 }
 
@@ -72,12 +70,7 @@ export default function ProjectsShowcaseSection() {
           className="text-center mb-10 sm:mb-12 max-w-2xl mx-auto"
         />
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="glass rounded-3xl overflow-hidden border border-white/[0.08] p-3 sm:p-4 mb-8 sm:mb-10"
-        >
+        <Reveal className="glass rounded-3xl overflow-hidden border border-white/[0.08] p-3 sm:p-4 mb-8 sm:mb-10">
           <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-3 mb-4 px-1 sm:px-2">
             <div>
               <p className="text-[11px] uppercase tracking-wider text-neon font-semibold mb-1">{t('home.projects.featured')}</p>
@@ -89,7 +82,7 @@ export default function ProjectsShowcaseSection() {
             </Link>
           </div>
           <BeforeAfterReveal project={featured} className="w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl" />
-        </motion.div>
+        </Reveal>
 
         <div className="flex items-end justify-between gap-4 mb-4 sm:mb-5">
           <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">{t('home.projects.recent')}</p>

@@ -2,6 +2,8 @@
 // Pass `reverse` to scroll the opposite direction. `compact` trims the top
 // padding so two marquees can sit directly back-to-back.
 
+import { useMemo } from 'react'
+
 export default function LogoMarquee({
   eyebrow,
   title,
@@ -12,7 +14,7 @@ export default function LogoMarquee({
   compact = false,
 }) {
   // Duplicate the list so the -50% translate loops without a visible jump.
-  const loop = [...logos, ...logos]
+  const loop = useMemo(() => [...logos, ...logos], [logos])
 
   return (
     <section
@@ -32,7 +34,7 @@ export default function LogoMarquee({
 
       <div className="marquee-mask marquee-pause">
         <div
-          className="flex w-max items-center animate-marquee"
+          className="marquee-track flex w-max items-center animate-marquee"
           style={{ animationDuration: `${speed}s`, animationDirection: reverse ? 'reverse' : 'normal' }}
         >
           {loop.map((logo, i) => (

@@ -1,8 +1,11 @@
 'use client'
 
+import { useIsMobile } from '@/lib/useMediaQuery'
+
 /** Section accent only — global fixed backdrop lives in FixedPageBackground */
 export default function SectionAmbient({ sweep = false }) {
-  if (!sweep) return null
+  const isMobile = useIsMobile()
+  if (!sweep || isMobile) return null
 
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none" aria-hidden="true">

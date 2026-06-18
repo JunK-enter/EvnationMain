@@ -1,8 +1,7 @@
 'use client'
 
-import { useMemo, useState, useRef } from 'react'
+import { memo, useMemo, useState, useRef, useCallback } from 'react'
 import Link from '@/components/Link'
-import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, MapPin } from 'lucide-react'
 import {
   MAP_CLIP,
@@ -20,10 +19,11 @@ import {
   getDirectoryCityCount,
   getTotalCityCount,
 } from '@/data/serviceAreasSeo'
+import { useIsMobile } from '@/lib/useMediaQuery'
 
 const CITY_PREVIEW = 10
 
-function MapMarker({ marker, point, active, dimmed, onEnter, onLeave, onClick }) {
+const MapMarker = memo(function MapMarker({ marker, point, active, dimmed, onEnter, onLeave, onClick, lite }) {
   const showLabel = active
 
   return (
@@ -33,23 +33,26 @@ function MapMarker({ marker, point, active, dimmed, onEnter, onLeave, onClick })
       aria-label={`${marker.label}, ${marker.landmark}`}
       className={`cursor-pointer transition-opacity duration-300 ${dimmed ? 'opacity-25' : 'opacity-100'}`}
       transform={`translate(${point.x}, ${point.y})`}
-      onMouseEnter={onEnter}
+      onMouseEnter={onEnter ? () => onEnter(marker.id) : undefined}
       onMouseLeave={onLeave}
-      onFocus={onEnter}
+      onFocus={onEnter ? () => onEnter(marker.id) : undefined}
       onBlur={onLeave}
-      onClick={onClick}
+      onClick={onClick ? () => onClick(marker) : undefined}
       onKeyDown={(e) => {
         if (e.key === 'Enter' || e.key === ' ') {
           e.preventDefault()
-          onClick()
+          onClick?.(marker)
         }
       }}
     >
-      {active && (
+      {active && !lite && (
         <>
           <circle r={22} fill="rgba(0,255,136,0.08)" className="animate-ping" />
           <circle r={16} fill="none" stroke="rgba(0,255,136,0.25)" strokeWidth="1" strokeDasharray="3 3" />
         </>
+      )}
+      {active && lite && (
+        <circle r={14} fill="rgba(0,255,136,0.1)" />
       )}
       {!active && (
         <circle r={10} fill="rgba(0,255,136,0.06)" />
@@ -60,7 +63,7 @@ function MapMarker({ marker, point, active, dimmed, onEnter, onLeave, onClick })
         fill={active ? '#00ff88' : '#0a101c'}
         stroke="#00ff88"
         strokeWidth={active ? 2 : 1.5}
-        style={{
+        style={lite ? undefined : {
           filter: active
             ? 'drop-shadow(0 0 10px rgba(0,255,136,0.85))'
             : 'drop-shadow(0 0 5px rgba(0,255,136,0.35))',
@@ -94,7 +97,7 @@ function MapMarker({ marker, point, active, dimmed, onEnter, onLeave, onClick })
       )}
     </g>
   )
-}
+})
 
 function MapSidePanel({ markers, cards, activeId, filterState, onSelect, onStateSelect, totalCities }) {
   const active = markers.find((m) => m.id === activeId)
@@ -118,49 +121,36 @@ function MapSidePanel({ markers, cards, activeId, filterState, onSelect, onState
 
       {/* Active region detail */}
       <div className="p-4 sm:p-5 border-b border-white/[0.06] min-h-[120px]">
-        <AnimatePresence mode="wait">
-          {active ? (
-            <motion.div
-              key={active.id}
-              initial={{ opacity: 0, x: 8 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -8 }}
-              transition={{ duration: 0.2 }}
-            >
-              <div className="flex items-start gap-2.5 mb-2">
-                <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon/15 border border-neon/30">
-                  <MapPin className="w-3.5 h-3.5 text-neon" />
-                </span>
-                <div>
-                  <p className="font-display font-semibold text-white text-sm leading-tight">{active.label}</p>
-                  <p className="text-xs text-slate-400 mt-1 leading-relaxed">{active.landmark}</p>
-                </div>
+        {active ? (
+          <div key={active.id}>
+            <div className="flex items-start gap-2.5 mb-2">
+              <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-neon/15 border border-neon/30">
+                <MapPin className="w-3.5 h-3.5 text-neon" />
+              </span>
+              <div>
+                <p className="font-display font-semibold text-white text-sm leading-tight">{active.label}</p>
+                <p className="text-xs text-slate-400 mt-1 leading-relaxed">{active.landmark}</p>
               </div>
-              {activeCard && (
-                <button
-                  type="button"
-                  onClick={() => onSelect(active)}
-                  className="mt-3 inline-flex items-center gap-1 text-[11px] text-neon hover:text-white transition-colors"
-                >
-                  View {activeCard.sections.reduce((s, sec) => s + sec.cities.length, 0)} cities
-                  <ArrowRight className="w-3 h-3" />
-                </button>
-              )}
-            </motion.div>
-          ) : (
-            <motion.div
-              key="default"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-            >
-              <p className="text-xs text-slate-500 uppercase tracking-wider mb-1.5">Service coverage</p>
-              <p className="text-sm text-slate-300 leading-relaxed">
-                Hover or tap a pin to explore where evNation installs EV chargers, panel upgrades, and solar.
-              </p>
-            </motion.div>
-          )}
-        </AnimatePresence>
+            </div>
+            {activeCard && (
+              <button
+                type="button"
+                onClick={() => onSelect(active)}
+                className="mt-3 inline-flex items-center gap-1 text-[11px] text-neon hover:text-white transition-colors"
+              >
+                View {activeCard.sections.reduce((s, sec) => s + sec.cities.length, 0)} cities
+                <ArrowRight className="w-3 h-3" />
+              </button>
+            )}
+          </div>
+        ) : (
+          <div>
+            <p className="text-xs text-slate-500 uppercase tracking-wider mb-1.5">Service coverage</p>
+            <p className="text-sm text-slate-300 leading-relaxed">
+              Hover or tap a pin to explore where evNation installs EV chargers, panel upgrades, and solar.
+            </p>
+          </div>
+        )}
       </div>
 
       {/* Region list */}
@@ -280,11 +270,8 @@ function CitySection({ card, isHighlighted, className = '', wide = false }) {
   const cityPreview = wide ? 6 : card.sections.length > 2 ? 5 : CITY_PREVIEW
 
   return (
-    <motion.div
+    <div
       id={sectionId}
-      initial={{ opacity: 0, y: 12 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-40px' }}
       className={`glass rounded-2xl border p-5 sm:p-6 transition-colors scroll-mt-28 ${
         isHighlighted ? 'border-neon/35 bg-neon/[0.03]' : 'border-white/[0.08]'
       } ${className}`}
@@ -301,7 +288,7 @@ function CitySection({ card, isHighlighted, className = '', wide = false }) {
           <CountyBlock key={section.id} section={section} cityPreview={cityPreview} />
         ))}
       </div>
-    </motion.div>
+    </div>
   )
 }
 
@@ -309,26 +296,38 @@ export default function ServiceAreaMap() {
   const [activeId, setActiveId] = useState(null)
   const [filterState, setFilterState] = useState(null)
   const citiesRef = useRef(null)
+  const isMobile = useIsMobile()
 
   const cards = useMemo(() => getServiceAreaCards(), [])
   const totalListed = getDirectoryCityCount()
   const totalCountyCities = getTotalCityCount()
 
-  function scrollToCard(cardId) {
-    document.getElementById(`map-cities-${cardId}`)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+  const scrollToCard = useCallback((cardId) => {
+    document.getElementById(`map-cities-${cardId}`)?.scrollIntoView({
+      behavior: isMobile ? 'auto' : 'smooth',
+      block: 'start',
+    })
+  }, [isMobile])
 
-  function handleMarkerClick(marker, scroll = true) {
+  const handleMarkerClick = useCallback((marker, scroll = true) => {
     setActiveId(marker.id)
     setFilterState(marker.state)
     if (scroll) scrollToCard(marker.id)
-  }
+  }, [scrollToCard])
 
-  function handleRegionSelect(marker, scroll = false) {
+  const handleMarkerEnter = useCallback((id) => {
+    if (!isMobile) setActiveId(id)
+  }, [isMobile])
+
+  const handleMarkerLeave = useCallback(() => {
+    if (!isMobile) setActiveId(null)
+  }, [isMobile])
+
+  const handleRegionSelect = useCallback((marker, scroll = false) => {
     setActiveId(marker.id)
     setFilterState(marker.state)
     if (scroll) scrollToCard(marker.id)
-  }
+  }, [scrollToCard])
 
   function handleStateChip(stateCode) {
     if (filterState === stateCode) {
@@ -425,34 +424,36 @@ export default function ServiceAreaMap() {
                 fill="url(#mapVignette)"
               />
 
-              <g clipPath="url(#usClip)" opacity="0.28">
-                {Array.from({ length: 10 }).map((_, i) => {
-                  const x = MAP_CLIP.x + (MAP_CLIP.width / 10) * (i + 1)
-                  return (
-                    <line
-                      key={`v${i}`}
-                      x1={x}
-                      y1={MAP_CLIP.y}
-                      x2={x}
-                      y2={MAP_CLIP.y + MAP_CLIP.height}
-                      stroke="rgba(255,255,255,0.04)"
-                    />
-                  )
-                })}
-                {Array.from({ length: 6 }).map((_, i) => {
-                  const y = MAP_CLIP.y + (MAP_CLIP.height / 6) * (i + 1)
-                  return (
-                    <line
-                      key={`h${i}`}
-                      x1={MAP_CLIP.x}
-                      y1={y}
-                      x2={MAP_CLIP.x + MAP_CLIP.width}
-                      y2={y}
-                      stroke="rgba(255,255,255,0.04)"
-                    />
-                  )
-                })}
-              </g>
+              {!isMobile && (
+                <g clipPath="url(#usClip)" opacity="0.28">
+                  {Array.from({ length: 10 }).map((_, i) => {
+                    const x = MAP_CLIP.x + (MAP_CLIP.width / 10) * (i + 1)
+                    return (
+                      <line
+                        key={`v${i}`}
+                        x1={x}
+                        y1={MAP_CLIP.y}
+                        x2={x}
+                        y2={MAP_CLIP.y + MAP_CLIP.height}
+                        stroke="rgba(255,255,255,0.04)"
+                      />
+                    )
+                  })}
+                  {Array.from({ length: 6 }).map((_, i) => {
+                    const y = MAP_CLIP.y + (MAP_CLIP.height / 6) * (i + 1)
+                    return (
+                      <line
+                        key={`h${i}`}
+                        x1={MAP_CLIP.x}
+                        y1={y}
+                        x2={MAP_CLIP.x + MAP_CLIP.width}
+                        y2={y}
+                        stroke="rgba(255,255,255,0.04)"
+                      />
+                    )
+                  })}
+                </g>
+              )}
 
               <path
                 d={NATION_PATH}
@@ -490,9 +491,10 @@ export default function ServiceAreaMap() {
                     point={point}
                     active={activeId === marker.id}
                     dimmed={filterState != null && filterState !== marker.state}
-                    onEnter={() => setActiveId(marker.id)}
-                    onLeave={() => setActiveId(null)}
-                    onClick={() => handleMarkerClick(marker)}
+                    lite={isMobile}
+                    onEnter={isMobile ? undefined : handleMarkerEnter}
+                    onLeave={isMobile ? undefined : handleMarkerLeave}
+                    onClick={handleMarkerClick}
                   />
                 )
               })}

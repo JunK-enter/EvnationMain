@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Bot, Loader2, Send, Sparkles, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { CHAT_QUICK_PROMPTS, CHAT_WELCOME, getChatbotReply } from '@/lib/chatbotEngine'
+import { useIsMobile } from '@/lib/useMediaQuery'
 
 function MessageBubble({ message }) {
   const isUser = message.role === 'user'
@@ -38,16 +39,23 @@ function MessageBubble({ message }) {
 
 export default function AIAssistant() {
   const pathname = usePathname()
+  const isMobile = useIsMobile()
   const [open, setOpen] = useState(false)
   const [messages, setMessages] = useState([{ id: 'welcome', role: 'assistant', ...CHAT_WELCOME }])
   const [input, setInput] = useState('')
   const [loading, setLoading] = useState(false)
   const scrollRef = useRef(null)
   const inputRef = useRef(null)
+  const messagesRef = useRef(messages)
+  messagesRef.current = messages
 
   useEffect(() => {
-    scrollRef.current?.scrollTo({ top: scrollRef.current.scrollHeight, behavior: 'smooth' })
-  }, [messages, loading])
+    if (!open) return
+    scrollRef.current?.scrollTo({
+      top: scrollRef.current.scrollHeight,
+      behavior: isMobile ? 'auto' : 'smooth',
+    })
+  }, [messages, loading, open, isMobile])
 
   useEffect(() => {
     if (open) inputRef.current?.focus()
@@ -70,7 +78,7 @@ export default function AIAssistant() {
       if (!text || loading) return
 
       const userMessage = { id: `u-${Date.now()}`, role: 'user', text }
-      const nextMessages = [...messages, userMessage]
+      const nextMessages = [...messagesRef.current, userMessage]
       setMessages(nextMessages)
       setInput('')
       setLoading(true)
@@ -103,7 +111,7 @@ export default function AIAssistant() {
         setLoading(false)
       }
     },
-    [loading, messages],
+    [loading],
   )
 
   const send = () => sendMessage(input)

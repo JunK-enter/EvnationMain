@@ -55,23 +55,31 @@ export function QuoteProvider({ children }) {
         }),
     [cart, assessment.zone]
   )
-  const cartTotal = cartItems.reduce((sum, item) => sum + item.basePrice, 0)
+  const cartTotal = useMemo(
+    () => cartItems.reduce((sum, item) => sum + item.basePrice, 0),
+    [cartItems],
+  )
+
+  const isInCart = useCallback((id) => cart.includes(id), [cart])
+
+  const value = useMemo(
+    () => ({
+      cart,
+      cartItems,
+      cartTotal,
+      addToQuote,
+      removeFromQuote,
+      clearCart,
+      replaceCart,
+      assessment,
+      setAssessment,
+      isInCart,
+    }),
+    [cart, cartItems, cartTotal, addToQuote, removeFromQuote, clearCart, replaceCart, assessment, isInCart]
+  )
 
   return (
-    <QuoteContext.Provider
-      value={{
-        cart,
-        cartItems,
-        cartTotal,
-        addToQuote,
-        removeFromQuote,
-        clearCart,
-        replaceCart,
-        assessment,
-        setAssessment,
-        isInCart: (id) => cart.includes(id),
-      }}
-    >
+    <QuoteContext.Provider value={value}>
       {children}
     </QuoteContext.Provider>
   )

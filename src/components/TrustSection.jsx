@@ -1,12 +1,12 @@
 'use client'
 
 import { useMemo } from 'react'
-import { motion } from 'framer-motion'
 import { Shield, FileCheck, Sparkles, DollarSign, Users, Award } from 'lucide-react'
 import { stats as localStats, serviceArea } from '@/data/localSeo'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
+import Reveal from '@/lib/Reveal'
 
 export default function TrustSection() {
   const { t } = useTranslation()
@@ -47,12 +47,9 @@ export default function TrustSection() {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {reasons.map((r, i) => (
-            <motion.div
+            <Reveal
               key={r.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              delay={i * 0.08}
               className="glass rounded-2xl p-6 hover:border-neon/20 transition-colors"
             >
               <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center mb-4">
@@ -60,7 +57,7 @@ export default function TrustSection() {
               </div>
               <h3 className="font-display font-semibold text-lg mb-2">{r.title}</h3>
               <p className="text-sm text-slate-400 leading-relaxed">{r.desc}</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
 

@@ -9,6 +9,7 @@ import SectionHeader from './SectionHeader'
 import { DEFAULT_ZONE_ID } from '@/data/serviceZones'
 import { calculateQuizBaseEstimate, shouldSuggestPanelUpgrade } from '@/services/quoteCalculator'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import { useIsMobile } from '@/lib/useMediaQuery'
 
 const READINESS_KEY = 'evn_readiness_prefill'
 
@@ -25,6 +26,7 @@ export function saveReadinessPrefill(answers) {
 
 export default function InstallReadinessCheck() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
   const [step, setStep] = useState(0)
   const [answers, setAnswers] = useState({ parking: '', panel: '', ev: '' })
   const [done, setDone] = useState(false)
@@ -129,6 +131,75 @@ export default function InstallReadinessCheck() {
           </div>
 
           <div className="p-6 sm:p-8">
+            {isMobile ? (
+              !done ? (
+                <div key={step}>
+                  <p className="text-[11px] uppercase tracking-wider text-slate-500 mb-2">
+                    {t('home.readiness.stepOf', { current: step + 1, total: STEPS.length })}
+                  </p>
+                  <h3 className="font-display font-semibold text-xl text-white mb-5">{current.title}</h3>
+                  <div className="grid gap-2 sm:gap-3">
+                    {current.options.map((opt) => {
+                      const Icon = opt.icon
+                      const selected = answers[current.id] === opt.id
+                      return (
+                        <button
+                          key={opt.id}
+                          type="button"
+                          onClick={() => select(opt.id)}
+                          className={`flex items-center gap-3 w-full text-left px-4 py-3.5 rounded-xl border transition-colors ${
+                            selected
+                              ? 'border-neon/40 bg-neon/[0.08] text-white'
+                              : 'border-white/[0.08] bg-white/[0.02] text-slate-300 hover:border-neon/25 hover:bg-neon/[0.04]'
+                          }`}
+                        >
+                          {Icon && <Icon className="w-4 h-4 text-neon shrink-0" />}
+                          <span className="text-sm font-medium">{opt.label}</span>
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              ) : (
+                <div key="result" className="text-center sm:text-left">
+                  <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-neon/10 border border-neon/20 text-neon text-xs font-semibold mb-4">
+                    <Check className="w-3.5 h-3.5" /> {t('home.readiness.estimateReady')}
+                  </div>
+                  <p className="text-sm text-slate-400 mb-1">{t('home.readiness.typicalFrom')}</p>
+                  <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-2">
+                    {result.estimate.display}
+                  </p>
+                  <p className="text-xs text-slate-500 mb-5">
+                    {t('home.readiness.resultMeta', {
+                      region: t('home.readiness.defaultRegion'),
+                      distance: result.distance,
+                      lineItem: result.estimate.lineItem,
+                      panelNote: result.needsPanel ? t('home.readiness.panelLikely') : '',
+                    })}
+                  </p>
+
+                  {result.notes.length > 0 && (
+                    <ul className="text-sm text-slate-400 space-y-2 mb-6 text-left">
+                      {result.notes.map((note) => (
+                        <li key={note} className="flex gap-2">
+                          <Gauge className="w-4 h-4 text-neon shrink-0 mt-0.5" />
+                          {note}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
+                    <Link href="/quote" className="btn-primary justify-center">
+                      {t('common.buildFullQuote')} <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <button type="button" onClick={reset} className="btn-secondary justify-center">
+                      {t('common.startOver')}
+                    </button>
+                  </div>
+                </div>
+              )
+            ) : (
             <AnimatePresence mode="wait">
               {!done ? (
                 <motion.div
@@ -209,6 +280,7 @@ export default function InstallReadinessCheck() {
                 </motion.div>
               )}
             </AnimatePresence>
+            )}
           </div>
         </div>
       </div>

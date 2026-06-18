@@ -1,20 +1,19 @@
 'use client'
 
 import Link from '@/components/Link'
-import { motion } from 'framer-motion'
-import { useMemo } from 'react'
+import { memo, useMemo } from 'react'
 import { ArrowUpRight, Bolt, Building2, BatteryCharging, ShieldCheck } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import Reveal from '@/lib/Reveal'
 
-function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
+const PillarCard = memo(function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
+    <Reveal
+      delay={index * 0.05}
+      y={16}
       viewport={{ once: true, margin: '-40px', amount: 0.15 }}
-      transition={{ delay: index * 0.05, duration: 0.35 }}
       className={span}
     >
     <Link
@@ -25,7 +24,7 @@ function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
         src={img}
         alt={title}
         loading="lazy"
-        className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        className="absolute inset-0 w-full h-full object-cover lg:group-hover:scale-105 transition-transform duration-700"
       />
       <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/55 to-transparent" />
       <div className="absolute inset-0 p-6 flex flex-col justify-end">
@@ -45,9 +44,9 @@ function PillarCard({ title, desc, img, to, icon: Icon, span, big, index }) {
         </div>
       </div>
     </Link>
-    </motion.div>
+    </Reveal>
   )
-}
+})
 
 export default function SolutionsSection() {
   const { t } = useTranslation()

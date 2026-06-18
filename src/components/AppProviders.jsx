@@ -5,10 +5,24 @@ import { AuthProvider } from '@/context/AuthContext'
 import { QuoteProvider } from '@/context/QuoteContext'
 import { LocaleProvider } from '@/i18n/LocaleProvider'
 import SiteChrome from '@/components/SiteChrome'
+import { useIsMobile } from '@/lib/useMediaQuery'
+
+function MotionShell({ children }) {
+  const isMobile = useIsMobile()
+
+  return (
+    <MotionConfig
+      reducedMotion={isMobile ? 'always' : 'user'}
+      transition={isMobile ? { duration: 0 } : { type: 'tween', duration: 0.35 }}
+    >
+      {children}
+    </MotionConfig>
+  )
+}
 
 export default function AppProviders({ children }) {
   return (
-    <MotionConfig reducedMotion="user" transition={{ type: 'tween', duration: 0.35 }}>
+    <MotionShell>
       <LocaleProvider>
         <AuthProvider>
           <QuoteProvider>
@@ -16,6 +30,6 @@ export default function AppProviders({ children }) {
           </QuoteProvider>
         </AuthProvider>
       </LocaleProvider>
-    </MotionConfig>
+    </MotionShell>
   )
 }

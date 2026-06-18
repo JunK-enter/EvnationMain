@@ -1,21 +1,15 @@
 'use client'
 
 import { useMemo } from 'react'
-import { motion } from 'framer-motion'
 import { Home, Camera, FileText, CalendarCheck, ArrowRight } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import Reveal from '@/lib/Reveal'
 
 function MobileStepCard({ step, index, className = '' }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 16 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08 }}
-      className={`glass rounded-2xl p-5 sm:p-6 ${className}`}
-    >
+    <Reveal delay={index * 0.08} y={16} className={`glass rounded-2xl p-5 sm:p-6 ${className}`}>
       <div className="flex items-start gap-4">
         <div className="shrink-0 flex flex-col items-center gap-2">
           <span className="w-8 h-8 rounded-full bg-neon text-navy-950 text-sm font-bold flex items-center justify-center">
@@ -30,19 +24,13 @@ function MobileStepCard({ step, index, className = '' }) {
           <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
         </div>
       </div>
-    </motion.div>
+    </Reveal>
   )
 }
 
 function DesktopStepCard({ step, index, isLast }) {
   return (
-    <motion.li
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.1 }}
-      className="relative flex flex-col"
-    >
+    <Reveal as="li" delay={index * 0.1} y={20} className="relative flex flex-col">
       {!isLast && (
         <ArrowRight
           className="absolute -right-3 top-[calc(50%-0.75rem)] w-5 h-5 text-neon/35 z-10 hidden xl:block"
@@ -62,7 +50,7 @@ function DesktopStepCard({ step, index, isLast }) {
         <h3 className="font-display font-semibold text-lg mb-2 leading-snug">{step.title}</h3>
         <p className="text-sm text-slate-400 leading-relaxed flex-1">{step.desc}</p>
       </div>
-    </motion.li>
+    </Reveal>
   )
 }
 

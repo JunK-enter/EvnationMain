@@ -1,12 +1,12 @@
 'use client'
 
 import { useMemo } from 'react'
-import { motion } from 'framer-motion'
 import { Fuel, Clock, TrendingUp, BatteryCharging, BadgeDollarSign } from 'lucide-react'
 import { calculateGasSavings } from '../services/quoteCalculator'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
+import Reveal from '@/lib/Reveal'
 
 export default function SavingsSection({ embedded = false }) {
   const { t } = useTranslation()
@@ -34,45 +34,25 @@ export default function SavingsSection({ embedded = false }) {
         />
 
         <div className={`grid lg:grid-cols-3 gap-6 sm:gap-8 ${embedded ? 'mb-10' : 'mb-16'}`}>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="glass rounded-2xl p-8 text-center neon-border"
-          >
+          <Reveal className="glass rounded-2xl p-8 text-center neon-border">
             <p className="text-sm text-slate-400 mb-2">{t('home.savings.annualGas')}</p>
             <p className="font-display text-4xl font-bold text-red-400 line-through decoration-2">${savings.annualGasCost.toLocaleString()}</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="glass rounded-2xl p-8 text-center neon-border"
-          >
+          </Reveal>
+          <Reveal delay={0.1} className="glass rounded-2xl p-8 text-center neon-border">
             <p className="text-sm text-slate-400 mb-2">{t('home.savings.annualEv')}</p>
             <p className="font-display text-4xl font-bold text-neon">${savings.annualEvCost.toLocaleString()}</p>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="glass rounded-2xl p-8 text-center neon-border"
-          >
+          </Reveal>
+          <Reveal delay={0.2} className="glass rounded-2xl p-8 text-center neon-border">
             <p className="text-sm text-slate-400 mb-2">{t('home.savings.fiveYear')}</p>
             <p className="font-display text-4xl font-bold text-white">${savings.fiveYearSavings.toLocaleString()}</p>
-          </motion.div>
+          </Reveal>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {benefits.map((b, i) => (
-            <motion.div
+            <Reveal
               key={b.title}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
+              delay={i * 0.08}
               className="glass-light rounded-2xl p-6"
             >
               <div className="w-10 h-10 rounded-xl bg-neon/10 flex items-center justify-center mb-4">
@@ -80,7 +60,7 @@ export default function SavingsSection({ embedded = false }) {
               </div>
               <h3 className="font-display font-semibold mb-2">{b.title}</h3>
               <p className="text-sm text-slate-400 leading-relaxed">{b.desc}</p>
-            </motion.div>
+            </Reveal>
           ))}
         </div>
       </div>

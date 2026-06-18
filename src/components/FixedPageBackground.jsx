@@ -1,9 +1,20 @@
 'use client'
 
+import { useIsMobile } from '@/lib/useMediaQuery'
 import ElectricFlowLayer from './ElectricFlowLayer'
 
-/** Fixed viewport backdrop — layered aurora gradients + electricity flow */
+/** Fixed viewport backdrop — full effects on desktop, single gradient on mobile. */
 export default function FixedPageBackground() {
+  const isMobile = useIsMobile()
+
+  if (isMobile) {
+    return (
+      <div className="fixed-page-bg fixed-page-bg-lite" aria-hidden="true">
+        <div className="absolute inset-0 page-bg-base" />
+      </div>
+    )
+  }
+
   return (
     <div className="fixed-page-bg" aria-hidden="true">
       <div className="absolute inset-0 page-bg-base" />

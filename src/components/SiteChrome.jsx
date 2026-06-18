@@ -1,11 +1,13 @@
 'use client'
 
+import dynamic from 'next/dynamic'
 import { usePathname } from 'next/navigation'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
-import AIAssistant from '@/components/AIAssistant'
 import MobileStickyCTA from '@/components/MobileStickyCTA'
 import FixedPageBackground from '@/components/FixedPageBackground'
+
+const AIAssistant = dynamic(() => import('@/components/AIAssistant'), { ssr: false })
 
 export default function SiteChrome({ children }) {
   const pathname = usePathname()

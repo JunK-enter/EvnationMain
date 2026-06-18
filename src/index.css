@@ -30,6 +30,12 @@ html {
   scroll-behavior: smooth;
 }
 
+@media (max-width: 1023px) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -123,6 +129,14 @@ body {
   padding: 3.5rem 1.25rem;
 }
 
+/* Skip layout/paint for below-fold sections until scrolled near (desktop only) */
+@media (min-width: 1024px) {
+  .section-defer {
+    content-visibility: auto;
+    contain-intrinsic-size: auto 520px;
+  }
+}
+
 @media (max-width: 639px) {
   .section-padding {
     padding: 2.75rem 1rem;
@@ -153,6 +167,104 @@ body {
 
   .site-sticky-cta-pad {
     padding-bottom: calc(4.5rem + 4.25rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
+/* Mobile performance — reduce GPU-heavy layers and infinite animations */
+@media (max-width: 1023px) {
+  .fixed-page-bg-lite {
+    contain: strict;
+  }
+
+  .glass,
+  .glass-light {
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    background: rgba(14, 20, 36, 0.92);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-light {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .electric-flow-layer {
+    display: none;
+  }
+
+  .fixed-page-bg .hero-mesh,
+  .fixed-page-bg .page-bg-aurora,
+  .fixed-page-bg .page-bg-vignette,
+  .fixed-page-bg .page-bg-shine,
+  .fixed-page-bg .grid-bg {
+    display: none;
+  }
+
+  .fixed-page-bg > .glow-orb,
+  .glow-orb,
+  .section-glow {
+    display: none !important;
+  }
+
+  .hero-shimmer {
+    animation: none;
+    background-position: 0% center;
+  }
+
+  .hero-line-draw {
+    animation: none;
+    transform: none;
+    opacity: 1;
+  }
+
+  .hero-orb-drift {
+    animation: none;
+  }
+
+  .animate-marquee {
+    animation: none;
+    will-change: auto;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 42rem;
+    margin-inline: auto;
+    row-gap: 1.25rem;
+  }
+
+  .marquee-track > *:nth-child(n + 9) {
+    display: none;
+  }
+
+  .animate-ping {
+    animation: none !important;
+  }
+
+  .ambient-grid,
+  .ambient-sweep {
+    animation: none;
+  }
+
+  .btn-primary {
+    box-shadow: 0 2px 12px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.18);
+  }
+
+  .btn-primary:hover {
+    transform: none;
+    box-shadow: 0 2px 12px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.22);
+  }
+
+  .neon-border {
+    box-shadow: none;
+  }
+
+  .neon-text {
+    text-shadow: none;
+  }
+
+  /* Narrow transitions to cheap properties on touch devices */
+  .transition-all {
+    transition-property: color, background-color, border-color, opacity;
   }
 }
 
