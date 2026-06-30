@@ -10,6 +10,10 @@ const TYPE_ACCENT = {
   commercial: '#34d399',
 }
 
+/** Compact frame for portrait install photos — keeps swipe layers aligned. */
+const SWIPE_FRAME_CLASS =
+  'mx-auto w-full max-w-[280px] sm:max-w-[320px] aspect-[3/4]'
+
 function useRevealSlider(initial = 50) {
   const [pct, setPct] = useState(initial)
   const dragging = useRef(false)
@@ -39,7 +43,7 @@ function useRevealSlider(initial = 50) {
   return { pct, setPct, bind }
 }
 
-function RevealLayer({ side, image, text, label, accent, pct, isImageMode }) {
+function RevealLayer({ side, image, text, label, accent, pct, isImageMode, imageFit = 'cover', imagePosition = 'center' }) {
   const isBefore = side === 'before'
 
   if (isImageMode && image) {
@@ -48,7 +52,13 @@ function RevealLayer({ side, image, text, label, accent, pct, isImageMode }) {
         className="absolute inset-0 overflow-hidden"
         style={{ clipPath: isBefore ? `inset(0 ${100 - pct}% 0 0)` : `inset(0 0 0 ${pct}%)` }}
       >
-        <img src={image} alt={label} className="absolute inset-0 w-full h-full object-cover" draggable={false} />
+        <img
+          src={image}
+          alt={label}
+          className={`absolute inset-0 w-full h-full ${imageFit === 'contain' ? 'object-contain' : 'object-cover'}`}
+          style={{ objectPosition: imagePosition }}
+          draggable={false}
+        />
         <span
           className="absolute top-4 left-4 z-10 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm"
           style={{
@@ -89,26 +99,90 @@ function RevealLayer({ side, image, text, label, accent, pct, isImageMode }) {
 }
 
 /**
+ * Side-by-side before/after — use when photos weren't taken from the same angle.
+ */
+export function BeforeAfterSideBySide({
+  before,
+  after,
+  beforeAlt = 'Before',
+  afterAlt = 'After',
+  beforePosition = 'center',
+  afterPosition = 'center',
+  fit = 'cover',
+  className = '',
+}) {
+  if (!before || !after) return null
+
+  return (
+    <div className={`grid grid-cols-2 gap-1 sm:gap-1.5 ${className}`}>
+      <div className="relative overflow-hidden bg-navy-950 rounded-sm">
+        <img
+          src={before}
+          alt={beforeAlt}
+          className="w-full h-auto block"
+          loading="lazy"
+        />
+        <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-red-500/90 text-white">
+          Before
+        </span>
+      </div>
+      <div className="relative overflow-hidden bg-navy-950 rounded-sm">
+        <img
+          src={after}
+          alt={afterAlt}
+          className="w-full h-auto block"
+          loading="lazy"
+        />
+        <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-neon text-navy-950">
+          After
+        </span>
+      </div>
+    </div>
+  )
+}
+
+/**
  * Drag the center handle to compare before / after.
  * Uses real photos when available, otherwise text panels.
+ * Set comparisonMode="side-by-side" when photos differ in framing.
  */
-export default function BeforeAfterReveal({ project, className = '' }) {
+export default function BeforeAfterReveal({ project, className = '', beforeSrc, afterSrc, comparisonMode, imageFit = 'cover', imagePosition = 'center top' }) {
   const ref = useRef(null)
   const { pct, bind } = useRevealSlider(50)
-  const { before, after, cover } = project.images || {}
+  const images = project.images || {}
+  const before = beforeSrc ?? images.before
+  const after = afterSrc ?? images.after
+  const mode = comparisonMode ?? project.comparisonMode ?? 'swipe'
+  const { cover } = images
   const accent = TYPE_ACCENT[project.type] || TYPE_ACCENT.ev
   const hasBothImages = before && after
+
+  if (hasBothImages && mode === 'side-by-side') {
+    return (
+      <BeforeAfterSideBySide
+        before={before}
+        after={after}
+        beforeAlt={`${project.title} before`}
+        afterAlt={`${project.title} after`}
+        beforePosition={beforeSrc ? 'top center' : 'center'}
+        afterPosition={afterSrc ? 'top center' : 'center'}
+        className={className}
+      />
+    )
+  }
+
   const hasSingleImage = !hasBothImages && (after || cover || before)
   const isImageMode = hasBothImages || hasSingleImage
 
   if (hasSingleImage && !hasBothImages) {
     const src = after || cover || before
+    const label = after ? 'After' : before ? 'Before' : 'Project'
     return (
       <div className={`relative overflow-hidden rounded-sm bg-navy-900 ${className}`}>
-        <img src={src} alt={project.title} className="w-full h-full object-cover min-h-[280px]" loading="lazy" />
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent" />
+        <img src={src} alt={project.title} className="w-full h-auto block" loading="lazy" />
+        <div className="absolute inset-0 bg-gradient-to-t from-navy-950/70 via-transparent to-transparent pointer-events-none" />
         <span className="absolute top-4 left-4 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-neon text-navy-950">
-          After
+          {label}
         </span>
       </div>
     )
@@ -117,9 +191,10 @@ export default function BeforeAfterReveal({ project, className = '' }) {
   return (
     <div
       ref={ref}
-      className={`relative select-none touch-pan-y sm:touch-none overflow-hidden rounded-sm bg-navy-900 min-h-[220px] sm:min-h-[280px] md:min-h-[340px] cursor-col-resize group ${className}`}
+      className={`relative select-none touch-pan-y sm:touch-none cursor-col-resize group ${SWIPE_FRAME_CLASS} ${className}`}
       {...bind(ref)}
     >
+      <div className="absolute inset-0 overflow-hidden rounded-sm bg-navy-900">
       <div className="absolute inset-0 grid-bg opacity-40" />
 
       <RevealLayer
@@ -130,6 +205,8 @@ export default function BeforeAfterReveal({ project, className = '' }) {
         accent={accent}
         pct={pct}
         isImageMode={hasBothImages}
+        imageFit={imageFit}
+        imagePosition={imagePosition}
       />
       <RevealLayer
         side="after"
@@ -139,6 +216,8 @@ export default function BeforeAfterReveal({ project, className = '' }) {
         accent={accent}
         pct={pct}
         isImageMode={hasBothImages}
+        imageFit={imageFit}
+        imagePosition={imagePosition}
       />
 
       {!hasBothImages && !before && !after && (
@@ -157,6 +236,7 @@ export default function BeforeAfterReveal({ project, className = '' }) {
         >
           <GripVertical className="w-5 h-5 sm:w-4 sm:h-4 text-white" />
         </div>
+      </div>
       </div>
     </div>
   )

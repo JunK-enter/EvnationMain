@@ -59,7 +59,7 @@ function ProjectSpread({ project, index, total }) {
           className={`lg:col-span-7 ${flip ? 'lg:col-start-6 lg:row-start-1' : 'lg:col-start-1'}`}
         >
           <div
-            className={`relative p-2 pb-8 sm:p-4 sm:pb-12 rounded-sm shadow-2xl transition-transform duration-500 max-sm:rotate-0 hover:rotate-0 ${
+            className={`relative flex flex-col items-center p-2 pb-8 sm:p-4 sm:pb-12 rounded-sm shadow-2xl transition-transform duration-500 max-sm:rotate-0 hover:rotate-0 ${
               flip ? 'sm:rotate-[1.5deg]' : 'sm:-rotate-[1.5deg]'
             }`}
             style={{
@@ -67,7 +67,7 @@ function ProjectSpread({ project, index, total }) {
               boxShadow: '0 24px 60px rgba(0,0,0,0.45), 0 0 0 1px rgba(255,255,255,0.08), inset 0 1px 0 rgba(255,255,255,0.8)',
             }}
           >
-            <BeforeAfterReveal project={project} className="w-full aspect-[4/3] sm:aspect-[16/10]" />
+            <BeforeAfterReveal project={project} />
             <p className="absolute bottom-3 sm:bottom-4 inset-x-4 text-center font-mono text-[11px] text-slate-500 tracking-wide truncate">
               {project.location} · {project.year}
             </p>

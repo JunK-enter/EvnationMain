@@ -81,7 +81,7 @@ export default function ProjectsShowcaseSection() {
               {t('common.viewCaseStudy')} <ArrowRight className="w-3.5 h-3.5" />
             </Link>
           </div>
-          <BeforeAfterReveal project={featured} className="w-full aspect-[4/3] sm:aspect-[16/9] rounded-2xl" />
+          <BeforeAfterReveal project={featured} className="w-full rounded-2xl" />
         </Reveal>
 
         <div className="flex items-end justify-between gap-4 mb-4 sm:mb-5">

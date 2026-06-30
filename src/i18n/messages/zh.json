@@ -114,6 +114,17 @@
       "step4Desc": "持牌电工审核项目并安排专业安装。",
       "swipeHint": "滑动查看下一步 →"
     },
+    "video": {
+      "eyebrow": "evNation 现场",
+      "title": "真实施工，真实客户",
+      "subtitle": "了解我们持牌 C-10 团队如何完成二级 EV 充电、配电盘升级与太阳能 — 从报价到最终验收。",
+      "play": "播放视频",
+      "watchChannel": "在 {handle} 观看",
+      "youtubeCta": "YouTube 频道",
+      "highlight1": "每个住宅与商业项目均由持牌电工施工。",
+      "highlight2": "透明展示安装流程、许可与您家中的预期步骤。",
+      "highlight3": "频道还有更多充电技巧、Powerwall 与全面电气化内容。"
+    },
     "rebates": {
       "eyebrow": "节省与激励",
       "title": "返利与激励",

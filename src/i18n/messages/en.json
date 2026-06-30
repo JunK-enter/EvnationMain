@@ -114,6 +114,17 @@
       "step4Desc": "A licensed electrician reviews your project and schedules your professional installation.",
       "swipeHint": "Swipe for next step →"
     },
+    "video": {
+      "eyebrow": "See evNation in action",
+      "title": "Real installs, real homeowners",
+      "subtitle": "Watch how our licensed C-10 team delivers clean Level 2 EV charging, panel upgrades, and solar — from estimate to final inspection.",
+      "play": "Play video",
+      "watchChannel": "Watch on {handle}",
+      "youtubeCta": "YouTube channel",
+      "highlight1": "Licensed electricians — not handymen — on every residential and commercial job.",
+      "highlight2": "Transparent walkthroughs of installs, permits, and what to expect at your home.",
+      "highlight3": "More videos on charging tips, Powerwall, and going fully electric."
+    },
     "rebates": {
       "eyebrow": "Savings & incentives",
       "title": "Rebates & incentives",

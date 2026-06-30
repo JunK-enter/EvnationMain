@@ -15,6 +15,7 @@ import FAQSection from '../components/FAQSection'
 import RebateFinder from '../components/RebateFinder'
 import LogoMarquee from '../components/LogoMarquee'
 import SolutionsSection from '../components/SolutionsSection'
+import EVNationVideoSection from '../components/EVNationVideoSection'
 import ServiceZonesSection from '../components/ServiceZonesSection'
 import SectionAmbient from '../components/SectionAmbient'
 import SectionHeader from '../components/SectionHeader'
@@ -83,6 +84,8 @@ export default function HomePage() {
       <Hero />
 
       <SolutionsSection />
+
+      <EVNationVideoSection />
 
       <CustomerJourney />
 

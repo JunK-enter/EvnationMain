@@ -11,12 +11,16 @@ export const PROJECT_STOCK_COVERS = {
 export function enrichProjectMedia(project) {
   const stock = PROJECT_STOCK_COVERS[project.type] || PROJECT_STOCK_COVERS.ev
   const images = project.images || {}
+  const hasRealBefore = !!images.before
+  const hasRealAfter = !!images.after
   return {
     ...project,
     images: {
       before: images.before || null,
-      after: images.after || stock,
-      cover: images.cover || stock,
+      beforeInterior: images.beforeInterior || null,
+      afterInterior: images.afterInterior || null,
+      after: hasRealAfter ? images.after : hasRealBefore ? null : stock,
+      cover: images.cover || images.before || stock,
     },
   }
 }

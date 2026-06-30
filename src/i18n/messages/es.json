@@ -114,6 +114,17 @@
       "step4Desc": "Un electricista con licencia revisa tu proyecto y agenda la instalación profesional.",
       "swipeHint": "Desliza para el siguiente paso →"
     },
+    "video": {
+      "eyebrow": "evNation en acción",
+      "title": "Instalaciones reales, clientes reales",
+      "subtitle": "Mira cómo nuestro equipo C-10 con licencia realiza carga EV Level 2, paneles y solar — del presupuesto a la inspección final.",
+      "play": "Reproducir video",
+      "watchChannel": "Ver en {handle}",
+      "youtubeCta": "Canal de YouTube",
+      "highlight1": "Electricistas con licencia en cada proyecto residencial y comercial.",
+      "highlight2": "Recorridos transparentes de instalaciones, permisos y qué esperar en tu hogar.",
+      "highlight3": "Más videos sobre carga, Powerwall y vida totalmente eléctrica."
+    },
     "rebates": {
       "eyebrow": "Ahorros e incentivos",
       "title": "Rebates e incentivos",

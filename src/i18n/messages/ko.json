@@ -114,6 +114,17 @@
       "step4Desc": "면허 전기 기사가 프로젝트를 검토하고 전문 설치 일정을 잡습니다.",
       "swipeHint": "다음 단계로 스와이프 →"
     },
+    "video": {
+      "eyebrow": "evNation 현장",
+      "title": "실제 시공, 실제 고객",
+      "subtitle": "면허 C-10 팀이 Level 2 EV 충전, 패널 업그레이드, 태양광을 견적부터 최종 검사까지 어떻게 진행하는지 확인하세요.",
+      "play": "동영상 재생",
+      "watchChannel": "{handle}에서 보기",
+      "youtubeCta": "YouTube 채널",
+      "highlight1": "주택·상업 프로젝트마다 면허 전기 기사가 직접 시공합니다.",
+      "highlight2": "설치, 허가, 집 방문 시 예상 절차를 투명하게 보여드립니다.",
+      "highlight3": "충전 팁, Powerwall, 전기 생활 전환 영상도 채널에서 확인하세요."
+    },
     "rebates": {
       "eyebrow": "절약 및 인센티브",
       "title": "리베이트 및 인센티브",
