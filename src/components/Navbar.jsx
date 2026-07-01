@@ -10,7 +10,7 @@ import {
   ArrowRight,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
-import { useNavLinks } from '@/i18n/useNavLinks'
+import { useNavLinks, isServiceNavActive } from '@/i18n/useNavLinks'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import Logo from './Logo'
 import QuoteCartDrawer from './QuoteCartDrawer'
@@ -138,7 +138,7 @@ export default function Navbar() {
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const servicesActive = serviceLinks.some((l) => l.to === pathname)
+  const servicesActive = serviceLinks.some((l) => isServiceNavActive(pathname, l.to))
 
   return (
     <>
@@ -169,7 +169,7 @@ export default function Navbar() {
                         key={link.to}
                         to={link.to}
                         className={`flex items-center gap-3 px-3 py-2.5 rounded-xl transition-colors ${
-                          pathname === link.to
+                          isServiceNavActive(pathname, link.to)
                             ? 'bg-neon/10 text-neon'
                             : 'text-slate-300 hover:bg-white/5 hover:text-white'
                         }`}
@@ -338,7 +338,7 @@ export default function Navbar() {
                               to={link.to}
                               onClick={() => setMobileOpen(false)}
                               className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
-                                pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                                isServiceNavActive(pathname, link.to) ? 'bg-neon/10 text-neon' : 'text-slate-300'
                               }`}
                             >
                               <link.icon className="w-4 h-4 opacity-70 shrink-0" />

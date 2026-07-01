@@ -15,18 +15,12 @@
     "serviceAreas": "Áreas de servicio",
     "calculator": "Calculadora",
     "warranty": "Garantía",
-    "residentialEv": "Carga EV residencial",
-    "residentialEvDesc": "Instalación Level 2 en casa",
-    "solar": "Solar",
-    "solarDesc": "Techo y batería",
-    "panelUpgrades": "Actualización de panel",
-    "panelUpgradesDesc": "Servicio 200A",
+    "residential": "Residencial",
+    "residentialDesc": "Carga EV, panel y Powerwall",
     "commercial": "Comercial",
-    "commercialDesc": "Flotas y lugares de trabajo",
-    "battery": "Almacenamiento de batería",
-    "batteryDesc": "Tesla Powerwall y más",
-    "shopAll": "Todos los servicios",
-    "shopAllDesc": "Explorar y armar cotización",
+    "commercialDesc": "L2/L3 para propiedades y flotas",
+    "allServices": "Todos los servicios",
+    "allServicesDesc": "Explorar y armar cotización",
     "about": "Nosotros",
     "aboutDesc": "Equipo regional de instalación",
     "autoDealer": "Socios concesionarios",
@@ -90,15 +84,13 @@
     "solutions": {
       "eyebrow": "Lo que hacemos",
       "title": "Tu socio regional en electrificación",
-      "subtitle": "Carga EV, solar, paneles e instalaciones comerciales — un equipo con licencia en tu región.",
+      "subtitle": "Carga EV residencial, actualización de panel y Tesla Powerwall — un equipo con licencia en tu región.",
       "residentialTitle": "Carga EV residencial",
       "residentialDesc": "Cargadores Level 2 en nuestras áreas de servicio — con licencia, permisos y calidad.",
-      "solarTitle": "Solar",
-      "solarDesc": "Sistemas en techo adaptados al sol de California y tu forma de conducir.",
       "panelTitle": "Actualización de panel",
       "panelDesc": "Servicio 200A para cargar tu EV de forma segura en casa.",
-      "commercialTitle": "Comercial",
-      "commercialDesc": "Carga en lugares de trabajo y flotas en áreas metropolitanas selectas."
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "Batería de respaldo y almacenamiento solar — instalado por técnicos certificados."
     },
     "journey": {
       "eyebrow": "Cómo funciona",
@@ -283,6 +275,41 @@
       "footerCa": "Drive Clean lista programas oficiales — te ayudamos a aplicar durante la instalación.",
       "footerNonCa": "¿California? Cambia a un área CA para buscar en Drive Clean.",
       "applyQuote": "Aplicar en tu cotización"
+    }
+  },
+  "servicesHub": {
+    "viewService": "Ver servicio",
+    "residential": {
+      "badge": "Para hogares",
+      "title": "Servicios residenciales",
+      "subtitle": "Elige un servicio para ver cómo evNation instala, tramita permisos y da soporte a tu proyecto.",
+      "evTitle": "Instalación de cargador EV",
+      "evDesc": "Carga Level 2 en casa con canalización limpia, circuito 240V dedicado y permisos incluidos.",
+      "panelTitle": "Actualización de panel",
+      "panelDesc": "Servicio 200A para soportar cargador EV, solar y cargas futuras con seguridad.",
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "Respaldo total del hogar y ahorro en horas pico — instalado por electricistas certificados."
+    },
+    "commercial": {
+      "badge": "Para negocios y propiedades",
+      "title": "Comercial",
+      "titleAccent": "Carga EV",
+      "subtitle": "Carga Level 2 y Level 3 escalable para multifamiliar, lugares de trabajo, retail y flotas.",
+      "imageAlt": "Estaciones de carga comercial EV",
+      "offersEyebrow": "Lo que instalamos",
+      "offersTitle": "Hecho para propiedades y flotas",
+      "offersSubtitle": "Desde estacionamiento compartido hasta carga en depósito — diseño, permisos, red y soporte.",
+      "l2Title": "Level 2 comercial",
+      "l2Desc": "Carga AC compartida con gestión de carga, control de acceso e informes de uso.",
+      "l3Title": "Level 3 comercial (DC rápido)",
+      "l3Desc": "Carga DC de alta potencia para sitios de alto tráfico, retail y ventanas de flota.",
+      "multifamilyTitle": "Propiedades multifamiliar",
+      "multifamilyDesc": "Soluciones para condos y apartamentos con reparto justo, facturación y escalabilidad.",
+      "fleetTitle": "Servicios de flota",
+      "fleetDesc": "Carga en depósito y rutas para vans de reparto, camiones de servicio y flotas comerciales.",
+      "ctaTitle": "¿Planeas una instalación comercial?",
+      "ctaDesc": "Cuéntanos sobre tu propiedad, estacionamiento y plazos — evaluaremos opciones Level 2/3 y requisitos de la utility.",
+      "contactUs": "Contáctanos"
     }
   }
 }

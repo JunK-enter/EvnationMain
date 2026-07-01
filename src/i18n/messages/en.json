@@ -15,18 +15,12 @@
     "serviceAreas": "Service Areas",
     "calculator": "Calculator",
     "warranty": "Warranty",
-    "residentialEv": "Residential EV Charging",
-    "residentialEvDesc": "Level 2 home install",
-    "solar": "Solar",
-    "solarDesc": "Roof & battery-ready",
-    "panelUpgrades": "Panel Upgrades",
-    "panelUpgradesDesc": "200A service upgrades",
+    "residential": "Residential",
+    "residentialDesc": "EV charging, panel & Powerwall",
     "commercial": "Commercial",
-    "commercialDesc": "Workplace & fleet",
-    "battery": "Battery Storage",
-    "batteryDesc": "Tesla Powerwall & more",
-    "shopAll": "Shop All Services",
-    "shopAllDesc": "Browse & build a quote",
+    "commercialDesc": "L2/L3 for properties & fleets",
+    "allServices": "All Services",
+    "allServicesDesc": "Browse & build a quote",
     "about": "About",
     "aboutDesc": "Regional install team",
     "autoDealer": "Auto Dealer Partners",
@@ -90,15 +84,13 @@
     "solutions": {
       "eyebrow": "What We Do",
       "title": "Your regional electrification partner",
-      "subtitle": "EV charging, solar, panel upgrades, and commercial installs — one licensed team across regional service areas.",
+      "subtitle": "Residential EV charging, panel upgrades, and Tesla Powerwall — one licensed team across regional service areas.",
       "residentialTitle": "Residential EV Charging",
       "residentialDesc": "Level 2 chargers across our regional service areas — licensed, permitted, done right.",
-      "solarTitle": "Solar",
-      "solarDesc": "Roof-mounted systems sized for California sun and your driving habits.",
       "panelTitle": "Panel Upgrades",
       "panelDesc": "200A service upgrades for safe EV charging at home.",
-      "commercialTitle": "Commercial",
-      "commercialDesc": "Workplace & fleet charging in select metro service areas."
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "Home battery backup and solar storage — installed by certified Powerwall installers."
     },
     "journey": {
       "eyebrow": "How It Works",
@@ -283,6 +275,41 @@
       "footerCa": "Drive Clean lists official programs — we help you apply during install.",
       "footerNonCa": "California? Switch to a CA service area for Drive Clean search.",
       "applyQuote": "Apply on your quote"
+    }
+  },
+  "servicesHub": {
+    "viewService": "View service",
+    "residential": {
+      "badge": "For Homeowners",
+      "title": "Residential services",
+      "subtitle": "Choose a service to learn how evNation installs, permits, and supports your home electrification project.",
+      "evTitle": "EV Charger Installation",
+      "evDesc": "Level 2 home charging with clean conduit routing, dedicated 240V circuits, and permits handled end-to-end.",
+      "panelTitle": "Panel Upgrade",
+      "panelDesc": "200A service upgrades so your panel can safely support an EV charger, solar, and future loads.",
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "Whole-home battery backup and peak-rate savings — installed by certified Powerwall electricians."
+    },
+    "commercial": {
+      "badge": "For Business & Property",
+      "title": "Commercial",
+      "titleAccent": "EV Charging",
+      "subtitle": "Scalable Level 2 and Level 3 charging for multifamily communities, workplaces, retail, and fleets.",
+      "imageAlt": "Commercial EV charging stations",
+      "offersEyebrow": "What We Install",
+      "offersTitle": "Built for properties & fleets",
+      "offersSubtitle": "From shared parking to depot charging — design, permitting, networking, and ongoing support.",
+      "l2Title": "Commercial Level 2",
+      "l2Desc": "Shared AC charging for tenants, employees, and guests — load-managed ports with access control and usage reporting.",
+      "l3Title": "Commercial Level 3 (DC Fast)",
+      "l3Desc": "High-power DC fast charging for high-traffic sites, retail destinations, and fleet turn-around windows.",
+      "multifamilyTitle": "Multifamily Properties",
+      "multifamilyDesc": "Condo and apartment solutions with fair allocation, billing options, and infrastructure that scales with occupancy.",
+      "fleetTitle": "Fleet Services",
+      "fleetDesc": "Depot and route-based charging for delivery vans, service trucks, and light commercial fleets.",
+      "ctaTitle": "Planning a commercial install?",
+      "ctaDesc": "Tell us about your property, parking layout, and timeline — our team will scope Level 2/3 options and utility requirements.",
+      "contactUs": "Contact Us"
     }
   }
 }

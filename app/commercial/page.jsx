@@ -3,7 +3,7 @@ import CommercialChargingPage from '@/views/CommercialChargingPage'
 
 export const metadata = pageMetadata({
   title: 'Commercial EV Charging',
-  description: 'Workplace and fleet EV charging installation for Southern California businesses.',
+  description: 'Level 2 and Level 3 commercial EV charging for multifamily properties and fleets.',
   path: '/commercial',
 })
 

@@ -1,21 +1,32 @@
 'use client'
 
 import {
-  Bolt, Building2, BatteryCharging, ShieldCheck, Calculator, FileText,
-  Info, Handshake, Newspaper, MapPin, ShoppingCart,
+  Home, Building2, ShoppingCart, ShieldCheck, Calculator, FileText,
+  Info, Handshake, Newspaper, MapPin,
 } from 'lucide-react'
 import { useTranslation } from '@/i18n/LocaleProvider'
+
+export const RESIDENTIAL_SERVICE_PATHS = [
+  '/residential',
+  '/residential-ev-charging',
+  '/panel-upgrades',
+  '/battery',
+]
+
+export function isServiceNavActive(pathname, linkTo) {
+  if (linkTo === '/residential') {
+    return RESIDENTIAL_SERVICE_PATHS.includes(pathname)
+  }
+  return pathname === linkTo
+}
 
 export function useNavLinks() {
   const { t } = useTranslation()
 
   const serviceLinks = [
-    { to: '/residential-ev-charging', label: t('nav.residentialEv'), desc: t('nav.residentialEvDesc'), icon: Bolt },
-    { to: '/solar', label: t('nav.solar'), desc: t('nav.solarDesc'), icon: BatteryCharging },
-    { to: '/panel-upgrades', label: t('nav.panelUpgrades'), desc: t('nav.panelUpgradesDesc'), icon: ShieldCheck },
+    { to: '/residential', label: t('nav.residential'), desc: t('nav.residentialDesc'), icon: Home },
     { to: '/commercial', label: t('nav.commercial'), desc: t('nav.commercialDesc'), icon: Building2 },
-    { to: '/battery', label: t('nav.battery'), desc: t('nav.batteryDesc'), icon: BatteryCharging },
-    { to: '/shop', label: t('nav.shopAll'), desc: t('nav.shopAllDesc'), icon: ShoppingCart },
+    { to: '/shop', label: t('nav.allServices'), desc: t('nav.allServicesDesc'), icon: ShoppingCart },
   ]
 
   const mainLinks = [
@@ -42,11 +53,9 @@ export function useFooterLinks() {
 
   return {
     services: [
-      { href: '/residential-ev-charging', label: t('nav.residentialEv') },
-      { href: '/solar', label: t('nav.solar') },
-      { href: '/panel-upgrades', label: t('nav.panelUpgrades') },
+      { href: '/residential', label: t('nav.residential') },
       { href: '/commercial', label: t('nav.commercial') },
-      { href: '/battery', label: t('nav.battery') },
+      { href: '/shop', label: t('nav.allServices') },
     ],
     company: [
       { href: '/about', label: t('nav.about') },

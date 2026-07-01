@@ -5,7 +5,6 @@ import { BatteryCharging, ArrowRight } from 'lucide-react'
 import Hero from '../components/Hero'
 import HomeFinalCTA from '../components/HomeFinalCTA'
 import InstallReadinessCheck from '../components/InstallReadinessCheck'
-import ProjectsShowcaseSection from '../components/ProjectsShowcaseSection'
 import CustomerJourney from '../components/CustomerJourney'
 import SavingsSection from '../components/SavingsSection'
 import TrustSection from '../components/TrustSection'
@@ -15,7 +14,6 @@ import FAQSection from '../components/FAQSection'
 import RebateFinder from '../components/RebateFinder'
 import LogoMarquee from '../components/LogoMarquee'
 import SolutionsSection from '../components/SolutionsSection'
-import EVNationVideoSection from '../components/EVNationVideoSection'
 import ServiceZonesSection from '../components/ServiceZonesSection'
 import SectionAmbient from '../components/SectionAmbient'
 import SectionHeader from '../components/SectionHeader'
@@ -46,7 +44,7 @@ function TeslaPowerwallBand() {
             </div>
           </div>
           <div className="relative min-h-[280px] lg:min-h-0">
-            <img src="/images/battery-hero.png" alt="Tesla Powerwall home battery" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
+            <img src="/images/tesla-powerwall-hero.png" alt="Tesla Powerwall home battery" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-950/10 to-transparent" />
           </div>
         </div>
@@ -85,8 +83,6 @@ export default function HomePage() {
 
       <SolutionsSection />
 
-      <EVNationVideoSection />
-
       <CustomerJourney />
 
       <TrustSection />
@@ -98,8 +94,6 @@ export default function HomePage() {
       <SavingsSection />
 
       <ServiceZonesSection />
-
-      <ProjectsShowcaseSection />
 
       <TestimonialSection />
 

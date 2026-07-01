@@ -7,7 +7,7 @@ import { ArrowRight, Check, Home, Gauge, Car, HelpCircle } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import { DEFAULT_ZONE_ID } from '@/data/serviceZones'
-import { calculateQuizBaseEstimate, shouldSuggestPanelUpgrade } from '@/services/quoteCalculator'
+import { calculateReadinessEstimate } from '@/services/quoteCalculator'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import { useIsMobile } from '@/lib/useMediaQuery'
 
@@ -71,21 +71,18 @@ export default function InstallReadinessCheck() {
 
   const result = useMemo(() => {
     if (!done) return null
-    const serviceNeed = pickServiceNeed(answers.panel)
-    const panelAmps = answers.panel === 'unknown' ? '' : `${answers.panel}A`
-    const needsPanel = shouldSuggestPanelUpgrade(panelAmps) || serviceNeed === 'ev-panel'
-    const estimate = calculateQuizBaseEstimate(DEFAULT_ZONE_ID, serviceNeed)
-    const distance = answers.parking === 'garage' ? 15 : answers.parking === 'driveway' ? 28 : 35
+    const estimate = calculateReadinessEstimate({
+      zoneId: DEFAULT_ZONE_ID,
+      parking: answers.parking,
+      panel: answers.panel,
+    })
 
     return {
-      serviceNeed,
-      panelAmps,
-      needsPanel,
-      estimate,
-      distance,
+      ...estimate,
+      panelAmps: answers.panel === 'unknown' ? '' : `${answers.panel}A`,
       notes: [
         answers.parking === 'outdoor' && t('home.readiness.noteOutdoor'),
-        needsPanel && t('home.readiness.notePanel'),
+        estimate.needsPanel && t('home.readiness.notePanel'),
         answers.ev === 'ordered' && t('home.readiness.noteOrdered'),
       ].filter(Boolean),
     }
@@ -167,13 +164,13 @@ export default function InstallReadinessCheck() {
                   </div>
                   <p className="text-sm text-slate-400 mb-1">{t('home.readiness.typicalFrom')}</p>
                   <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-2">
-                    {result.estimate.display}
+                    {result.display}
                   </p>
                   <p className="text-xs text-slate-500 mb-5">
                     {t('home.readiness.resultMeta', {
                       region: t('home.readiness.defaultRegion'),
                       distance: result.distance,
-                      lineItem: result.estimate.lineItem,
+                      lineItem: result.lineItem,
                       panelNote: result.needsPanel ? t('home.readiness.panelLikely') : '',
                     })}
                   </p>
@@ -247,13 +244,13 @@ export default function InstallReadinessCheck() {
                   </div>
                   <p className="text-sm text-slate-400 mb-1">{t('home.readiness.typicalFrom')}</p>
                   <p className="font-display text-3xl sm:text-4xl font-bold text-white mb-2">
-                    {result.estimate.display}
+                    {result.display}
                   </p>
                   <p className="text-xs text-slate-500 mb-5">
                     {t('home.readiness.resultMeta', {
                       region: t('home.readiness.defaultRegion'),
                       distance: result.distance,
-                      lineItem: result.estimate.lineItem,
+                      lineItem: result.lineItem,
                       panelNote: result.needsPanel ? t('home.readiness.panelLikely') : '',
                     })}
                   </p>

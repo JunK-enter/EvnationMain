@@ -17,6 +17,9 @@ export default function ServicePageLayout({
   tagline,
   image,
   imageAlt,
+  imageAspect = 'aspect-[4/3]',
+  imageClassName = 'object-cover',
+  imageOverlay = true,
   primaryCta = { to: '/quote', label: 'Get a Quote' },
   secondaryCta,
   stats = [],
@@ -64,9 +67,11 @@ export default function ServicePageLayout({
               className="relative"
             >
               <div className="absolute -inset-3 rounded-[2rem] bg-gradient-to-br from-neon/15 via-transparent to-blue-500/5 blur-2xl opacity-60" />
-              <div className="relative rounded-3xl overflow-hidden neon-border aspect-[4/3]">
-                <img src={image} alt={imageAlt || title} className="w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
+              <div className={`relative rounded-3xl overflow-hidden neon-border ${imageAspect}`}>
+                <img src={image} alt={imageAlt || title} className={`w-full h-full ${imageClassName}`} />
+                {imageOverlay && (
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy-950/50 to-transparent" />
+                )}
               </div>
             </motion.div>
           </div>

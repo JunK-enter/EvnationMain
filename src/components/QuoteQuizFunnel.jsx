@@ -20,9 +20,11 @@ import {
   RefreshCw,
   ShieldCheck,
   Sparkles,
-  Sun,
   User,
   Zap,
+  BatteryCharging,
+  Building2,
+  Briefcase,
 } from 'lucide-react'
 import {
   QUOTE_QUIZ_STEPS,
@@ -43,7 +45,9 @@ const SERVICE_ICONS = {
   'panel-upgrade': LayoutGrid,
   'ev-panel': Layers,
   'charger-swap': RefreshCw,
-  solar: Sun,
+  'tesla-powerwall': BatteryCharging,
+  multifamily: Building2,
+  'commercial-project': Briefcase,
   'not-sure': HelpCircle,
 }
 
@@ -214,7 +218,9 @@ function EstimatePanel({ quote, serviceNeed, zoneId, stepIndex, className = '' }
         )}
 
         <p className="text-xs text-slate-500 leading-relaxed">
-          Cable runs, permits, panel upgrades, and other add-ons are quoted after your licensed electrician review.
+          {quote.custom
+            ? 'Multifamily and commercial projects are scoped on-site. Our team will follow up with a detailed proposal.'
+            : 'Cable runs, permits, panel upgrades, and other add-ons are quoted after your licensed electrician review.'}
         </p>
 
         <div className="mt-5 pt-4 border-t border-white/5 space-y-2">

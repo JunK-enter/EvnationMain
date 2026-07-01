@@ -4,7 +4,7 @@ import { useState, useEffect, useMemo } from 'react'
 import Link from '@/components/Link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
-  ArrowRight, Zap, MapPin, LayoutGrid, BatteryCharging, Sun, Droplets, Wind,
+  ArrowRight, Zap, MapPin, LayoutGrid, BatteryCharging, Droplets, Wind,
   ShieldCheck, Star,
 } from 'lucide-react'
 import HeroVisual from './HeroVisual'
@@ -78,7 +78,6 @@ export default function Hero() {
       { label: t('hero.evCharger'), icon: Zap, href: '/residential-ev-charging' },
       { label: t('hero.panelUpgrade'), icon: LayoutGrid, href: '/panel-upgrades' },
       { label: t('hero.homeBatteries'), icon: BatteryCharging, href: '/battery' },
-      { label: t('nav.solar'), icon: Sun, href: '/solar' },
       { label: t('hero.waterHeaters'), icon: Droplets, href: '/quote', hideMobile: true },
       { label: t('hero.dryersOvens'), icon: Wind, href: '/quote', hideMobile: true },
     ],

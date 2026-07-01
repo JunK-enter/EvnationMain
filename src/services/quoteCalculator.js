@@ -186,23 +186,46 @@ export function calculateQuote({
 }
 
 /** Quiz funnel — base starting price only (no cable run, permits, or add-ons) */
+const QUIZ_CUSTOM_ESTIMATE = new Set(['multifamily', 'commercial-project'])
+
 const QUIZ_SERVICE_LINE_ITEM = {
   'ev-charger': 'Base Installation',
   'nema-outlet': 'Base Installation',
   'panel-upgrade': 'Panel Upgrade',
   'ev-panel': 'Base Installation',
   'charger-swap': 'Base Installation',
-  solar: 'DCC Load device',
+  'tesla-powerwall': 'Tesla Powerwall',
   'not-sure': 'Base Installation',
 }
 
 const QUIZ_LINE_FALLBACK = {
   'Base Installation': { low: 575, high: 575 },
   'Panel Upgrade': { low: 3500, high: 4500 },
-  'DCC Load device': { low: 225, high: 225 },
+  'Tesla Powerwall': { low: 9995, high: 9995 },
 }
 
 export function calculateQuizBaseEstimate(zoneId, serviceNeedId) {
+  if (QUIZ_CUSTOM_ESTIMATE.has(serviceNeedId)) {
+    return {
+      lineItem: 'Custom scope',
+      from: null,
+      display: 'Custom quote',
+      custom: true,
+    }
+  }
+
+  if (serviceNeedId === 'ev-panel') {
+    const base = getRetailLineItem(zoneId, 'Base Installation') || QUIZ_LINE_FALLBACK['Base Installation']
+    const panel = getRetailLineItem(zoneId, 'Panel Upgrade') || QUIZ_LINE_FALLBACK['Panel Upgrade']
+    const from = { low: base.low + panel.low, high: base.high + panel.high }
+    return {
+      lineItem: 'Install + panel upgrade',
+      from,
+      display: formatFromPrice(from),
+      custom: false,
+    }
+  }
+
   const lineItem = QUIZ_SERVICE_LINE_ITEM[serviceNeedId] || 'Base Installation'
   const raw = getRetailLineItem(zoneId, lineItem) || QUIZ_LINE_FALLBACK[lineItem] || { low: 575, high: 575 }
   const from = { low: Math.round(raw.low), high: Math.round(raw.high) }
@@ -210,6 +233,46 @@ export function calculateQuizBaseEstimate(zoneId, serviceNeedId) {
     lineItem,
     from,
     display: formatFromPrice(from),
+    custom: false,
+  }
+}
+
+const READINESS_PARKING_DISTANCE = { garage: 15, driveway: 28, outdoor: 35 }
+const READINESS_PARKING_COMPLEXITY = { garage: 'simple', driveway: 'simple', outdoor: 'moderate' }
+
+/** Home-page Quick Check — ballpark total using parking distance and panel size */
+export function calculateReadinessEstimate({
+  zoneId = DEFAULT_ZONE_ID,
+  parking = 'garage',
+  panel = '200',
+}) {
+  const distance = READINESS_PARKING_DISTANCE[parking] ?? 25
+  const complexity = READINESS_PARKING_COMPLEXITY[parking] ?? 'simple'
+  const panelAmps = panel === 'unknown' ? '' : `${panel}A`
+  const needsPanel = shouldSuggestPanelUpgrade(panelAmps)
+
+  const quote = calculateQuote({
+    zoneId,
+    chargerType: 'hardwired',
+    distance,
+    panelUpgrade: needsPanel,
+    permitNeeded: true,
+    complexity,
+    extras: {},
+  })
+
+  const total = quote.total
+  const display = total.low !== total.high
+    ? formatRetailRange(total)
+    : formatFromPrice(total)
+
+  return {
+    serviceNeed: needsPanel ? 'ev-panel' : 'ev-charger',
+    needsPanel,
+    distance,
+    total,
+    lineItem: needsPanel ? 'Install + panel upgrade' : 'Install + cable run',
+    display,
   }
 }
 

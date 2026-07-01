@@ -15,18 +15,12 @@
     "serviceAreas": "服务区域",
     "calculator": "计算器",
     "warranty": "保修",
-    "residentialEv": "家用 EV 充电",
-    "residentialEvDesc": "二级家用安装",
-    "solar": "太阳能",
-    "solarDesc": "屋顶与储能就绪",
-    "panelUpgrades": "配电盘升级",
-    "panelUpgradesDesc": "200A 服务升级",
+    "residential": "住宅",
+    "residentialDesc": "EV 充电、配电盘、Powerwall",
     "commercial": "商业",
-    "commercialDesc": "工作场所与车队",
-    "battery": "电池储能",
-    "batteryDesc": "Tesla Powerwall 等",
-    "shopAll": "全部服务",
-    "shopAllDesc": "浏览并构建报价",
+    "commercialDesc": "物业与车队 L2/L3",
+    "allServices": "全部服务",
+    "allServicesDesc": "浏览并构建报价",
     "about": "关于我们",
     "aboutDesc": "区域安装团队",
     "autoDealer": "汽车经销商合作",
@@ -90,15 +84,13 @@
     "solutions": {
       "eyebrow": "我们的服务",
       "title": "您的区域电气化合作伙伴",
-      "subtitle": "EV 充电、太阳能、配电盘升级与商业安装 — 一支持牌团队覆盖各服务区域。",
+      "subtitle": "家用 EV 充电、配电盘升级与 Tesla Powerwall — 一支持牌团队覆盖各服务区域。",
       "residentialTitle": "家用 EV 充电",
       "residentialDesc": "各服务区域的二级充电器 — 持牌、许可、专业施工。",
-      "solarTitle": "太阳能",
-      "solarDesc": "根据加州日照与您的驾驶习惯定制屋顶系统。",
       "panelTitle": "配电盘升级",
       "panelDesc": "200A 服务升级，安全支持家庭 EV 充电。",
-      "commercialTitle": "商业",
-      "commercialDesc": "选定都市区的工作场所与车队充电。"
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "家庭电池备份与太阳能储能 — 认证 Powerwall 安装团队。"
     },
     "journey": {
       "eyebrow": "流程说明",
@@ -283,6 +275,41 @@
       "footerCa": "Drive Clean 列出官方项目 — 我们在安装时协助申请。",
       "footerNonCa": "在加州？切换到 CA 服务区域以使用 Drive Clean 搜索。",
       "applyQuote": "在报价中申请"
+    }
+  },
+  "servicesHub": {
+    "viewService": "查看服务",
+    "residential": {
+      "badge": "住宅客户",
+      "title": "住宅服务",
+      "subtitle": "选择一项服务，了解 evNation 如何安装、许可并支持您的家庭电气化项目。",
+      "evTitle": "EV 充电器安装",
+      "evDesc": "家庭二级充电，整洁布线、专用 240V 回路，全程办理许可。",
+      "panelTitle": "配电盘升级",
+      "panelDesc": "200A 服务升级，安全支持 EV 充电器、太阳能及未来负载。",
+      "powerwallTitle": "Tesla Powerwall",
+      "powerwallDesc": "全屋备用电源与峰时节省 — 认证 Powerwall 安装团队。"
+    },
+    "commercial": {
+      "badge": "商业与物业",
+      "title": "商业",
+      "titleAccent": "EV 充电",
+      "subtitle": "为多户住宅、职场、零售和车队提供可扩展的二/三级充电。",
+      "imageAlt": "商业 EV 充电站",
+      "offersEyebrow": "安装服务",
+      "offersTitle": "为物业与车队打造",
+      "offersSubtitle": "从共享停车到车队场站 — 设计、许可、联网与持续支持。",
+      "l2Title": "商业二级充电",
+      "l2Desc": "租户、员工与访客共享交流充电 — 负载管理、门禁与用量报告。",
+      "l3Title": "商业三级充电（直流快充）",
+      "l3Desc": "高流量站点、零售与车队周转所需的高功率直流快充。",
+      "multifamilyTitle": "多户住宅物业",
+      "multifamilyDesc": "公寓与 condo 方案，公平分配、计费选项及可扩展基础设施。",
+      "fleetTitle": "车队服务",
+      "fleetDesc": "配送、服务卡车及轻型商业车队的场站与路线充电。",
+      "ctaTitle": "正在规划商业安装？",
+      "ctaDesc": "告诉我们物业、停车布局与时间表 — 我们将评估二/三级方案及电力公司要求。",
+      "contactUs": "联系我们"
     }
   }
 }
