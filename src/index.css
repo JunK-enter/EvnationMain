@@ -589,6 +589,15 @@ input:focus, select:focus, textarea:focus {
   66% { transform: translate(-8px, 10px) scale(0.98); }
 }
 
+.ev-charge-pulse {
+  animation: ev-charge-pulse 3s ease-in-out infinite;
+}
+
+@keyframes ev-charge-pulse {
+  0%, 100% { opacity: 0.35; transform: scaleX(0.85); }
+  50% { opacity: 1; transform: scaleX(1); }
+}
+
 .hero-line-draw {
   transform-origin: left center;
   animation: hero-line-draw 1.2s ease-out 0.6s both;

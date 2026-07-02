@@ -16,7 +16,6 @@ export const CHAT_WELCOME = {
   text: "Hi! I'm the EVnation assistant. Ask me about EV charger installation, panel upgrades, pricing, rebates, or how to get a quote — I'll keep it simple.",
   links: [
     { label: 'Get a quote', href: '/quote' },
-    { label: 'Price calculator', href: '/calculator' },
   ],
 }
 
@@ -81,7 +80,6 @@ const RULES = [
       text: pricingText(),
       links: [
         { label: 'Get starting estimate', href: '/quote' },
-        { label: 'Full calculator', href: '/calculator' },
       ],
     }),
   },
@@ -270,7 +268,7 @@ Service areas: ${zoneListText()}.
 
 Starting prices: L2 charger ${calculateQuizBaseEstimate(DEFAULT_ZONE, 'ev-charger').display} base (So Cal); panel ${PRICING.panelUpgrade.label}; permits ${PRICING.permit.label}; Powerwall ${PRICING.teslaPowerwall.label}. Cable runs, permits, and add-ons are quoted after electrician review.
 
-Key pages: /quote (quote quiz), /calculator, /contact, /service-areas, /panel-upgrades, /residential-ev-charging.
+Key pages: /quote (quote quiz), /contact, /service-areas, /panel-upgrades, /residential-ev-charging.
 
 Do not invent exact final prices. Encourage /quote for estimates. Never claim to schedule installs directly — say the team follows up within ${stats.quoteTurnaround}.`
 }

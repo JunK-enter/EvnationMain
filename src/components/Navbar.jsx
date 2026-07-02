@@ -6,7 +6,7 @@ import Link from '@/components/Link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   Menu, X, ShoppingCart, ChevronDown,
-  Calculator, FileText,
+  FileText,
   ArrowRight,
 } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
@@ -373,7 +373,7 @@ export default function Navbar() {
                         }`}
                       >
                         {link.icon && <link.icon className="w-4 h-4 opacity-70 shrink-0" />}
-                        {link.to === '/calculator' ? t('nav.savingsCalculator') : link.label}
+                        {link.label}
                       </Link>
                     ))}
                     {mobileExtraLinks.map((link) => (

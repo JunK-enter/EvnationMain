@@ -1,7 +1,7 @@
 'use client'
 
 import {
-  Home, Building2, ShoppingCart, ShieldCheck, Calculator, FileText,
+  Home, Building2, ShoppingCart, ShieldCheck, FileText,
   Info, Handshake, Newspaper, MapPin,
 } from 'lucide-react'
 import { useTranslation } from '@/i18n/LocaleProvider'
@@ -32,7 +32,6 @@ export function useNavLinks() {
   const mainLinks = [
     { to: '/projects', label: t('nav.projects') },
     { to: '/service-areas', label: t('nav.serviceAreas'), icon: MapPin },
-    { to: '/calculator', label: t('nav.calculator'), icon: Calculator },
   ]
 
   const mobileExtraLinks = [

@@ -8,7 +8,6 @@ const groups = [
     links: [
       { to: '/', label: 'Home' },
       { to: '/quote', label: 'Get a Quote' },
-      { to: '/calculator', label: 'Savings Calculator' },
       { to: '/projects', label: 'Projects' },
       { to: '/contact', label: 'Contact' },
     ],

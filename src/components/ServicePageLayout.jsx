@@ -25,6 +25,7 @@ export default function ServicePageLayout({
   stats = [],
   featuresTitle = "What's Included",
   features = [],
+  middleContent,
   children,
 }) {
   return (
@@ -89,6 +90,8 @@ export default function ServicePageLayout({
           )}
         </div>
       </section>
+
+      {middleContent}
 
       {/* Features */}
       {features.length > 0 && (
