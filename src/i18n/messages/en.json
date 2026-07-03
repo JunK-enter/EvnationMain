@@ -11,7 +11,7 @@
     "getQuote": "Get a Quote",
     "openCart": "Open quote cart",
     "savingsCalculator": "Savings Calculator",
-    "projects": "Projects",
+    "gallery": "Gallery",
     "serviceAreas": "Service Areas",
     "calculator": "Calculator",
     "warranty": "Warranty",
@@ -49,7 +49,7 @@
     "rotate2": "Store smarter.",
     "rotate3": "Power through outages.",
     "rotate4": "Save on every mile.",
-    "subtitle": "Level 2 charging, panel upgrades, Powerwall & solar — one licensed team across {region}.",
+    "subtitle": "Home EV Charger, Electrical Panel Upgrade, Tesla Powerwall & EV Services, GM EV Charging Services, Solar Installations & Repair",
     "buildQuote": "Build Your Quote",
     "homesElectrified": "Homes electrified",
     "customerRating": "Customer rating",
@@ -58,7 +58,8 @@
     "panelUpgrade": "Panel Upgrade",
     "homeBatteries": "Home Batteries",
     "waterHeaters": "Water Heaters",
-    "dryersOvens": "Dryers & Ovens"
+    "dryersOvens": "Dryers & Ovens",
+    "remodeling": "Remodeling"
   },
   "common": {
     "getQuote": "Get a Quote",
@@ -84,13 +85,15 @@
     "solutions": {
       "eyebrow": "What We Do",
       "title": "Your regional electrification partner",
-      "subtitle": "Residential EV charging, panel upgrades, and Tesla Powerwall — one licensed team across regional service areas.",
-      "residentialTitle": "Residential EV Charging",
-      "residentialDesc": "Level 2 chargers across our regional service areas — licensed, permitted, done right.",
-      "panelTitle": "Panel Upgrades",
-      "panelDesc": "200A service upgrades for safe EV charging at home.",
-      "powerwallTitle": "Tesla Powerwall",
-      "powerwallDesc": "Home battery backup and solar storage — installed by certified Powerwall installers."
+      "subtitle": "EV charging, bi-directional installs, panel upgrades, and home battery backup — one licensed team across regional service areas.",
+      "evChargingTitle": "EV Charging",
+      "evChargingDesc": "Level 2 home chargers — licensed install, dedicated circuits, and permits handled end-to-end.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "Vehicle-to-home and backup-ready setups for supported Tesla, GM, and other V2H-capable vehicles.",
+      "panelTitle": "Panel Upgrade",
+      "panelDesc": "200A service upgrades for safe EV charging, solar, and future loads at home.",
+      "powerwallBatteryTitle": "PowerWall & Battery",
+      "powerwallBatteryDesc": "Tesla Powerwall backup and whole-home energy storage — installed by certified electricians."
     },
     "journey": {
       "eyebrow": "How It Works",
@@ -204,12 +207,12 @@
       "subtitle": "California by region — Southern, Central & Northern. All other markets by state.",
       "outsideAreas": "Outside these areas?"
     },
-    "projects": {
-      "eyebrow": "Real installs",
-      "title": "Before & after on real homes",
-      "subtitle": "Licensed C-10 work across Southern California — swipe to compare, or browse the full project archive.",
-      "featured": "Featured project",
-      "recent": "Recent projects"
+    "gallery": {
+      "eyebrow": "Field photos",
+      "title": "Install gallery from real jobs",
+      "subtitle": "Installation day, finished work, and partner & dealer visits across our service areas.",
+      "featured": "Featured",
+      "viewAll": "View gallery"
     },
     "reviews": {
       "eyebrow": "Reviews",
@@ -285,6 +288,8 @@
       "subtitle": "Choose a service to learn how evNation installs, permits, and supports your home electrification project.",
       "evTitle": "EV Charger Installation",
       "evDesc": "Level 2 home charging with clean conduit routing, dedicated 240V circuits, and permits handled end-to-end.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "Vehicle-to-home and V2H-ready installs for supported Tesla, GM, and compatible EV hardware.",
       "panelTitle": "Panel Upgrade",
       "panelDesc": "200A service upgrades so your panel can safely support an EV charger, solar, and future loads.",
       "powerwallTitle": "Tesla Powerwall",

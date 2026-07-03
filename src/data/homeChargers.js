@@ -1,4 +1,4 @@
-/** Home charger catalog — product images in /public/images/chargers/ */
+/** Home charger catalog — real OEM/brand product photos only (no AI-generated images) */
 
 export const STANDARD_HOME_CHARGERS = [
   {

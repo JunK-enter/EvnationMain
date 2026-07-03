@@ -25,7 +25,7 @@ export const localKeywords = [
 ]
 
 export const stats = {
-  installations: '500+',
+  installations: '2500+',
   rating: '4.9/5',
   serviceArea: 'CA · 5 States',
   quoteTurnaround: '24hr',

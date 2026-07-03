@@ -92,8 +92,8 @@ export default function PanelUpgradePage() {
 
             <p className="text-center text-xs text-slate-500 mt-4">
               Full project details on our{' '}
-              <Link href="/projects#project-costa-mesa-panel" className="text-neon hover:underline">
-                projects page
+              <Link href="/gallery" className="text-neon hover:underline">
+                gallery
               </Link>
               .
             </p>

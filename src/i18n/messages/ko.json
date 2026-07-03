@@ -11,7 +11,7 @@
     "getQuote": "견적 받기",
     "openCart": "견적 장바구니 열기",
     "savingsCalculator": "절약 계산기",
-    "projects": "프로젝트",
+    "gallery": "갤러리",
     "serviceAreas": "서비스 지역",
     "calculator": "계산기",
     "warranty": "보증",
@@ -58,7 +58,8 @@
     "panelUpgrade": "패널 업그레이드",
     "homeBatteries": "가정용 배터리",
     "waterHeaters": "온수기",
-    "dryersOvens": "건조기 및 오븐"
+    "dryersOvens": "건조기 및 오븐",
+    "remodeling": "Remodeling"
   },
   "common": {
     "getQuote": "견적 받기",
@@ -84,13 +85,15 @@
     "solutions": {
       "eyebrow": "서비스",
       "title": "지역 전기화 파트너",
-      "subtitle": "주거용 EV 충전, 패널 업그레이드, Tesla Powerwall — 지역 서비스 전역의 하나의 면허 팀.",
-      "residentialTitle": "주거용 EV 충전",
-      "residentialDesc": "지역 서비스 전역 Level 2 충전기 — 면허, 허가, 완벽한 시공.",
-      "panelTitle": "패널 업그레이드",
-      "panelDesc": "가정 EV 충전을 위한 안전한 200A 서비스 업그레이드.",
-      "powerwallTitle": "Tesla Powerwall",
-      "powerwallDesc": "가정용 배터리 백업 및 태양광 저장 — 인증 Powerwall 설치팀."
+      "subtitle": "EV 충전, 양방향 충전, 패널 업그레이드, 가정용 배터리 — 지역 서비스 전역의 하나의 면허 팀.",
+      "evChargingTitle": "EV Charging",
+      "evChargingDesc": "Level 2 가정용 충전기 — 면허 시공, 전용 회로, 허가까지 원스톱.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "Tesla, GM 등 V2H 지원 차량·하드웨어용 차량-주택/백업 충전 설치.",
+      "panelTitle": "Panel Upgrade",
+      "panelDesc": "EV 충전, 태양광, 미래 부하를 위한 200A 패널 업그레이드.",
+      "powerwallBatteryTitle": "PowerWall & Battery",
+      "powerwallBatteryDesc": "Tesla Powerwall 백업 및 가정용 에너지 저장 — 인증 전기팀 설치."
     },
     "journey": {
       "eyebrow": "진행 방식",
@@ -204,12 +207,12 @@
       "subtitle": "캘리포니아는 남부·중부·북부로, 기타 시장은 주별로 서비스합니다.",
       "outsideAreas": "이 지역 밖이신가요?"
     },
-    "projects": {
-      "eyebrow": "실제 설치",
-      "title": "실제 주택의 시공 전후",
-      "subtitle": "남부 캘리포니아 면허 C-10 시공 — 스와이프로 비교하거나 전체 프로젝트 아카이브를 둘러보세요.",
-      "featured": "추천 프로젝트",
-      "recent": "최근 프로젝트"
+    "gallery": {
+      "eyebrow": "현장 사진",
+      "title": "실제 시공 갤러리",
+      "subtitle": "설치 과정, 완료 사진, 파트너·딜러 방문 등 현장에서 찍은 사진입니다.",
+      "featured": "추천",
+      "viewAll": "갤러리 보기"
     },
     "reviews": {
       "eyebrow": "리뷰",
@@ -285,6 +288,8 @@
       "subtitle": "evNation이 가정 전기화 프로젝트를 어떻게 설치·허가·지원하는지 각 서비스에서 확인하세요.",
       "evTitle": "EV 충전기 설치",
       "evDesc": "깔끔한 배선, 전용 240V 회로, 허가까지 포함된 Level 2 가정 충전.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "Tesla, GM 등 V2H 지원 차량·하드웨어용 양방향 충전 설치.",
       "panelTitle": "패널 업그레이드",
       "panelDesc": "EV 충전기, 태양광, 미래 부하를 안전하게 지원하는 200A 서비스 업그레이드.",
       "powerwallTitle": "Tesla Powerwall",

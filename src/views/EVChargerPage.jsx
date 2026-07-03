@@ -17,7 +17,7 @@ import {
   Zap,
 } from 'lucide-react'
 import { PRICING } from '../data/services'
-import { STANDARD_HOME_CHARGERS, BIDIRECTIONAL_HOME_CHARGERS } from '../data/homeChargers'
+import { STANDARD_HOME_CHARGERS } from '../data/homeChargers'
 
 const METRICS = [
   { value: '40 mi/hr', label: 'Charge speed' },
@@ -57,30 +57,16 @@ const FAQ = [
     q: 'Can you install my own charger?',
     a: 'Yes — when hardware is UL-listed and compatible. We also supply and install leading brands.',
   },
-  {
-    q: 'What is bi-directional charging?',
-    a: 'V2H sends power from your vehicle to your home during outages, when vehicle, hardware & utility allow. We confirm during evaluation.',
-  },
 ]
 
 const THEMES = {
   standard: {
     accent: 'text-neon',
-    accentBg: 'bg-neon',
     accentSoft: 'bg-neon/10',
     accentBorder: 'border-neon/25',
     glow: 'shadow-[0_0_32px_rgba(0,255,136,0.12)]',
     gradient: 'from-neon/15 via-neon/5 to-transparent',
     line: 'via-neon/50',
-  },
-  bidirectional: {
-    accent: 'text-accent-blue',
-    accentBg: 'bg-accent-blue',
-    accentSoft: 'bg-accent-blue/10',
-    accentBorder: 'border-accent-blue/25',
-    glow: 'shadow-[0_0_32px_rgba(96,165,250,0.14)]',
-    gradient: 'from-accent-blue/20 via-accent-blue/5 to-transparent',
-    line: 'via-accent-blue/50',
   },
 }
 
@@ -114,16 +100,15 @@ function FaqItem({ item, open, onToggle }) {
   )
 }
 
-function ChargerPicker({ id, eyebrow, title, subtitle, chargers, variant }) {
+function ChargerPicker({ eyebrow, title, subtitle, chargers }) {
   const [activeId, setActiveId] = useState(chargers[0]?.id)
   const active = chargers.find((c) => c.id === activeId) || chargers[0]
-  const theme = THEMES[variant]
-  const isBi = variant === 'bidirectional'
+  const theme = THEMES.standard
 
   if (!active) return null
 
   return (
-    <div id={id} className="scroll-mt-24">
+    <div id="chargers" className="scroll-mt-24">
       <div className="mb-8 sm:mb-10">
         <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${theme.accent}`}>{eyebrow}</p>
         <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-2">
@@ -193,12 +178,6 @@ function ChargerPicker({ id, eyebrow, title, subtitle, chargers, variant }) {
           </div>
         </motion.div>
       </AnimatePresence>
-
-      {isBi && (
-        <p className="text-xs text-slate-500 mt-3 leading-relaxed">
-          V2H depends on vehicle, hardware & utility — confirmed at site visit.
-        </p>
-      )}
     </div>
   )
 }
@@ -334,24 +313,12 @@ export default function EVChargerPage() {
 
       {/* ── Chargers ── */}
       <section id="chargers" className="scroll-mt-24 py-16 sm:py-20 border-t border-white/[0.06] bg-navy-950/40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-20">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ChargerPicker
             eyebrow="Level 2"
             title="Chargers we install"
             subtitle="Tesla, Emporia, ChargePoint, Mercedes-Benz, Wallbox & SolarEdge — matched to your panel and parking setup."
             chargers={STANDARD_HOME_CHARGERS}
-            variant="standard"
-          />
-
-          <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
-
-          <ChargerPicker
-            id="bi-directional"
-            eyebrow="Bi-directional"
-            title="Vehicle-to-home ready"
-            subtitle="Backup power from your driveway — Tesla & GM today, more brands coming."
-            chargers={BIDIRECTIONAL_HOME_CHARGERS}
-            variant="bidirectional"
           />
         </div>
       </section>

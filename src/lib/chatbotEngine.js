@@ -268,7 +268,7 @@ Service areas: ${zoneListText()}.
 
 Starting prices: L2 charger ${calculateQuizBaseEstimate(DEFAULT_ZONE, 'ev-charger').display} base (So Cal); panel ${PRICING.panelUpgrade.label}; permits ${PRICING.permit.label}; Powerwall ${PRICING.teslaPowerwall.label}. Cable runs, permits, and add-ons are quoted after electrician review.
 
-Key pages: /quote (quote quiz), /contact, /service-areas, /panel-upgrades, /residential-ev-charging.
+Key pages: /quote (quote quiz), /contact, /service-areas, /panel-upgrades, /residential-ev-charging, /bi-directional-charging.
 
 Do not invent exact final prices. Encourage /quote for estimates. Never claim to schedule installs directly — say the team follows up within ${stats.quoteTurnaround}.`
 }

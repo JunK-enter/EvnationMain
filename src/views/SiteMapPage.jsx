@@ -8,7 +8,7 @@ const groups = [
     links: [
       { to: '/', label: 'Home' },
       { to: '/quote', label: 'Get a Quote' },
-      { to: '/projects', label: 'Projects' },
+      { to: '/gallery', label: 'Gallery' },
       { to: '/contact', label: 'Contact' },
     ],
   },
@@ -16,6 +16,7 @@ const groups = [
     title: 'Services',
     links: [
       { to: '/residential-ev-charging', label: 'Residential EV Charging' },
+      { to: '/bi-directional-charging', label: 'Bi-Directional Charging' },
       { to: '/solar', label: 'Solar' },
       { to: '/panel-upgrades', label: 'Panel Upgrades' },
       { to: '/commercial', label: 'Commercial' },

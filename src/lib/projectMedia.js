@@ -1,10 +1,11 @@
+import { getFeaturedGalleryPhotos } from '@/data/gallery'
 import { projects } from '@/data/projects'
 
 /** Stock imagery by project type until real photos are uploaded */
 export const PROJECT_STOCK_COVERS = {
-  ev: '/images/solutions/domestic-ev-charger-768x308.jpg',
-  panel: '/images/warranty-hero.png',
-  solar: '/images/solutions/domestic-solar-systems-768x308.jpg',
+  ev: '/images/solutions/residential-ev-charger.jpg',
+  panel: '/images/projects/costa-mesa-panel/after-interior.png',
+  solar: '/images/projects/costa-mesa-panel/after-exterior.png',
   commercial: '/images/solutions/commercial-ev-charger-768x308.jpg',
 }
 
@@ -32,7 +33,13 @@ export function getFeaturedProjects(limit = 3) {
 }
 
 export function getGalleryProjects(limit = 4) {
-  return projects.slice(0, limit).map(enrichProjectMedia)
+  return getFeaturedGalleryPhotos(limit).map((photo) => ({
+    id: photo.id,
+    title: photo.title,
+    location: photo.location || '',
+    cover: photo.src,
+    type: photo.categories[0],
+  }))
 }
 
 export function getFeaturedProject() {

@@ -11,7 +11,7 @@
     "getQuote": "Solicitar cotización",
     "openCart": "Abrir carrito de cotización",
     "savingsCalculator": "Calculadora de ahorros",
-    "projects": "Proyectos",
+    "gallery": "Galería",
     "serviceAreas": "Áreas de servicio",
     "calculator": "Calculadora",
     "warranty": "Garantía",
@@ -58,7 +58,8 @@
     "panelUpgrade": "Panel eléctrico",
     "homeBatteries": "Baterías domésticas",
     "waterHeaters": "Calentadores de agua",
-    "dryersOvens": "Secadoras y hornos"
+    "dryersOvens": "Secadoras y hornos",
+    "remodeling": "Remodeling"
   },
   "common": {
     "getQuote": "Solicitar cotización",
@@ -84,13 +85,15 @@
     "solutions": {
       "eyebrow": "Lo que hacemos",
       "title": "Tu socio regional en electrificación",
-      "subtitle": "Carga EV residencial, actualización de panel y Tesla Powerwall — un equipo con licencia en tu región.",
-      "residentialTitle": "Carga EV residencial",
-      "residentialDesc": "Cargadores Level 2 en nuestras áreas de servicio — con licencia, permisos y calidad.",
-      "panelTitle": "Actualización de panel",
-      "panelDesc": "Servicio 200A para cargar tu EV de forma segura en casa.",
-      "powerwallTitle": "Tesla Powerwall",
-      "powerwallDesc": "Batería de respaldo y almacenamiento solar — instalado por técnicos certificados."
+      "subtitle": "Carga EV, bidireccional, panel y batería doméstica — un equipo con licencia en tu región.",
+      "evChargingTitle": "EV Charging",
+      "evChargingDesc": "Cargadores Level 2 en casa — instalación con licencia, circuitos dedicados y permisos incluidos.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "V2H y respaldo para Tesla, GM y otros vehículos compatibles.",
+      "panelTitle": "Panel Upgrade",
+      "panelDesc": "Servicio 200A para cargar tu EV, solar y cargas futuras con seguridad.",
+      "powerwallBatteryTitle": "PowerWall & Battery",
+      "powerwallBatteryDesc": "Tesla Powerwall y almacenamiento doméstico — instalado por electricistas certificados."
     },
     "journey": {
       "eyebrow": "Cómo funciona",
@@ -204,12 +207,12 @@
       "subtitle": "California por región — Sur, Central y Norte. Otros mercados por estado.",
       "outsideAreas": "¿Fuera de estas áreas?"
     },
-    "projects": {
-      "eyebrow": "Instalaciones reales",
-      "title": "Antes y después en hogares reales",
-      "subtitle": "Trabajo C-10 con licencia en el sur de California — desliza para comparar o explora el archivo completo.",
-      "featured": "Proyecto destacado",
-      "recent": "Proyectos recientes"
+    "gallery": {
+      "eyebrow": "Fotos de campo",
+      "title": "Galería de instalaciones reales",
+      "subtitle": "Día de instalación, trabajos terminados y visitas a socios y concesionarios.",
+      "featured": "Destacado",
+      "viewAll": "Ver galería"
     },
     "reviews": {
       "eyebrow": "Reseñas",
@@ -285,6 +288,8 @@
       "subtitle": "Elige un servicio para ver cómo evNation instala, tramita permisos y da soporte a tu proyecto.",
       "evTitle": "Instalación de cargador EV",
       "evDesc": "Carga Level 2 en casa con canalización limpia, circuito 240V dedicado y permisos incluidos.",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "V2H e instalaciones bidireccionales para Tesla, GM y hardware compatible.",
       "panelTitle": "Actualización de panel",
       "panelDesc": "Servicio 200A para soportar cargador EV, solar y cargas futuras con seguridad.",
       "powerwallTitle": "Tesla Powerwall",

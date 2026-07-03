@@ -14,18 +14,30 @@ import {
 } from 'lucide-react'
 
 export const POWERWALL_IMAGES = {
-  hero: '/images/tesla-powerwall-hero.png',
-  install: '/images/battery-hero.png',
-  home: '/images/powerwall/home-backup.jpg',
+  /** Hero — garage ecosystem: Powerwall + Wall Connector + vehicle */
+  hero: '/images/batteries/tesla-powerwall-hero.png',
+  /** Install section — clean garage mount with conduit */
+  install: '/images/batteries/tesla-powerwall-install.png',
+  /** Story 01 — patio lifestyle, home stays powered */
+  storyBackup: '/images/batteries/tesla-powerwall-backup.png',
+  /** Story 02 — exterior with solar panels + Powerwall */
+  storySavings: '/images/batteries/tesla-powerwall-solar-home.png',
+  /** Story 03 — product shot, single-unit close-up */
+  storyIntegrated: '/images/batteries/tesla-powerwall-product.png',
+}
+
+export const POWERWALL_LOGOS = {
+  powerwall: '/images/batteries/tesla-powerwall-logo.png',
 }
 
 export const POWERWALL_HERO = {
   badge: 'Tesla Certified Installer',
+  pageTitle: 'PowerWall & Battery',
   title: 'Tesla Powerwall',
   highlight: 'Home Battery',
   tagline: 'Power Everything',
   description:
-    'Whole-home backup, smarter energy use, and a clean all-in-one install — scoped and installed by evNation’s licensed electricians.',
+    'Tesla Powerwall is our most recommended home battery — whole-home backup, smarter energy use, and a clean all-in-one install by evNation’s licensed electricians.',
 }
 
 export const POWERWALL_METRICS = [
@@ -153,24 +165,25 @@ export const POWERWALL_STORY = [
     index: '01',
     title: 'When the grid goes down, you stay on',
     body: 'Powerwall 3 detects outages and switches to backup in a fraction of a second — keeping lights, HVAC, Wi‑Fi, and your EV charger online.',
-    image: POWERWALL_IMAGES.install,
-    imageAlt: 'Powerwall in a home garage',
+    image: POWERWALL_IMAGES.storyBackup,
+    imageAlt: 'Powerwall backing up a home during an outage',
   },
   {
     id: 'savings',
     index: '02',
     title: 'Use energy when it costs less',
     body: 'Store solar or off-peak grid power, then discharge when rates spike. Powerwall optimizes automatically based on your usage and utility plan.',
-    image: POWERWALL_IMAGES.home,
-    imageAlt: 'Modern home',
+    image: POWERWALL_IMAGES.storySavings,
+    imageAlt: 'Home with solar and Powerwall energy storage',
   },
   {
     id: 'integrated',
     index: '03',
     title: 'One unit. Everything included.',
     body: 'Battery, inverter, site management, and solar integration in a single enclosure — fewer boxes, less wiring, faster install.',
-    image: POWERWALL_IMAGES.hero,
-    imageAlt: 'Tesla Powerwall unit',
+    image: POWERWALL_IMAGES.storyIntegrated,
+    imageAlt: 'Tesla Powerwall single-unit enclosure',
+    imageFit: 'contain',
   },
 ]
 
@@ -190,5 +203,9 @@ export const POWERWALL_FAQ = [
   {
     q: 'What happens during a grid outage?',
     a: 'Powerwall detects the outage and switches to backup power almost instantly — typically fast enough that electronics stay on without interruption.',
+  },
+  {
+    q: 'Do you install other battery brands besides Tesla?',
+    a: 'Yes. We also install GM Ultium Home Energy, ATG, and Enphase IQ Battery systems. Tesla Powerwall remains our primary recommendation for whole-home backup — we’ll help you choose the right fit on site.',
   },
 ]

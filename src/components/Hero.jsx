@@ -5,7 +5,7 @@ import Link from '@/components/Link'
 import { motion, AnimatePresence } from 'framer-motion'
 import {
   ArrowRight, Zap, MapPin, LayoutGrid, BatteryCharging, Droplets, Wind,
-  ShieldCheck, Star,
+  ShieldCheck, Star, Hammer,
 } from 'lucide-react'
 import HeroVisual from './HeroVisual'
 import { stats, serviceArea } from '@/data/localSeo'
@@ -80,6 +80,7 @@ export default function Hero() {
       { label: t('hero.homeBatteries'), icon: BatteryCharging, href: '/battery' },
       { label: t('hero.waterHeaters'), icon: Droplets, href: '/quote', hideMobile: true },
       { label: t('hero.dryersOvens'), icon: Wind, href: '/quote', hideMobile: true },
+      { label: t('hero.remodeling'), icon: Hammer, href: '/quote' },
     ],
     [t]
   )
@@ -148,7 +149,7 @@ export default function Hero() {
             </p>
 
             <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-6 sm:mb-8 w-full max-w-md lg:max-w-none mx-auto lg:mx-0">
-              {t('hero.subtitle', { region: serviceArea.regionShort })}
+              {t('hero.subtitle')}
             </p>
 
             <div className="flex w-full sm:w-auto mb-6 sm:mb-8">

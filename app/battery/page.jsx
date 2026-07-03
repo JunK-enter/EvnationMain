@@ -2,9 +2,9 @@
 import BatteryPage from '@/views/BatteryPage'
 
 export const metadata = pageMetadata({
-  title: 'Tesla Powerwall Home Battery',
+  title: 'PowerWall & Battery — Tesla Powerwall, GM, Enphase',
   description:
-    'Whole-home backup, lower electricity bills, and professional Tesla Powerwall 3 installation by evNation — a Tesla Certified Installer.',
+    'Tesla Powerwall is our top recommendation for whole-home backup. evNation also installs GM Ultium, ATG, and Enphase IQ Battery systems — licensed C10 turnkey install.',
   path: '/battery',
 })
 export default function Page() { return <BatteryPage /> }

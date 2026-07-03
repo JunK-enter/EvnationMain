@@ -9,6 +9,7 @@ import { useTranslation } from '@/i18n/LocaleProvider'
 export const RESIDENTIAL_SERVICE_PATHS = [
   '/residential',
   '/residential-ev-charging',
+  '/bi-directional-charging',
   '/panel-upgrades',
   '/battery',
 ]
@@ -30,7 +31,7 @@ export function useNavLinks() {
   ]
 
   const mainLinks = [
-    { to: '/projects', label: t('nav.projects') },
+    { to: '/gallery', label: t('nav.gallery') },
     { to: '/service-areas', label: t('nav.serviceAreas'), icon: MapPin },
   ]
 
@@ -58,7 +59,7 @@ export function useFooterLinks() {
     ],
     company: [
       { href: '/about', label: t('nav.about') },
-      { href: '/projects', label: t('nav.projects') },
+      { href: '/gallery', label: t('nav.gallery') },
       { href: '/service-areas', label: t('nav.serviceAreas') },
       { href: '/auto-dealer', label: t('nav.autoDealer') },
       { href: '/blog', label: t('nav.blog') },

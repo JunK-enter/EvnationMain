@@ -11,7 +11,7 @@
     "getQuote": "获取报价",
     "openCart": "打开报价购物车",
     "savingsCalculator": "节省计算器",
-    "projects": "项目案例",
+    "gallery": "图库",
     "serviceAreas": "服务区域",
     "calculator": "计算器",
     "warranty": "保修",
@@ -58,7 +58,8 @@
     "panelUpgrade": "配电盘升级",
     "homeBatteries": "家用电池",
     "waterHeaters": "热水器",
-    "dryersOvens": "烘干机与烤箱"
+    "dryersOvens": "烘干机与烤箱",
+    "remodeling": "Remodeling"
   },
   "common": {
     "getQuote": "获取报价",
@@ -84,13 +85,15 @@
     "solutions": {
       "eyebrow": "我们的服务",
       "title": "您的区域电气化合作伙伴",
-      "subtitle": "家用 EV 充电、配电盘升级与 Tesla Powerwall — 一支持牌团队覆盖各服务区域。",
-      "residentialTitle": "家用 EV 充电",
-      "residentialDesc": "各服务区域的二级充电器 — 持牌、许可、专业施工。",
-      "panelTitle": "配电盘升级",
-      "panelDesc": "200A 服务升级，安全支持家庭 EV 充电。",
-      "powerwallTitle": "Tesla Powerwall",
-      "powerwallDesc": "家庭电池备份与太阳能储能 — 认证 Powerwall 安装团队。"
+      "subtitle": "EV 充电、双向充电、配电盘升级与家庭电池 — 一支持牌团队覆盖各服务区域。",
+      "evChargingTitle": "EV Charging",
+      "evChargingDesc": "家用二级充电器 — 持牌安装、专用电路、许可一站式办理。",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "支持 Tesla、GM 等 V2H 车辆与硬件的车对家及备用充电方案。",
+      "panelTitle": "Panel Upgrade",
+      "panelDesc": "200A 升级，安全支持 EV 充电、太阳能与未来负载。",
+      "powerwallBatteryTitle": "PowerWall & Battery",
+      "powerwallBatteryDesc": "Tesla Powerwall 备份与全屋储能 — 认证电工安装。"
     },
     "journey": {
       "eyebrow": "流程说明",
@@ -204,12 +207,12 @@
       "subtitle": "加州按南部、中部、北部划分。其他市场按州服务。",
       "outsideAreas": "不在这些区域？"
     },
-    "projects": {
-      "eyebrow": "真实安装",
-      "title": "真实家庭的施工前后",
-      "subtitle": "南加州持牌 C-10 施工 — 滑动对比，或浏览完整项目档案。",
-      "featured": "精选项目",
-      "recent": "近期项目"
+    "gallery": {
+      "eyebrow": "现场照片",
+      "title": "真实施工图库",
+      "subtitle": "安装过程、完工照片以及合作伙伴与经销商拜访等现场影像。",
+      "featured": "精选",
+      "viewAll": "查看图库"
     },
     "reviews": {
       "eyebrow": "评价",
@@ -285,6 +288,8 @@
       "subtitle": "选择一项服务，了解 evNation 如何安装、许可并支持您的家庭电气化项目。",
       "evTitle": "EV 充电器安装",
       "evDesc": "家庭二级充电，整洁布线、专用 240V 回路，全程办理许可。",
+      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalDesc": "支持 Tesla、GM 及兼容硬件的车对家（V2H）与双向充电安装。",
       "panelTitle": "配电盘升级",
       "panelDesc": "200A 服务升级，安全支持 EV 充电器、太阳能及未来负载。",
       "powerwallTitle": "Tesla Powerwall",

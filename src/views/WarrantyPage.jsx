@@ -25,7 +25,7 @@ export default function WarrantyPage() {
       highlight="Warranty"
       description="Every EVnation installation is backed by a workmanship warranty and dedicated support. We protect your charger, your battery, and your peace of mind long after install day."
       tagline="Backed for the long haul"
-      image="/images/warranty-hero.png"
+      image="/images/projects/costa-mesa-panel/after-interior.png"
       imageAlt="EV charger protected by a glowing shield"
       stats={[
         { value: 'Workmanship', label: 'Guaranteed' },

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Bolt, BatteryCharging, LayoutGrid } from 'lucide-react'
+import { ArrowLeftRight, BatteryCharging, Bolt, LayoutGrid } from 'lucide-react'
 import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import ServiceOfferCard from './ServiceOfferCard'
@@ -14,11 +14,19 @@ export default function SolutionsSection() {
   const pillars = useMemo(
     () => [
       {
-        title: t('home.solutions.residentialTitle'),
-        desc: t('home.solutions.residentialDesc'),
+        title: t('home.solutions.evChargingTitle'),
+        desc: t('home.solutions.evChargingDesc'),
         img: '/images/solutions/residential-ev-charger.jpg',
         to: '/residential-ev-charging',
         icon: Bolt,
+      },
+      {
+        title: t('home.solutions.biDirectionalTitle'),
+        desc: t('home.solutions.biDirectionalDesc'),
+        img: '/images/chargers/tesla-wall-connector.png',
+        to: '/bi-directional-charging',
+        icon: ArrowLeftRight,
+        imgFit: 'contain',
       },
       {
         title: t('home.solutions.panelTitle'),
@@ -28,9 +36,9 @@ export default function SolutionsSection() {
         icon: LayoutGrid,
       },
       {
-        title: t('home.solutions.powerwallTitle'),
-        desc: t('home.solutions.powerwallDesc'),
-        img: '/images/tesla-powerwall-hero.png',
+        title: t('home.solutions.powerwallBatteryTitle'),
+        desc: t('home.solutions.powerwallBatteryDesc'),
+        img: '/images/batteries/tesla-powerwall-hero.png',
         to: '/battery',
         icon: BatteryCharging,
       },
@@ -49,7 +57,7 @@ export default function SolutionsSection() {
           subtitle={t('home.solutions.subtitle')}
         />
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
           {pillars.map((pillar, index) => (
             <Reveal
               key={pillar.to}

@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { Bolt, LayoutGrid, BatteryCharging, Home } from 'lucide-react'
+import { ArrowLeftRight, Bolt, BatteryCharging, Home, LayoutGrid } from 'lucide-react'
 import SectionHeader from '@/components/SectionHeader'
 import ServiceOfferCard from '@/components/ServiceOfferCard'
 import { useTranslation } from '@/i18n/LocaleProvider'
@@ -19,6 +19,14 @@ export default function ResidentialServicesPage() {
         icon: Bolt,
       },
       {
+        title: t('servicesHub.residential.biDirectionalTitle'),
+        desc: t('servicesHub.residential.biDirectionalDesc'),
+        img: '/images/chargers/tesla-wall-connector.png',
+        to: '/bi-directional-charging',
+        icon: ArrowLeftRight,
+        imgFit: 'contain',
+      },
+      {
         title: t('servicesHub.residential.panelTitle'),
         desc: t('servicesHub.residential.panelDesc'),
         img: '/images/projects/costa-mesa-panel/after-interior.png',
@@ -28,7 +36,7 @@ export default function ResidentialServicesPage() {
       {
         title: t('servicesHub.residential.powerwallTitle'),
         desc: t('servicesHub.residential.powerwallDesc'),
-        img: '/images/tesla-powerwall-hero.png',
+        img: '/images/batteries/tesla-powerwall-solar-home.png',
         to: '/battery',
         icon: BatteryCharging,
       },
@@ -51,7 +59,7 @@ export default function ResidentialServicesPage() {
             subtitle={t('servicesHub.residential.subtitle')}
             className="max-w-2xl mb-12"
           />
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
             {offers.map((offer) => (
               <ServiceOfferCard key={offer.to} {...offer} ctaLabel={t('servicesHub.viewService')} />
             ))}
