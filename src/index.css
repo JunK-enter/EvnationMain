@@ -129,6 +129,14 @@ body {
   padding: 3.5rem 1.25rem;
 }
 
+.page-top {
+  padding-top: 6rem;
+}
+
+.page-bottom {
+  padding-bottom: 5rem;
+}
+
 /* Skip layout/paint for below-fold sections until scrolled near (desktop only) */
 @media (min-width: 1024px) {
   .section-defer {
@@ -139,12 +147,20 @@ body {
 
 @media (max-width: 639px) {
   .section-padding {
-    padding: 2.75rem 1rem;
+    padding: 2.25rem 0.875rem;
   }
 
   .section-scrim,
   .section-scrim-alt {
     background: transparent;
+  }
+
+  .page-top {
+    padding-top: max(4.75rem, calc(4.25rem + env(safe-area-inset-top, 0px)));
+  }
+
+  .page-bottom {
+    padding-bottom: max(1.25rem, env(safe-area-inset-bottom, 0px));
   }
 
   .fixed-page-bg .ambient-grid,
@@ -166,7 +182,7 @@ body {
   }
 
   .site-sticky-cta-pad {
-    padding-bottom: calc(4.5rem + 4.25rem + env(safe-area-inset-bottom, 0px));
+    padding-bottom: calc(3.75rem + 3.25rem + env(safe-area-inset-bottom, 0px));
   }
 }
 
@@ -237,6 +253,27 @@ body {
   .btn-primary:hover {
     transform: none;
     box-shadow: 0 2px 12px rgba(var(--accent-r), var(--accent-g), var(--accent-b), 0.22);
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 0.6875rem 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .mobile-card {
+    border-radius: 1rem;
+    border-color: rgba(255, 255, 255, 0.07);
+    box-shadow: none !important;
+  }
+
+  .mobile-card:active {
+    transform: scale(0.985);
+  }
+
+  .mobile-card:hover {
+    transform: none;
+    box-shadow: none !important;
   }
 
   .neon-border {

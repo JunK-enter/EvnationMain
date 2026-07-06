@@ -37,8 +37,8 @@
     "address": "주소:",
     "email": "이메일:",
     "telephone": "전화:",
-    "copyright": "© {year} evNation. All rights reserved.",
-    "license": "Licensed electrical contractor · Southern California"
+    "copyright": "© {year} evNation. 모든 권리 보유.",
+    "license": "면허 전기 계약업체 · 남부 캘리포니아"
   },
   "hero": {
     "licensed": "C-10 면허",
@@ -49,7 +49,7 @@
     "rotate2": "더 스마트하게 저장.",
     "rotate3": "정전에도 끊김 없이.",
     "rotate4": "마일마다 절약.",
-    "subtitle": "Level 2 충전, 패널 업그레이드, Powerwall 및 태양광 — {region} 하나의 면허 팀.",
+    "subtitle": "가정용 EV 충전기, 전기 패널 업그레이드, Tesla Powerwall 및 EV 서비스, GM EV 충전 서비스, 태양광 설치 및 수리",
     "buildQuote": "견적 만들기",
     "homesElectrified": "전기화된 가정",
     "customerRating": "고객 평점",
@@ -59,7 +59,7 @@
     "homeBatteries": "가정용 배터리",
     "waterHeaters": "온수기",
     "dryersOvens": "건조기 및 오븐",
-    "remodeling": "Remodeling"
+    "remodeling": "리모델링"
   },
   "common": {
     "getQuote": "견적 받기",
@@ -86,13 +86,13 @@
       "eyebrow": "서비스",
       "title": "지역 전기화 파트너",
       "subtitle": "EV 충전, 양방향 충전, 패널 업그레이드, 가정용 배터리 — 지역 서비스 전역의 하나의 면허 팀.",
-      "evChargingTitle": "EV Charging",
+      "evChargingTitle": "EV 충전",
       "evChargingDesc": "Level 2 가정용 충전기 — 면허 시공, 전용 회로, 허가까지 원스톱.",
-      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalTitle": "양방향 충전",
       "biDirectionalDesc": "Tesla, GM 등 V2H 지원 차량·하드웨어용 차량-주택/백업 충전 설치.",
-      "panelTitle": "Panel Upgrade",
+      "panelTitle": "패널 업그레이드",
       "panelDesc": "EV 충전, 태양광, 미래 부하를 위한 200A 패널 업그레이드.",
-      "powerwallBatteryTitle": "PowerWall & Battery",
+      "powerwallBatteryTitle": "Powerwall 및 배터리",
       "powerwallBatteryDesc": "Tesla Powerwall 백업 및 가정용 에너지 저장 — 인증 전기팀 설치."
     },
     "journey": {
@@ -167,9 +167,9 @@
       "optOutdoor": "야외만",
       "step2Title": "메인 전기 패널",
       "opt100": "100A 이하",
-      "opt125": "125A",
-      "opt150": "150A",
-      "opt200": "200A",
+      "opt125": "125A 패널",
+      "opt150": "150A 패널",
+      "opt200": "200A 패널",
       "optUnknown": "잘 모르겠음",
       "step3Title": "EV 일정",
       "optHaveEv": "이미 EV가 있음",
@@ -223,17 +223,20 @@
       "review2Location": "샌안토니오, TX",
       "review3Text": "패널 업그레이드와 충전기 설치를 모두 처리했습니다. 허가, 검사, 모든 것. 안심할 수 있어 그만한 가치가 있었습니다.",
       "review3Location": "라스베이거스, NV",
-      "review4Text": "전반적으로 훌륭한 경험이었습니다. 견적이 정확했고 설치팀이 시간을 지켰습니다. EV 소유자에게 강력 추천합니다.",
-      "review4Location": "일리노이"
+      "review4Text": "10점 만점에 10점, 적극 추천합니다! Neil은 설치 과정 내내 매우 친절하고 인내심 있게 도와주었고, Emanuel도 설치 당일 같은 방식으로 빠르게 사용할 수 있게 해 주었습니다. 가족과 지인에게도 홈 충전기 설치를 맡기라고 꼭 추천하겠습니다.",
+      "review4Location": "2년 전",
+      "googleAttribution": "Google 리뷰",
+      "viewOnGoogle": "Google에서 전체 리뷰 보기",
+      "staticNote": "Google Places API를 연결하면 실시간 리뷰가 표시됩니다."
     },
     "financing": {
-      "eyebrow": "할부",
-      "title": "유연한 결제 옵션",
-      "subtitle": "자격을 갖춘 고객은 0% APR 할부 가능. 금리 확인 시 신용 점수에 영향 없음.",
-      "item1Title": "12개월 0% APR",
-      "item1Desc": "자격 고객은 첫해 이자 없음.",
+      "eyebrow": "GoGreen",
+      "title": "GoGreen Financing",
+      "subtitle": "GoGreen으로 EV 충전기, 패널 업그레이드, 배터리 설치 비용을 분할 납부하세요. 소프트 신용 조회로 수분 내 금리 확인 — 신용 점수에 영향 없음.",
+      "item1Title": "패널 업그레이드 최대 $4,200",
+      "item1Desc": "자격을 갖춘 경우 가정용 전기 패널 업그레이드에 최대 $4,200까지 지원받을 수 있습니다.",
       "item2Title": "즉시 승인",
-      "item2Desc": "소프트 신용 조회로 수분 내 결정.",
+      "item2Desc": "소프트 신용 조회로 수분 내 승인 결과를 확인하세요.",
       "item3Title": "조기 상환 수수료 없음",
       "item3Desc": "언제든 수수료 없이 조기 상환 가능."
     },
@@ -243,7 +246,7 @@
       "subtitle": "Level 2 충전, 패널 업그레이드, Powerwall 및 태양광 — 캘리포니아와 선정 주에서 하나의 면허 팀."
     },
     "faq": {
-      "eyebrow": "FAQ",
+      "eyebrow": "자주 묻는 질문",
       "title": "자주 묻는 질문",
       "q1": "EV 충전기 설치에 얼마나 걸리나요?",
       "a1": "대부분 Level 2 설치는 3–6시간 내 완료됩니다. 패널 업그레이드는 하루와 후속 검사가 필요할 수 있습니다.",
@@ -259,7 +262,7 @@
       "a6": "네. 캘리포니아 고객은 Drive Clean에서 ZIP별 공식 프로그램을 검색할 수 있습니다 — 홈 또는 계산기 페이지의 Rebate Finder를 사용하세요. SCE, PG&E, SDG&E 등 충전기 리베이트를 설치 시 조율합니다."
     },
     "rebateFinder": {
-      "title": "Rebate Finder",
+      "title": "리베이트 찾기",
       "caSubtitle": "California Drive Clean",
       "programsIn": "{zone} 프로그램",
       "searchZip": "ZIP으로 검색",
@@ -288,7 +291,7 @@
       "subtitle": "evNation이 가정 전기화 프로젝트를 어떻게 설치·허가·지원하는지 각 서비스에서 확인하세요.",
       "evTitle": "EV 충전기 설치",
       "evDesc": "깔끔한 배선, 전용 240V 회로, 허가까지 포함된 Level 2 가정 충전.",
-      "biDirectionalTitle": "Bi-Directional Charging",
+      "biDirectionalTitle": "양방향 충전",
       "biDirectionalDesc": "Tesla, GM 등 V2H 지원 차량·하드웨어용 양방향 충전 설치.",
       "panelTitle": "패널 업그레이드",
       "panelDesc": "EV 충전기, 태양광, 미래 부하를 안전하게 지원하는 200A 서비스 업그레이드.",
@@ -312,6 +315,19 @@
       "multifamilyDesc": "공정 배분, 과금 옵션, 입주율에 맞게 확장되는 콘도·아파트 솔루션.",
       "fleetTitle": "플리트 서비스",
       "fleetDesc": "배송·서비스 트럭 및 경상업 플리트를 위한 디포·노선 충전.",
+      "co2Eyebrow": "지속가능성",
+      "co2Title": "상업 충전으로 CO₂를 줄이세요",
+      "co2Intro": "직장·리테일·플리트 충전기는 편의 시설을 넘어 입주민, 직원, 운전자의 전기차 전환을 현실적으로 만듭니다. 충전 세션마다 가솔린 주행이 전기로 대체되며, ESG 및 지역 기후 목표에 기여합니다.",
+      "co2Stat1Value": "0",
+      "co2Stat1Label": "충전 구역 배기가스",
+      "co2Stat1Desc": "전기차는 주차장에서 배기 없이 충전합니다 — 입주민, 직원, 방문객을 위한 더 깨끗한 공기.",
+      "co2Stat2Value": "~50%",
+      "co2Stat2Label": "가솔린 대비 생애주기 CO₂ 감소",
+      "co2Stat2Desc": "평균적으로 EV는 현재 전력 믹스를 포함해도 가솔린차보다 생애주기 탄소 배출이 훨씬 적습니다.",
+      "co2Stat3Value": "4+ t",
+      "co2Stat3Label": "플리트 차량당 CO₂ 절감",
+      "co2Stat3Desc": "일반 상업 밴·서비스 트럭을 전기차로 전환하면 연간 수 톤의 CO₂를 줄일 수 있습니다(주행 거리에 따라 다름).",
+      "co2Note": "수치는 차량 유형, 주행 거리, 충전기 이용률, 지역 전력 믹스에 따라 달라지는 예시입니다. 표식만이 아닌 실제 전동화를 지원하는 설계를 제공합니다.",
       "ctaTitle": "상업 설치를 계획 중이신가요?",
       "ctaDesc": "부지, 주차 배치, 일정을 알려주시면 Level 2/3 옵션과 유틸리티 요건을 검토해 드립니다.",
       "contactUs": "문의하기"

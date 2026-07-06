@@ -1,0 +1,274 @@
+{
+  "site": {
+    "tagline": "Licensed EV charger, solar & panel upgrade installers across Southern, Central & Northern California — plus Illinois, Nevada, Texas, New Jersey & Arizona."
+  },
+  "galleryPage": {
+    "eyebrow": "Install gallery",
+    "heroTitle1": "Install",
+    "heroTitle2": "Gallery",
+    "title": "Real installs from the field",
+    "subtitle": "Installation day, finished work, and partner & dealer visits across our service areas.",
+    "statInstalls": "Regional installs",
+    "statRating": "Customer rating",
+    "statAreas": "Service areas",
+    "featured": "Featured",
+    "getQuote": "Get a quote",
+    "emptyCategory": "No photos in this category yet.",
+    "close": "Close",
+    "prevPhoto": "Previous photo",
+    "nextPhoto": "Next photo",
+    "categories": {
+      "all": "All photos",
+      "installation": "Installation",
+      "completed": "After install",
+      "partnership": "Partners & dealers",
+      "ev": "EV charging",
+      "battery": "Battery installation"
+    },
+    "categoriesShort": {
+      "all": "All",
+      "installation": "Install",
+      "completed": "Done",
+      "partnership": "Dealers",
+      "ev": "EV",
+      "battery": "Battery"
+    },
+    "installsCount": "{count} installs",
+    "heroMobileDesc": "Field photos — installs, finished work & dealer visits.",
+    "heroDesktopDesc": "Real crew photos from the field — installation day, finished work, and partner & dealer visits across our service areas.",
+    "ctaTitle": "Want your home in the gallery?",
+    "ctaDesc": "Licensed C-10 installs across California and our national service markets.",
+    "dealerPartnerships": "Dealer partnerships"
+  },
+  "shop": {
+    "eyebrow": "Shop",
+    "title": "All Services",
+    "subtitle": "Add services to your quote cart and submit when ready.",
+    "viewQuote": "View Quote ({count}) · ~${total}",
+    "mostPopular": "Most Popular",
+    "addedToQuote": "Added to Quote",
+    "addToQuote": "Add to Quote"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Submit Your Project",
+    "subtitle": "Fill out the form below and our team will prepare a custom quote for your home.",
+    "personalInfo": "Personal Information",
+    "homeInfo": "Home Information",
+    "vehicleInfo": "Vehicle Information",
+    "photos": "Photos (Optional)",
+    "notes": "Additional Notes",
+    "submit": "Submit Project",
+    "firstName": "First Name *",
+    "lastName": "Last Name",
+    "email": "Email *",
+    "phone": "Phone",
+    "city": "City",
+    "zip": "ZIP Code",
+    "vehicleMake": "Vehicle Make",
+    "vehicleModel": "Vehicle Model",
+    "distance": "Estimated cable run (ft)",
+    "notesPlaceholder": "Anything else we should know?",
+    "panelPhoto": "Electrical Panel Photo",
+    "garagePhoto": "Garage / Parking Photo",
+    "receivedTitle": "Submission Received!",
+    "reference": "Reference:",
+    "receivedDesc": "We'll review your information and reach out within 24 hours. A confirmation email has been sent.",
+    "homeType": "Home Type",
+    "panelSize": "Panel Size",
+    "parking": "Parking Location"
+  },
+  "quote": {
+    "badge": "Free estimate · No obligation",
+    "title": "Your install,",
+    "titleAccent": "priced in minutes",
+    "subtitle": "Answer a few questions — we'll estimate your project and follow up with a detailed quote.",
+    "startingEstimate": "Starting estimate",
+    "licensedNote": "Licensed C-10 electricians on every job",
+    "transparentNote": "Transparent pricing — no hidden fees",
+    "california": "California",
+    "otherStates": "Other states",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "Jane Smith",
+    "phoneNumber": "Phone number",
+    "email": "Email",
+    "emailPlaceholder": "you@email.com",
+    "streetAddress": "Street address",
+    "city": "City",
+    "zipCode": "ZIP code",
+    "panelSize": "Main panel size",
+    "panelLocation": "Panel location",
+    "breakerSize": "Existing breaker size",
+    "notes": "Notes (optional)",
+    "notesPlaceholder": "Vehicle model, timeline, access notes…",
+    "back": "Back",
+    "continue": "Continue",
+    "submitQuote": "Submit quote",
+    "stepOf": "Step {current} of {total}",
+    "notSure": "Not sure",
+    "successTitle": "You're all set!",
+    "successReference": "Reference:",
+    "successDesc": "Our team will review your answers and send a detailed estimate within 24 hours.",
+    "backHome": "Back to Home",
+    "headerSubtitle": "{total} quick questions — then a licensed electrician confirms your final quote.",
+    "submitting": "Submitting…",
+    "getEstimate": "Get my estimate",
+    "privacyNote": "Your information is private and only used to prepare your estimate.",
+    "selectProjectHint": "Select a project type to see your live estimate update here.",
+    "progressLabel": "Progress",
+    "steps": {
+      "service": {
+        "shortLabel": "Project",
+        "title": "What do you need help with?",
+        "subtitle": "Pick the option that best matches your project."
+      },
+      "region": {
+        "shortLabel": "Region",
+        "title": "What region is the project in?",
+        "subtitle": "We install across California and select states."
+      },
+      "info": {
+        "shortLabel": "Contact",
+        "title": "How can we reach you?",
+        "subtitle": "We'll send your estimate and next steps here."
+      },
+      "location": {
+        "shortLabel": "Address",
+        "title": "Where is the project located?",
+        "subtitle": "The installation / project address."
+      },
+      "detail": {
+        "shortLabel": "Details",
+        "title": "A few extra details",
+        "subtitle": "Optional, but anything you know helps us prepare an accurate estimate."
+      }
+    },
+    "serviceNeeds": {
+      "ev-charger": { "title": "EV Charger Installation", "desc": "Level 2 home charger" },
+      "nema-outlet": { "title": "NEMA Outlet Installation", "desc": "240V dedicated outlet" },
+      "panel-upgrade": { "title": "Main Panel Upgrade", "desc": "More electrical capacity" },
+      "ev-panel": { "title": "EV Charger + Panel Upgrade", "desc": "Charger and panel together" },
+      "charger-swap": { "title": "Charger Swap", "desc": "Replace an existing unit" },
+      "tesla-powerwall": { "title": "Tesla Wall Battery", "desc": "Powerwall home battery backup" },
+      "multifamily": { "title": "Multifamily Project", "desc": "Shared charging for condos & apartments" },
+      "commercial-project": { "title": "Commercial Project", "desc": "L2/L3 charging for business & fleet" },
+      "not-sure": { "title": "Not sure yet", "desc": "We'll help you figure it out" }
+    }
+  },
+  "about": {
+    "eyebrow": "About EVnation",
+    "title": "Powering the",
+    "titleAccent": "electric home",
+    "subtitle": "EVnation's mission is to make home and commercial EV charging, battery storage, and energy backup effortless — so going fully electric is simple and worry-free.",
+    "whoWeAre": "Who We Are",
+    "whoP1": "EVnation is a licensed C10 Electrical Contractor in the state of California specializing in home and commercial EV charging, Tesla Powerwall battery storage, and warranty-backed installation. We believe switching to a fully electric life should be simple, transparent, and rewarding.",
+    "whoP2": "From a single home charger to networked commercial stations and whole-home battery backup, our concierge team guides you through every step — from your free estimate to financing, permitting, and final inspection. With easy-to-qualify financing — including green energy no-money-down programs and HEA agreements — it has never been easier to electrify a home.",
+    "stat1": "Homeowners served",
+    "stat2Value": "GoGreen",
+    "stat2": "Financing",
+    "stat3Value": "Rebate",
+    "stat3": "Qualify for your state energy program",
+    "stat4": "Licensed contractor",
+    "valuesTitle": "What We Stand For",
+    "value1Title": "Radical Transparency",
+    "value1Text": "No vague claims. We break down costs, tax credits, and financing so you can make a confident decision.",
+    "value2Title": "Licensed & Insured",
+    "value2Text": "We are a licensed C10 Electrical Contractor. Every install is code-compliant and warranty-backed.",
+    "value3Title": "Concierge Service",
+    "value3Text": "Our team is with you every step of the way — from estimate to permitting to final inspection.",
+    "value4Title": "Charging + Battery",
+    "value4Text": "We pair EV charging with Tesla Powerwall storage so your home stays powered and efficient.",
+    "teamTitle": "Leadership Team",
+    "ctaTitle": "Ready to electrify your home?",
+    "ctaDesc": "Get a free, transparent estimate from our licensed team.",
+    "ctaButton": "Get a Quote"
+  },
+  "serviceLayout": {
+    "featuresTitle": "What's Included",
+    "readyTitle": "Ready to get started?",
+    "readyDesc": "Get a free, transparent estimate from our licensed team.",
+    "talkExpert": "Talk to an Expert"
+  },
+  "serviceAreas": {
+    "eyebrow": "Service Coverage",
+    "title": "Where We Install",
+    "subtitle": "Licensed EV charging, panel upgrades, and battery storage across California and select states.",
+    "getQuote": "Get a Free Quote",
+    "viewCounty": "View county details"
+  },
+  "status": {
+    "submitted": "Submitted",
+    "under_review": "Under Review",
+    "quote_ready": "Quote Ready",
+    "scheduled": "Scheduled",
+    "installed": "Installed"
+  },
+  "services": {
+    "items": {
+      "l2-charger": {
+        "name": "Level 2 EV Charger Installation",
+        "shortDesc": "Professional hardwired or plug-in Level 2 charger setup at your home.",
+        "benefit1": "Up to 40 miles range/hour",
+        "benefit2": "Licensed electrician install",
+        "benefit3": "Clean cable routing"
+      },
+      "panel-upgrade": {
+        "name": "Electric Panel Upgrade",
+        "shortDesc": "Upgrade your electrical panel to safely support EV charging and future loads.",
+        "benefit1": "200A service upgrade",
+        "benefit2": "Code-compliant work",
+        "benefit3": "Future-proof capacity"
+      },
+      "permit-handling": {
+        "name": "Permit Service",
+        "shortDesc": "We handle all permit paperwork and inspections with your local authority.",
+        "benefit1": "City permit filing",
+        "benefit2": "Inspection scheduling",
+        "benefit3": "Zero paperwork for you"
+      },
+      "load-calculation": {
+        "name": "Load Calculation",
+        "shortDesc": "NEC-compliant load analysis to determine if your panel can support an EV charger.",
+        "benefit1": "NEC Article 220 compliant",
+        "benefit2": "Written report",
+        "benefit3": "Upgrade recommendations"
+      },
+      "battery-storage": {
+        "name": "Tesla Powerwall Battery",
+        "shortDesc": "Whole-home backup power and peak-rate savings with the Tesla Powerwall.",
+        "benefit1": "Whole-home backup",
+        "benefit2": "Peak-rate savings",
+        "benefit3": "Live app monitoring"
+      },
+      "smart-energy-bundle": {
+        "name": "Charger + Battery Bundle",
+        "shortDesc": "EV charger + Tesla Powerwall + smart monitoring — the complete home energy package.",
+        "benefit1": "All-in-one package",
+        "benefit2": "Smart energy monitoring",
+        "benefit3": "Priority scheduling"
+      }
+    }
+  },
+  "forms": {
+    "homeTypes": {
+      "singleFamily": "Single Family Home",
+      "townhouse": "Townhouse",
+      "condo": "Condo / Apartment",
+      "multiFamily": "Multi-Family",
+      "other": "Other"
+    },
+    "parkingTypes": {
+      "attachedGarage": "Attached Garage",
+      "detachedGarage": "Detached Garage",
+      "carport": "Carport",
+      "driveway": "Driveway (Outdoor)",
+      "street": "Street Parking"
+    },
+    "panelUnknown": "Unknown"
+  },
+  "legal": {
+    "lastUpdated": "Last updated:",
+    "privacyTitle": "Privacy Policy",
+    "termsTitle": "Terms of Service"
+  }
+}

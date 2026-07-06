@@ -14,32 +14,18 @@ import {
   ShieldCheck,
   Wrench,
 } from 'lucide-react'
-import { PRICING } from '@/data/services'
-import {
-  EVNATION_INSTALL_INCLUDES,
-  POWERWALL_EV_FEATURES,
-  POWERWALL_FAQ,
-  POWERWALL_HERO,
-  POWERWALL_IMAGES,
-  POWERWALL_INSTALL_STEPS,
-  POWERWALL_LOGOS,
-  POWERWALL_METRICS,
-  POWERWALL_PILLARS,
-  POWERWALL_SELLING_POINTS,
-  POWERWALL_STORY,
-} from '@/data/powerwallContent'
-import { ALTERNATIVE_HOME_BATTERIES, BATTERY_BRAND_LOGOS } from '@/data/homeBatteries'
+import { useBatteryCopy } from '@/i18n/hooks/useExtraPages'
+import { POWERWALL_LOGOS } from '@/data/powerwallContent'
+import { BATTERY_BRAND_LOGOS } from '@/data/homeBatteries'
 
-const FEATURE_CHIPS = POWERWALL_SELLING_POINTS.map((p) => p.title)
-
-function TeslaSectionLabel({ className = '', subtle = false }) {
+function TeslaSectionLabel({ className = '', subtle = false, label = 'Tesla Powerwall' }) {
   return (
     <p
       className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${
         subtle ? 'text-slate-500' : 'text-neon'
       } ${className}`}
     >
-      Tesla Powerwall
+      {label}
     </p>
   )
 }
@@ -78,19 +64,20 @@ function BatteryBrandLogoRow() {
 }
 
 function TeslaHeroMeta() {
+  const { hero } = useBatteryCopy()
   return (
     <div className="mb-6 sm:mb-7">
       <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-4">
-        {POWERWALL_HERO.pageTitle}
+        {hero.pageTitle}
       </p>
       <div className="flex items-center gap-3 flex-wrap">
         <span className="inline-flex items-center px-3 py-1.5 rounded-full bg-neon/10 border border-neon/25 text-neon text-xs font-bold uppercase tracking-wide">
-          Tesla · Featured
+          {hero.badge}
         </span>
         <span className="text-sm sm:text-base text-slate-500">
-          from{' '}
+          {hero.from}{' '}
           <strong className="text-neon font-display text-lg sm:text-xl">
-            {PRICING.teslaPowerwall.label.replace('From ', '')}
+            {hero.price}
           </strong>
         </span>
       </div>
@@ -129,24 +116,28 @@ function FaqItem({ item, open, onToggle }) {
 }
 
 function FeaturePicker() {
-  const [activeId, setActiveId] = useState(POWERWALL_SELLING_POINTS[0].id)
-  const active = POWERWALL_SELLING_POINTS.find((p) => p.id === activeId) || POWERWALL_SELLING_POINTS[0]
-  const ActiveIcon = active.icon
+  const copy = useBatteryCopy()
+  const sellingPoints = copy.sellingPoints.items
+  const [activeId, setActiveId] = useState(sellingPoints[0]?.id)
+  const active = sellingPoints.find((p) => p.id === activeId) || sellingPoints[0]
+  const ActiveIcon = active?.icon
+
+  if (!active) return null
 
   return (
     <div id="features" className="scroll-mt-24">
       <div className="mb-8 sm:mb-10">
-        <TeslaSectionLabel />
+        <TeslaSectionLabel label={copy.sellingPoints.sectionLabel} />
         <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-2">
-          Explore Tesla Powerwall 3
+          {copy.sellingPoints.title}
         </h2>
         <p className="text-sm text-slate-400 max-w-xl leading-relaxed">
-          Tesla Powerwall — whole-home backup, smarter energy use, and EV integration in one unit.
+          {copy.sellingPoints.subtitle}
         </p>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-5">
-        {POWERWALL_SELLING_POINTS.map((p) => {
+        {sellingPoints.map((p) => {
           const on = p.id === activeId
           return (
             <button
@@ -197,7 +188,7 @@ function FeaturePicker() {
 
             {activeId === 'ev' && (
               <div className="pt-5 border-t border-white/[0.06] grid sm:grid-cols-3 gap-4">
-                {POWERWALL_EV_FEATURES.map((f) => {
+                {copy.evFeatures.map((f) => {
                   const Icon = f.icon
                   return (
                     <div key={f.title}>
@@ -217,6 +208,7 @@ function FeaturePicker() {
 }
 
 function BatteryBrandSection({ battery, index }) {
+  const copy = useBatteryCopy()
   const reversed = index % 2 === 1
 
   return (
@@ -255,7 +247,7 @@ function BatteryBrandSection({ battery, index }) {
             </>
           ) : (
             <div className="absolute inset-0 flex items-center justify-center border-b lg:border-b-0 lg:border-r border-white/[0.06]">
-              <p className="text-xs text-slate-600 uppercase tracking-widest">Photo coming soon</p>
+              <p className="text-xs text-slate-600 uppercase tracking-widest">{copy.otherBatteries.photoSoon}</p>
             </div>
           )}
         </div>
@@ -279,7 +271,7 @@ function BatteryBrandSection({ battery, index }) {
             ))}
           </ul>
           <Link to="/quote" className="btn-secondary w-fit text-sm">
-            Quote {battery.brand} <ArrowRight className="w-4 h-4" />
+            {copy.otherBatteries.quoteBrand(battery.brand)} <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
       </div>
@@ -290,25 +282,27 @@ function BatteryBrandSection({ battery, index }) {
 const INSTALL_STEP_ICONS = [ClipboardCheck, ShieldCheck, Wrench, Handshake]
 
 function InstallSection() {
+  const copy = useBatteryCopy()
+  const { install, images } = copy
   return (
     <section id="install" className="scroll-mt-24 py-16 sm:py-24 border-t border-white/[0.06]">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8 sm:mb-10">
-          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">Install with evNation</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">{install.eyebrow}</p>
           <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-2">
-            Quote to flip the switch
+            {install.title}
           </h2>
           <p className="text-sm sm:text-base text-slate-400 max-w-2xl leading-relaxed">
-            Licensed C-10 install, permits, and inspection — Tesla Powerwall or GM, ATG, and Enphase systems.
+            {install.subtitle}
           </p>
         </div>
 
         <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-navy-900/40 overflow-hidden">
           <div className="grid lg:grid-cols-[1.05fr_0.95fr]">
-            {POWERWALL_IMAGES.install && (
+            {images.install && (
               <div className="relative min-h-[240px] sm:min-h-[300px] lg:min-h-[420px]">
                 <img
-                  src={POWERWALL_IMAGES.install}
+                  src={images.install}
                   alt="Professional Powerwall installation"
                   className="absolute inset-0 w-full h-full object-cover"
                   loading="lazy"
@@ -317,17 +311,17 @@ function InstallSection() {
                 <div className="absolute bottom-4 left-4 right-4 sm:bottom-5 sm:left-5 sm:right-5">
                   <div className="inline-flex items-center gap-2 rounded-full bg-navy-950/75 backdrop-blur-md border border-white/10 px-3 py-1.5">
                     <div className="w-1.5 h-1.5 rounded-full bg-neon animate-pulse" />
-                    <span className="text-xs text-slate-300">Example: Tesla Powerwall install</span>
+                    <span className="text-xs text-slate-300">{install.exampleLabel}</span>
                   </div>
                 </div>
               </div>
             )}
 
             <div className="p-6 sm:p-8 lg:p-10 flex flex-col justify-center border-t lg:border-t-0 lg:border-l border-white/[0.06]">
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2">Turnkey</p>
-              <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-5">What&apos;s included</h3>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2">{install.includedEyebrow}</p>
+              <h3 className="font-display text-xl sm:text-2xl font-bold text-white mb-5">{install.includedTitle}</h3>
               <ul className="space-y-3 mb-8">
-                {EVNATION_INSTALL_INCLUDES.map((item) => (
+                {install.includes.map((item) => (
                   <li key={item} className="flex items-start gap-3 text-sm text-slate-300 leading-relaxed">
                     <CheckCircle2 className="w-4 h-4 text-neon shrink-0 mt-0.5" />
                     {item}
@@ -335,15 +329,15 @@ function InstallSection() {
                 ))}
               </ul>
               <Link to="/quote" className="btn-primary w-fit text-sm">
-                Start your quote <ArrowRight className="w-4 h-4" />
+                {install.startQuote} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
 
           <div className="border-t border-white/[0.06] bg-white/[0.02] px-4 sm:px-6 py-5 sm:py-6">
-            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 mb-4">How it works</p>
+            <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 mb-4">{install.howItWorks}</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-              {POWERWALL_INSTALL_STEPS.map((step, i) => {
+              {install.steps.map((step, i) => {
                 const Icon = INSTALL_STEP_ICONS[i] || ClipboardCheck
                 return (
                   <div
@@ -355,7 +349,7 @@ function InstallSection() {
                         <Icon className="w-3.5 h-3.5 text-neon" />
                       </span>
                       <span className="text-[10px] font-bold uppercase tracking-widest text-slate-600">
-                        Step {i + 1}
+                        {install.stepLabel(i + 1)}
                       </span>
                     </div>
                     <h4 className="font-display font-bold text-white text-sm mb-1">{step.title}</h4>
@@ -372,20 +366,22 @@ function InstallSection() {
 }
 
 function OtherBatteryBrands() {
+  const copy = useBatteryCopy()
+  const { otherBatteries } = copy
   return (
     <div id="other-batteries" className="scroll-mt-24">
       <div className="mb-10 sm:mb-12">
-        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2">Also available</p>
+        <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-slate-500 mb-2">{otherBatteries.eyebrow}</p>
         <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-2">
-          More home battery options
+          {otherBatteries.title}
         </h2>
         <p className="text-sm text-slate-400 max-w-xl leading-relaxed">
-          Tesla Powerwall is our top recommendation — we also install GM, ATG, and Enphase when they&apos;re the better fit for your home.
+          {otherBatteries.subtitle}
         </p>
       </div>
 
       <div className="space-y-6 sm:space-y-8">
-        {ALTERNATIVE_HOME_BATTERIES.map((battery, index) => (
+        {otherBatteries.list.map((battery, index) => (
           <BatteryBrandSection key={battery.id} battery={battery} index={index} />
         ))}
       </div>
@@ -394,7 +390,9 @@ function OtherBatteryBrands() {
 }
 
 export default function BatteryPage() {
+  const copy = useBatteryCopy()
   const [openFaq, setOpenFaq] = useState(0)
+  const featureChips = copy.sellingPoints.items.map((p) => p.title)
 
   return (
     <div className="pt-20 lg:pt-[4.5rem]">
@@ -413,28 +411,28 @@ export default function BatteryPage() {
               <TeslaHeroMeta />
 
               <h1 className="font-display text-[2rem] sm:text-4xl lg:text-[2.75rem] font-bold leading-[1.1] text-white mb-2">
-                {POWERWALL_HERO.title}
+                {copy.hero.title}
               </h1>
-              <p className="font-display text-xl sm:text-2xl text-neon mb-4">{POWERWALL_HERO.tagline}</p>
+              <p className="font-display text-xl sm:text-2xl text-neon mb-4">{copy.hero.tagline}</p>
 
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-7 max-w-lg">
-                {POWERWALL_HERO.description}
+                {copy.hero.description}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link to="/quote" className="btn-primary">
-                  Get a Quote <ArrowRight className="w-4 h-4" />
+                  {copy.hero.getQuote} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a href="#features" className="btn-secondary">
-                  See features
+                  {copy.hero.seeFeatures}
                 </a>
                 <a href="#gm" className="inline-flex items-center gap-1 text-sm font-medium text-slate-500 hover:text-white transition-colors px-1">
-                  Other brands <ArrowUpRight className="w-4 h-4" />
+                  {copy.hero.otherBrands} <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {FEATURE_CHIPS.map((label) => (
+                {featureChips.map((label) => (
                   <a
                     key={label}
                     href="#features"
@@ -455,22 +453,20 @@ export default function BatteryPage() {
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-neon/12 to-transparent blur-2xl opacity-70" />
               <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden neon-border">
                 <img
-                  src={POWERWALL_IMAGES.hero}
-                  alt="Tesla Powerwall home battery"
+                  src={copy.images.hero}
+                  alt={copy.hero.imageAlt}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-navy-950/80 backdrop-blur-md border border-white/10 px-4 py-3">
                   <div className="w-2 h-2 rounded-full bg-neon animate-pulse" />
-                    <span className="text-xs text-slate-300">
-                    <strong className="text-white">Tesla Powerwall</strong> · 13.5 kWh · Whole-home backup
-                  </span>
+                    <span className="text-xs text-slate-300">{copy.hero.overlay}</span>
                 </div>
               </div>
 
               <div className="mt-5 sm:mt-6">
                 <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 mb-3">
-                  All brands we install
+                  {copy.hero.allBrandsLabel}
                 </p>
                 <BatteryBrandLogoRow />
               </div>
@@ -482,12 +478,12 @@ export default function BatteryPage() {
         <div className="border-y border-white/[0.06] bg-white/[0.02]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-4">
             <p className="text-[10px] font-bold uppercase tracking-[0.16em] text-slate-600 text-center">
-              Tesla Powerwall 3 specifications
+              {copy.hero.specsLabel}
             </p>
           </div>
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/[0.06]">
-              {POWERWALL_METRICS.map((m) => (
+              {copy.metrics.map((m) => (
                 <div key={m.label} className="py-5 sm:py-6 text-center px-3">
                   <p className="font-display text-xl sm:text-2xl font-bold text-white tabular-nums">
                     {m.value}
@@ -505,11 +501,11 @@ export default function BatteryPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-8 sm:mb-10">
-            <TeslaSectionLabel />
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">Why Tesla Powerwall</h2>
+            <TeslaSectionLabel label={copy.sellingPoints.sectionLabel} />
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">{copy.pillars.title}</h2>
           </div>
           <div className="grid sm:grid-cols-3 gap-4">
-            {POWERWALL_PILLARS.map(({ label, desc }, i) => (
+            {copy.pillars.items.map(({ label, desc }, i) => (
               <motion.div
                 key={label}
                 initial={{ opacity: 0, y: 12 }}
@@ -535,13 +531,13 @@ export default function BatteryPage() {
       <section id="how-it-works" className="scroll-mt-24 py-16 sm:py-20 border-t border-white/[0.06] bg-navy-950/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10">
-            <TeslaSectionLabel />
-            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">Built for real homes</h2>
-            <p className="text-sm text-slate-400 mt-2">How Tesla Powerwall works in everyday use.</p>
+            <TeslaSectionLabel label={copy.sellingPoints.sectionLabel} />
+            <h2 className="font-display text-2xl sm:text-3xl font-bold text-white">{copy.stories.title}</h2>
+            <p className="text-sm text-slate-400 mt-2">{copy.stories.subtitle}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-4 sm:gap-5">
-            {POWERWALL_STORY.map((block, i) => (
+            {copy.stories.items.map((block, i) => (
               <motion.article
                 key={block.id}
                 initial={{ opacity: 0, y: 12 }}
@@ -597,10 +593,10 @@ export default function BatteryPage() {
       {/* ── FAQ ── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.06]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2 text-center">FAQ</h2>
-          <p className="text-sm text-slate-500 text-center mb-8">Tesla Powerwall &amp; home battery installation</p>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-2 text-center">{copy.faq.title}</h2>
+          <p className="text-sm text-slate-500 text-center mb-8">{copy.faq.subtitle}</p>
           <div>
-            {POWERWALL_FAQ.map((item, i) => (
+            {copy.faq.items.map((item, i) => (
               <FaqItem
                 key={item.q}
                 item={item}
@@ -616,15 +612,15 @@ export default function BatteryPage() {
       <section className="pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-neon/20 bg-gradient-to-r from-neon/8 to-transparent px-8 py-8 sm:py-10">
           <div>
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">Power your home with confidence</h2>
-            <p className="text-sm text-slate-400">Free quote · Tesla Powerwall &amp; GM, ATG, Enphase options · Licensed C10 install</p>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">{copy.cta.title}</h2>
+            <p className="text-sm text-slate-400">{copy.cta.desc}</p>
           </div>
           <div className="flex gap-3 shrink-0">
             <Link to="/quote" className="btn-primary text-sm">
-              Get a Quote <ArrowRight className="w-4 h-4" />
+              {copy.cta.getQuote} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/contact" className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-white transition-colors">
-              Contact <ArrowUpRight className="w-4 h-4" />
+              {copy.cta.contact} <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>
@@ -632,7 +628,7 @@ export default function BatteryPage() {
           <TeslaBrandLogo src={POWERWALL_LOGOS.powerwall} alt="Tesla Powerwall" className="w-full max-w-[220px] sm:max-w-[260px]" />
         </div>
         <p className="text-[10px] text-slate-600 text-center max-w-xl mx-auto leading-relaxed">
-          Tesla, Powerwall, and Tesla Energy are trademarks of Tesla, Inc. evNation is an independent installer and is not affiliated with Tesla, Inc.
+          {copy.cta.trademark}
         </p>
       </section>
     </div>

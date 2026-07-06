@@ -1,0 +1,274 @@
+{
+  "site": {
+    "tagline": "남부·중부·북부 캘리포니아와 일리노이, 네바다, 텍사스, 뉴저지, 애리조나 전역의 면허 EV 충전기·태양광·패널 업그레이드 설치업체."
+  },
+  "galleryPage": {
+    "eyebrow": "설치 갤러리",
+    "heroTitle1": "설치",
+    "heroTitle2": "갤러리",
+    "title": "현장에서 찍은 실제 설치 사진",
+    "subtitle": "설치 당일, 완료 후 결과, 파트너·딜러 방문 등 서비스 지역 전역의 사진입니다.",
+    "statInstalls": "지역 설치 건수",
+    "statRating": "고객 평점",
+    "statAreas": "서비스 지역",
+    "featured": "추천",
+    "getQuote": "견적 받기",
+    "emptyCategory": "이 카테고리에 아직 사진이 없습니다.",
+    "close": "닫기",
+    "prevPhoto": "이전 사진",
+    "nextPhoto": "다음 사진",
+    "categories": {
+      "all": "전체 사진",
+      "installation": "설치 중",
+      "completed": "설치 완료",
+      "partnership": "파트너·딜러",
+      "ev": "EV 충전",
+      "battery": "배터리 설치"
+    },
+    "categoriesShort": {
+      "all": "전체",
+      "installation": "설치",
+      "completed": "완료",
+      "partnership": "딜러",
+      "ev": "EV",
+      "battery": "배터리"
+    },
+    "installsCount": "설치 {count}건",
+    "heroMobileDesc": "현장 사진 — 설치, 완료 작업, 딜러 방문.",
+    "heroDesktopDesc": "현장에서 찍은 실제 사진 — 설치 당일, 완료 후, 파트너·딜러 방문 등 서비스 지역 전역.",
+    "ctaTitle": "갤러리에 우리 집도 올리고 싶으신가요?",
+    "ctaDesc": "캘리포니아 및 전국 서비스 지역에서 C-10 면허 설치.",
+    "dealerPartnerships": "딜러 파트너십"
+  },
+  "shop": {
+    "eyebrow": "서비스",
+    "title": "전체 서비스",
+    "subtitle": "견적 장바구니에 서비스를 추가하고 준비되면 제출하세요.",
+    "viewQuote": "견적 보기 ({count}) · ~${total}",
+    "mostPopular": "인기",
+    "addedToQuote": "견적에 추가됨",
+    "addToQuote": "견적에 추가"
+  },
+  "contact": {
+    "eyebrow": "문의",
+    "title": "프로젝트 제출",
+    "subtitle": "아래 양식을 작성해 주시면 맞춤 견적을 준비해 드립니다.",
+    "personalInfo": "개인 정보",
+    "homeInfo": "주택 정보",
+    "vehicleInfo": "차량 정보",
+    "photos": "사진 (선택)",
+    "notes": "추가 메모",
+    "submit": "프로젝트 제출",
+    "firstName": "이름 *",
+    "lastName": "성",
+    "email": "이메일 *",
+    "phone": "전화번호",
+    "city": "도시",
+    "zip": "우편번호",
+    "vehicleMake": "차량 제조사",
+    "vehicleModel": "차량 모델",
+    "distance": "예상 케이블 길이 (ft)",
+    "notesPlaceholder": "추가로 알려주실 내용이 있으신가요?",
+    "panelPhoto": "전기 패널 사진",
+    "garagePhoto": "차고 / 주차 공간 사진",
+    "receivedTitle": "제출 완료!",
+    "reference": "참조 번호:",
+    "receivedDesc": "24시간 이내에 검토 후 연락드리겠습니다. 확인 이메일을 발송했습니다.",
+    "homeType": "주택 유형",
+    "panelSize": "패널 용량",
+    "parking": "주차 위치"
+  },
+  "quote": {
+    "badge": "무료 견적 · 부담 없음",
+    "title": "설치 견적,",
+    "titleAccent": "몇 분이면 확인",
+    "subtitle": "몇 가지 질문에 답하시면 프로젝트 예상 비용을 안내하고 상세 견적을 후속으로 보내 드립니다.",
+    "startingEstimate": "예상 시작가",
+    "licensedNote": "모든 작업에 C-10 면허 전기 기사 배치",
+    "transparentNote": "투명한 가격 — 숨은 비용 없음",
+    "california": "캘리포니아",
+    "otherStates": "기타 주",
+    "fullName": "성명",
+    "fullNamePlaceholder": "홍길동",
+    "phoneNumber": "전화번호",
+    "email": "이메일",
+    "emailPlaceholder": "you@email.com",
+    "streetAddress": "주소",
+    "city": "도시",
+    "zipCode": "우편번호",
+    "panelSize": "메인 패널 용량",
+    "panelLocation": "패널 위치",
+    "breakerSize": "기존 차단기 용량",
+    "notes": "메모 (선택)",
+    "notesPlaceholder": "차량 모델, 일정, 접근 관련 메모…",
+    "back": "이전",
+    "continue": "다음",
+    "submitQuote": "견적 제출",
+    "stepOf": "{total}단계 중 {current}단계",
+    "notSure": "잘 모르겠음",
+    "successTitle": "제출 완료!",
+    "successReference": "참조 번호:",
+    "successDesc": "답변을 검토한 뒤 24시간 이내에 상세 견적을 보내 드립니다.",
+    "backHome": "홈으로",
+    "headerSubtitle": "질문 {total}개 — 이후 면허 전기 기사가 최종 견적을 확인합니다.",
+    "submitting": "제출 중…",
+    "getEstimate": "견적 받기",
+    "privacyNote": "정보는 비공개이며 견적 준비에만 사용됩니다.",
+    "selectProjectHint": "프로젝트 유형을 선택하면 실시간 견적이 여기에 표시됩니다.",
+    "progressLabel": "진행률",
+    "steps": {
+      "service": {
+        "shortLabel": "프로젝트",
+        "title": "어떤 도움이 필요하신가요?",
+        "subtitle": "프로젝트에 가장 가까운 옵션을 선택해 주세요."
+      },
+      "region": {
+        "shortLabel": "지역",
+        "title": "프로젝트 지역은 어디인가요?",
+        "subtitle": "캘리포니아 및 일부 주에서 설치합니다."
+      },
+      "info": {
+        "shortLabel": "연락처",
+        "title": "어떻게 연락드릴까요?",
+        "subtitle": "견적과 다음 단계를 이곳으로 보내 드립니다."
+      },
+      "location": {
+        "shortLabel": "주소",
+        "title": "프로젝트 위치는 어디인가요?",
+        "subtitle": "설치 / 프로젝트 주소입니다."
+      },
+      "detail": {
+        "shortLabel": "상세",
+        "title": "추가 정보",
+        "subtitle": "선택 사항이지만, 알고 계신 내용이 많을수록 정확한 견적에 도움이 됩니다."
+      }
+    },
+    "serviceNeeds": {
+      "ev-charger": { "title": "EV 충전기 설치", "desc": "가정용 Level 2 충전기" },
+      "nema-outlet": { "title": "NEMA 콘센트 설치", "desc": "240V 전용 콘센트" },
+      "panel-upgrade": { "title": "메인 패널 업그레이드", "desc": "전기 용량 확대" },
+      "ev-panel": { "title": "EV 충전기 + 패널 업그레이드", "desc": "충전기와 패널 동시 작업" },
+      "charger-swap": { "title": "충전기 교체", "desc": "기존 장비 교체" },
+      "tesla-powerwall": { "title": "Tesla Powerwall 배터리", "desc": "가정용 백업 배터리" },
+      "multifamily": { "title": "다세대 주택 프로젝트", "desc": "콘도·아파트 공용 충전" },
+      "commercial-project": { "title": "상업 프로젝트", "desc": "비즈니스·플리트 L2/L3 충전" },
+      "not-sure": { "title": "아직 잘 모르겠음", "desc": "함께 맞는 옵션을 찾아 드립니다" }
+    }
+  },
+  "about": {
+    "eyebrow": "EVnation 소개",
+    "title": "전기화된",
+    "titleAccent": "집을 위한 힘",
+    "subtitle": "EVnation의 미션은 가정·상업 EV 충전, 배터리 저장, 에너지 백업을 쉽게 만들어 완전 전기 생활을 간단하고 안심되게 하는 것입니다.",
+    "whoWeAre": "우리는 누구인가",
+    "whoP1": "EVnation은 캘리포니아주 면허 C10 전기 계약업체로, 가정·상업 EV 충전, Tesla Powerwall 배터리 저장, 보증 설치를 전문으로 합니다. 완전 전기 생활로의 전환이 간단하고 투명하며 가치 있어야 한다고 믿습니다.",
+    "whoP2": "단일 가정용 충전기부터 상업용 네트워크 충전소, 가정 전체 백업 배터리까지, 컨시어지 팀이 무료 견적부터 금융, 허가, 최종 검사까지 모든 단계를 안내합니다. 쉬운 자격 조건의 금융 — 그린 에너지 무이자 다운 프로그램 및 HEA 계약 포함 — 으로 집 전기화가 그 어느 때보다 쉬워졌습니다.",
+    "stat1": "서비스 가구 수",
+    "stat2Value": "GoGreen",
+    "stat2": "Financing",
+    "stat3Value": "Rebate",
+    "stat3": "주 에너지 프로그램 자격 확인",
+    "stat4": "면허 계약업체",
+    "valuesTitle": "우리가 지키는 가치",
+    "value1Title": "완전한 투명성",
+    "value1Text": "모호한 약속 없이 비용, 세액공제, 금융을 상세히 안내하여 자신 있게 결정하실 수 있게 합니다.",
+    "value2Title": "면허 및 보험",
+    "value2Text": "C10 면허 전기 계약업체입니다. 모든 설치는 코드 준수 및 보증이 적용됩니다.",
+    "value3Title": "컨시어지 서비스",
+    "value3Text": "견적부터 허가, 최종 검사까지 모든 단계에서 함께합니다.",
+    "value4Title": "충전 + 배터리",
+    "value4Text": "EV 충전과 Tesla Powerwall 저장을 함께 제공하여 정전에도 집이 안정적으로 전력을 유지하도록 합니다.",
+    "teamTitle": "리더십 팀",
+    "ctaTitle": "집을 전기화할 준비가 되셨나요?",
+    "ctaDesc": "면허 팀의 무료·투명 견적을 받아 보세요.",
+    "ctaButton": "견적 받기"
+  },
+  "serviceLayout": {
+    "featuresTitle": "포함 사항",
+    "readyTitle": "시작할 준비가 되셨나요?",
+    "readyDesc": "면허 팀의 무료·투명 견적을 받아 보세요.",
+    "talkExpert": "전문가와 상담"
+  },
+  "serviceAreas": {
+    "eyebrow": "서비스 지역",
+    "title": "설치 지역",
+    "subtitle": "캘리포니아 및 일부 주에서 EV 충전, 패널 업그레이드, 배터리 저장을 설치합니다.",
+    "getQuote": "무료 견적 받기",
+    "viewCounty": "카운티 상세 보기"
+  },
+  "status": {
+    "submitted": "제출됨",
+    "under_review": "검토 중",
+    "quote_ready": "견적 준비",
+    "scheduled": "일정 확정",
+    "installed": "설치 완료"
+  },
+  "services": {
+    "items": {
+      "l2-charger": {
+        "name": "Level 2 EV 충전기 설치",
+        "shortDesc": "가정용 하드와이어 또는 플러그인 Level 2 충전기 전문 설치.",
+        "benefit1": "시간당 최대 40마일 주행",
+        "benefit2": "면허 전기 기사 시공",
+        "benefit3": "깔끔한 케이블 배선"
+      },
+      "panel-upgrade": {
+        "name": "전기 패널 업그레이드",
+        "shortDesc": "EV 충전 및 미래 부하를 안전하게 지원하도록 패널을 업그레이드합니다.",
+        "benefit1": "200A 서비스 업그레이드",
+        "benefit2": "코드 준수 시공",
+        "benefit3": "미래 대비 용량"
+      },
+      "permit-handling": {
+        "name": "허가 대행",
+        "shortDesc": "지역 당국과의 모든 허가 서류 및 검사를 대행합니다.",
+        "benefit1": "시 허가 신청",
+        "benefit2": "검사 일정 조율",
+        "benefit3": "서류 업무 제로"
+      },
+      "load-calculation": {
+        "name": "부하 계산",
+        "shortDesc": "패널이 EV 충전기를 지원할 수 있는지 판단하는 NEC 준수 부하 분석.",
+        "benefit1": "NEC Article 220 준수",
+        "benefit2": "서면 보고서",
+        "benefit3": "업그레이드 권장안"
+      },
+      "battery-storage": {
+        "name": "Tesla Powerwall 배터리",
+        "shortDesc": "Tesla Powerwall로 가정 전체 백업 및 피크 요금 절감.",
+        "benefit1": "가정 전체 백업",
+        "benefit2": "피크 요금 절감",
+        "benefit3": "앱 실시간 모니터링"
+      },
+      "smart-energy-bundle": {
+        "name": "충전기 + 배터리 번들",
+        "shortDesc": "EV 충전기 + Tesla Powerwall + 스마트 모니터링 — 완전한 가정 에너지 패키지.",
+        "benefit1": "올인원 패키지",
+        "benefit2": "스마트 에너지 모니터링",
+        "benefit3": "우선 일정 배정"
+      }
+    }
+  },
+  "forms": {
+    "homeTypes": {
+      "singleFamily": "단독주택",
+      "townhouse": "타운하우스",
+      "condo": "콘도 / 아파트",
+      "multiFamily": "다세대 주택",
+      "other": "기타"
+    },
+    "parkingTypes": {
+      "attachedGarage": "연결 차고",
+      "detachedGarage": "별도 차고",
+      "carport": "카포트",
+      "driveway": "드라이브웨이 (실외)",
+      "street": "노상 주차"
+    },
+    "panelUnknown": "모름"
+  },
+  "legal": {
+    "lastUpdated": "최종 업데이트:",
+    "privacyTitle": "개인정보 처리방침",
+    "termsTitle": "이용약관"
+  }
+}

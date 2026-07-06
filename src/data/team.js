@@ -30,6 +30,6 @@ export const leadershipTeam = [
     title: 'Tech Manager',
     image: '/images/team/yongjun-kim.jpg',
     bio:
-      'YongJun manages technical standards across EVnation field operations — from panel capacity reviews and charger specifications to code-compliant installs and crew training. He ensures each project is scoped correctly and executed to licensed electrical standards.',
+      'YongJun oversees EVnation\'s technical operations, ensuring every project meets the highest standards of safety, quality, and efficiency. A graduate of the University of California, Irvine (UCI) with a B.S. in Computer Science, he develops internal systems, automation workflows, and operational tools that streamline processes and support scalable growth. He bridges technology and field operations to deliver reliable, code-compliant EV charging solutions.',
   },
 ]

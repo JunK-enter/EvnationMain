@@ -14,52 +14,10 @@ import {
   Home,
   Shield,
   Zap,
+  Plug,
+  Battery,
 } from 'lucide-react'
-import { BIDIRECTIONAL_HOME_CHARGERS } from '../data/homeChargers'
-
-const METRICS = [
-  { value: 'V2H', label: 'Vehicle-to-home' },
-  { value: 'Tesla', label: '& GM today' },
-  { value: 'C10', label: 'Licensed install' },
-  { value: '24hr', label: 'Quote turnaround' },
-]
-
-const BRANDS = BIDIRECTIONAL_HOME_CHARGERS.map((c) => c.brand)
-
-const INCLUDED = [
-  { icon: ArrowLeftRight, text: 'Bi-directional charger hardware evaluation & install' },
-  { icon: Home, text: 'Vehicle-to-home backup when vehicle & utility allow' },
-  { icon: Shield, text: 'Panel load study & code-compliant wiring' },
-  { icon: FileCheck, text: 'Utility interconnection & permit coordination' },
-  { icon: Zap, text: 'Integration with Powerwall on supported Tesla setups' },
-  { icon: Clock, text: 'Commissioning, testing & homeowner walkthrough' },
-]
-
-const STEPS = [
-  { n: '1', title: 'Quote', desc: 'Share your vehicle, panel, and backup goals.' },
-  { n: '2', title: 'Eligibility check', desc: 'We confirm V2H hardware, vehicle model & utility rules.' },
-  { n: '3', title: 'Install', desc: 'Licensed electricians mount, wire & test bi-directional hardware.' },
-  { n: '4', title: 'Handoff', desc: 'App setup, backup modes explained — ready when the grid goes down.' },
-]
-
-const FAQ = [
-  {
-    q: 'What is bi-directional (V2H) charging?',
-    a: 'Bi-directional charging lets a compatible EV send power back to your home during outages or peak rate windows — when your vehicle, charger, and utility program support it.',
-  },
-  {
-    q: 'Which brands do you install today?',
-    a: 'We install Tesla Wall Connector setups integrated with Powerwall, and GM Ultium V2H-ready hardware. More brands are added as they become available in our service areas.',
-  },
-  {
-    q: 'Do I need Powerwall for V2H?',
-    a: 'Not always. Requirements vary by brand and vehicle. Tesla V2H often pairs with Powerwall; GM Ultium has its own hardware path. We confirm scope on site.',
-  },
-  {
-    q: 'Will my utility allow vehicle-to-home?',
-    a: 'Utility rules vary. We check interconnection requirements during the site evaluation and handle paperwork where required.',
-  },
-]
+import { useBiDirectionalCopy } from '@/i18n/hooks/useExtraPages'
 
 const THEME = {
   accent: 'text-accent-blue',
@@ -100,26 +58,24 @@ function FaqItem({ item, open, onToggle }) {
   )
 }
 
-function ChargerPicker() {
-  const [activeId, setActiveId] = useState(BIDIRECTIONAL_HOME_CHARGERS[0]?.id)
-  const active = BIDIRECTIONAL_HOME_CHARGERS.find((c) => c.id === activeId) || BIDIRECTIONAL_HOME_CHARGERS[0]
+function ChargerPicker({ chargers, eyebrow, title, subtitle, disclaimer, quoteThis }) {
+  const [activeId, setActiveId] = useState(chargers[0]?.id)
+  const active = chargers.find((c) => c.id === activeId) || chargers[0]
 
   if (!active) return null
 
   return (
     <div id="chargers" className="scroll-mt-24">
       <div className="mb-8 sm:mb-10">
-        <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>Hardware</p>
+        <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>{eyebrow}</p>
         <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-2">
-          Bi-directional chargers we install
+          {title}
         </h2>
-        <p className="text-sm text-slate-400 max-w-xl leading-relaxed">
-          Tesla and GM today — matched to your vehicle, panel, and backup goals.
-        </p>
+        <p className="text-sm text-slate-400 max-w-xl leading-relaxed">{subtitle}</p>
       </div>
 
       <div className="flex flex-wrap gap-2 mb-5">
-        {BIDIRECTIONAL_HOME_CHARGERS.map((c) => {
+        {chargers.map((c) => {
           const on = c.id === activeId
           return (
             <button
@@ -173,21 +129,20 @@ function ChargerPicker() {
                 ))}
               </ul>
               <Link to="/quote" className="btn-primary w-fit text-sm">
-                Quote this setup <ArrowRight className="w-4 h-4" />
+                {quoteThis} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      <p className="text-xs text-slate-500 mt-3 leading-relaxed">
-        V2H depends on vehicle, hardware & utility — confirmed at site visit.
-      </p>
+      <p className="text-xs text-slate-500 mt-3 leading-relaxed">{disclaimer}</p>
     </div>
   )
 }
 
 export default function BiDirectionalChargingPage() {
+  const copy = useBiDirectionalCopy()
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
@@ -201,34 +156,33 @@ export default function BiDirectionalChargingPage() {
             <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
               <div className="flex items-center gap-3 mb-5 flex-wrap">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-accent-blue/10 border border-accent-blue/25 text-accent-blue text-[11px] font-bold uppercase tracking-wide">
-                  <ArrowLeftRight className="w-3 h-3" /> V2H ready
+                  <ArrowLeftRight className="w-3 h-3" /> {copy.hero.badge}
                 </span>
                 <Link to="/residential-ev-charging" className="text-sm text-slate-500 hover:text-white transition-colors">
-                  Level 2 charging →
+                  {copy.hero.level2Link}
                 </Link>
               </div>
 
               <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.08] text-white mb-4">
-                Bi-Directional{' '}
-                <span className="text-accent-blue">Charging</span>
+                {copy.hero.title}{' '}
+                <span className="text-accent-blue">{copy.hero.titleAccent}</span>
               </h1>
 
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-7 max-w-lg">
-                Power your home from your driveway. Licensed C10 electricians install vehicle-to-home
-                hardware for supported Tesla and GM setups.
+                {copy.hero.subtitle}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link to="/quote" className="btn-primary">
-                  Get a Quote <ArrowRight className="w-4 h-4" />
+                  {copy.hero.getQuote} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a href="#chargers" className="btn-secondary">
-                  See hardware
+                  {copy.hero.seeHardware}
                 </a>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {BRANDS.map((b) => (
+                {copy.brands.map((b) => (
                   <a
                     key={b}
                     href="#chargers"
@@ -249,15 +203,15 @@ export default function BiDirectionalChargingPage() {
               <div className="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-accent-blue/15 to-transparent blur-2xl opacity-70" />
               <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden border border-accent-blue/20">
                 <img
-                  src="/images/chargers/tesla-wall-connector.png"
-                  alt="Bi-directional EV charger"
-                  className="w-full h-full object-contain bg-[#0a0c10] p-8"
+                  src="/images/solutions/bi-directional-charging.jpg"
+                  alt={copy.hero.imageAlt}
+                  className="w-full h-full object-cover"
+                  loading="eager"
                 />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-navy-950/80 backdrop-blur-md border border-white/10 px-4 py-3">
                   <div className="w-2 h-2 rounded-full bg-accent-blue animate-pulse" />
-                  <span className="text-xs text-slate-300">
-                    <strong className="text-white">V2H</strong> · Backup from your EV
-                  </span>
+                  <span className="text-xs text-slate-300">{copy.hero.overlay}</span>
                 </div>
               </div>
             </motion.div>
@@ -267,7 +221,7 @@ export default function BiDirectionalChargingPage() {
         <div className="border-y border-white/[0.06] bg-white/[0.02]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/[0.06]">
-              {METRICS.map((m) => (
+              {copy.metrics.map((m) => (
                 <div key={m.label} className="py-5 sm:py-6 text-center px-3">
                   <p className="font-display text-xl sm:text-2xl font-bold text-accent-blue tabular-nums">{m.value}</p>
                   <p className="text-[11px] sm:text-xs text-slate-500 uppercase tracking-wide mt-0.5">{m.label}</p>
@@ -281,11 +235,7 @@ export default function BiDirectionalChargingPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { icon: Home, title: 'Home backup', desc: 'Keep essentials running when the grid goes down.' },
-              { icon: ArrowLeftRight, title: 'Two-way power', desc: 'Charge from the grid — discharge to your home when supported.' },
-              { icon: Shield, title: 'Licensed & permitted', desc: 'C10 electricians, load calcs, and utility coordination.' },
-            ].map(({ icon: Icon, title, desc }, i) => (
+            {copy.valueProps.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, y: 12 }}
@@ -309,7 +259,96 @@ export default function BiDirectionalChargingPage() {
 
       <section className="py-16 sm:py-20 border-t border-white/[0.06] bg-navy-950/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ChargerPicker />
+          <div className="mb-10 sm:mb-12 max-w-3xl">
+            <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>
+              {copy.explainer.eyebrow}
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-[2rem] font-bold text-white leading-tight mb-4">
+              {copy.explainer.title}
+            </h2>
+            <p className="text-sm sm:text-base text-slate-400 leading-relaxed">{copy.explainer.intro}</p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 gap-4 mb-12">
+            <div className="p-5 sm:p-6 rounded-2xl border border-white/[0.06] bg-white/[0.02]">
+              <div className="flex items-center gap-2 mb-3">
+                <Plug className="w-4 h-4 text-slate-500" />
+                <h3 className="font-display font-bold text-white text-sm">{copy.explainer.compare.normalTitle}</h3>
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed">{copy.explainer.compare.normalDesc}</p>
+            </div>
+            <div className={`p-5 sm:p-6 rounded-2xl border ${THEME.accentBorder} ${THEME.accentSoft}`}>
+              <div className="flex items-center gap-2 mb-3">
+                <ArrowLeftRight className={`w-4 h-4 ${THEME.accent}`} />
+                <h3 className="font-display font-bold text-white text-sm">{copy.explainer.compare.v2hTitle}</h3>
+              </div>
+              <p className="text-sm text-slate-300 leading-relaxed">{copy.explainer.compare.v2hDesc}</p>
+            </div>
+          </div>
+
+          <div className="mb-12">
+            <h3 className="font-display text-lg sm:text-xl font-bold text-white mb-6">{copy.explainer.stepsTitle}</h3>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {copy.explainer.steps.map((s) => (
+                <div
+                  key={s.n}
+                  className="relative p-5 rounded-2xl border border-white/[0.06] bg-white/[0.02]"
+                >
+                  <span className="inline-flex w-7 h-7 rounded-full bg-accent-blue/10 border border-accent-blue/25 items-center justify-center font-display text-xs font-bold text-accent-blue mb-3">
+                    {s.n}
+                  </span>
+                  <h4 className="font-display font-bold text-white text-sm mb-1.5">{s.title}</h4>
+                  <p className="text-[13px] text-slate-400 leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="rounded-2xl sm:rounded-3xl border border-white/[0.08] bg-navy-900/40 overflow-hidden mb-10">
+            <div className={`h-px bg-gradient-to-r from-transparent ${THEME.line} to-transparent`} />
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="flex items-start gap-3 mb-4">
+                <Battery className={`w-5 h-5 shrink-0 mt-0.5 ${THEME.accent}`} />
+                <h3 className="font-display text-lg sm:text-xl font-bold text-white">{copy.explainer.powershareTitle}</h3>
+              </div>
+              <p className="text-sm text-slate-400 leading-relaxed mb-8 max-w-3xl">{copy.explainer.powershareBody}</p>
+              <div className="grid grid-cols-3 gap-3 sm:gap-4">
+                {copy.explainer.stats.map((st) => (
+                  <div key={st.label} className="text-center p-4 rounded-xl border border-white/[0.06] bg-white/[0.02]">
+                    <p className="font-display text-lg sm:text-xl font-bold text-accent-blue tabular-nums">{st.value}</p>
+                    <p className="text-[10px] sm:text-[11px] text-slate-500 uppercase tracking-wide mt-1 leading-snug">{st.label}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="mb-8">
+            <h3 className="font-display text-lg font-bold text-white mb-4">{copy.explainer.needsTitle}</h3>
+            <ul className="space-y-2.5">
+              {copy.explainer.needs.map((need) => (
+                <li key={need} className="flex items-start gap-2.5 text-sm text-slate-300">
+                  <CheckCircle2 className={`w-4 h-4 shrink-0 mt-0.5 ${THEME.accent}`} />
+                  {need}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <p className="text-xs text-slate-500 leading-relaxed border-t border-white/[0.06] pt-6">{copy.explainer.note}</p>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-20 border-t border-white/[0.06] bg-navy-950/40">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ChargerPicker
+            chargers={copy.chargers.list}
+            eyebrow={copy.chargers.eyebrow}
+            title={copy.chargers.title}
+            subtitle={copy.chargers.subtitle}
+            disclaimer={copy.chargers.disclaimer}
+            quoteThis={copy.chargers.quoteThis}
+          />
         </div>
       </section>
 
@@ -317,10 +356,10 @@ export default function BiDirectionalChargingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>Turnkey</p>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">What&apos;s included</h2>
+              <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>{copy.included.eyebrow}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">{copy.included.title}</h2>
               <ul className="space-y-3">
-                {INCLUDED.map(({ icon: Icon, text }) => (
+                {copy.included.items.map(({ icon: Icon, text }) => (
                   <li key={text} className="flex items-start gap-3 text-sm text-slate-300">
                     <Icon className="w-4 h-4 text-accent-blue shrink-0 mt-0.5" />
                     {text}
@@ -330,12 +369,12 @@ export default function BiDirectionalChargingPage() {
             </div>
 
             <div>
-              <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>Process</p>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">Quote to backup-ready</h2>
+              <p className={`text-[11px] font-bold uppercase tracking-[0.18em] mb-2 ${THEME.accent}`}>{copy.steps.eyebrow}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">{copy.steps.title}</h2>
               <div className="space-y-0">
-                {STEPS.map((s, i) => (
+                {copy.steps.items.map((s, i) => (
                   <div key={s.n} className="flex gap-4 pb-6 last:pb-0 relative">
-                    {i < STEPS.length - 1 && (
+                    {i < copy.steps.items.length - 1 && (
                       <span className="absolute left-[15px] top-8 bottom-0 w-px bg-white/[0.08]" />
                     )}
                     <span className="w-8 h-8 rounded-full bg-accent-blue/10 border border-accent-blue/25 flex items-center justify-center shrink-0 font-display text-xs font-bold text-accent-blue">
@@ -355,9 +394,9 @@ export default function BiDirectionalChargingPage() {
 
       <section className="py-16 sm:py-20 border-t border-white/[0.06]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8 text-center">FAQ</h2>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8 text-center">{copy.faq.title}</h2>
           <div>
-            {FAQ.map((item, i) => (
+            {copy.faq.items.map((item, i) => (
               <FaqItem
                 key={item.q}
                 item={item}
@@ -372,15 +411,15 @@ export default function BiDirectionalChargingPage() {
       <section className="pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-accent-blue/20 bg-gradient-to-r from-accent-blue/10 to-transparent px-8 py-8 sm:py-10">
           <div>
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">Ready for vehicle-to-home?</h2>
-            <p className="text-sm text-slate-400">Free estimate — we confirm V2H eligibility on site.</p>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">{copy.cta.title}</h2>
+            <p className="text-sm text-slate-400">{copy.cta.desc}</p>
           </div>
           <div className="flex gap-3 shrink-0">
             <Link to="/quote" className="btn-primary text-sm">
-              Get a Quote <ArrowRight className="w-4 h-4" />
+              {copy.cta.getQuote} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/contact" className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-white transition-colors">
-              Contact <ArrowUpRight className="w-4 h-4" />
+              {copy.cta.contact} <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

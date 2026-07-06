@@ -10,25 +10,33 @@ import { useAuth } from '@/context/AuthContext'
 import BlogManager from '@/components/BlogManager'
 import { BlogFeaturedHero, BlogPostCard } from '@/components/BlogArticleContent'
 import { serviceArea } from '@/data/localSeo'
+import { useBlogCopy } from '@/i18n/hooks/useExtraPages'
+
+const ALL_CATEGORY = '__all__'
 
 export default function BlogPage() {
   const { posts, ready } = useBlogPosts()
   const { isBlogEditor, logout, user } = useAuth()
-  const [activeCategory, setActiveCategory] = useState('All')
+  const [activeCategory, setActiveCategory] = useState(ALL_CATEGORY)
   const [managing, setManaging] = useState(false)
   const [openNew, setOpenNew] = useState(false)
 
   const categories = useMemo(
-    () => ['All', ...Array.from(new Set(posts.map((p) => p.category)))],
+    () => [ALL_CATEGORY, ...Array.from(new Set(posts.map((p) => p.category)))],
     [posts]
   )
 
   const filtered =
-    activeCategory === 'All'
+    activeCategory === ALL_CATEGORY
       ? posts
       : posts.filter((p) => p.category === activeCategory)
 
   const [featured, ...rest] = filtered
+  const copy = useBlogCopy(
+    serviceArea.region,
+    posts.length,
+    featured ? formatPostDate(featured.date) : 'regularly',
+  )
 
   function startNewPost() {
     setOpenNew(true)
@@ -40,7 +48,7 @@ export default function BlogPage() {
       <div className="pt-28 pb-20 min-h-screen flex items-center justify-center">
         <div className="flex flex-col items-center gap-3">
           <div className="w-10 h-10 rounded-full border-2 border-neon/30 border-t-neon animate-spin" />
-          <p className="text-slate-500 text-sm">Loading stories…</p>
+          <p className="text-slate-500 text-sm">{copy.loading}</p>
         </div>
       </div>
     )
@@ -61,17 +69,17 @@ export default function BlogPage() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon/10 border border-neon/20 text-neon text-xs font-semibold uppercase tracking-wider mb-5">
                 <Sparkles className="w-3.5 h-3.5" />
-                {serviceArea.region} Energy Journal
+                {copy.badge}
               </div>
               <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.08]">
-                EV, Solar &{' '}
-                <span className="neon-text">Home Power</span>
+                {copy.title}{' '}
+                <span className="neon-text">{copy.titleAccent}</span>
               </h1>
               <p className="text-slate-400 mt-4 text-lg leading-relaxed max-w-xl">
-                Field notes, rebate guides, and install insights from the evNation team across our service areas.
+                {copy.subtitle}
               </p>
               <p className="text-xs text-slate-500 mt-4">
-                {posts.length} articles · Updated {featured ? formatPostDate(featured.date) : 'regularly'}
+                {copy.articlesMeta}
               </p>
             </motion.div>
 
@@ -87,14 +95,14 @@ export default function BlogPage() {
                   onClick={startNewPost}
                   className="btn-primary justify-center !py-3 !px-6 flex items-center gap-2"
                 >
-                  <Plus className="w-4 h-4" /> New post
+                  <Plus className="w-4 h-4" /> {copy.newPost}
                 </button>
                 <button
                   type="button"
                   onClick={() => { setOpenNew(false); setManaging(true) }}
                   className="btn-secondary justify-center !py-3 !px-6 flex items-center gap-2"
                 >
-                  <Settings className="w-4 h-4" /> Manage
+                  <Settings className="w-4 h-4" /> {copy.manage}
                 </button>
                 <button
                   type="button"
@@ -102,7 +110,7 @@ export default function BlogPage() {
                   className="btn-secondary justify-center !py-3 !px-4 flex items-center gap-2 !text-slate-400"
                   title={`Signed in as ${user?.name}`}
                 >
-                  <LogOut className="w-4 h-4" /> Sign out
+                  <LogOut className="w-4 h-4" /> {copy.signOut}
                 </button>
               </motion.div>
             ) : (
@@ -111,7 +119,7 @@ export default function BlogPage() {
                 className="inline-flex items-center gap-2 text-xs text-slate-500 hover:text-neon transition-colors shrink-0"
               >
                 <PenLine className="w-3.5 h-3.5" />
-                Editor sign in
+                {copy.editorSignIn}
               </Link>
             )}
           </div>
@@ -128,7 +136,7 @@ export default function BlogPage() {
                     : 'text-slate-300 bg-white/[0.04] border border-white/10 hover:border-neon/30 hover:text-white'
                 }`}
               >
-                {c}
+                {c === ALL_CATEGORY ? copy.allCategory : c}
               </button>
             ))}
           </div>
@@ -145,7 +153,7 @@ export default function BlogPage() {
             <>
               <div className="flex items-center gap-3 pt-4">
                 <Zap className="w-5 h-5 text-neon" />
-                <h2 className="font-display text-xl font-semibold">Latest stories</h2>
+                <h2 className="font-display text-xl font-semibold">{copy.latestStories}</h2>
                 <div className="flex-1 h-px bg-gradient-to-r from-white/10 to-transparent" />
               </div>
 
@@ -165,17 +173,17 @@ export default function BlogPage() {
 
           {filtered.length === 0 && (
             <div className="glass rounded-3xl p-16 text-center">
-              <p className="text-slate-400">No articles in this category yet.</p>
+              <p className="text-slate-400">{copy.emptyCategory}</p>
             </div>
           )}
 
           <div className="glass rounded-3xl p-8 sm:p-12 text-center neon-border mt-8">
-            <h3 className="font-display text-2xl font-bold mb-3">Ready to go electric?</h3>
+            <h3 className="font-display text-2xl font-bold mb-3">{copy.ctaTitle}</h3>
             <p className="text-slate-400 mb-6 max-w-lg mx-auto">
-              Build your custom install quote for EV charging, solar, or panel upgrades in your service area.
+              {copy.ctaDesc}
             </p>
             <Link href="/quote" className="btn-primary inline-flex items-center gap-2">
-              Build Your Quote
+              {copy.ctaButton}
             </Link>
           </div>
         </div>
@@ -184,13 +192,13 @@ export default function BlogPage() {
       {managing && isBlogEditor && (
         <div className="fixed inset-0 z-[100] bg-navy-950/98 overflow-y-auto">
           <div className="sticky top-0 z-10 flex items-center justify-between px-4 sm:px-8 py-4 bg-navy-950/95 backdrop-blur border-b border-white/10">
-            <h2 className="font-display font-semibold text-lg">Blog editor</h2>
+            <h2 className="font-display font-semibold text-lg">{copy.editorTitle}</h2>
             <button
               type="button"
               onClick={() => { setManaging(false); setOpenNew(false) }}
               className="btn-secondary !py-2 !px-4 !text-sm"
             >
-              Close
+              {copy.close}
             </button>
           </div>
           <div className="max-w-4xl mx-auto px-4 sm:px-8 py-8">

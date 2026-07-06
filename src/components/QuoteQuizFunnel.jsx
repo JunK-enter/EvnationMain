@@ -27,13 +27,12 @@ import {
   Briefcase,
 } from 'lucide-react'
 import {
-  QUOTE_QUIZ_STEPS,
-  SERVICE_NEEDS,
   SERVICE_ZONES,
-  BREAKER_SIZES,
   getServiceNeed,
   parseFullName,
 } from '@/data/quoteQuizSteps'
+import { useQuoteQuizCopy } from '@/i18n/useQuoteQuizCopy'
+import { useTranslation } from '@/i18n/LocaleProvider'
 import { DEFAULT_ZONE_ID, getZoneLabel } from '@/data/serviceZones'
 import { calculateQuizBaseEstimate, shouldSuggestPanelUpgrade } from '@/services/quoteCalculator'
 import { useQuote } from '@/context/QuoteContext'
@@ -69,10 +68,10 @@ const slide = {
   transition: { duration: 0.35, ease: [0.22, 1, 0.36, 1] },
 }
 
-function StepRail({ currentIndex, onJump }) {
+function StepRail({ currentIndex, onJump, steps }) {
   return (
     <div className="hidden sm:flex items-center justify-between gap-1 mb-8 lg:mb-10 overflow-x-auto pb-1 scrollbar-hide max-w-3xl mx-auto lg:max-w-none">
-      {QUOTE_QUIZ_STEPS.map((s, i) => {
+      {steps.map((s, i) => {
         const done = i < currentIndex
         const active = i === currentIndex
         const Icon = STEP_ICONS[s.id]
@@ -261,6 +260,8 @@ function MobileEstimateStrip({ quote, serviceNeed, zoneId, stepIndex }) {
 }
 
 export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
+  const { t } = useTranslation()
+  const { steps, serviceNeeds, breakerSizes } = useQuoteQuizCopy()
   const { replaceCart, setAssessment } = useQuote()
   const [stepIndex, setStepIndex] = useState(0)
 
@@ -297,8 +298,8 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
     }
   }, [])
 
-  const step = QUOTE_QUIZ_STEPS[stepIndex]
-  const totalSteps = QUOTE_QUIZ_STEPS.length
+  const step = steps[stepIndex]
+  const totalSteps = steps.length
   const progress = ((stepIndex + 1) / totalSteps) * 100
   const serviceMeta = getServiceNeed(answers.serviceNeed || 'ev-charger')
   const StepIcon = STEP_ICONS[step?.id] || Sparkles
@@ -400,7 +401,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
   const showContinue = step.id !== 'service' && step.id !== 'region'
 
   return (
-    <div className="min-h-screen pt-24 pb-28 lg:pb-16 relative overflow-hidden">
+    <div className="min-h-screen page-top pb-28 lg:pb-16 relative overflow-hidden">
       <div className="absolute inset-0 grid-bg opacity-50 pointer-events-none" />
       <div className="absolute inset-0 hero-mesh pointer-events-none" />
       <div className="glow-orb hero-orb-drift w-[500px] h-[500px] bg-neon/8 top-[-10%] right-[-15%] pointer-events-none" />
@@ -422,19 +423,19 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-neon opacity-40" />
               <span className="relative inline-flex rounded-full h-2 w-2 bg-neon" />
             </span>
-            Free estimate · No obligation
+            {t('quote.badge')}
           </span>
           <h1 className="font-display text-3xl sm:text-4xl lg:text-[2.75rem] font-bold tracking-tight text-white mb-3">
-            Your install,{' '}
-            <span className="hero-gradient-text hero-shimmer">priced in minutes</span>
+            {t('quote.title')}{' '}
+            <span className="hero-gradient-text hero-shimmer">{t('quote.titleAccent')}</span>
           </h1>
           <p className="text-slate-400 text-sm sm:text-base max-w-md mx-auto">
-            {totalSteps} quick questions — then a licensed electrician confirms your final quote.
+            {t('quote.headerSubtitle', { total: totalSteps })}
           </p>
         </motion.div>
 
         {/* Step rail — full width so left/right cards align */}
-        <StepRail currentIndex={stepIndex} onJump={setStepIndex} />
+        <StepRail currentIndex={stepIndex} onJump={setStepIndex} steps={steps} />
 
         <div className="grid lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_320px] gap-8 lg:gap-10 items-start">
           {/* Main column */}
@@ -481,7 +482,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
 
                     {step.id === 'service' && (
                       <div className="space-y-2.5 max-h-[min(46vh,420px)] overflow-y-auto scroll-touch pr-1 scrollbar-hide">
-                        {SERVICE_NEEDS.map((opt, i) => (
+                        {serviceNeeds.map((opt, i) => (
                           <ServiceOption
                             key={opt.id}
                             opt={opt}
@@ -495,7 +496,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
 
                     {step.id === 'region' && (
                       <div className="space-y-3 max-h-[min(46vh,420px)] overflow-y-auto scroll-touch pr-1 scrollbar-hide">
-                        <p className="text-[11px] uppercase tracking-wider text-neon/60 font-semibold">California</p>
+                        <p className="text-[11px] uppercase tracking-wider text-neon/60 font-semibold">{t('quote.california')}</p>
                         <div className="grid gap-2">
                           {SERVICE_ZONES.filter((z) => z.isCalifornia).map((z) => (
                             <RegionOption
@@ -506,7 +507,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                             />
                           ))}
                         </div>
-                        <p className="text-[11px] uppercase tracking-wider text-neon/60 font-semibold pt-2">Other states</p>
+                        <p className="text-[11px] uppercase tracking-wider text-neon/60 font-semibold pt-2">{t('quote.otherStates')}</p>
                         <div className="grid sm:grid-cols-2 gap-2">
                           {SERVICE_ZONES.filter((z) => !z.isCalifornia).map((z) => (
                             <RegionOption
@@ -523,17 +524,17 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
 
                     {step.id === 'info' && (
                       <div className="space-y-5">
-                        <FieldGroup label="Full name" icon={User}>
+                        <FieldGroup label={t('quote.fullName')} icon={User}>
                           <input
                             type="text"
                             value={answers.fullName}
                             onChange={(e) => setField('fullName', e.target.value)}
-                            placeholder="Jane Smith"
+                            placeholder={t('quote.fullNamePlaceholder')}
                             className={inputClass}
                             autoFocus
                           />
                         </FieldGroup>
-                        <FieldGroup label="Phone number" icon={Phone}>
+                        <FieldGroup label={t('quote.phoneNumber')} icon={Phone}>
                           <input
                             type="tel"
                             value={answers.phone}
@@ -542,12 +543,12 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                             className={inputClass}
                           />
                         </FieldGroup>
-                        <FieldGroup label="Email" icon={Mail}>
+                        <FieldGroup label={t('quote.email')} icon={Mail}>
                           <input
                             type="email"
                             value={answers.email}
                             onChange={(e) => setField('email', e.target.value)}
-                            placeholder="you@email.com"
+                            placeholder={t('quote.emailPlaceholder')}
                             className={inputClass}
                           />
                         </FieldGroup>
@@ -556,7 +557,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
 
                     {step.id === 'location' && (
                       <div className="space-y-5">
-                        <FieldGroup label="Street address" icon={Home}>
+                        <FieldGroup label={t('quote.streetAddress')} icon={Home}>
                           <input
                             type="text"
                             value={answers.street}
@@ -566,7 +567,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                             autoFocus
                           />
                         </FieldGroup>
-                        <FieldGroup label="City" icon={MapPin}>
+                        <FieldGroup label={t('quote.city')} icon={MapPin}>
                           <input
                             type="text"
                             value={answers.city}
@@ -586,7 +587,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                               maxLength={2}
                             />
                           </FieldGroup>
-                          <FieldGroup label="ZIP code">
+                          <FieldGroup label={t('quote.zipCode')}>
                             <input
                               type="text"
                               inputMode="numeric"
@@ -622,7 +623,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                               className={`${inputClass} cursor-pointer`}
                             >
                               <option value="">Select size…</option>
-                              {BREAKER_SIZES.map((b) => (
+                              {breakerSizes.map((b) => (
                                 <option key={b} value={b}>{b}</option>
                               ))}
                             </select>
@@ -637,11 +638,11 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                             className={inputClass}
                           />
                         </FieldGroup>
-                        <FieldGroup label="Notes" icon={ClipboardList}>
+                        <FieldGroup label={t('quote.notes')} icon={ClipboardList}>
                           <textarea
                             value={answers.notes}
                             onChange={(e) => setField('notes', e.target.value)}
-                            placeholder="Anything else we should know?"
+                            placeholder={t('quote.notesPlaceholder')}
                             rows={3}
                             className={`${inputClass} resize-none`}
                           />
@@ -658,7 +659,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                         className="btn-secondary !py-3 !px-5 !text-sm shrink-0"
                       >
                         <ArrowLeft className="w-4 h-4" />
-                        Back
+                        {t('quote.back')}
                       </button>
                       {showContinue && (
                         <button
@@ -668,10 +669,10 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                           className="btn-primary flex-1 justify-center !py-3 !text-sm min-h-[48px] disabled:opacity-40 disabled:pointer-events-none group"
                         >
                           {step.id === 'detail' ? (
-                            submitting ? 'Submitting…' : 'Get my estimate'
+                            submitting ? t('quote.submitting') : t('quote.getEstimate')
                           ) : (
                             <>
-                              Continue
+                              {t('quote.continue')}
                               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                             </>
                           )}
@@ -686,7 +687,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
             {step.id === 'detail' && (
               <p className="flex items-center justify-center gap-2 text-xs text-slate-500 mt-6">
                 <Lock className="w-3.5 h-3.5 text-neon/40" />
-                Your information is private and only used to prepare your estimate.
+                {t('quote.privacyNote')}
               </p>
             )}
           </div>
@@ -706,7 +707,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                   <Sparkles className="w-5 h-5 text-neon" />
                 </div>
                 <p className="text-sm text-slate-400 leading-relaxed">
-                  Select a project type to see your live estimate update here.
+                  {t('quote.selectProjectHint')}
                 </p>
               </div>
             )}
@@ -714,7 +715,7 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
             {/* Mini progress desktop */}
             <div className="mt-4 px-1">
               <div className="flex justify-between text-[11px] text-slate-500 mb-2">
-                <span>Progress</span>
+                <span>{t('quote.progressLabel')}</span>
                 <span className="text-neon tabular-nums">{Math.round(progress)}%</span>
               </div>
               <div className="h-1 rounded-full bg-white/5 overflow-hidden">

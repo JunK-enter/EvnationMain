@@ -1,0 +1,274 @@
+{
+  "site": {
+    "tagline": "持证 EV 充电桩、太阳能与配电升级安装商，服务南/中/北加州及伊利诺伊、内华达、德克萨斯、新泽西与亚利桑那。"
+  },
+  "galleryPage": {
+    "eyebrow": "安装图库",
+    "heroTitle1": "安装",
+    "heroTitle2": "图库",
+    "title": "现场真实安装照片",
+    "subtitle": "安装当天、完工效果以及合作伙伴与经销商拜访，覆盖各服务区域。",
+    "statInstalls": "区域安装量",
+    "statRating": "客户评分",
+    "statAreas": "服务区域",
+    "featured": "精选",
+    "getQuote": "获取报价",
+    "emptyCategory": "该分类暂无照片。",
+    "close": "关闭",
+    "prevPhoto": "上一张",
+    "nextPhoto": "下一张",
+    "categories": {
+      "all": "全部照片",
+      "installation": "安装中",
+      "completed": "安装完成",
+      "partnership": "合作伙伴",
+      "ev": "EV 充电",
+      "battery": "电池安装"
+    },
+    "categoriesShort": {
+      "all": "全部",
+      "installation": "安装",
+      "completed": "完成",
+      "partnership": "合作",
+      "ev": "EV",
+      "battery": "电池"
+    },
+    "installsCount": "{count} 次安装",
+    "heroMobileDesc": "现场照片 — 安装、完工与经销商拜访。",
+    "heroDesktopDesc": "团队现场真实照片 — 安装当天、完工效果以及合作伙伴与经销商拜访。",
+    "ctaTitle": "想让您的家也出现在图库中吗？",
+    "ctaDesc": "在加州及全国服务市场提供持证 C-10 安装。",
+    "dealerPartnerships": "经销商合作"
+  },
+  "shop": {
+    "eyebrow": "服务商店",
+    "title": "全部服务",
+    "subtitle": "将服务加入报价购物车，准备好后提交。",
+    "viewQuote": "查看报价 ({count}) · ~${total}",
+    "mostPopular": "最受欢迎",
+    "addedToQuote": "已加入报价",
+    "addToQuote": "加入报价"
+  },
+  "contact": {
+    "eyebrow": "联系我们",
+    "title": "提交您的项目",
+    "subtitle": "填写下方表单，我们的团队将为您准备定制报价。",
+    "personalInfo": "个人信息",
+    "homeInfo": "住宅信息",
+    "vehicleInfo": "车辆信息",
+    "photos": "照片（可选）",
+    "notes": "补充说明",
+    "submit": "提交项目",
+    "firstName": "名 *",
+    "lastName": "姓",
+    "email": "电子邮件 *",
+    "phone": "电话",
+    "city": "城市",
+    "zip": "邮编",
+    "vehicleMake": "车辆品牌",
+    "vehicleModel": "车辆型号",
+    "distance": "预计线缆长度（英尺）",
+    "notesPlaceholder": "还有其他需要告知的吗？",
+    "panelPhoto": "配电箱照片",
+    "garagePhoto": "车库/停车位照片",
+    "receivedTitle": "提交成功！",
+    "reference": "参考编号：",
+    "receivedDesc": "我们将在 24 小时内审核并联系您。确认邮件已发送。",
+    "homeType": "住宅类型",
+    "panelSize": "配电容量",
+    "parking": "停车位置"
+  },
+  "quote": {
+    "badge": "免费估算 · 无义务",
+    "title": "您的安装，",
+    "titleAccent": "几分钟出报价",
+    "subtitle": "回答几个问题 — 我们将估算项目并跟进详细报价。",
+    "startingEstimate": "起始估算",
+    "licensedNote": "每项工作均由持证 C-10 电工完成",
+    "transparentNote": "透明定价 — 无隐藏费用",
+    "california": "加利福尼亚",
+    "otherStates": "其他州",
+    "fullName": "姓名",
+    "fullNamePlaceholder": "张三",
+    "phoneNumber": "电话号码",
+    "email": "电子邮件",
+    "emailPlaceholder": "you@email.com",
+    "streetAddress": "街道地址",
+    "city": "城市",
+    "zipCode": "邮编",
+    "panelSize": "主配电箱容量",
+    "panelLocation": "配电箱位置",
+    "breakerSize": "现有断路器容量",
+    "notes": "备注（可选）",
+    "notesPlaceholder": "车型、时间线、进出说明…",
+    "back": "上一步",
+    "continue": "继续",
+    "submitQuote": "提交报价",
+    "stepOf": "第 {current} 步，共 {total} 步",
+    "notSure": "不确定",
+    "successTitle": "一切就绪！",
+    "successReference": "参考编号：",
+    "successDesc": "我们的团队将审核您的回答，并在 24 小时内发送详细估算。",
+    "backHome": "返回首页",
+    "headerSubtitle": "{total} 个简短问题 — 随后持证电工确认最终报价。",
+    "submitting": "提交中…",
+    "getEstimate": "获取我的估算",
+    "privacyNote": "您的信息保密，仅用于准备估算。",
+    "selectProjectHint": "选择项目类型后，实时估算将在此更新。",
+    "progressLabel": "进度",
+    "steps": {
+      "service": {
+        "shortLabel": "项目",
+        "title": "您需要什么帮助？",
+        "subtitle": "选择最符合您项目的选项。"
+      },
+      "region": {
+        "shortLabel": "区域",
+        "title": "项目位于哪个区域？",
+        "subtitle": "我们在加州及选定州提供安装服务。"
+      },
+      "info": {
+        "shortLabel": "联系",
+        "title": "如何联系您？",
+        "subtitle": "我们将把估算和后续步骤发送至此。"
+      },
+      "location": {
+        "shortLabel": "地址",
+        "title": "项目位置在哪里？",
+        "subtitle": "安装/项目地址。"
+      },
+      "detail": {
+        "shortLabel": "详情",
+        "title": "补充信息",
+        "subtitle": "可选，但您提供的信息越多，估算越准确。"
+      }
+    },
+    "serviceNeeds": {
+      "ev-charger": { "title": "EV 充电桩安装", "desc": "家用 Level 2 充电桩" },
+      "nema-outlet": { "title": "NEMA 插座安装", "desc": "240V 专用插座" },
+      "panel-upgrade": { "title": "主配电升级", "desc": "增加电力容量" },
+      "ev-panel": { "title": "EV 充电 + 配电升级", "desc": "充电桩与配电一并完成" },
+      "charger-swap": { "title": "充电桩更换", "desc": "更换现有设备" },
+      "tesla-powerwall": { "title": "Tesla Powerwall 电池", "desc": "家庭备用电池" },
+      "multifamily": { "title": "多户住宅项目", "desc": "公寓/ condo 共享充电" },
+      "commercial-project": { "title": "商业项目", "desc": "企业与车队 L2/L3 充电" },
+      "not-sure": { "title": "还不确定", "desc": "我们帮您一起确定" }
+    }
+  },
+  "about": {
+    "eyebrow": "关于 EVnation",
+    "title": "为",
+    "titleAccent": "电气化家庭赋能",
+    "subtitle": "EVnation 的使命是让家庭与商业 EV 充电、电池储能与能源备份变得轻松 — 让全面电气化简单无忧。",
+    "whoWeAre": "我们是谁",
+    "whoP1": "EVnation 是加利福尼亚州持证 C10 电气承包商，专注家庭与商业 EV 充电、Tesla Powerwall 电池存储及质保安装。我们相信全面电气化应简单、透明且有回报。",
+    "whoP2": "从单个家用充电桩到联网商业站与整屋电池备份，我们的礼宾团队全程指导 — 从免费估算到融资、许可与最终验收。通过易于申请的融资 — 包括绿色能源零首付计划及 HEA 协议 — 家庭电气化从未如此轻松。",
+    "stat1": "服务家庭数",
+    "stat2Value": "GoGreen",
+    "stat2": "Financing",
+    "stat3Value": "Rebate",
+    "stat3": "查询是否符合您所在州的能源计划",
+    "stat4": "持证承包商",
+    "valuesTitle": "我们的坚持",
+    "value1Title": "完全透明",
+    "value1Text": "不做模糊承诺。我们拆解成本、税收抵免与融资，助您自信决策。",
+    "value2Title": "持证投保",
+    "value2Text": "我们是持证 C10 电气承包商。每项安装符合规范并享质保。",
+    "value3Title": "礼宾服务",
+    "value3Text": "从估算到许可与最终验收，团队全程陪伴。",
+    "value4Title": "充电 + 电池",
+    "value4Text": "我们将 EV 充电与 Tesla Powerwall 存储结合，让家庭持续供电且高效。",
+    "teamTitle": "领导团队",
+    "ctaTitle": "准备好电气化您的家了吗？",
+    "ctaDesc": "获取我们持证团队的免费透明估算。",
+    "ctaButton": "获取报价"
+  },
+  "serviceLayout": {
+    "featuresTitle": "包含内容",
+    "readyTitle": "准备好开始了吗？",
+    "readyDesc": "获取我们持证团队的免费透明估算。",
+    "talkExpert": "咨询专家"
+  },
+  "serviceAreas": {
+    "eyebrow": "服务覆盖",
+    "title": "安装区域",
+    "subtitle": "在加州及选定州提供持证 EV 充电、配电升级与电池存储安装。",
+    "getQuote": "免费获取报价",
+    "viewCounty": "查看县详情"
+  },
+  "status": {
+    "submitted": "已提交",
+    "under_review": "审核中",
+    "quote_ready": "报价就绪",
+    "scheduled": "已排期",
+    "installed": "已安装"
+  },
+  "services": {
+    "items": {
+      "l2-charger": {
+        "name": "Level 2 EV 充电桩安装",
+        "shortDesc": "专业硬接线或即插即用 Level 2 家用充电桩安装。",
+        "benefit1": "每小时最多 40 英里续航",
+        "benefit2": "持证电工安装",
+        "benefit3": "整洁线缆走线"
+      },
+      "panel-upgrade": {
+        "name": "配电箱升级",
+        "shortDesc": "升级配电箱以安全支持 EV 充电与未来负载。",
+        "benefit1": "200A 服务升级",
+        "benefit2": "符合规范施工",
+        "benefit3": "面向未来的容量"
+      },
+      "permit-handling": {
+        "name": "许可代办",
+        "shortDesc": "我们代办所有许可文件及与当地部门的验收。",
+        "benefit1": "市政许可申报",
+        "benefit2": "验收排期",
+        "benefit3": "您无需处理任何文书"
+      },
+      "load-calculation": {
+        "name": "负载计算",
+        "shortDesc": "符合 NEC 的负载分析，判断配电是否支持 EV 充电桩。",
+        "benefit1": "符合 NEC 220 条",
+        "benefit2": "书面报告",
+        "benefit3": "升级建议"
+      },
+      "battery-storage": {
+        "name": "Tesla Powerwall 电池",
+        "shortDesc": "Tesla Powerwall 整屋备份与峰时电费节省。",
+        "benefit1": "整屋备份",
+        "benefit2": "峰时节省",
+        "benefit3": "App 实时监控"
+      },
+      "smart-energy-bundle": {
+        "name": "充电桩 + 电池套餐",
+        "shortDesc": "EV 充电桩 + Tesla Powerwall + 智能监控 — 完整家庭能源方案。",
+        "benefit1": "一站式套餐",
+        "benefit2": "智能能源监控",
+        "benefit3": "优先排期"
+      }
+    }
+  },
+  "forms": {
+    "homeTypes": {
+      "singleFamily": "独立住宅",
+      "townhouse": "联排别墅",
+      "condo": "公寓/共管",
+      "multiFamily": "多户住宅",
+      "other": "其他"
+    },
+    "parkingTypes": {
+      "attachedGarage": "连体车库",
+      "detachedGarage": "独立车库",
+      "carport": "车棚",
+      "driveway": "车道（室外）",
+      "street": "路边停车"
+    },
+    "panelUnknown": "未知"
+  },
+  "legal": {
+    "lastUpdated": "最后更新：",
+    "privacyTitle": "隐私政策",
+    "termsTitle": "服务条款"
+  }
+}

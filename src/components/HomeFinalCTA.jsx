@@ -11,7 +11,7 @@ export default function HomeFinalCTA() {
     <section className="section-padding relative overflow-hidden">
       <div className="section-glow section-glow-neon" aria-hidden />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="relative rounded-3xl overflow-hidden border border-neon/20 p-8 sm:p-12 lg:p-14 text-center">
+        <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-neon/20 p-5 sm:p-8 lg:p-14 text-center">
           <div className="absolute inset-0 bg-gradient-to-br from-neon/[0.12] via-navy-900/40 to-blue-500/[0.08]" />
           <div className="absolute inset-0 grid-bg opacity-20" aria-hidden />
           <div className="relative">

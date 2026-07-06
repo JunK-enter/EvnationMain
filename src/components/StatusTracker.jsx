@@ -1,7 +1,11 @@
+'use client'
+
 import { Check } from 'lucide-react'
 import { statusFlow } from '../data/services'
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function StatusTracker({ currentStatus = 'submitted' }) {
+  const { t } = useTranslation()
   const currentIndex = statusFlow.findIndex((s) => s.key === currentStatus)
 
   return (
@@ -20,7 +24,7 @@ export default function StatusTracker({ currentStatus = 'submitted' }) {
               {done && i < currentIndex ? <Check className="w-4 h-4" /> : i + 1}
             </div>
             <p className={`text-[10px] sm:text-xs mt-2 text-center ${active ? 'text-neon font-semibold' : 'text-slate-500'}`}>
-              {step.label}
+              {t(`status.${step.key}`)}
             </p>
           </div>
         )

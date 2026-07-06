@@ -38,7 +38,7 @@ export default function BlogPostPage({ slug }) {
   return (
     <div className="pb-20">
       {/* Full-bleed hero */}
-      <header className="relative pt-24 min-h-[50vh] flex items-end overflow-hidden">
+      <header className="relative page-top min-h-[40vh] sm:min-h-[50vh] flex items-end overflow-hidden">
         {post.coverImage ? (
           <>
             <img

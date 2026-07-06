@@ -1,0 +1,581 @@
+{
+  "about": {
+    "teamTitle": "Our Team",
+    "visitUs": "Visit Us",
+    "readyElectric": "Ready to go electric?",
+    "freeEstimateDesc": "Get a free, no-pressure estimate today.",
+    "freeEstimate": "Get a Free Estimate",
+    "readBlog": "Read the Blog",
+    "whoP2finance": "With easy-to-qualify financing as low as 2.99% and no money down, going electric has never been more accessible."
+  },
+  "evCharger": {
+    "hero": {
+      "badge": "Most popular",
+      "from": "from",
+      "title": "Home EV",
+      "titleAccent": "Charging",
+      "subtitle": "Licensed C10 electricians install Level 2 chargers that add 25–40 miles of range per hour — in your garage or driveway.",
+      "getQuote": "Get a Quote",
+      "seeChargers": "See chargers",
+      "overlay": "Level 2 · 240V · 25–40 mi/hr",
+      "imageAlt": "Home EV charger installation"
+    },
+    "metrics": {
+      "m1": { "value": "40 mi/hr", "label": "Charge speed" },
+      "m2": { "value": "3–6 hrs", "label": "Install time" },
+      "m3": { "value": "2,000+", "label": "Homes served" },
+      "m4": { "value": "C10", "label": "Licensed" }
+    },
+    "valueProps": {
+      "v1": { "title": "Level 2 speed", "desc": "Full charge overnight — no public station waits." },
+      "v2": { "title": "Code-compliant", "desc": "Permits, inspection & dedicated circuit included." },
+      "v3": { "title": "Clean install", "desc": "Conduit routing that looks as good as it performs." }
+    },
+    "chargers": {
+      "eyebrow": "Level 2",
+      "title": "Chargers we install",
+      "subtitle": "Tesla, Emporia, ChargePoint, Mercedes-Benz, Wallbox & SolarEdge — matched to your panel and parking setup.",
+      "quoteThis": "Quote this charger"
+    },
+    "included": {
+      "eyebrow": "Turnkey",
+      "title": "What's included",
+      "i1": "Hardwired or plug-in Level 2 installation",
+      "i2": "Up to 40 miles of range per hour",
+      "i3": "Clean conduit routing & cable management",
+      "i4": "Dedicated 240V circuit & breaker sizing",
+      "i5": "Panel evaluation & load calculation",
+      "i6": "Permits, inspection & code compliance"
+    },
+    "steps": {
+      "eyebrow": "Process",
+      "title": "Quote to plug-in",
+      "s1": { "title": "Quote", "desc": "Share your panel, parking spot & charger preference." },
+      "s2": { "title": "Site visit", "desc": "We confirm routing, load & hardware fit." },
+      "s3": { "title": "Install", "desc": "C10 electricians wire, mount & test." },
+      "s4": { "title": "Handoff", "desc": "Permits closed — plug in and go." }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": { "q": "How long does install take?", "a": "Most Level 2 installs finish in one day. Complex panel or conduit work may take two — we quote upfront." },
+      "q2": { "q": "Do I need a panel upgrade?", "a": "Not always. We evaluate load on-site. If capacity exists, we add a dedicated circuit. If not, we quote an upgrade." },
+      "q3": { "q": "Can you install my own charger?", "a": "Yes — when hardware is UL-listed and compatible. We also supply and install leading brands." }
+    },
+    "cta": {
+      "title": "Ready to charge at home?",
+      "desc": "Free estimate — usually within one business day.",
+      "getQuote": "Get a Quote",
+      "contact": "Contact"
+    }
+  },
+  "biDirectional": {
+    "hero": {
+      "badge": "V2H ready",
+      "level2Link": "Level 2 charging →",
+      "title": "Bi-Directional",
+      "titleAccent": "Charging",
+      "subtitle": "Power your home from your driveway. Licensed C10 electricians install vehicle-to-home hardware for supported Tesla and GM setups.",
+      "getQuote": "Get a Quote",
+      "seeHardware": "See hardware",
+      "overlay": "V2H · Backup from your EV",
+      "imageAlt": "Bi-directional EV charger"
+    },
+    "metrics": {
+      "m1": { "value": "V2H", "label": "Vehicle-to-home" },
+      "m2": { "value": "Tesla", "label": "& GM today" },
+      "m3": { "value": "C10", "label": "Licensed install" },
+      "m4": { "value": "24hr", "label": "Quote turnaround" }
+    },
+    "valueProps": {
+      "v1": { "title": "Home backup", "desc": "Keep essentials running when the grid goes down." },
+      "v2": { "title": "Two-way power", "desc": "Charge from the grid — discharge to your home when supported." },
+      "v3": { "title": "Licensed & permitted", "desc": "C10 electricians, load calcs, and utility coordination." }
+    },
+    "explainer": {
+      "eyebrow": "In plain English",
+      "title": "What is vehicle-to-home (V2H)?",
+      "intro": "Your EV is already a large battery. Bidirectional charging lets that battery help power your home — not just receive a charge. When the grid is up, you charge as usual. When the grid goes down (and your setup supports it), stored energy can flow back to keep lights, fridge, Wi‑Fi, and other essential circuits running.",
+      "compare": {
+        "normalTitle": "Normal charging",
+        "normalDesc": "Electricity flows one way: grid → your electrical panel → charger → car battery.",
+        "v2hTitle": "Vehicle-to-home (V2H)",
+        "v2hDesc": "During an outage, compatible systems can reverse the flow: car battery → charger → selected home circuits — safely isolated from the grid."
+      },
+      "stepsTitle": "What happens in an outage",
+      "steps": {
+        "s1": { "title": "The grid goes down", "desc": "A storm, utility issue, or rolling blackout cuts power to your neighborhood." },
+        "s2": { "title": "The system detects it", "desc": "A Powershare Gateway or similar transfer equipment senses the outage and disconnects your home from the grid so power cannot backfeed utility lines." },
+        "s3": { "title": "Your EV supplies backup power", "desc": "Energy flows from your plugged-in vehicle through a bidirectional charger to the circuits you planned for backup — often within about a minute, with no generator noise or fumes." },
+        "s4": { "title": "Grid returns — charging resumes", "desc": "When utility power is restored, the system switches back automatically and normal charging continues." }
+      },
+      "powershareTitle": "Tesla Powershare — how Tesla describes V2H",
+      "powershareBody": "Tesla’s Powershare technology is their vehicle-to-home solution. On a fully charged Cybertruck, Tesla states Powershare Home Backup can deliver about 11.5 kW of continuous power — enough for many homes to run essentials for three days or more, depending on what you power and your battery level. Homes without Powerwall typically need a Tesla Universal Wall Connector plus a Powershare Gateway. Homes with Powerwall may use a different path; Tesla continues to expand software and hardware compatibility — we confirm what works for your property on site.",
+      "stats": {
+        "st1": { "value": "11.5 kW", "label": "Continuous backup (Cybertruck, per Tesla)" },
+        "st2": { "value": "3+ days", "label": "Typical essentials on a full charge" },
+        "st3": { "value": "~1 min", "label": "Automatic switchover at outage" }
+      },
+      "needsTitle": "What you typically need",
+      "needs": {
+        "n1": "A bidirectional-capable electric vehicle (model, trim, and software all matter)",
+        "n2": "A compatible home charger — e.g. Tesla Universal Wall Connector for Powershare setups",
+        "n3": "Gateway or transfer switch hardware so backup power is delivered safely",
+        "n4": "Licensed C-10 installation, permits, load planning, and utility coordination — handled by evNation"
+      },
+      "note": "V2H is meant for outage backup — not for everyday energy arbitrage unless your utility program explicitly allows it. Backup time depends on vehicle charge, which loads you run, and your install design. Tesla, Powershare, Powerwall, and Cybertruck are trademarks of Tesla, Inc. evNation is an independent installer and is not affiliated with Tesla."
+    },
+    "chargers": {
+      "eyebrow": "Hardware",
+      "title": "Bi-directional chargers we install",
+      "subtitle": "Tesla and GM today — matched to your vehicle, panel, and backup goals.",
+      "quoteThis": "Quote this setup",
+      "disclaimer": "V2H depends on vehicle, hardware & utility — confirmed at site visit."
+    },
+    "included": {
+      "eyebrow": "Turnkey",
+      "title": "What's included",
+      "i1": "Bi-directional charger hardware evaluation & install",
+      "i2": "Vehicle-to-home backup when vehicle & utility allow",
+      "i3": "Panel load study & code-compliant wiring",
+      "i4": "Utility interconnection & permit coordination",
+      "i5": "Integration with Powerwall on supported Tesla setups",
+      "i6": "Commissioning, testing & homeowner walkthrough"
+    },
+    "steps": {
+      "eyebrow": "Process",
+      "title": "Quote to backup-ready",
+      "s1": { "title": "Quote", "desc": "Share your vehicle, panel, and backup goals." },
+      "s2": { "title": "Eligibility check", "desc": "We confirm V2H hardware, vehicle model & utility rules." },
+      "s3": { "title": "Install", "desc": "Licensed electricians mount, wire & test bi-directional hardware." },
+      "s4": { "title": "Handoff", "desc": "App setup, backup modes explained — ready when the grid goes down." }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": { "q": "What is bi-directional (V2H) charging?", "a": "Bi-directional charging lets a compatible EV send power back to your home during outages or peak rate windows — when your vehicle, charger, and utility program support it." },
+      "q2": { "q": "Which brands do you install today?", "a": "We install Tesla Wall Connector setups integrated with Powerwall, and GM Ultium V2H-ready hardware. More brands are added as they become available in our service areas." },
+      "q3": { "q": "Do I need Powerwall for V2H?", "a": "Not always. Requirements vary by brand and vehicle. Tesla V2H often pairs with Powerwall; GM Ultium has its own hardware path. We confirm scope on site." },
+      "q4": { "q": "Will my utility allow vehicle-to-home?", "a": "Utility rules vary. We check interconnection requirements during the site evaluation and handle paperwork where required." },
+      "q5": { "q": "How is this different from a generator or Powerwall alone?", "a": "A generator needs fuel and maintenance. A Powerwall is fixed home storage. V2H uses the large battery already in your driveway — you charge it like normal, and tap it when the grid fails. Some homes combine Powerwall plus V2H for longer total backup. We design around your goals and budget." }
+    },
+    "cta": {
+      "title": "Ready for vehicle-to-home?",
+      "desc": "Free estimate — we confirm V2H eligibility on site.",
+      "getQuote": "Get a Quote",
+      "contact": "Contact"
+    }
+  },
+  "panelUpgrade": {
+    "hero": {
+      "badge": "Electrical Upgrade",
+      "title": "Panel Upgrade",
+      "description": "Older panels often can't safely support an EV charger alongside existing loads — especially when solar is already tied in. We upgrade to 200A service so you have room for charging, storage, and future electrification.",
+      "getQuote": "Get Your Quote",
+      "imageAlt": "Licensed electrician upgrading a residential electrical panel"
+    },
+    "programs": {
+      "eyebrow": "Programs & financing",
+      "title": "GoGreen financing — rebates may apply",
+      "intro": "A panel upgrade is often the first step before EV charging, solar, or battery storage. We size your service correctly, handle permits and utility coordination, and help you explore programs that can offset cost.",
+      "stat1Value": "Up to $4,200",
+      "stat1Label": "Panel upgrade support",
+      "stat1Desc": "Receive up to $4,200 toward your home electrical panel upgrade when you qualify through available green-energy programs.",
+      "stat2Value": "GoGreen",
+      "stat2Label": "Financing",
+      "stat2Desc": "Easy-to-qualify financing with instant approval — soft credit check with no impact to your score.",
+      "stat3Value": "Rebate",
+      "stat3Label": "State energy programs",
+      "stat3Desc": "We help determine whether your property qualifies for local or state electrification incentives and HEA-related options.",
+      "note": "Rebate and financing eligibility varies by property, utility territory, and program availability — confirmed during your site visit."
+    },
+    "beforeAfter": {
+      "eyebrow": "Real install example",
+      "title": "Before & after",
+      "dragHint": "Side-by-side · meter & main · Costa Mesa, CA",
+      "meterMain": "Meter & main",
+      "breakerPanel": "Breaker panel",
+      "galleryLink": "Full project details on our",
+      "gallery": "gallery"
+    },
+    "whyUpgrade": {
+      "eyebrow": "Why upgrade?",
+      "title": "When your panel is holding you back",
+      "intro": "A Level 2 EV charger, solar, battery storage, or heat pump all need dedicated capacity. If your service is undersized or your breaker spaces are full, adding load safely starts with a panel and service upgrade.",
+      "reasonsTitle": "Signs you may need an upgrade",
+      "reasons": {
+        "r1": "Your breakers trip when the EV charger, A/C, and kitchen loads run together",
+        "r2": "There is no open slot for a 40A–50A EV circuit — or the panel is already labeled to capacity",
+        "r3": "Solar is connected but there is little room left for a car charger or battery backup",
+        "r4": "The home still has 100A service, fused panels, or outdated equipment that fails inspection"
+      },
+      "benefitsTitle": "What you gain",
+      "benefits": {
+        "b1": "200A service with clean breaker space for EV charging — without nuisance trips",
+        "b2": "Code-compliant installation with permits, labeling, and utility coordination handled",
+        "b3": "Future-ready capacity for Powerwall, solar expansion, heat pumps, and induction cooking",
+        "b4": "A safer, organized panel that supports resale value and insurance peace of mind"
+      }
+    },
+    "features": {
+      "title": "What's Included",
+      "f1": "Full electrical panel replacement or upgrade",
+      "f2": "200A service upgrade for modern power demands",
+      "f3": "EV-ready breaker space allocation",
+      "f4": "Code-compliant installation with permit",
+      "f5": "Future-proof for solar, battery, and heat pump",
+      "f6": "Coordination with utility company if needed"
+    }
+  },
+  "solar": {
+    "eyebrow": "Southern California Solar",
+    "title": "Solar That Powers",
+    "highlight": "Your EV & Home",
+    "description": "Pair solar with your EV charger for lower bills and cleaner miles. We design systems sized for Southern California roofs — from coastal Newport Beach to inland Riverside.",
+    "tagline": "Consultation → Design → Permit → Install → Activation",
+    "imageAlt": "Residential solar panels on a Southern California home",
+    "primaryCta": "Build Your Quote",
+    "secondaryCta": "Schedule Assessment",
+    "stats": {
+      "s1": { "value": "30%", "label": "Avg. bill reduction" },
+      "s2": { "value": "25 yr", "label": "Panel warranty" },
+      "s3": { "value": "CA", "label": "Incentive experts" }
+    },
+    "features": {
+      "f1": "Site assessment & shade analysis",
+      "f2": "Permit & utility interconnection support",
+      "f3": "Premium panel options (REC, Qcells, etc.)",
+      "f4": "Battery-ready inverter configurations",
+      "f5": "Monitoring app setup & walkthrough",
+      "f6": "Federal & California incentive guidance"
+    },
+    "whySolar": {
+      "title": "Why Solar + EV?",
+      "w1": { "title": "Charge from the sun", "desc": "Offset charging costs with daytime production." },
+      "w2": { "title": "Battery ready", "desc": "Add storage when you're ready for backup power." },
+      "w3": { "title": "Panel synergy", "desc": "Combine with panel upgrades for full electrification." },
+      "w4": { "title": "Rebates & credits", "desc": "Federal ITC plus California-specific programs." }
+    }
+  },
+  "warranty": {
+    "badge": "Protection You Can Trust",
+    "title": "EVnation",
+    "highlight": "Warranty",
+    "description": "Every EVnation installation is backed by a workmanship warranty and dedicated support. We protect your charger, your battery, and your peace of mind long after install day.",
+    "tagline": "Backed for the long haul",
+    "imageAlt": "EV charger protected by a glowing shield",
+    "stats": {
+      "s1": { "value": "Workmanship", "label": "Guaranteed" },
+      "s2": { "value": "Priority", "label": "Support line" },
+      "s3": { "value": "Certified", "label": "Licensed install" },
+      "s4": { "value": "Transferable", "label": "Adds resale value" }
+    },
+    "features": {
+      "f1": "Workmanship warranty on every installation we perform",
+      "f2": "Manufacturer warranties preserved with certified install",
+      "f3": "Fast, no-hassle service visits if anything needs attention",
+      "f4": "Priority support line for warranty-covered customers",
+      "f5": "Documented inspection and code-compliance records",
+      "f6": "Transferable coverage that adds value when you sell"
+    },
+    "tiers": {
+      "eyebrow": "What's Covered",
+      "title": "Coverage That Has Your Back",
+      "t1": { "title": "Workmanship", "desc": "We stand behind our labor. If an install issue arises, we make it right — no finger-pointing." },
+      "t2": { "title": "Parts & Equipment", "desc": "Manufacturer coverage stays intact because the work was done by licensed pros." },
+      "t3": { "title": "Priority Support", "desc": "Covered customers get a dedicated line and front-of-queue scheduling." },
+      "t4": { "title": "Transferable", "desc": "Coverage can transfer to the next homeowner, boosting resale appeal." }
+    }
+  },
+  "battery": {
+    "hero": {
+      "pageTitle": "PowerWall & Battery",
+      "badge": "Tesla · Featured",
+      "from": "from",
+      "title": "Tesla Powerwall",
+      "tagline": "Power Everything",
+      "description": "Tesla Powerwall is our most recommended home battery — whole-home backup, smarter energy use, and a clean all-in-one install by evNation's licensed electricians.",
+      "getQuote": "Get a Quote",
+      "seeFeatures": "See features",
+      "otherBrands": "Other brands",
+      "overlay": "Tesla Powerwall · 13.5 kWh · Whole-home backup",
+      "imageAlt": "Tesla Powerwall home battery",
+      "allBrandsLabel": "All brands we install",
+      "specsLabel": "Tesla Powerwall 3 specifications"
+    },
+    "metrics": {
+      "m1": { "value": "13.5", "unit": "kWh", "label": "Energy capacity" },
+      "m2": { "value": "11.5", "unit": "kW", "label": "Backup power" },
+      "m3": { "value": "97.5", "unit": "%", "label": "Solar efficiency" },
+      "m4": { "value": "10", "unit": "yr", "label": "Warranty" }
+    },
+    "pillars": {
+      "title": "Why Tesla Powerwall",
+      "p1": { "label": "More Power", "desc": "Single-unit whole-home backup" },
+      "p2": { "label": "More Backup", "desc": "Near-instant power when the grid goes down" },
+      "p3": { "label": "More Savings", "desc": "Store solar and shift usage off peak rates" }
+    },
+    "stories": {
+      "title": "Built for real homes",
+      "subtitle": "How Tesla Powerwall works in everyday use.",
+      "s1": { "index": "01", "title": "When the grid goes down, you stay on", "body": "Powerwall 3 detects outages and switches to backup in a fraction of a second — keeping lights, HVAC, Wi‑Fi, and your EV charger online.", "imageAlt": "Powerwall backing up a home during an outage" },
+      "s2": { "index": "02", "title": "Use energy when it costs less", "body": "Store solar or off-peak grid power, then discharge when rates spike. Powerwall optimizes automatically based on your usage and utility plan.", "imageAlt": "Home with solar and Powerwall energy storage" },
+      "s3": { "index": "03", "title": "One unit. Everything included.", "body": "Battery, inverter, site management, and solar integration in a single enclosure — fewer boxes, less wiring, faster install.", "imageAlt": "Tesla Powerwall single-unit enclosure" }
+    },
+    "sellingPoints": {
+      "sectionLabel": "Tesla Powerwall",
+      "title": "Explore Tesla Powerwall 3",
+      "subtitle": "Tesla Powerwall — whole-home backup, smarter energy use, and EV integration in one unit.",
+      "sp1": { "title": "Whole-home backup", "summary": "One Powerwall 3 can back up your entire home.", "b1": "Keeps essentials — and your EV charger — running during outages", "b2": "Automatic switchover in a fraction of a second", "b3": "Quiet, indoor/outdoor rated enclosure" },
+      "sp2": { "title": "Lower electricity bills", "summary": "Use your energy smarter, not harder.", "b1": "Stores more solar production for evening use", "b2": "Optimizes charging and discharge around time-of-use rates", "b3": "Helps reduce monthly utility spend over time" },
+      "sp3": { "title": "Fully integrated design", "summary": "Battery, inverter, site management, and solar — in one system.", "b1": "Fewer boxes on the wall and less wiring", "b2": "Faster installation and simpler maintenance", "b3": "Cleaner look for garages and exterior mounts" },
+      "sp4": { "title": "Built for real-world conditions", "summary": "Engineered to perform when the environment gets tough.", "b1": "Extreme heat and cold tolerance", "b2": "High-humidity operation", "b3": "Flood resilience up to ~28 inches of water" },
+      "sp5": { "title": "EV charging integration", "summary": "Part of the Tesla energy ecosystem at home.", "b1": "Solar EV charging when paired with solar", "b2": "Off-grid charging capability", "b3": "Powershare functionality for supported setups" }
+    },
+    "evFeatures": {
+      "e1": { "title": "Solar EV charging", "desc": "Charge your EV with stored solar instead of pulling from the grid at peak rates." },
+      "e2": { "title": "Off-grid charging", "desc": "Keep charging capability when utility power is unavailable." },
+      "e3": { "title": "Powershare", "desc": "Share stored energy across supported Tesla energy products at home." }
+    },
+    "install": {
+      "eyebrow": "Install with evNation",
+      "title": "Quote to flip the switch",
+      "subtitle": "Licensed C-10 install, permits, and inspection — Tesla Powerwall or GM, ATG, and Enphase systems.",
+      "exampleLabel": "Example: Tesla Powerwall install",
+      "includedEyebrow": "Turnkey",
+      "includedTitle": "What's included",
+      "i1": "Site evaluation and system sizing for your home",
+      "i2": "Tesla Powerwall 3 installation by licensed C-10 electricians",
+      "i3": "Permits, utility interconnection, and inspection coordination",
+      "i4": "Clean mounting, labeling, and professional finish",
+      "i5": "App walkthrough for monitoring and backup settings",
+      "i6": "Optional pairing with EV charger and panel upgrade",
+      "startQuote": "Start your quote",
+      "howItWorks": "How it works",
+      "stepLabel": "Step {n}",
+      "s1": { "title": "Site visit", "desc": "We evaluate your panel, backup goals, and the best mount location." },
+      "s2": { "title": "Design & permits", "desc": "System sizing, utility paperwork, and inspection scheduling." },
+      "s3": { "title": "Install day", "desc": "Licensed electricians — clean routing, labeling, and testing." },
+      "s4": { "title": "Handoff", "desc": "App setup, backup settings, and ongoing support from evNation." }
+    },
+    "otherBatteries": {
+      "eyebrow": "Also available",
+      "title": "More home battery options",
+      "subtitle": "Tesla Powerwall is our top recommendation — we also install GM, ATG, and Enphase when they're the better fit for your home.",
+      "photoSoon": "Photo coming soon",
+      "quoteBrand": "Quote {brand}"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Tesla Powerwall & home battery installation",
+      "q1": { "q": "Can one Powerwall back up my whole home?", "a": "Powerwall 3 is designed so a single unit can provide whole-home backup for many homes. Final scope depends on your loads, panel, and backup priorities — we confirm on site." },
+      "q2": { "q": "Do I need solar to get a Powerwall?", "a": "No. Powerwall works with or without solar. With solar, you store more of what you produce; without it, you can still shift grid energy to lower-cost hours and keep backup power." },
+      "q3": { "q": "How is evNation different from a general contractor?", "a": "We are licensed electricians focused on EV and home energy installs — not handymen. You get code-compliant work, clear communication, and installs built to show off." },
+      "q4": { "q": "What happens during a grid outage?", "a": "Powerwall detects the outage and switches to backup power almost instantly — typically fast enough that electronics stay on without interruption." },
+      "q5": { "q": "Do you install other battery brands besides Tesla?", "a": "Yes. We also install GM Ultium Home Energy, ATG, and Enphase IQ Battery systems. Tesla Powerwall remains our primary recommendation for whole-home backup — we'll help you choose the right fit on site." }
+    },
+    "cta": {
+      "title": "Power your home with confidence",
+      "desc": "Free quote · Tesla Powerwall & GM, ATG, Enphase options · Licensed C10 install",
+      "getQuote": "Get a Quote",
+      "contact": "Contact",
+      "trademark": "Tesla, Powerwall, and Tesla Energy are trademarks of Tesla, Inc. evNation is an independent installer and is not affiliated with Tesla, Inc."
+    }
+  },
+  "autoDealer": {
+    "hero": {
+      "eyebrow": "For Auto Dealers",
+      "title": "Auto Dealer",
+      "titleAccent": "Partners",
+      "subtitle": "Give every EV buyer a complete home charging solution. Partner with evNation and turn charging anxiety into a closing advantage."
+    },
+    "benefits": {
+      "b1": { "title": "Turnkey Home Charging", "text": "Offer your EV buyers a seamless home charger installation as part of the purchase experience." },
+      "b2": { "title": "Concierge Handoff", "text": "We coordinate directly with your customers — scheduling, permitting, and install — so your team stays focused on selling." },
+      "b3": { "title": "Boost EV Sales", "text": "Remove range and charging anxiety at the point of sale and close more electric vehicle deals." },
+      "b4": { "title": "Co-Branded Options", "text": "Custom referral programs and co-branded materials that fit your dealership's brand." }
+    },
+    "steps": {
+      "title": "How the Partnership Works",
+      "s1": { "step": "01", "title": "Partner Onboarding", "text": "We set up your dealership with a simple referral workflow and dedicated point of contact." },
+      "s2": { "step": "02", "title": "Customer Referral", "text": "At the point of sale, your team refers EV buyers to evNation for home charging." },
+      "s3": { "step": "03", "title": "We Handle the Rest", "text": "Estimate, permitting, licensed install, and inspection — fully managed by our team." },
+      "s4": { "step": "04", "title": "Happy EV Owner", "text": "Your customer drives home ready to charge, with a great experience tied to your brand." }
+    },
+    "form": {
+      "title": "Become a Partner",
+      "dealership": "Dealership Name",
+      "dealershipPlaceholder": "ABC Motors",
+      "contactName": "Contact Name",
+      "contactPlaceholder": "Jane Doe",
+      "email": "Email",
+      "emailPlaceholder": "jane@dealer.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(555) 123-4567",
+      "submit": "Request Partnership Info",
+      "successTitle": "Thanks for reaching out!",
+      "successDesc": "Our partnerships team will contact you shortly to get your dealership set up.",
+      "preferTalk": "Prefer to talk? Email",
+      "orCall": "or call",
+      "contactLink": "contact us here"
+    }
+  },
+  "serviceAreas": {
+    "hero": {
+      "eyebrow": "Service Coverage",
+      "title": "EV Charger Installation Across",
+      "titleAccent": "Southern California, Central California & Nevada",
+      "subtitle": "evNation provides licensed Level 2 EV charger installation, panel upgrades, and solar across {counties} counties and {cities}+ cities — from Orange County and Los Angeles to San Diego, San Luis Obispo, Clark County Nevada, and Maricopa County Arizona.",
+      "getQuote": "Get a Quote",
+      "contact": "Contact Us"
+    }
+  },
+  "county": {
+    "backLink": "All Service Areas",
+    "title": "EV Charger Installation in {county}, {state}",
+    "getQuote": "Get a Free Quote",
+    "evServices": "EV Charging Services",
+    "citiesHeading": "Cities We Serve in {county}",
+    "citiesMeta": "{count} communities · Licensed electricians · Permits & inspections handled",
+    "related": {
+      "ev": { "title": "Residential EV Charging", "desc": "Level 2 home charger install" },
+      "panel": { "title": "Panel Upgrades", "desc": "200A service for safe charging" },
+      "solar": { "title": "Solar", "desc": "Power your charger with the sun" }
+    }
+  },
+  "blog": {
+    "badge": "{region} Energy Journal",
+    "title": "EV, Solar &",
+    "titleAccent": "Home Power",
+    "subtitle": "Field notes, rebate guides, and install insights from the evNation team across our service areas.",
+    "articlesMeta": "{count} articles · Updated {date}",
+    "loading": "Loading stories…",
+    "newPost": "New post",
+    "manage": "Manage",
+    "signOut": "Sign out",
+    "editorSignIn": "Editor sign in",
+    "latestStories": "Latest stories",
+    "emptyCategory": "No articles in this category yet.",
+    "ctaTitle": "Ready to go electric?",
+    "ctaDesc": "Build your custom install quote for EV charging, solar, or panel upgrades in your service area.",
+    "ctaButton": "Build Your Quote",
+    "editorTitle": "Blog editor",
+    "close": "Close",
+    "allCategory": "All"
+  },
+  "sitemap": {
+    "eyebrow": "Navigation",
+    "title": "Site Map",
+    "subtitle": "Every page on the evNation site, all in one place.",
+    "groups": {
+      "main": "Main",
+      "services": "Services",
+      "serviceAreas": "Service Areas",
+      "company": "Company",
+      "internal": "Internal"
+    },
+    "links": {
+      "home": "Home",
+      "getQuote": "Get a Quote",
+      "gallery": "Gallery",
+      "contact": "Contact",
+      "residentialEv": "Residential EV Charging",
+      "biDirectional": "Bi-Directional Charging",
+      "solar": "Solar",
+      "panelUpgrades": "Panel Upgrades",
+      "commercial": "Commercial",
+      "battery": "Battery Storage",
+      "warranty": "Warranty",
+      "shop": "Shop All Services",
+      "allServiceAreas": "All Service Areas",
+      "orangeCounty": "Orange County, CA",
+      "losAngeles": "Los Angeles, CA",
+      "sanDiego": "San Diego, CA",
+      "clarkCounty": "Clark County, NV",
+      "sanLuisObispo": "San Luis Obispo, CA",
+      "about": "About",
+      "autoDealer": "Auto Dealer Partners",
+      "blog": "Blog",
+      "customerIntake": "Customer Intake",
+      "adminIntake": "Admin · Customer Intake",
+      "siteMap": "Site Map"
+    },
+    "blogArticles": "Blog Articles"
+  },
+  "projects": {
+    "heroEyebrow": "Field archive · {count} installs",
+    "heroTitle1": "INSTALL",
+    "heroTitle2": "ARCHIVE",
+    "heroDesc": "Swipe the handle on each card to compare before & after. Real crew photos slot in when they land.",
+    "getSimilarQuote": "Get a similar quote",
+    "index": "Index",
+    "emptyCategory": "No projects in this category yet.",
+    "ctaTitle": "Your install could be next.",
+    "startProject": "Start Your Project",
+    "serviceAreas": "Service areas",
+    "types": {
+      "all": "All projects",
+      "ev": "EV Charger",
+      "panel": "Panel Upgrade",
+      "solar": "Solar + EV",
+      "commercial": "Commercial"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Privacy Policy",
+      "lastUpdated": "June 2026",
+      "intro": "Your privacy matters to us. This policy explains what information we collect, how we use it, and the choices you have.",
+      "s1": { "heading": "1. Information We Collect", "p1": "We collect information you provide directly to us, such as your name, phone number, email, home address, vehicle details, and installation preferences when you request an estimate, submit a customer intake form, or contact us.", "p2": "We may also collect limited technical information automatically, such as browser type and pages visited, to improve our website experience." },
+      "s2": { "heading": "2. How We Use Your Information", "p1": "We use your information to provide estimates, schedule and complete installations, process financing and rebate applications, communicate with you, and improve our services. We may share information with trusted installation and financing partners solely to fulfill your request." },
+      "s3": { "heading": "3. How We Share Information", "p1": "We do not sell your personal information. We share data only with service partners (such as solar installers, financing providers, and utility rebate programs) as needed to deliver the services you request, or when required by law." },
+      "s4": { "heading": "4. Data Security", "p1": "We implement reasonable administrative, technical, and physical safeguards to protect your information. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security." },
+      "s5": { "heading": "5. Your Choices", "p1": "You may request access to, correction of, or deletion of your personal information at any time by contacting us. You may also opt out of marketing communications by following the unsubscribe instructions in our emails." },
+      "s6": { "heading": "6. Contact Us", "p1": "If you have questions about this Privacy Policy or how we handle your data, contact us at GoGreen@evnation.us or 866-913-6199." }
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "title": "Terms & Conditions",
+      "lastUpdated": "June 2026",
+      "intro": "Please read these Terms & Conditions carefully before using the EVnation website or engaging our services.",
+      "s1": { "heading": "1. Acceptance of Terms", "p1": "By accessing or using the EVnation website and services, you agree to be bound by these Terms & Conditions and all applicable laws and regulations. If you do not agree with any part of these terms, you may not use our services." },
+      "s2": { "heading": "2. Services", "p1": "EVnation provides EV charger and solar installation services, estimates, and related consultation as a licensed C10 Electrical Contractor. All estimates are provided for informational purposes and final pricing is subject to a site assessment.", "p2": "Scheduling, permitting, and installation timelines may vary based on local jurisdiction requirements, utility coordination, and equipment availability." },
+      "s3": { "heading": "3. Estimates & Financing", "p1": "Savings estimates, tax credit information, and financing terms (including advertised rates such as 2.99%) are illustrative and depend on individual eligibility, credit approval, and current program availability. EVnation does not guarantee specific financial outcomes." },
+      "s4": { "heading": "4. Customer Responsibilities", "p1": "Customers are responsible for providing accurate information about their property, electrical system, and vehicle, and for ensuring safe access to the installation area. Inaccurate information may affect pricing and scheduling." },
+      "s5": { "heading": "5. Limitation of Liability", "p1": "To the fullest extent permitted by law, EVnation shall not be liable for any indirect, incidental, or consequential damages arising from the use of our website or services. Our total liability shall not exceed the amount paid for the specific service in question." },
+      "s6": { "heading": "6. Changes to These Terms", "p1": "EVnation reserves the right to update these Terms & Conditions at any time. Continued use of our services after changes are posted constitutes acceptance of the revised terms." }
+    },
+    "disclaimer": {
+      "eyebrow": "Legal",
+      "title": "Disclaimer",
+      "lastUpdated": "June 2026",
+      "intro": "The information on this website is provided for general informational purposes. Please read this disclaimer before relying on any content or estimates.",
+      "s1": { "heading": "1. General Information", "p1": "Content on the evNation website — including pricing ranges, savings estimates, and product descriptions — is provided for general guidance only and may not reflect your specific project scope, local codes, or utility requirements." },
+      "s2": { "heading": "2. Not Professional Advice", "p1": "Nothing on this site constitutes electrical, financial, tax, or legal advice. Final system design, permitting, and pricing are determined after a licensed site evaluation by evNation or its authorized partners." },
+      "s3": { "heading": "3. Estimates & Incentives", "p1": "Online quotes and calculator results are starting estimates only. Tax credits, rebates, and financing offers depend on eligibility, program availability, and approval by third parties. EVnation does not guarantee specific savings or incentive amounts." },
+      "s4": { "heading": "4. Trademarks & Brands", "p1": "Product and brand names (including Tesla, Powerwall, ChargePoint, GM Ultium, and others) are trademarks of their respective owners. evNation is an independent installer and is not affiliated with or endorsed by these brands unless explicitly stated." },
+      "s5": { "heading": "5. External Links", "p1": "Our website may link to third-party sites for rebates, utilities, or manufacturer resources. We are not responsible for the content, accuracy, or privacy practices of external websites." },
+      "s6": { "heading": "6. Contact", "p1": "Questions about this disclaimer? Contact us at GoGreen@evnation.us or 866-913-6199." }
+    },
+    "lastUpdatedLabel": "Last updated: {date}",
+    "disclaimerFooter": "This page is provided for general information and should be reviewed by legal counsel before publication.",
+    "disclaimerContact": "For questions, contact GoGreen@evnation.us."
+  },
+  "aiAssistant": {
+    "title": "EVnation Assistant",
+    "subtitle": "EV charging & home electrification",
+    "closeChat": "Close chat",
+    "openAssistant": "Open AI assistant",
+    "closeAssistant": "Close AI assistant",
+    "thinking": "Thinking…",
+    "sendMessage": "Send message",
+    "placeholder": "Ask about EV charging…",
+    "welcome": "Hi! I'm the EVnation assistant. Ask me about EV charger installation, panel upgrades, pricing, rebates, or how to get a quote — I'll keep it simple.",
+    "welcomeLink": "Get a quote",
+    "prompts": {
+      "p1": "How much does installation cost?",
+      "p2": "Do I need a panel upgrade?",
+      "p3": "What areas do you serve?",
+      "p4": "How do I get a quote?"
+    }
+  }
+}

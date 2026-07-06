@@ -5,12 +5,12 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Link from '@/components/Link'
 import BeforeAfterReveal, { TYPE_ACCENT } from '@/components/BeforeAfterReveal'
 import { projects, PROJECT_TYPES, getProjectsByType } from '@/data/projects'
-import { stats } from '@/data/localSeo'
+import { useProjectsCopy } from '@/i18n/hooks/useExtraPages'
 import { ArrowRight, MapPin, ArrowUpRight } from 'lucide-react'
 
 const MARQUEE_LOCATIONS = [...new Set(projects.map((p) => p.location.split(',')[0]))]
 
-function ProjectSpread({ project, index, total }) {
+function ProjectSpread({ project, index, total, getSimilarQuote }) {
   const num = String(index + 1).padStart(2, '0')
   const accent = TYPE_ACCENT[project.type] || TYPE_ACCENT.ev
   const flip = index % 2 === 1
@@ -133,7 +133,7 @@ function ProjectSpread({ project, index, total }) {
             className="inline-flex items-center gap-2 text-sm font-semibold w-fit group/link transition-colors"
             style={{ color: accent }}
           >
-            Get a similar quote
+            {getSimilarQuote}
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" />
           </Link>
         </motion.div>
@@ -148,6 +148,11 @@ function ProjectSpread({ project, index, total }) {
 }
 
 export default function ProjectsPage() {
+  const copy = useProjectsCopy(projects.length)
+  const projectTypes = useMemo(
+    () => PROJECT_TYPES.map((t) => ({ ...t, label: copy.types[t.id] || t.label })),
+    [copy.types],
+  )
   const [activeType, setActiveType] = useState('all')
   const [activeId, setActiveId] = useState(projects[0]?.id)
   const mainRef = useRef(null)
@@ -197,14 +202,14 @@ export default function ProjectsPage() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full pb-6 sm:pb-10 lg:pb-14">
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.8 }}>
             <p className="font-mono text-[10px] sm:text-[11px] uppercase tracking-[0.3em] sm:tracking-[0.35em] text-neon/80 mb-4 sm:mb-6">
-              Field archive · {stats.installations} installs
+              {copy.heroEyebrow}
             </p>
             <h1 className="font-display font-bold leading-[0.92] sm:leading-[0.9] tracking-tight">
-              <span className="block text-[clamp(2.25rem,13vw,7.5rem)] text-white">INSTALL</span>
-              <span className="block text-[clamp(2.25rem,13vw,7.5rem)] hero-gradient-text -mt-1 sm:-mt-4">ARCHIVE</span>
+              <span className="block text-[clamp(2.25rem,13vw,7.5rem)] text-white">{copy.heroTitle1}</span>
+              <span className="block text-[clamp(2.25rem,13vw,7.5rem)] hero-gradient-text -mt-1 sm:-mt-4">{copy.heroTitle2}</span>
             </h1>
             <p className="mt-4 sm:mt-6 text-slate-400 max-w-md text-sm leading-relaxed">
-              Swipe the handle on each card to compare before &amp; after. Real crew photos slot in when they land.
+              {copy.heroDesc}
             </p>
           </motion.div>
         </div>
@@ -225,7 +230,7 @@ export default function ProjectsPage() {
       {/* Sticky nav bar */}
       <div className="sticky top-[max(4.25rem,env(safe-area-inset-top,0px))] lg:top-16 z-30 border-b border-white/5 bg-navy-950/92 max-lg:backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center gap-3 sm:gap-4 py-2.5 sm:py-3 overflow-x-auto scrollbar-hide scroll-touch">
-          {PROJECT_TYPES.map((t) => (
+          {projectTypes.map((t) => (
             <button
               key={t.id}
               type="button"
@@ -276,7 +281,7 @@ export default function ProjectsPage() {
         <div className="grid lg:grid-cols-[200px_1fr] xl:grid-cols-[220px_1fr] gap-8 lg:gap-16">
           {/* Index rail — desktop only */}
           <aside className="hidden lg:block sticky top-36 self-start pt-16">
-            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-600 mb-4">Index</p>
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-slate-600 mb-4">{copy.index}</p>
             <nav className="space-y-1">
               <AnimatePresence mode="popLayout">
                 {filtered.map((p, i) => {
@@ -322,10 +327,10 @@ export default function ProjectsPage() {
                 transition={{ duration: 0.25 }}
               >
                 {filtered.length === 0 ? (
-                  <p className="text-center text-slate-500 py-32">No projects in this category yet.</p>
+                  <p className="text-center text-slate-500 py-32">{copy.emptyCategory}</p>
                 ) : (
                   filtered.map((project, i) => (
-                    <ProjectSpread key={project.id} project={project} index={i} total={filtered.length} />
+                    <ProjectSpread key={project.id} project={project} index={i} total={filtered.length} getSimilarQuote={copy.getSimilarQuote} />
                   ))
                 )}
               </motion.div>
@@ -338,13 +343,13 @@ export default function ProjectsPage() {
       <section className="relative mt-12 sm:mt-20 py-14 sm:py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-neon/[0.03] to-transparent" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="font-display text-2xl sm:text-3xl font-bold mb-6">Your install could be next.</p>
+          <p className="font-display text-2xl sm:text-3xl font-bold mb-6">{copy.ctaTitle}</p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3">
             <Link href="/quote" className="btn-primary inline-flex items-center gap-2">
-              Start Your Project <ArrowRight className="w-4 h-4" />
+              {copy.startProject} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link href="/service-areas" className="btn-secondary inline-flex items-center gap-2">
-              Service areas
+              {copy.serviceAreas}
             </Link>
           </div>
         </div>

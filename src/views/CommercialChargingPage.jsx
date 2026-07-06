@@ -2,7 +2,7 @@
 
 import { useMemo } from 'react'
 import Link from '@/components/Link'
-import { Building2, Zap, Gauge, Users, Truck, ArrowRight, Phone } from 'lucide-react'
+import { Building2, Zap, Gauge, Users, Truck, ArrowRight, Phone, Leaf } from 'lucide-react'
 import SectionHeader from '@/components/SectionHeader'
 import { useTranslation } from '@/i18n/LocaleProvider'
 
@@ -47,8 +47,29 @@ export default function CommercialChargingPage() {
     [t]
   )
 
+  const co2Stats = useMemo(
+    () => [
+      {
+        value: t('servicesHub.commercial.co2Stat1Value'),
+        label: t('servicesHub.commercial.co2Stat1Label'),
+        desc: t('servicesHub.commercial.co2Stat1Desc'),
+      },
+      {
+        value: t('servicesHub.commercial.co2Stat2Value'),
+        label: t('servicesHub.commercial.co2Stat2Label'),
+        desc: t('servicesHub.commercial.co2Stat2Desc'),
+      },
+      {
+        value: t('servicesHub.commercial.co2Stat3Value'),
+        label: t('servicesHub.commercial.co2Stat3Label'),
+        desc: t('servicesHub.commercial.co2Stat3Desc'),
+      },
+    ],
+    [t]
+  )
+
   return (
-    <div className="pt-24 pb-20">
+    <div className="page-top page-bottom lg:pb-20">
       <section className="relative overflow-hidden">
         <div className="glow-orb w-[480px] h-[480px] bg-neon/8 top-[-12%] left-[-8%]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
@@ -68,7 +89,7 @@ export default function CommercialChargingPage() {
             </div>
             <div className="relative rounded-3xl overflow-hidden neon-border aspect-[4/3]">
               <img
-                src="/images/solutions/commercial-ev-charger-768x308.jpg"
+                src="/images/solutions/commercial-ev-charging.png"
                 alt={t('servicesHub.commercial.imageAlt')}
                 className="w-full h-full object-cover"
               />
@@ -87,6 +108,45 @@ export default function CommercialChargingPage() {
             {offers.map((offer) => (
               <OfferBlock key={offer.title} {...offer} />
             ))}
+          </div>
+
+          <div className="mb-14 rounded-3xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
+            <div className="h-px bg-gradient-to-r from-transparent via-neon/40 to-transparent" />
+            <div className="p-6 sm:p-8 lg:p-10">
+              <div className="max-w-3xl mb-8">
+                <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">
+                  {t('servicesHub.commercial.co2Eyebrow')}
+                </p>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+                  {t('servicesHub.commercial.co2Title')}
+                </h2>
+                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+                  {t('servicesHub.commercial.co2Intro')}
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-6">
+                {co2Stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="glass-light rounded-2xl p-5 border border-white/[0.06]"
+                  >
+                    <div className="flex items-center gap-2 mb-3">
+                      <Leaf className="w-4 h-4 text-neon shrink-0" />
+                      <p className="font-display text-2xl sm:text-3xl font-bold text-neon tabular-nums leading-none">
+                        {stat.value}
+                      </p>
+                    </div>
+                    <p className="font-semibold text-sm text-white mb-2 leading-snug">{stat.label}</p>
+                    <p className="text-xs text-slate-400 leading-relaxed">{stat.desc}</p>
+                  </div>
+                ))}
+              </div>
+
+              <p className="text-xs text-slate-500 leading-relaxed border-t border-white/[0.06] pt-5">
+                {t('servicesHub.commercial.co2Note')}
+              </p>
+            </div>
           </div>
 
           <div className="glass rounded-3xl p-8 sm:p-10 text-center border border-neon/20 bg-neon/[0.03]">

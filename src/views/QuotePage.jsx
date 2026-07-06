@@ -7,17 +7,20 @@ import StatusTracker from '@/components/StatusTracker'
 import { useQuote } from '@/context/QuoteContext'
 import { createSubmission, sendNotificationEmail } from '@/services/api'
 import { getZoneStateCode, getZoneLabel } from '@/data/serviceZones'
-import { getServiceNeed } from '@/data/quoteQuizSteps'
+import { useQuoteQuizCopy } from '@/i18n/useQuoteQuizCopy'
 import { CheckCircle } from 'lucide-react'
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function QuotePage() {
+  const { t } = useTranslation()
+  const { serviceNeeds } = useQuoteQuizCopy()
   const { cartItems, clearCart } = useQuote()
   const [submitted, setSubmitted] = useState(null)
   const [submitting, setSubmitting] = useState(false)
 
   async function handleQuizSubmit(data) {
     setSubmitting(true)
-    const serviceLabel = getServiceNeed(data.serviceNeed).title
+    const serviceLabel = serviceNeeds.find((s) => s.id === data.serviceNeed)?.title || data.serviceNeed
 
     const submission = await createSubmission({
       personal: data.personal,
@@ -52,20 +55,18 @@ export default function QuotePage() {
 
   if (submitted) {
     return (
-      <div className="pt-24 pb-16 min-h-screen flex items-center bg-navy-950">
+      <div className="page-top page-bottom min-h-screen flex items-center bg-navy-950">
         <div className="max-w-lg mx-auto px-4 text-center w-full">
           <CheckCircle className="w-16 h-16 text-neon mx-auto mb-6" />
-          <h1 className="font-display text-3xl font-bold mb-4">You&apos;re all set!</h1>
+          <h1 className="font-display text-3xl font-bold mb-4">{t('quote.successTitle')}</h1>
           <p className="text-slate-400 mb-2">
-            Reference: <span className="text-neon font-mono">{submitted.id}</span>
+            {t('quote.successReference')} <span className="text-neon font-mono">{submitted.id}</span>
           </p>
-          <p className="text-slate-400 mb-8">
-            Our team will review your answers and send a detailed estimate within 24 hours.
-          </p>
+          <p className="text-slate-400 mb-8">{t('quote.successDesc')}</p>
           <div className="glass rounded-2xl p-8 mb-8">
             <StatusTracker currentStatus="submitted" />
           </div>
-          <Link href="/" className="btn-primary">Back to Home</Link>
+          <Link href="/" className="btn-primary">{t('quote.backHome')}</Link>
         </div>
       </div>
     )

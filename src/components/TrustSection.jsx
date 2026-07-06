@@ -42,30 +42,30 @@ export default function TrustSection() {
           eyebrow={t('home.trust.eyebrow')}
           title={t('home.trust.title')}
           subtitle={t('home.trust.subtitle', { region: serviceArea.region })}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-16"
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 sm:gap-6">
           {reasons.map((r, i) => (
             <Reveal
               key={r.title}
               delay={i * 0.08}
-              className="glass rounded-2xl p-6 hover:border-neon/20 transition-colors"
+              className="mobile-card glass rounded-xl sm:rounded-2xl p-3.5 sm:p-6 max-lg:hover:border-white/10 lg:hover:border-neon/20 transition-colors"
             >
-              <div className="w-12 h-12 rounded-xl bg-neon/10 flex items-center justify-center mb-4">
-                <r.icon className="w-6 h-6 text-neon" />
+              <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-neon/10 flex items-center justify-center mb-2.5 sm:mb-4">
+                <r.icon className="w-4 h-4 sm:w-6 sm:h-6 text-neon" />
               </div>
-              <h3 className="font-display font-semibold text-lg mb-2">{r.title}</h3>
-              <p className="text-sm text-slate-400 leading-relaxed">{r.desc}</p>
+              <h3 className="font-display font-semibold text-xs sm:text-lg mb-1 sm:mb-2 leading-snug">{r.title}</h3>
+              <p className="text-[10px] sm:text-sm text-slate-400 leading-relaxed line-clamp-4 sm:line-clamp-none">{r.desc}</p>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-6 text-center">
+        <div className="mt-8 sm:mt-16 grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 text-center">
           {statLabels.map((stat) => (
-            <div key={stat.label} className="glass-light rounded-2xl p-6">
-              <p className="font-display text-3xl font-bold text-neon">{stat.value}</p>
-              <p className="text-sm text-slate-400 mt-1">{stat.label}</p>
+            <div key={stat.label} className="glass-light rounded-xl sm:rounded-2xl p-3.5 sm:p-6">
+              <p className="font-display text-xl sm:text-3xl font-bold text-neon">{stat.value}</p>
+              <p className="text-[10px] sm:text-sm text-slate-400 mt-0.5 sm:mt-1">{stat.label}</p>
             </div>
           ))}
         </div>

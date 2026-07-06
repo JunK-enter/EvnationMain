@@ -16,48 +16,7 @@ import {
   Wrench,
   Zap,
 } from 'lucide-react'
-import { PRICING } from '../data/services'
-import { STANDARD_HOME_CHARGERS } from '../data/homeChargers'
-
-const METRICS = [
-  { value: '40 mi/hr', label: 'Charge speed' },
-  { value: '3–6 hrs', label: 'Install time' },
-  { value: '2,000+', label: 'Homes served' },
-  { value: 'C10', label: 'Licensed' },
-]
-
-const BRANDS = STANDARD_HOME_CHARGERS.map((c) => c.brand)
-
-const INCLUDED = [
-  { icon: Zap, text: 'Hardwired or plug-in Level 2 installation' },
-  { icon: Gauge, text: 'Up to 40 miles of range per hour' },
-  { icon: Wrench, text: 'Clean conduit routing & cable management' },
-  { icon: Shield, text: 'Dedicated 240V circuit & breaker sizing' },
-  { icon: FileCheck, text: 'Panel evaluation & load calculation' },
-  { icon: Clock, text: 'Permits, inspection & code compliance' },
-]
-
-const STEPS = [
-  { n: '1', title: 'Quote', desc: 'Share your panel, parking spot & charger preference.' },
-  { n: '2', title: 'Site visit', desc: 'We confirm routing, load & hardware fit.' },
-  { n: '3', title: 'Install', desc: 'C10 electricians wire, mount & test.' },
-  { n: '4', title: 'Handoff', desc: 'Permits closed — plug in and go.' },
-]
-
-const FAQ = [
-  {
-    q: 'How long does install take?',
-    a: 'Most Level 2 installs finish in one day. Complex panel or conduit work may take two — we quote upfront.',
-  },
-  {
-    q: 'Do I need a panel upgrade?',
-    a: 'Not always. We evaluate load on-site. If capacity exists, we add a dedicated circuit. If not, we quote an upgrade.',
-  },
-  {
-    q: 'Can you install my own charger?',
-    a: 'Yes — when hardware is UL-listed and compatible. We also supply and install leading brands.',
-  },
-]
+import { useEVChargerCopy } from '@/i18n/hooks/useExtraPages'
 
 const THEMES = {
   standard: {
@@ -100,7 +59,7 @@ function FaqItem({ item, open, onToggle }) {
   )
 }
 
-function ChargerPicker({ eyebrow, title, subtitle, chargers }) {
+function ChargerPicker({ eyebrow, title, subtitle, chargers, quoteThis }) {
   const [activeId, setActiveId] = useState(chargers[0]?.id)
   const active = chargers.find((c) => c.id === activeId) || chargers[0]
   const theme = THEMES.standard
@@ -172,7 +131,7 @@ function ChargerPicker({ eyebrow, title, subtitle, chargers }) {
                 ))}
               </ul>
               <Link to="/quote" className="btn-primary w-fit text-sm">
-                Quote this charger <ArrowRight className="w-4 h-4" />
+                {quoteThis} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -183,6 +142,7 @@ function ChargerPicker({ eyebrow, title, subtitle, chargers }) {
 }
 
 export default function EVChargerPage() {
+  const copy = useEVChargerCopy()
   const [openFaq, setOpenFaq] = useState(0)
 
   return (
@@ -201,35 +161,34 @@ export default function EVChargerPage() {
             >
               <div className="flex items-center gap-3 mb-5">
                 <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-neon/10 border border-neon/25 text-neon text-[11px] font-bold uppercase tracking-wide">
-                  <Zap className="w-3 h-3" /> Most popular
+                  <Zap className="w-3 h-3" /> {copy.hero.badge}
                 </span>
                 <span className="text-sm text-slate-500">
-                  from{' '}
-                  <strong className="text-neon font-display">{PRICING.l2Charger.label.replace('From ', '')}</strong>
+                  {copy.hero.from}{' '}
+                  <strong className="text-neon font-display">{copy.hero.price}</strong>
                 </span>
               </div>
 
               <h1 className="font-display text-[2.25rem] sm:text-5xl lg:text-[3.25rem] font-bold leading-[1.08] text-white mb-4">
-                Home EV{' '}
-                <span className="hero-gradient-text">Charging</span>
+                {copy.hero.title}{' '}
+                <span className="hero-gradient-text">{copy.hero.titleAccent}</span>
               </h1>
 
               <p className="text-slate-400 text-base sm:text-lg leading-relaxed mb-7 max-w-lg">
-                Licensed C10 electricians install Level 2 chargers that add 25–40 miles of range per hour —
-                in your garage or driveway.
+                {copy.hero.subtitle}
               </p>
 
               <div className="flex flex-wrap gap-3 mb-8">
                 <Link to="/quote" className="btn-primary">
-                  Get a Quote <ArrowRight className="w-4 h-4" />
+                  {copy.hero.getQuote} <ArrowRight className="w-4 h-4" />
                 </Link>
                 <a href="#chargers" className="btn-secondary">
-                  See chargers
+                  {copy.hero.seeChargers}
                 </a>
               </div>
 
               <div className="flex flex-wrap gap-2">
-                {BRANDS.map((b) => (
+                {copy.brands.map((b) => (
                   <a
                     key={b}
                     href="#chargers"
@@ -251,15 +210,13 @@ export default function EVChargerPage() {
               <div className="relative aspect-[4/3] rounded-2xl sm:rounded-3xl overflow-hidden neon-border">
                 <img
                   src="/images/solutions/residential-ev-charger.jpg"
-                  alt="Home EV charger installation"
+                  alt={copy.hero.imageAlt}
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy-950/60 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-xl bg-navy-950/80 backdrop-blur-md border border-white/10 px-4 py-3">
                   <div className="w-2 h-2 rounded-full bg-neon animate-pulse" />
-                  <span className="text-xs text-slate-300">
-                    <strong className="text-white">Level 2</strong> · 240V · 25–40 mi/hr
-                  </span>
+                  <span className="text-xs text-slate-300">{copy.hero.overlay}</span>
                 </div>
               </div>
             </motion.div>
@@ -270,7 +227,7 @@ export default function EVChargerPage() {
         <div className="border-y border-white/[0.06] bg-white/[0.02]">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-2 lg:grid-cols-4 divide-x divide-white/[0.06]">
-              {METRICS.map((m) => (
+              {copy.metrics.map((m) => (
                 <div key={m.label} className="py-5 sm:py-6 text-center px-3">
                   <p className="font-display text-xl sm:text-2xl font-bold text-white tabular-nums">{m.value}</p>
                   <p className="text-[11px] sm:text-xs text-slate-500 uppercase tracking-wide mt-0.5">{m.label}</p>
@@ -285,11 +242,7 @@ export default function EVChargerPage() {
       <section className="py-16 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid sm:grid-cols-3 gap-4">
-            {[
-              { icon: Gauge, title: 'Level 2 speed', desc: 'Full charge overnight — no public station waits.' },
-              { icon: Shield, title: 'Code-compliant', desc: 'Permits, inspection & dedicated circuit included.' },
-              { icon: Sparkles, title: 'Clean install', desc: 'Conduit routing that looks as good as it performs.' },
-            ].map(({ icon: Icon, title, desc }, i) => (
+            {copy.valueProps.map(({ icon: Icon, title, desc }, i) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, y: 12 }}
@@ -315,10 +268,11 @@ export default function EVChargerPage() {
       <section id="chargers" className="scroll-mt-24 py-16 sm:py-20 border-t border-white/[0.06] bg-navy-950/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ChargerPicker
-            eyebrow="Level 2"
-            title="Chargers we install"
-            subtitle="Tesla, Emporia, ChargePoint, Mercedes-Benz, Wallbox & SolarEdge — matched to your panel and parking setup."
-            chargers={STANDARD_HOME_CHARGERS}
+            eyebrow={copy.chargers.eyebrow}
+            title={copy.chargers.title}
+            subtitle={copy.chargers.subtitle}
+            chargers={copy.chargers.list}
+            quoteThis={copy.chargers.quoteThis}
           />
         </div>
       </section>
@@ -328,10 +282,10 @@ export default function EVChargerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-16">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">Turnkey</p>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">What&apos;s included</h2>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">{copy.included.eyebrow}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">{copy.included.title}</h2>
               <ul className="space-y-3">
-                {INCLUDED.map(({ icon: Icon, text }) => (
+                {copy.included.items.map(({ icon: Icon, text }) => (
                   <li key={text} className="flex items-start gap-3 text-sm text-slate-300">
                     <Icon className="w-4 h-4 text-neon shrink-0 mt-0.5" />
                     {text}
@@ -341,12 +295,12 @@ export default function EVChargerPage() {
             </div>
 
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">Process</p>
-              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">Quote to plug-in</h2>
+              <p className="text-[11px] font-bold uppercase tracking-[0.18em] text-neon mb-2">{copy.steps.eyebrow}</p>
+              <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-6">{copy.steps.title}</h2>
               <div className="space-y-0">
-                {STEPS.map((s, i) => (
+                {copy.steps.items.map((s, i) => (
                   <div key={s.n} className="flex gap-4 pb-6 last:pb-0 relative">
-                    {i < STEPS.length - 1 && (
+                    {i < copy.steps.items.length - 1 && (
                       <span className="absolute left-[15px] top-8 bottom-0 w-px bg-white/[0.08]" />
                     )}
                     <span className="w-8 h-8 rounded-full bg-neon/10 border border-neon/25 flex items-center justify-center shrink-0 font-display text-xs font-bold text-neon">
@@ -367,9 +321,9 @@ export default function EVChargerPage() {
       {/* ── FAQ ── */}
       <section className="py-16 sm:py-20 border-t border-white/[0.06]">
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8 text-center">FAQ</h2>
+          <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-8 text-center">{copy.faq.title}</h2>
           <div>
-            {FAQ.map((item, i) => (
+            {copy.faq.items.map((item, i) => (
               <FaqItem
                 key={item.q}
                 item={item}
@@ -385,15 +339,15 @@ export default function EVChargerPage() {
       <section className="pb-20 sm:pb-24 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 rounded-2xl sm:rounded-3xl border border-neon/20 bg-gradient-to-r from-neon/8 to-transparent px-8 py-8 sm:py-10">
           <div>
-            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">Ready to charge at home?</h2>
-            <p className="text-sm text-slate-400">Free estimate — usually within one business day.</p>
+            <h2 className="font-display text-xl sm:text-2xl font-bold text-white mb-1">{copy.cta.title}</h2>
+            <p className="text-sm text-slate-400">{copy.cta.desc}</p>
           </div>
           <div className="flex gap-3 shrink-0">
             <Link to="/quote" className="btn-primary text-sm">
-              Get a Quote <ArrowRight className="w-4 h-4" />
+              {copy.cta.getQuote} <ArrowRight className="w-4 h-4" />
             </Link>
             <Link to="/contact" className="inline-flex items-center gap-1 text-sm font-medium text-slate-400 hover:text-white transition-colors">
-              Contact <ArrowUpRight className="w-4 h-4" />
+              {copy.cta.contact} <ArrowUpRight className="w-4 h-4" />
             </Link>
           </div>
         </div>

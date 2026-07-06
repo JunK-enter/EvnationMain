@@ -87,7 +87,7 @@ export const BIDIRECTIONAL_HOME_CHARGERS = [
     brand: 'Tesla',
     productName: 'Wall Connector + Powerwall',
     tagline: 'Store energy and support backup — with V2H-style use when paired with Powerwall and supported hardware.',
-    image: '/images/chargers/tesla-wall-connector.png',
+    image: '/images/solutions/tesla-bidirectional-charging.png',
     highlights: [
       'Home backup when integrated with Tesla Powerwall',
       'Solar charging and stored-energy dispatch',
@@ -100,7 +100,7 @@ export const BIDIRECTIONAL_HOME_CHARGERS = [
     brand: 'GM',
     productName: 'Ultium V2H Ready',
     tagline: 'Bi-directional charging for compatible GM Ultium vehicles — home backup is coming to more driveways.',
-    image: '/images/solutions/residential-ev-charger.jpg',
+    image: '/images/solutions/gm-bidirectional-charging.png',
     highlights: [
       'Vehicle-to-home (V2H) on supported Ultium models',
       'Requires compatible bidirectional hardware and utility approval',

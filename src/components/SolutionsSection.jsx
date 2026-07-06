@@ -6,10 +6,12 @@ import SectionAmbient from './SectionAmbient'
 import SectionHeader from './SectionHeader'
 import ServiceOfferCard from './ServiceOfferCard'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import { useIsMobile } from '@/lib/useMediaQuery'
 import Reveal from '@/lib/Reveal'
 
 export default function SolutionsSection() {
   const { t } = useTranslation()
+  const isMobile = useIsMobile()
 
   const pillars = useMemo(
     () => [
@@ -23,15 +25,14 @@ export default function SolutionsSection() {
       {
         title: t('home.solutions.biDirectionalTitle'),
         desc: t('home.solutions.biDirectionalDesc'),
-        img: '/images/chargers/tesla-wall-connector.png',
+        img: '/images/solutions/tesla-bidirectional-charging.png',
         to: '/bi-directional-charging',
         icon: ArrowLeftRight,
-        imgFit: 'contain',
       },
       {
         title: t('home.solutions.panelTitle'),
         desc: t('home.solutions.panelDesc'),
-        img: '/images/projects/costa-mesa-panel/after-interior.png',
+        img: '/images/solutions/panel-upgrade.jpg',
         to: '/panel-upgrades',
         icon: LayoutGrid,
       },
@@ -57,7 +58,7 @@ export default function SolutionsSection() {
           subtitle={t('home.solutions.subtitle')}
         />
 
-        <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 xl:grid-cols-4 gap-2.5 sm:gap-6">
           {pillars.map((pillar, index) => (
             <Reveal
               key={pillar.to}
@@ -65,7 +66,7 @@ export default function SolutionsSection() {
               y={16}
               viewport={{ once: true, margin: '-40px', amount: 0.15 }}
             >
-              <ServiceOfferCard {...pillar} ctaLabel={t('servicesHub.viewService')} />
+              <ServiceOfferCard {...pillar} ctaLabel={t('servicesHub.viewService')} compact={isMobile} />
             </Reveal>
           ))}
         </div>

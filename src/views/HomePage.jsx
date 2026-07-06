@@ -27,23 +27,23 @@ function TeslaPowerwallBand() {
     <section className="section-padding relative overflow-hidden">
       <SectionAmbient sweep />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="glass rounded-3xl overflow-hidden neon-border grid lg:grid-cols-2">
-          <div className="p-8 lg:p-12 flex flex-col justify-center">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon/10 border border-neon/20 text-neon text-sm mb-5 w-fit">
-              <BatteryCharging className="w-4 h-4" /> {t('home.powerwall.badge')}
+        <div className="glass rounded-2xl sm:rounded-3xl overflow-hidden neon-border grid lg:grid-cols-2">
+          <div className="p-5 sm:p-8 lg:p-12 flex flex-col justify-center order-2 lg:order-1">
+            <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-neon/10 border border-neon/20 text-neon text-xs sm:text-sm mb-4 sm:mb-5 w-fit">
+              <BatteryCharging className="w-3.5 h-3.5 sm:w-4 sm:h-4" /> {t('home.powerwall.badge')}
             </div>
-            <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">
+            <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">
               {t('home.powerwall.title')}
             </h2>
-            <p className="text-slate-400 leading-relaxed mb-6 max-w-lg">
+            <p className="text-xs sm:text-base text-slate-400 leading-relaxed mb-5 sm:mb-6 max-w-lg">
               {t('home.powerwall.desc')}
             </p>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
               <Link to="/battery" className="btn-primary justify-center">{t('common.exploreBattery')} <ArrowRight className="w-4 h-4" /></Link>
               <Link to="/quote" className="btn-secondary justify-center">{t('common.getQuote')}</Link>
             </div>
           </div>
-          <div className="relative min-h-[280px] lg:min-h-0">
+          <div className="relative min-h-[200px] sm:min-h-[280px] lg:min-h-0 order-1 lg:order-2">
             <img src="/images/batteries/tesla-powerwall-solar-home.png" alt="Modern home with backup power" loading="lazy" className="absolute inset-0 w-full h-full object-cover" />
             <div className="absolute inset-0 bg-gradient-to-r from-navy-950/80 via-navy-950/10 to-transparent" />
           </div>

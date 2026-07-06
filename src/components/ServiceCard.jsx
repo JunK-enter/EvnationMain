@@ -1,10 +1,14 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import * as Icons from 'lucide-react'
 import { Check, ShoppingCart } from 'lucide-react'
 import { useQuote } from '../context/QuoteContext'
+import { useTranslation } from '@/i18n/LocaleProvider'
 
 export default function ServiceCard({ service, index = 0 }) {
   const { addToQuote, isInCart } = useQuote()
+  const { t } = useTranslation()
   const Icon = Icons[service.icon] || Icons.Zap
   const inCart = isInCart(service.id)
 
@@ -20,7 +24,7 @@ export default function ServiceCard({ service, index = 0 }) {
     >
       {service.featured && (
         <span className="absolute -top-3 left-6 px-3 py-0.5 bg-neon text-navy-950 text-xs font-bold rounded-full">
-          Most Popular
+          {t('shop.mostPopular')}
         </span>
       )}
 
@@ -52,9 +56,9 @@ export default function ServiceCard({ service, index = 0 }) {
         }`}
       >
         {inCart ? (
-          <><Check className="w-4 h-4" /> Added to Quote</>
+          <><Check className="w-4 h-4" /> {t('shop.addedToQuote')}</>
         ) : (
-          <><ShoppingCart className="w-4 h-4" /> Add to Quote</>
+          <><ShoppingCart className="w-4 h-4" /> {t('shop.addToQuote')}</>
         )}
       </button>
     </motion.div>

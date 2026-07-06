@@ -33,6 +33,7 @@ export function useNavLinks() {
   const mainLinks = [
     { to: '/gallery', label: t('nav.gallery') },
     { to: '/service-areas', label: t('nav.serviceAreas'), icon: MapPin },
+    { to: '/blog', label: t('nav.blog'), icon: Newspaper, matchPrefix: true },
   ]
 
   const mobileExtraLinks = [
@@ -42,7 +43,6 @@ export function useNavLinks() {
   const companyLinks = [
     { to: '/about', label: t('nav.about'), desc: t('nav.aboutDesc'), icon: Info },
     { to: '/auto-dealer', label: t('nav.autoDealer'), desc: t('nav.autoDealerDesc'), icon: Handshake },
-    { to: '/blog', label: t('nav.blog'), desc: t('nav.blogDesc'), icon: Newspaper },
   ]
 
   return { serviceLinks, mainLinks, mobileExtraLinks, companyLinks }

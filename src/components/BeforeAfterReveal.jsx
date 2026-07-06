@@ -109,28 +109,38 @@ export function BeforeAfterSideBySide({
   beforePosition = 'center',
   afterPosition = 'center',
   fit = 'cover',
+  aspectClass = '',
   className = '',
 }) {
   if (!before || !after) return null
 
+  const imgClass =
+    fit === 'contain'
+      ? 'absolute inset-0 w-full h-full object-contain'
+      : 'absolute inset-0 w-full h-full object-cover'
+
+  const frameClass = aspectClass || (fit === 'contain' ? '' : 'aspect-[4/3]')
+
   return (
-    <div className={`grid grid-cols-2 gap-1 sm:gap-1.5 ${className}`}>
-      <div className="relative overflow-hidden bg-navy-950 rounded-sm">
+    <div className={`grid grid-cols-2 gap-1 sm:gap-1.5 h-full ${className}`}>
+      <div className={`relative overflow-hidden bg-navy-950 rounded-sm h-full ${frameClass}`}>
         <img
           src={before}
           alt={beforeAlt}
-          className="w-full h-auto block"
+          className={imgClass}
+          style={{ objectPosition: beforePosition }}
           loading="lazy"
         />
         <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-red-500/90 text-white">
           Before
         </span>
       </div>
-      <div className="relative overflow-hidden bg-navy-950 rounded-sm">
+      <div className={`relative overflow-hidden bg-navy-950 rounded-sm h-full ${frameClass}`}>
         <img
           src={after}
           alt={afterAlt}
-          className="w-full h-auto block"
+          className={imgClass}
+          style={{ objectPosition: afterPosition }}
           loading="lazy"
         />
         <span className="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-sm bg-neon text-navy-950">

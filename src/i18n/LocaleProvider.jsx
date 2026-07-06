@@ -11,8 +11,22 @@ import en from './messages/en.json'
 import es from './messages/es.json'
 import zh from './messages/zh.json'
 import ko from './messages/ko.json'
+import pageEn from './pageMessages/en.json'
+import pageEs from './pageMessages/es.json'
+import pageZh from './pageMessages/zh.json'
+import pageKo from './pageMessages/ko.json'
+import extraEn from './pageMessages/extra-en.json'
+import extraEs from './pageMessages/extra-es.json'
+import extraZh from './pageMessages/extra-zh.json'
+import extraKo from './pageMessages/extra-ko.json'
+import { mergeCatalogs } from './mergeCatalogs'
 
-const catalogs = { en, es, zh, ko }
+const catalogs = {
+  en: mergeCatalogs(en, pageEn, extraEn),
+  es: mergeCatalogs(es, pageEs, extraEs),
+  zh: mergeCatalogs(zh, pageZh, extraZh),
+  ko: mergeCatalogs(ko, pageKo, extraKo),
+}
 
 const LocaleContext = createContext(null)
 

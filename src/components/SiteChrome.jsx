@@ -14,12 +14,11 @@ export default function SiteChrome({ children }) {
   const isAdmin = pathname.startsWith('/admin')
   const chromeless = isAdmin
   const mobileBottomPad = !chromeless && pathname !== '/quote'
-  const stickyCtaPad = mobileBottomPad
 
   return (
     <>
       {!chromeless && <FixedPageBackground />}
-      <div className={`relative z-[1] min-h-screen${mobileBottomPad ? ' site-mobile-pad' : ''}${stickyCtaPad ? ' site-sticky-cta-pad' : ''}`}>
+      <div className={`relative z-[1] min-h-screen${mobileBottomPad ? ' site-sticky-cta-pad' : ''}`}>
         {!chromeless && <Navbar />}
         {children}
         {!chromeless && <Footer />}

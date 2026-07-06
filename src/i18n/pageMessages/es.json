@@ -1,0 +1,274 @@
+{
+  "site": {
+    "tagline": "Instaladores con licencia de cargadores EV, solar y actualización de panel en el sur, centro y norte de California — además de Illinois, Nevada, Texas, New Jersey y Arizona."
+  },
+  "galleryPage": {
+    "eyebrow": "Galería de instalaciones",
+    "heroTitle1": "Instalación",
+    "heroTitle2": "Galería",
+    "title": "Instalaciones reales en campo",
+    "subtitle": "Día de instalación, trabajos terminados y visitas de socios y concesionarios en nuestras áreas de servicio.",
+    "statInstalls": "Instalaciones regionales",
+    "statRating": "Calificación de clientes",
+    "statAreas": "Áreas de servicio",
+    "featured": "Destacado",
+    "getQuote": "Solicitar cotización",
+    "emptyCategory": "Aún no hay fotos en esta categoría.",
+    "close": "Cerrar",
+    "prevPhoto": "Foto anterior",
+    "nextPhoto": "Foto siguiente",
+    "categories": {
+      "all": "Todas las fotos",
+      "installation": "Instalación",
+      "completed": "Después de instalar",
+      "partnership": "Socios y concesionarios",
+      "ev": "Carga EV",
+      "battery": "Instalación de batería"
+    },
+    "categoriesShort": {
+      "all": "Todas",
+      "installation": "Instalar",
+      "completed": "Listo",
+      "partnership": "Socios",
+      "ev": "EV",
+      "battery": "Batería"
+    },
+    "installsCount": "{count} instalaciones",
+    "heroMobileDesc": "Fotos de campo — instalaciones, trabajos terminados y visitas de concesionarios.",
+    "heroDesktopDesc": "Fotos reales del equipo en campo — día de instalación, trabajos terminados y visitas de socios y concesionarios.",
+    "ctaTitle": "¿Quieres que tu hogar aparezca en la galería?",
+    "ctaDesc": "Instalaciones con licencia C-10 en California y nuestros mercados nacionales.",
+    "dealerPartnerships": "Alianzas con concesionarios"
+  },
+  "shop": {
+    "eyebrow": "Tienda",
+    "title": "Todos los servicios",
+    "subtitle": "Agrega servicios a tu carrito de cotización y envía cuando estés listo.",
+    "viewQuote": "Ver cotización ({count}) · ~${total}",
+    "mostPopular": "Más popular",
+    "addedToQuote": "Agregado a la cotización",
+    "addToQuote": "Agregar a cotización"
+  },
+  "contact": {
+    "eyebrow": "Contacto",
+    "title": "Envía tu proyecto",
+    "subtitle": "Completa el formulario y nuestro equipo preparará una cotización personalizada para tu hogar.",
+    "personalInfo": "Información personal",
+    "homeInfo": "Información del hogar",
+    "vehicleInfo": "Información del vehículo",
+    "photos": "Fotos (opcional)",
+    "notes": "Notas adicionales",
+    "submit": "Enviar proyecto",
+    "firstName": "Nombre *",
+    "lastName": "Apellido",
+    "email": "Correo electrónico *",
+    "phone": "Teléfono",
+    "city": "Ciudad",
+    "zip": "Código postal",
+    "vehicleMake": "Marca del vehículo",
+    "vehicleModel": "Modelo del vehículo",
+    "distance": "Recorrido estimado del cable (pies)",
+    "notesPlaceholder": "¿Algo más que debamos saber?",
+    "panelPhoto": "Foto del panel eléctrico",
+    "garagePhoto": "Foto del garaje / estacionamiento",
+    "receivedTitle": "¡Envío recibido!",
+    "reference": "Referencia:",
+    "receivedDesc": "Revisaremos tu información y te contactaremos en 24 horas. Se ha enviado un correo de confirmación.",
+    "homeType": "Tipo de vivienda",
+    "panelSize": "Tamaño del panel",
+    "parking": "Ubicación de estacionamiento"
+  },
+  "quote": {
+    "badge": "Estimación gratis · Sin compromiso",
+    "title": "Tu instalación,",
+    "titleAccent": "cotizada en minutos",
+    "subtitle": "Responde unas preguntas — estimaremos tu proyecto y te enviaremos una cotización detallada.",
+    "startingEstimate": "Estimación inicial",
+    "licensedNote": "Electricistas con licencia C-10 en cada trabajo",
+    "transparentNote": "Precios transparentes — sin cargos ocultos",
+    "california": "California",
+    "otherStates": "Otros estados",
+    "fullName": "Nombre completo",
+    "fullNamePlaceholder": "María García",
+    "phoneNumber": "Número de teléfono",
+    "email": "Correo electrónico",
+    "emailPlaceholder": "tu@email.com",
+    "streetAddress": "Dirección",
+    "city": "Ciudad",
+    "zipCode": "Código postal",
+    "panelSize": "Tamaño del panel principal",
+    "panelLocation": "Ubicación del panel",
+    "breakerSize": "Tamaño del disyuntor existente",
+    "notes": "Notas (opcional)",
+    "notesPlaceholder": "Modelo del vehículo, plazos, acceso…",
+    "back": "Atrás",
+    "continue": "Continuar",
+    "submitQuote": "Enviar cotización",
+    "stepOf": "Paso {current} de {total}",
+    "notSure": "No estoy seguro",
+    "successTitle": "¡Todo listo!",
+    "successReference": "Referencia:",
+    "successDesc": "Nuestro equipo revisará tus respuestas y enviará una estimación detallada en 24 horas.",
+    "backHome": "Volver al inicio",
+    "headerSubtitle": "{total} preguntas rápidas — luego un electricista con licencia confirma tu cotización final.",
+    "submitting": "Enviando…",
+    "getEstimate": "Obtener mi estimación",
+    "privacyNote": "Tu información es privada y solo se usa para preparar tu estimación.",
+    "selectProjectHint": "Selecciona un tipo de proyecto para ver tu estimación en vivo aquí.",
+    "progressLabel": "Progreso",
+    "steps": {
+      "service": {
+        "shortLabel": "Proyecto",
+        "title": "¿Con qué necesitas ayuda?",
+        "subtitle": "Elige la opción que mejor coincida con tu proyecto."
+      },
+      "region": {
+        "shortLabel": "Región",
+        "title": "¿En qué región está el proyecto?",
+        "subtitle": "Instalamos en California y estados seleccionados."
+      },
+      "info": {
+        "shortLabel": "Contacto",
+        "title": "¿Cómo podemos contactarte?",
+        "subtitle": "Enviaremos tu estimación y los siguientes pasos aquí."
+      },
+      "location": {
+        "shortLabel": "Dirección",
+        "title": "¿Dónde está ubicado el proyecto?",
+        "subtitle": "La dirección de instalación / del proyecto."
+      },
+      "detail": {
+        "shortLabel": "Detalles",
+        "title": "Algunos detalles extra",
+        "subtitle": "Opcional, pero cuanto más sepas, mejor prepararemos la estimación."
+      }
+    },
+    "serviceNeeds": {
+      "ev-charger": { "title": "Instalación de cargador EV", "desc": "Cargador Level 2 para el hogar" },
+      "nema-outlet": { "title": "Instalación de tomacorriente NEMA", "desc": "Tomacorriente dedicado 240V" },
+      "panel-upgrade": { "title": "Actualización del panel principal", "desc": "Mayor capacidad eléctrica" },
+      "ev-panel": { "title": "Cargador EV + actualización de panel", "desc": "Cargador y panel juntos" },
+      "charger-swap": { "title": "Cambio de cargador", "desc": "Reemplazar una unidad existente" },
+      "tesla-powerwall": { "title": "Batería Tesla Powerwall", "desc": "Respaldo con batería doméstica" },
+      "multifamily": { "title": "Proyecto multifamiliar", "desc": "Carga compartida para condos y apartamentos" },
+      "commercial-project": { "title": "Proyecto comercial", "desc": "Carga L2/L3 para negocios y flotas" },
+      "not-sure": { "title": "Aún no estoy seguro", "desc": "Te ayudaremos a decidir" }
+    }
+  },
+  "about": {
+    "eyebrow": "Sobre EVnation",
+    "title": "Impulsando el",
+    "titleAccent": "hogar eléctrico",
+    "subtitle": "La misión de EVnation es hacer que la carga EV doméstica y comercial, el almacenamiento con batería y el respaldo energético sean sencillos — para que ir totalmente eléctrico sea fácil y sin preocupaciones.",
+    "whoWeAre": "Quiénes somos",
+    "whoP1": "EVnation es un contratista eléctrico C10 con licencia en el estado de California, especializado en carga EV doméstica y comercial, almacenamiento Tesla Powerwall e instalación con garantía. Creemos que cambiar a una vida totalmente eléctrica debe ser simple, transparente y gratificante.",
+    "whoP2": "Desde un solo cargador doméstico hasta estaciones comerciales en red y respaldo de batería para todo el hogar, nuestro equipo de conserjería te guía en cada paso — desde la estimación gratuita hasta financiamiento, permisos e inspección final. Con financiamiento fácil de calificar — incluidos programas verdes sin pago inicial y acuerdos HEA — nunca ha sido tan fácil electrificar un hogar.",
+    "stat1": "Propietarios atendidos",
+    "stat2Value": "GoGreen",
+    "stat2": "Financing",
+    "stat3Value": "Rebate",
+    "stat3": "Califica para el programa energético de tu estado",
+    "stat4": "Contratista con licencia",
+    "valuesTitle": "Lo que defendemos",
+    "value1Title": "Transparencia radical",
+    "value1Text": "Sin promesas vagas. Desglosamos costos, créditos fiscales y financiamiento para que decidas con confianza.",
+    "value2Title": "Con licencia y asegurados",
+    "value2Text": "Somos un contratista eléctrico C10 con licencia. Cada instalación cumple el código y tiene garantía.",
+    "value3Title": "Servicio de conserjería",
+    "value3Text": "Nuestro equipo está contigo en cada paso — desde la estimación hasta permisos e inspección final.",
+    "value4Title": "Carga + batería",
+    "value4Text": "Combinamos carga EV con almacenamiento Tesla Powerwall para que tu hogar siga energizado y eficiente.",
+    "teamTitle": "Equipo de liderazgo",
+    "ctaTitle": "¿Listo para electrificar tu hogar?",
+    "ctaDesc": "Obtén una estimación gratuita y transparente de nuestro equipo con licencia.",
+    "ctaButton": "Solicitar cotización"
+  },
+  "serviceLayout": {
+    "featuresTitle": "Qué incluye",
+    "readyTitle": "¿Listo para comenzar?",
+    "readyDesc": "Obtén una estimación gratuita y transparente de nuestro equipo con licencia.",
+    "talkExpert": "Hablar con un experto"
+  },
+  "serviceAreas": {
+    "eyebrow": "Cobertura de servicio",
+    "title": "Dónde instalamos",
+    "subtitle": "Carga EV, actualización de panel y almacenamiento con batería con licencia en California y estados seleccionados.",
+    "getQuote": "Cotización gratis",
+    "viewCounty": "Ver detalles del condado"
+  },
+  "status": {
+    "submitted": "Enviado",
+    "under_review": "En revisión",
+    "quote_ready": "Cotización lista",
+    "scheduled": "Programado",
+    "installed": "Instalado"
+  },
+  "services": {
+    "items": {
+      "l2-charger": {
+        "name": "Instalación de cargador EV Level 2",
+        "shortDesc": "Configuración profesional de cargador Level 2 cableado o enchufable en tu hogar.",
+        "benefit1": "Hasta 40 millas de autonomía/hora",
+        "benefit2": "Instalación por electricista con licencia",
+        "benefit3": "Cableado limpio"
+      },
+      "panel-upgrade": {
+        "name": "Actualización de panel eléctrico",
+        "shortDesc": "Actualiza tu panel para soportar de forma segura la carga EV y cargas futuras.",
+        "benefit1": "Actualización a servicio 200A",
+        "benefit2": "Trabajo conforme al código",
+        "benefit3": "Capacidad a prueba de futuro"
+      },
+      "permit-handling": {
+        "name": "Servicio de permisos",
+        "shortDesc": "Gestionamos toda la documentación de permisos e inspecciones con la autoridad local.",
+        "benefit1": "Trámite de permisos municipales",
+        "benefit2": "Programación de inspecciones",
+        "benefit3": "Cero papeleo para ti"
+      },
+      "load-calculation": {
+        "name": "Cálculo de carga",
+        "shortDesc": "Análisis de carga conforme al NEC para determinar si tu panel soporta un cargador EV.",
+        "benefit1": "Conforme al NEC Artículo 220",
+        "benefit2": "Informe escrito",
+        "benefit3": "Recomendaciones de actualización"
+      },
+      "battery-storage": {
+        "name": "Batería Tesla Powerwall",
+        "shortDesc": "Respaldo para todo el hogar y ahorro en tarifas pico con Tesla Powerwall.",
+        "benefit1": "Respaldo para todo el hogar",
+        "benefit2": "Ahorro en tarifas pico",
+        "benefit3": "Monitoreo en vivo por app"
+      },
+      "smart-energy-bundle": {
+        "name": "Paquete cargador + batería",
+        "shortDesc": "Cargador EV + Tesla Powerwall + monitoreo inteligente — el paquete energético completo.",
+        "benefit1": "Paquete todo en uno",
+        "benefit2": "Monitoreo energético inteligente",
+        "benefit3": "Programación prioritaria"
+      }
+    }
+  },
+  "forms": {
+    "homeTypes": {
+      "singleFamily": "Casa unifamiliar",
+      "townhouse": "Casa adosada",
+      "condo": "Condominio / apartamento",
+      "multiFamily": "Multifamiliar",
+      "other": "Otro"
+    },
+    "parkingTypes": {
+      "attachedGarage": "Garaje adjunto",
+      "detachedGarage": "Garaje separado",
+      "carport": "Cochera",
+      "driveway": "Entrada (exterior)",
+      "street": "Estacionamiento en calle"
+    },
+    "panelUnknown": "Desconocido"
+  },
+  "legal": {
+    "lastUpdated": "Última actualización:",
+    "privacyTitle": "Política de privacidad",
+    "termsTitle": "Términos de servicio"
+  }
+}

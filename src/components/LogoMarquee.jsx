@@ -45,12 +45,12 @@ export default function LogoMarquee({
     >
       {(eyebrow || title || subtitle) && (
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-10 sm:mb-12">
+          <div className="text-center mb-6 sm:mb-10 lg:mb-12">
             {eyebrow && (
-              <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{eyebrow}</p>
+              <p className="text-neon text-[11px] sm:text-sm font-semibold tracking-wider uppercase mb-2 sm:mb-3">{eyebrow}</p>
             )}
-            {title && <h2 className="font-display text-3xl sm:text-4xl font-bold">{title}</h2>}
-            {subtitle && <p className="text-slate-400 mt-4 max-w-2xl mx-auto">{subtitle}</p>}
+            {title && <h2 className="font-display text-xl sm:text-3xl lg:text-4xl font-bold">{title}</h2>}
+            {subtitle && <p className="text-slate-400 mt-2 sm:mt-4 text-xs sm:text-base max-w-2xl mx-auto">{subtitle}</p>}
           </div>
         </div>
       )}

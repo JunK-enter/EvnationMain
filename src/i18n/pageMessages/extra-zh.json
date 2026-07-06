@@ -1,0 +1,581 @@
+{
+  "about": {
+    "teamTitle": "我们的团队",
+    "visitUs": "来访我们",
+    "readyElectric": "准备开启电动出行？",
+    "freeEstimateDesc": "立即获取免费、无压力的报价。",
+    "freeEstimate": "获取免费报价",
+    "readBlog": "阅读博客",
+    "whoP2finance": "低至 2.99% 的易申请融资方案，零首付即可入手，电动出行从未如此轻松。"
+  },
+  "evCharger": {
+    "hero": {
+      "badge": "最受欢迎",
+      "from": "起价",
+      "title": "家庭 EV",
+      "titleAccent": "充电",
+      "subtitle": "持证 C10 电工为您安装 Level 2 充电桩，每小时可补充 25–40 英里续航——车库或车道均可安装。",
+      "getQuote": "获取报价",
+      "seeChargers": "查看充电桩",
+      "overlay": "Level 2 · 240V · 25–40 mi/hr",
+      "imageAlt": "家庭 EV 充电桩安装"
+    },
+    "metrics": {
+      "m1": { "value": "40 mi/hr", "label": "充电速度" },
+      "m2": { "value": "3–6 hrs", "label": "安装时长" },
+      "m3": { "value": "2,000+", "label": "服务家庭数" },
+      "m4": { "value": "C10", "label": "持证安装" }
+    },
+    "valueProps": {
+      "v1": { "title": "Level 2 速度", "desc": "整夜充满，无需等待公共充电站。" },
+      "v2": { "title": "符合规范", "desc": "含许可、验收及专用回路。" },
+      "v3": { "title": "整洁安装", "desc": "线管布线美观与性能并重。" }
+    },
+    "chargers": {
+      "eyebrow": "Level 2",
+      "title": "我们安装的充电桩",
+      "subtitle": "Tesla、Emporia、ChargePoint、Mercedes-Benz、Wallbox 及 SolarEdge——根据您的配电箱与停车布局精准匹配。",
+      "quoteThis": "为此充电桩报价"
+    },
+    "included": {
+      "eyebrow": "交钥匙",
+      "title": "包含内容",
+      "i1": "硬接线或即插即用 Level 2 安装",
+      "i2": "每小时最高 40 英里续航",
+      "i3": "整洁线管布线及线缆管理",
+      "i4": "专用 240V 回路与断路器选型",
+      "i5": "配电箱评估及负载计算",
+      "i6": "许可、验收及规范合规"
+    },
+    "steps": {
+      "eyebrow": "流程",
+      "title": "从报价到插电",
+      "s1": { "title": "报价", "desc": "提供配电箱、停车位及充电桩偏好信息。" },
+      "s2": { "title": "现场勘察", "desc": "确认布线路径、负载及硬件适配。" },
+      "s3": { "title": "安装", "desc": "C10 电工接线、固定并测试。" },
+      "s4": { "title": "交付", "desc": "许可办结——插电即可出发。" }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": { "q": "安装需要多长时间？", "a": "大多数 Level 2 安装可在一天内完成。复杂的配电箱或线管工程可能需要两天——我们会提前报价说明。" },
+      "q2": { "q": "是否需要升级配电箱？", "a": "并非总是需要。我们在现场评估负载。若容量充足，则新增专用回路；若不足，则提供升级报价。" },
+      "q3": { "q": "可以安装我自己购买的充电桩吗？", "a": "可以——前提是硬件已通过 UL 认证且兼容。我们也提供并安装主流品牌产品。" }
+    },
+    "cta": {
+      "title": "准备在家充电？",
+      "desc": "免费报价——通常一个工作日内回复。",
+      "getQuote": "获取报价",
+      "contact": "联系我们"
+    }
+  },
+  "biDirectional": {
+    "hero": {
+      "badge": "支持 V2H",
+      "level2Link": "Level 2 充电 →",
+      "title": "双向",
+      "titleAccent": "充电",
+      "subtitle": "用您的爱车为家庭供电。持证 C10 电工为支持的 Tesla 及 GM 配置安装车对家（V2H）硬件。",
+      "getQuote": "获取报价",
+      "seeHardware": "查看硬件",
+      "overlay": "V2H · 用 EV 为家庭备电",
+      "imageAlt": "双向 EV 充电桩"
+    },
+    "metrics": {
+      "m1": { "value": "V2H", "label": "车对家" },
+      "m2": { "value": "Tesla", "label": "与 GM 现已支持" },
+      "m3": { "value": "C10", "label": "持证安装" },
+      "m4": { "value": "24hr", "label": "报价响应" }
+    },
+    "valueProps": {
+      "v1": { "title": "家庭备电", "desc": "电网中断时保障基本用电。" },
+      "v2": { "title": "双向供电", "desc": "从电网充电——在支持条件下向家庭放电。" },
+      "v3": { "title": "持证合规", "desc": "C10 电工、负载计算及公用事业协调。" }
+    },
+    "explainer": {
+      "eyebrow": "通俗说明",
+      "title": "什么是车对家（V2H）充电？",
+      "intro": "您的 EV 已经是一块大电池。双向充电让这块电池不仅能充电，还能在需要时为家庭供电。电网正常时，充电方式与平时相同；电网中断时（且您的配置支持），储存的电能可反向供给照明、冰箱、Wi‑Fi 等基本回路。",
+      "compare": {
+        "normalTitle": "普通充电",
+        "normalDesc": "电流单向流动：电网 → 配电箱 → 充电桩 → 车辆电池。",
+        "v2hTitle": "车对家（V2H）",
+        "v2hDesc": "停电时，兼容系统可反转流向：车辆电池 → 充电桩 → 选定的家庭回路——与电网安全隔离。"
+      },
+      "stepsTitle": "停电时会发生什么",
+      "steps": {
+        "s1": { "title": "电网中断", "desc": "风暴、公用事业故障或轮流限电导致社区断电。" },
+        "s2": { "title": "系统检测", "desc": "Powershare Gateway 或类似切换设备感知停电，并将家庭与电网断开，防止电力倒灌。" },
+        "s3": { "title": "EV 提供备电", "desc": "已连接车辆的能量经双向充电桩流向预先规划的备电回路——通常约一分钟内完成，无发电机噪音或废气。" },
+        "s4": { "title": "电网恢复——继续充电", "desc": "公用事业电力恢复后，系统自动切回正常模式，继续日常充电。" }
+      },
+      "powershareTitle": "Tesla Powershare — Tesla 对 V2H 的说明",
+      "powershareBody": "Tesla Powershare 是 Tesla 的车对家方案。Tesla 表示，满电 Cybertruck 可通过 Powershare Home Backup 提供约 11.5 kW 连续功率——对许多家庭而言，足以维持基本用电三天以上，具体取决于负载及电池余量。无 Powerwall 的家庭通常需要 Tesla Universal Wall Connector 加 Powershare Gateway；有 Powerwall 的配置可能走不同路径。Tesla 持续扩展软硬件兼容性——evNation 会在现场确认适合您物业的方案。",
+      "stats": {
+        "st1": { "value": "11.5 kW", "label": "连续备电（Cybertruck，Tesla 数据）" },
+        "st2": { "value": "3天+", "label": "满电时基本负载典型时长" },
+        "st3": { "value": "~1分钟", "label": "停电时自动切换" }
+      },
+      "needsTitle": "通常需要什么",
+      "needs": {
+        "n1": "支持双向的 EV（车型、配置及软件均重要）",
+        "n2": "兼容的家用充电桩——如 Powershare 配置的 Tesla Universal Wall Connector",
+        "n3": "Gateway 或切换开关，安全输送备电",
+        "n4": "C-10 持证安装、许可、负载规划及公用事业协调——由 evNation 负责"
+      },
+      "note": "V2H 用于停电备电——除非公用事业计划明确允许，否则不用于日常套利。备电时长取决于车辆电量、负载及安装设计。Tesla、Powershare、Powerwall、Cybertruck 为 Tesla, Inc. 商标。evNation 为独立安装商，与 Tesla 无隶属关系。"
+    },
+    "chargers": {
+      "eyebrow": "硬件",
+      "title": "我们安装的双向充电桩",
+      "subtitle": "现已支持 Tesla 与 GM——根据您的车辆、配电箱及备电需求精准匹配。",
+      "quoteThis": "为此方案报价",
+      "disclaimer": "V2H 取决于车辆、硬件及公用事业政策——现场勘察时确认。"
+    },
+    "included": {
+      "eyebrow": "交钥匙",
+      "title": "包含内容",
+      "i1": "双向充电桩硬件评估及安装",
+      "i2": "在车辆及公用事业允许时提供车对家备电",
+      "i3": "配电箱负载研究及符合规范的布线",
+      "i4": "公用事业并网及许可协调",
+      "i5": "与 Powerwall 集成（支持的 Tesla 配置）",
+      "i6": "调试、测试及业主使用讲解"
+    },
+    "steps": {
+      "eyebrow": "流程",
+      "title": "从报价到备电就绪",
+      "s1": { "title": "报价", "desc": "提供车辆、配电箱及备电目标信息。" },
+      "s2": { "title": "资格核查", "desc": "确认 V2H 硬件、车型及公用事业规则。" },
+      "s3": { "title": "安装", "desc": "持证电工安装、接线并测试双向硬件。" },
+      "s4": { "title": "交付", "desc": "App 设置、备电模式说明——电网中断时随时就绪。" }
+    },
+    "faq": {
+      "title": "常见问题",
+      "q1": { "q": "什么是双向（V2H）充电？", "a": "双向充电使兼容 EV 在停电或峰时电价时段向家庭供电——前提是车辆、充电桩及公用事业计划均支持。" },
+      "q2": { "q": "目前安装哪些品牌？", "a": "我们安装与 Powerwall 集成的 Tesla Wall Connector，以及 GM Ultium V2H 就绪硬件。随着更多品牌进入服务区域，我们将持续扩展。" },
+      "q3": { "q": "V2H 是否需要 Powerwall？", "a": "并非总是需要。要求因品牌及车辆而异。Tesla V2H 通常与 Powerwall 配合；GM Ultium 有独立硬件方案。我们在现场确认范围。" },
+      "q4": { "q": "公用事业是否允许车对家？", "a": "公用事业规则因地区而异。我们在现场评估时核查并网要求，并在需要时办理相关文件。" },
+      "q5": { "q": "与发电机或单独 Powerwall 有何不同？", "a": "发电机需要燃料和维护。Powerwall 是固定式家庭储能。V2H 利用您车道上已有的大电池——平时照常充电，电网中断时使用。部分家庭将 Powerwall 与 V2H 结合以获得更长备电。我们根据您的目标与预算设计方案。" }
+    },
+    "cta": {
+      "title": "准备实现车对家？",
+      "desc": "免费报价——我们在现场确认 V2H 资格。",
+      "getQuote": "获取报价",
+      "contact": "联系我们"
+    }
+  },
+  "panelUpgrade": {
+    "hero": {
+      "badge": "电气升级",
+      "title": "配电箱升级",
+      "description": "老旧配电箱往往无法安全承载 EV 充电桩与现有负载——尤其已接入太阳能时。我们升级至 200A 服务，为充电、储能与未来电气化预留空间。",
+      "getQuote": "获取报价",
+      "imageAlt": "持证电工升级住宅配电箱"
+    },
+    "programs": {
+      "eyebrow": "计划与融资",
+      "title": "GoGreen 融资 — 可能享有返利",
+      "intro": "配电箱升级往往是 EV 充电、太阳能或电池存储前的第一步。我们正确规划负载、办理许可与公用事业协调，并协助探索可降低成本的项目。",
+      "stat1Value": "最高 $4,200",
+      "stat1Label": "配电箱升级支持",
+      "stat1Desc": "符合条件时，通过可用绿色能源计划，家庭配电箱升级最高可获 $4,200 支持。",
+      "stat2Value": "GoGreen",
+      "stat2Label": "Financing",
+      "stat2Desc": "易于申请的融资，即时批准 — 软信用查询，不影响信用评分。",
+      "stat3Value": "Rebate",
+      "stat3Label": "州能源计划",
+      "stat3Desc": "我们协助确认您的物业是否符合地方或州电气化激励及 HEA 相关选项。",
+      "note": "返利与融资资格因物业、公用事业区域及计划可用性而异 — 现场勘察时确认。"
+    },
+    "beforeAfter": {
+      "eyebrow": "真实安装案例",
+      "title": "前后对比",
+      "dragHint": "左右对比 · 电表与主开关 · Costa Mesa, CA",
+      "meterMain": "电表与主开关",
+      "breakerPanel": "断路器面板",
+      "galleryLink": "完整项目详情见我们的",
+      "gallery": "案例库"
+    },
+    "whyUpgrade": {
+      "eyebrow": "为何升级？",
+      "title": "当配电箱成为瓶颈",
+      "intro": "二级 EV 充电桩、太阳能、电池或热泵都需要专用容量。若服务容量不足或断路器位已满，安全增加负载应从配电箱与服务升级开始。",
+      "reasonsTitle": "可能需要升级的信号",
+      "reasons": {
+        "r1": "EV 充电桩、空调与厨房负载同时运行时频繁跳闸",
+        "r2": "没有空位安装 40A–50A EV 专用回路 — 或面板已满",
+        "r3": "已接太阳能但几乎没有空间再加充电桩或电池备份",
+        "r4": "仍为 100A 服务、熔断式面板等旧设备，无法通过检验"
+      },
+      "benefitsTitle": "您将获得",
+      "benefits": {
+        "b1": "200A 服务与整洁断路器空间 — EV 充电时减少恼人的跳闸",
+        "b2": "符合规范的安装，含许可、标识及公用事业协调",
+        "b3": "为 Powerwall、太阳能扩展、热泵与电磁灶预留未来容量",
+        "b4": "更安全、更有序的配电箱 — 利于转售与保险安心"
+      }
+    },
+    "features": {
+      "title": "包含内容",
+      "f1": "配电箱全面更换或升级",
+      "f2": "200A 服务升级，满足现代用电需求",
+      "f3": "预留 EV 就绪断路器位",
+      "f4": "符合规范的有许可安装",
+      "f5": "面向太阳能、储能及热泵的未来扩展",
+      "f6": "按需与公用事业公司协调"
+    }
+  },
+  "solar": {
+    "eyebrow": "南加州太阳能",
+    "title": "太阳能驱动",
+    "highlight": "您的 EV 与家庭",
+    "description": "将太阳能与 EV 充电桩结合，降低账单、绿色出行。我们为南加州屋顶设计系统——从沿海 Newport Beach 到内陆 Riverside。",
+    "tagline": "咨询 → 设计 → 许可 → 安装 → 并网",
+    "imageAlt": "南加州住宅太阳能板",
+    "primaryCta": "构建您的报价",
+    "secondaryCta": "预约评估",
+    "stats": {
+      "s1": { "value": "30%", "label": "平均账单降幅" },
+      "s2": { "value": "25 yr", "label": "组件质保" },
+      "s3": { "value": "CA", "label": "补贴专家" }
+    },
+    "features": {
+      "f1": "现场评估及阴影分析",
+      "f2": "许可及公用事业并网支持",
+      "f3": "优质组件选项（REC、Qcells 等）",
+      "f4": "可扩展储能的逆变器配置",
+      "f5": "监控 App 设置及使用讲解",
+      "f6": "联邦及加州补贴指引"
+    },
+    "whySolar": {
+      "title": "为何选择太阳能 + EV？",
+      "w1": { "title": "用阳光充电", "desc": "以日间发电抵消充电成本。" },
+      "w2": { "title": "储能就绪", "desc": "随时添加储能，实现备电。" },
+      "w3": { "title": "配电协同", "desc": "配合配电箱升级，实现全面电气化。" },
+      "w4": { "title": "返利与抵税", "desc": "联邦 ITC 及加州专项计划。" }
+    }
+  },
+  "warranty": {
+    "badge": "值得信赖的保障",
+    "title": "EVnation",
+    "highlight": "质保",
+    "description": "每项 EVnation 安装均享有工艺质保及专属支持。安装完成后，我们持续守护您的充电桩、储能系统及安心体验。",
+    "tagline": "长期保障",
+    "imageAlt": "受光盾保护的 EV 充电桩",
+    "stats": {
+      "s1": { "value": "工艺", "label": "有保障" },
+      "s2": { "value": "优先", "label": "专属热线" },
+      "s3": { "value": "认证", "label": "持证安装" },
+      "s4": { "value": "可转让", "label": "提升转售价值" }
+    },
+    "features": {
+      "f1": "每项安装均含工艺质保",
+      "f2": "持证安装保留制造商质保",
+      "f3": "如需服务，快速上门、省心处理",
+      "f4": "质保客户专属优先支持热线",
+      "f5": "完整的验收及规范合规记录",
+      "f6": "可转让的保障，提升出售时的吸引力"
+    },
+    "tiers": {
+      "eyebrow": "保障范围",
+      "title": "全面守护您的投资",
+      "t1": { "title": "工艺质保", "desc": "我们对施工质量负责。若出现安装问题，我们负责解决——不推诿。" },
+      "t2": { "title": "部件与设备", "desc": "由持证专业人员施工，制造商保障持续有效。" },
+      "t3": { "title": "优先支持", "desc": "受保客户享有专属热线及优先排期。" },
+      "t4": { "title": "可转让", "desc": "保障可随房屋转让，提升转售吸引力。" }
+    }
+  },
+  "battery": {
+    "hero": {
+      "pageTitle": "Powerwall 与储能",
+      "badge": "Tesla · 精选",
+      "from": "起价",
+      "title": "Tesla Powerwall",
+      "tagline": "驱动一切",
+      "description": "Tesla Powerwall 是我们最推荐的家庭储能——全屋备电、智能用能，由 evNation 持证电工一站式安装。",
+      "getQuote": "获取报价",
+      "seeFeatures": "查看功能",
+      "otherBrands": "其他品牌",
+      "overlay": "Tesla Powerwall · 13.5 kWh · 全屋备电",
+      "imageAlt": "Tesla Powerwall 家庭储能",
+      "allBrandsLabel": "我们安装的全部品牌",
+      "specsLabel": "Tesla Powerwall 3 规格"
+    },
+    "metrics": {
+      "m1": { "value": "13.5", "unit": "kWh", "label": "储能容量" },
+      "m2": { "value": "11.5", "unit": "kW", "label": "备电功率" },
+      "m3": { "value": "97.5", "unit": "%", "label": "太阳能效率" },
+      "m4": { "value": "10", "unit": "yr", "label": "质保" }
+    },
+    "pillars": {
+      "title": "为何选择 Tesla Powerwall",
+      "p1": { "label": "更强功率", "desc": "单机组实现全屋备电" },
+      "p2": { "label": "更长备电", "desc": "电网中断时近乎瞬时供电" },
+      "p3": { "label": "更多节省", "desc": "存储太阳能，避开峰时电价" }
+    },
+    "stories": {
+      "title": "为真实家庭而设计",
+      "subtitle": "Tesla Powerwall 在日常生活中的表现。",
+      "s1": { "index": "01", "title": "电网中断，您依然在线", "body": "Powerwall 3 检测停电并在瞬间切换至备电——保持灯光、HVAC、Wi‑Fi 及 EV 充电桩正常运行。", "imageAlt": "Powerwall 在停电时为家庭备电" },
+      "s2": { "index": "02", "title": "在电价更低时用电", "body": "存储太阳能或谷时电网电力，在电价高峰时放电。Powerwall 根据您的用电及公用事业方案自动优化。", "imageAlt": "配备太阳能与 Powerwall 的家庭" },
+      "s3": { "index": "03", "title": "一台设备，一应俱全。", "body": "电池、逆变器、站点管理及太阳能集成于单一外壳——更少设备、更少布线、更快安装。", "imageAlt": "Tesla Powerwall 单机组外壳" }
+    },
+    "sellingPoints": {
+      "sectionLabel": "Tesla Powerwall",
+      "title": "探索 Tesla Powerwall 3",
+      "subtitle": "Tesla Powerwall——全屋备电、智能用能及 EV 集成，一台搞定。",
+      "sp1": { "title": "全屋备电", "summary": "一台 Powerwall 3 即可为整屋备电。", "b1": "停电时保障基本用电及 EV 充电桩", "b2": "瞬间自动切换", "b3": "静音，室内外均可安装" },
+      "sp2": { "title": "降低电费", "summary": "更聪明地用能，而非更费力。", "b1": "存储更多太阳能供晚间使用", "b2": "围绕分时电价优化充放电", "b3": "长期降低月度公用事业支出" },
+      "sp3": { "title": "完全集成设计", "summary": "电池、逆变器、站点管理及太阳能——一套系统。", "b1": "墙面设备更少、布线更简", "b2": "安装更快、维护更简", "b3": "车库及外墙安装更整洁" },
+      "sp4": { "title": "为真实环境而设计", "summary": "在严苛环境下依然可靠运行。", "b1": "极端高温与低温耐受", "b2": "高湿度运行", "b3": "防水深度约 28 英寸" },
+      "sp5": { "title": "EV 充电集成", "summary": "家庭 Tesla 能源生态的一部分。", "b1": "配合太阳能实现太阳能 EV 充电", "b2": "离网充电能力", "b3": "支持配置的 Powershare 功能" }
+    },
+    "evFeatures": {
+      "e1": { "title": "太阳能 EV 充电", "desc": "用存储的太阳能为 EV 充电，而非在峰时从电网取电。" },
+      "e2": { "title": "离网充电", "desc": "公用事业断电时仍可充电。" },
+      "e3": { "title": "Powershare", "desc": "在支持的 Tesla 家庭能源产品间共享存储电力。" }
+    },
+    "install": {
+      "eyebrow": "与 evNation 安装",
+      "title": "从报价到合闸",
+      "subtitle": "持证 C-10 安装、许可及验收——Tesla Powerwall 或 GM、ATG、Enphase 系统。",
+      "exampleLabel": "示例：Tesla Powerwall 安装",
+      "includedEyebrow": "交钥匙",
+      "includedTitle": "包含内容",
+      "i1": "现场评估及针对您家庭的系统选型",
+      "i2": "持证 C-10 电工安装 Tesla Powerwall 3",
+      "i3": "许可、公用事业并网及验收协调",
+      "i4": "整洁固定、标识及专业收尾",
+      "i5": "监控及备电设置的 App 使用讲解",
+      "i6": "可选配合 EV 充电桩及配电箱升级",
+      "startQuote": "开始报价",
+      "howItWorks": "工作流程",
+      "stepLabel": "步骤 {n}",
+      "s1": { "title": "现场勘察", "desc": "评估配电箱、备电目标及最佳安装位置。" },
+      "s2": { "title": "设计与许可", "desc": "系统选型、公用事业文件及验收排期。" },
+      "s3": { "title": "安装日", "desc": "持证电工——整洁布线、标识及测试。" },
+      "s4": { "title": "交付", "desc": "App 设置、备电配置及 evNation 持续支持。" }
+    },
+    "otherBatteries": {
+      "eyebrow": "同样可选",
+      "title": "更多家庭储能选项",
+      "subtitle": "Tesla Powerwall 是我们的首选推荐——当 GM、ATG 或 Enphase 更适合您的家庭时，我们也提供安装。",
+      "photoSoon": "照片即将上线",
+      "quoteBrand": "为 {brand} 报价"
+    },
+    "faq": {
+      "title": "常见问题",
+      "subtitle": "Tesla Powerwall 及家庭储能安装",
+      "q1": { "q": "一台 Powerwall 能否为整屋备电？", "a": "Powerwall 3 设计为单机组即可为许多家庭提供全屋备电。最终范围取决于负载、配电箱及备电优先级——我们在现场确认。" },
+      "q2": { "q": "安装 Powerwall 是否必须有太阳能？", "a": "不必。Powerwall 可独立运行或与太阳能配合。有太阳能时可存储更多自发电；无太阳能时仍可转移电网电力至低价时段并保持备电。" },
+      "q3": { "q": "evNation 与一般承包商有何不同？", "a": "我们是专注于 EV 及家庭能源安装的持证电工——不是杂工。您将获得符合规范的工作、清晰沟通及值得展示的施工质量。" },
+      "q4": { "q": "电网中断时会发生什么？", "a": "Powerwall 检测停电并几乎瞬时切换至备电——通常快到电子设备不会中断。" },
+      "q5": { "q": "除 Tesla 外还安装其他储能品牌吗？", "a": "是的。我们还安装 GM Ultium Home Energy、ATG 及 Enphase IQ Battery 系统。Tesla Powerwall 仍是我们全屋备电的首选——我们在现场帮您选择最合适的方案。" }
+    },
+    "cta": {
+      "title": "自信地为家庭供电",
+      "desc": "免费报价 · Tesla Powerwall 及 GM、ATG、Enphase 选项 · 持证 C10 安装",
+      "getQuote": "获取报价",
+      "contact": "联系我们",
+      "trademark": "Tesla、Powerwall 及 Tesla Energy 为 Tesla, Inc. 商标。evNation 为独立安装商，与 Tesla, Inc. 无关联。"
+    }
+  },
+  "autoDealer": {
+    "hero": {
+      "eyebrow": "面向汽车经销商",
+      "title": "汽车经销商",
+      "titleAccent": "合作伙伴",
+      "subtitle": "为每位 EV 买家提供完整的家庭充电方案。与 evNation 合作，将充电焦虑转化为成交优势。"
+    },
+    "benefits": {
+      "b1": { "title": "交钥匙家庭充电", "text": "为 EV 买家在购买流程中提供无缝的家庭充电桩安装服务。" },
+      "b2": { "title": "礼宾式交接", "text": "我们直接与客户协调——排期、许可及安装——让您的团队专注销售。" },
+      "b3": { "title": "提升 EV 销量", "text": "在销售环节消除续航与充电焦虑，促成更多电动车成交。" },
+      "b4": { "title": "联合品牌选项", "text": "定制推荐计划及联合品牌物料，契合您的经销商品牌。" }
+    },
+    "steps": {
+      "title": "合作流程",
+      "s1": { "step": "01", "title": "合作伙伴入驻", "text": "为您的经销商建立简洁的推荐流程及专属对接人。" },
+      "s2": { "step": "02", "title": "客户推荐", "text": "在销售环节，您的团队将 EV 买家推荐至 evNation 进行家庭充电。" },
+      "s3": { "step": "03", "title": "我们负责其余", "text": "报价、许可、持证安装及验收——由我们的团队全程管理。" },
+      "s4": { "step": "04", "title": "满意的 EV 车主", "text": "您的客户提车即可充电，优质体验与您的品牌紧密关联。" }
+    },
+    "form": {
+      "title": "成为合作伙伴",
+      "dealership": "经销商名称",
+      "dealershipPlaceholder": "ABC Motors",
+      "contactName": "联系人姓名",
+      "contactPlaceholder": "Jane Doe",
+      "email": "Email",
+      "emailPlaceholder": "jane@dealer.com",
+      "phone": "Phone",
+      "phonePlaceholder": "(555) 123-4567",
+      "submit": "申请合作信息",
+      "successTitle": "感谢您的联系！",
+      "successDesc": "我们的合作团队将尽快与您联系，完成经销商配置。",
+      "preferTalk": "更愿直接沟通？请发邮件至",
+      "orCall": "或致电",
+      "contactLink": "在此联系我们"
+    }
+  },
+  "serviceAreas": {
+    "hero": {
+      "eyebrow": "服务覆盖",
+      "title": "EV 充电桩安装覆盖",
+      "titleAccent": "南加州、中加州及内华达州",
+      "subtitle": "evNation 在 {counties} 个县及 {cities}+ 个城市提供持证 Level 2 EV 充电桩安装、配电箱升级及太阳能服务——从 Orange County、Los Angeles 到 San Diego、San Luis Obispo、Clark County Nevada 及 Maricopa County Arizona。",
+      "getQuote": "获取报价",
+      "contact": "联系我们"
+    }
+  },
+  "county": {
+    "backLink": "全部服务区域",
+    "title": "{county}、{state} EV 充电桩安装",
+    "getQuote": "获取免费报价",
+    "evServices": "EV 充电服务",
+    "citiesHeading": "我们在 {county} 服务的城市",
+    "citiesMeta": "{count} 个社区 · 持证电工 · 许可与验收全程办理",
+    "related": {
+      "ev": { "title": "住宅 EV 充电", "desc": "Level 2 家庭充电桩安装" },
+      "panel": { "title": "配电箱升级", "desc": "200A 服务，安全充电" },
+      "solar": { "title": "太阳能", "desc": "用阳光驱动您的充电桩" }
+    }
+  },
+  "blog": {
+    "badge": "{region} 能源期刊",
+    "title": "EV、太阳能与",
+    "titleAccent": "家庭电力",
+    "subtitle": "evNation 团队在各服务区域的现场笔记、补贴指南及安装洞察。",
+    "articlesMeta": "{count} 篇文章 · 更新于 {date}",
+    "loading": "正在加载文章…",
+    "newPost": "新建文章",
+    "manage": "管理",
+    "signOut": "退出登录",
+    "editorSignIn": "编辑登录",
+    "latestStories": "最新文章",
+    "emptyCategory": "该分类暂无文章。",
+    "ctaTitle": "准备开启电动出行？",
+    "ctaDesc": "为您的服务区域构建 EV 充电、太阳能或配电箱升级的定制安装报价。",
+    "ctaButton": "构建您的报价",
+    "editorTitle": "博客编辑器",
+    "close": "关闭",
+    "allCategory": "全部"
+  },
+  "sitemap": {
+    "eyebrow": "导航",
+    "title": "网站地图",
+    "subtitle": "evNation 网站全部页面，一目了然。",
+    "groups": {
+      "main": "主要",
+      "services": "服务",
+      "serviceAreas": "服务区域",
+      "company": "公司",
+      "internal": "内部"
+    },
+    "links": {
+      "home": "首页",
+      "getQuote": "获取报价",
+      "gallery": "案例库",
+      "contact": "联系我们",
+      "residentialEv": "住宅 EV 充电",
+      "biDirectional": "双向充电",
+      "solar": "太阳能",
+      "panelUpgrades": "配电箱升级",
+      "commercial": "商业",
+      "battery": "储能",
+      "warranty": "质保",
+      "shop": "全部服务",
+      "allServiceAreas": "全部服务区域",
+      "orangeCounty": "Orange County, CA",
+      "losAngeles": "Los Angeles, CA",
+      "sanDiego": "San Diego, CA",
+      "clarkCounty": "Clark County, NV",
+      "sanLuisObispo": "San Luis Obispo, CA",
+      "about": "关于我们",
+      "autoDealer": "汽车经销商合作伙伴",
+      "blog": "博客",
+      "customerIntake": "客户信息登记",
+      "adminIntake": "管理 · 客户信息登记",
+      "siteMap": "网站地图"
+    },
+    "blogArticles": "博客文章"
+  },
+  "projects": {
+    "heroEyebrow": "现场档案 · {count} 次安装",
+    "heroTitle1": "安装",
+    "heroTitle2": "档案",
+    "heroDesc": "拖动每张卡片上的滑块对比前后效果。真实施工照片上线后将自动展示。",
+    "getSimilarQuote": "获取类似报价",
+    "index": "索引",
+    "emptyCategory": "该分类暂无项目。",
+    "ctaTitle": "您的安装可能是下一个。",
+    "startProject": "启动您的项目",
+    "serviceAreas": "服务区域",
+    "types": {
+      "all": "全部项目",
+      "ev": "EV 充电桩",
+      "panel": "配电箱升级",
+      "solar": "太阳能 + EV",
+      "commercial": "商业"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "eyebrow": "法律",
+      "title": "隐私政策",
+      "lastUpdated": "June 2026",
+      "intro": "我们重视您的隐私。本政策说明我们收集哪些信息、如何使用以及您有哪些选择。",
+      "s1": { "heading": "1. 我们收集的信息", "p1": "我们收集您直接提供的信息，例如您在申请报价、提交客户信息登记表或联系我们时提供的姓名、电话、Email、家庭地址、车辆详情及安装偏好。", "p2": "我们也可能自动收集有限的技术信息，例如浏览器类型及访问页面，以改善网站体验。" },
+      "s2": { "heading": "2. 我们如何使用您的信息", "p1": "我们使用您的信息提供报价、安排并完成安装、处理融资及补贴申请、与您沟通并改进服务。我们可能仅与可信的安装及融资合作伙伴共享信息，以履行您的请求。" },
+      "s3": { "heading": "3. 我们如何共享信息", "p1": "我们不出售您的个人信息。我们仅与服务合作伙伴（如太阳能安装商、融资提供商及公用事业补贴计划）共享数据，以交付您请求的服务，或在法律要求时共享。" },
+      "s4": { "heading": "4. 数据安全", "p1": "我们采取合理的管理、技术及物理措施保护您的信息。然而，任何传输或存储方式都无法完全安全，我们无法保证绝对安全。" },
+      "s5": { "heading": "5. 您的选择", "p1": "您可随时联系我们，请求访问、更正或删除您的个人信息。您也可按照邮件中的退订说明退出营销通信。" },
+      "s6": { "heading": "6. 联系我们", "p1": "若对本隐私政策或我们如何处理您的数据有疑问，请联系 GoGreen@evnation.us 或 866-913-6199。" }
+    },
+    "terms": {
+      "eyebrow": "法律",
+      "title": "条款与条件",
+      "lastUpdated": "June 2026",
+      "intro": "使用 EVnation 网站或接受我们的服务前，请仔细阅读本条款与条件。",
+      "s1": { "heading": "1. 接受条款", "p1": "访问或使用 EVnation 网站及服务，即表示您同意受本条款与条件及所有适用法律法规约束。若您不同意任何部分，则不得使用我们的服务。" },
+      "s2": { "heading": "2. 服务", "p1": "EVnation 作为持证 C10 电气承包商，提供 EV 充电桩及太阳能安装服务、报价及相关咨询。所有报价仅供参考，最终定价以现场评估为准。", "p2": "排期、许可及安装时间可能因当地管辖要求、公用事业协调及设备供应而有所不同。" },
+      "s3": { "heading": "3. 报价与融资", "p1": "节省估算、抵税信息及融资条款（包括宣传的 2.99% 等利率）均为说明性内容，取决于个人资格、信用审批及当前计划可用性。EVnation 不保证特定财务结果。" },
+      "s4": { "heading": "4. 客户责任", "p1": "客户有责任提供关于物业、电气系统及车辆的准确信息，并确保安装区域安全可达。信息不准确可能影响定价及排期。" },
+      "s5": { "heading": "5. 责任限制", "p1": "在法律允许的最大范围内，EVnation 不对因使用我们的网站或服务而产生的任何间接、附带或后果性损害承担责任。我们的总责任不超过就该特定服务已支付的金额。" },
+      "s6": { "heading": "6. 条款变更", "p1": "EVnation 保留随时更新本条款与条件的权利。变更发布后继续使用我们的服务，即视为接受修订后的条款。" }
+    },
+    "disclaimer": {
+      "eyebrow": "法律",
+      "title": "免责声明",
+      "lastUpdated": "June 2026",
+      "intro": "本网站信息仅供一般参考。在依赖任何内容或报价前，请阅读本免责声明。",
+      "s1": { "heading": "1. 一般信息", "p1": "evNation 网站上的内容——包括价格区间、节省估算及产品描述——仅供一般指引，可能无法反映您的具体项目范围、当地规范或公用事业要求。" },
+      "s2": { "heading": "2. 非专业建议", "p1": "本网站任何内容均不构成电气、财务、税务或法律建议。最终系统设计、许可及定价由 evNation 或其授权合作伙伴的持证现场评估确定。" },
+      "s3": { "heading": "3. 报价与激励", "p1": "在线报价及计算器结果仅为起始估算。抵税、返利及融资优惠取决于资格、计划可用性及第三方审批。EVnation 不保证特定节省或激励金额。" },
+      "s4": { "heading": "4. 商标与品牌", "p1": "产品及品牌名称（包括 Tesla、Powerwall、ChargePoint、GM Ultium 等）均为各自所有者的商标。evNation 为独立安装商，除非明确说明，否则与这些品牌无关联或未经其背书。" },
+      "s5": { "heading": "5. 外部链接", "p1": "我们的网站可能链接至第三方站点（补贴、公用事业或制造商资源）。我们不对外部网站的内容、准确性或隐私做法负责。" },
+      "s6": { "heading": "6. 联系", "p1": "对本免责声明有疑问？请联系 GoGreen@evnation.us 或 866-913-6199。" }
+    },
+    "lastUpdatedLabel": "最后更新：{date}",
+    "disclaimerFooter": "本页面仅供一般信息参考，发布前应经法律顾问审阅。",
+    "disclaimerContact": "如有疑问，请联系 GoGreen@evnation.us。"
+  },
+  "aiAssistant": {
+    "title": "EVnation 助手",
+    "subtitle": "EV 充电与家庭电气化",
+    "closeChat": "关闭聊天",
+    "openAssistant": "打开 AI 助手",
+    "closeAssistant": "关闭 AI 助手",
+    "thinking": "思考中…",
+    "sendMessage": "发送消息",
+    "placeholder": "咨询 EV 充电…",
+    "welcome": "您好！我是 EVnation 助手。可咨询 EV 充电桩安装、配电箱升级、定价、返利或如何获取报价——我会简明解答。",
+    "welcomeLink": "获取报价",
+    "prompts": {
+      "p1": "安装费用是多少？",
+      "p2": "是否需要升级配电箱？",
+      "p3": "你们服务哪些区域？",
+      "p4": "如何获取报价？"
+    }
+  }
+}

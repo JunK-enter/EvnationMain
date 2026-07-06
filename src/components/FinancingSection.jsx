@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo } from 'react'
-import { CreditCard, Clock, Shield } from 'lucide-react'
+import { Clock, Shield, LayoutGrid } from 'lucide-react'
 import Link from '@/components/Link'
 import { useTranslation } from '@/i18n/LocaleProvider'
 import Reveal from '@/lib/Reveal'
@@ -11,7 +11,7 @@ export default function FinancingSection() {
 
   const items = useMemo(
     () => [
-      { icon: CreditCard, title: t('home.financing.item1Title'), desc: t('home.financing.item1Desc') },
+      { icon: LayoutGrid, title: t('home.financing.item1Title'), desc: t('home.financing.item1Desc') },
       { icon: Clock, title: t('home.financing.item2Title'), desc: t('home.financing.item2Desc') },
       { icon: Shield, title: t('home.financing.item3Title'), desc: t('home.financing.item3Desc') },
     ],
@@ -21,13 +21,13 @@ export default function FinancingSection() {
   return (
     <section className="section-padding relative overflow-hidden section-scrim-alt">
       <div className="max-w-7xl mx-auto relative">
-        <div className="glass rounded-3xl p-8 lg:p-12 neon-border relative overflow-hidden">
+        <div className="glass rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-12 neon-border relative overflow-hidden">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(0,255,136,0.08),transparent_50%)]" />
           <div className="relative grid lg:grid-cols-2 gap-8 items-center">
             <Reveal x={-20} y={0} duration={0.5}>
               <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{t('home.financing.eyebrow')}</p>
-              <h2 className="font-display text-3xl sm:text-4xl font-bold mb-4">{t('home.financing.title')}</h2>
-              <p className="text-slate-400 leading-relaxed mb-6">{t('home.financing.subtitle')}</p>
+              <h2 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold mb-3 sm:mb-4">{t('home.financing.title')}</h2>
+              <p className="text-sm sm:text-base text-slate-400 leading-relaxed mb-5 sm:mb-6">{t('home.financing.subtitle')}</p>
               <Link href="/quote" className="btn-primary">{t('common.checkYourRate')}</Link>
             </Reveal>
             <div className="grid gap-4">

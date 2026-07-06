@@ -1,67 +1,72 @@
+'use client'
+
 import Link from '@/components/Link'
 import { ChevronRight } from 'lucide-react'
 import { blogPosts } from '../data/blogPosts'
-
-const groups = [
-  {
-    title: 'Main',
-    links: [
-      { to: '/', label: 'Home' },
-      { to: '/quote', label: 'Get a Quote' },
-      { to: '/gallery', label: 'Gallery' },
-      { to: '/contact', label: 'Contact' },
-    ],
-  },
-  {
-    title: 'Services',
-    links: [
-      { to: '/residential-ev-charging', label: 'Residential EV Charging' },
-      { to: '/bi-directional-charging', label: 'Bi-Directional Charging' },
-      { to: '/solar', label: 'Solar' },
-      { to: '/panel-upgrades', label: 'Panel Upgrades' },
-      { to: '/commercial', label: 'Commercial' },
-      { to: '/battery', label: 'Battery Storage' },
-      { to: '/warranty', label: 'Warranty' },
-      { to: '/shop', label: 'Shop All Services' },
-    ],
-  },
-  {
-    title: 'Service Areas',
-    links: [
-      { to: '/service-areas', label: 'All Service Areas' },
-      { to: '/service-areas/orange-county', label: 'Orange County, CA' },
-      { to: '/service-areas/los-angeles', label: 'Los Angeles, CA' },
-      { to: '/service-areas/san-diego', label: 'San Diego, CA' },
-      { to: '/service-areas/clark-county', label: 'Clark County, NV' },
-      { to: '/service-areas/san-luis-obispo', label: 'San Luis Obispo, CA' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { to: '/about', label: 'About' },
-      { to: '/auto-dealer', label: 'Auto Dealer Partners' },
-      { to: '/blog', label: 'Blog' },
-      { to: '/intake', label: 'Customer Intake' },
-    ],
-  },
-  {
-    title: 'Internal',
-    links: [
-      { to: '/admin/intake', label: 'Admin · Customer Intake' },
-      { to: '/sitemap', label: 'Site Map' },
-    ],
-  },
-]
+import { useSitemapCopy } from '@/i18n/hooks/useExtraPages'
 
 export default function SiteMapPage() {
+  const copy = useSitemapCopy()
+
+  const groups = [
+    {
+      title: copy.groups.main,
+      links: [
+        { to: '/', label: copy.links.home },
+        { to: '/quote', label: copy.links.getQuote },
+        { to: '/gallery', label: copy.links.gallery },
+        { to: '/contact', label: copy.links.contact },
+      ],
+    },
+    {
+      title: copy.groups.services,
+      links: [
+        { to: '/residential-ev-charging', label: copy.links.residentialEv },
+        { to: '/bi-directional-charging', label: copy.links.biDirectional },
+        { to: '/solar', label: copy.links.solar },
+        { to: '/panel-upgrades', label: copy.links.panelUpgrades },
+        { to: '/commercial', label: copy.links.commercial },
+        { to: '/battery', label: copy.links.battery },
+        { to: '/warranty', label: copy.links.warranty },
+        { to: '/shop', label: copy.links.shop },
+      ],
+    },
+    {
+      title: copy.groups.serviceAreas,
+      links: [
+        { to: '/service-areas', label: copy.links.allServiceAreas },
+        { to: '/service-areas/orange-county', label: copy.links.orangeCounty },
+        { to: '/service-areas/los-angeles', label: copy.links.losAngeles },
+        { to: '/service-areas/san-diego', label: copy.links.sanDiego },
+        { to: '/service-areas/clark-county', label: copy.links.clarkCounty },
+        { to: '/service-areas/san-luis-obispo', label: copy.links.sanLuisObispo },
+      ],
+    },
+    {
+      title: copy.groups.company,
+      links: [
+        { to: '/about', label: copy.links.about },
+        { to: '/auto-dealer', label: copy.links.autoDealer },
+        { to: '/blog', label: copy.links.blog },
+        { to: '/intake', label: copy.links.customerIntake },
+      ],
+    },
+    {
+      title: copy.groups.internal,
+      links: [
+        { to: '/admin/intake', label: copy.links.adminIntake },
+        { to: '/sitemap', label: copy.links.siteMap },
+      ],
+    },
+  ]
+
   return (
     <div className="pt-28 pb-20">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-12">
-          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">Navigation</p>
-          <h1 className="font-display text-4xl font-bold">Site Map</h1>
-          <p className="text-slate-400 mt-3">Every page on the evNation site, all in one place.</p>
+          <p className="text-neon text-sm font-semibold tracking-wider uppercase mb-3">{copy.eyebrow}</p>
+          <h1 className="font-display text-4xl font-bold">{copy.title}</h1>
+          <p className="text-slate-400 mt-3">{copy.subtitle}</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
@@ -82,7 +87,7 @@ export default function SiteMapPage() {
         </div>
 
         <div className="glass rounded-2xl p-6">
-          <h2 className="font-display font-semibold text-lg mb-4 text-neon">Blog Articles</h2>
+          <h2 className="font-display font-semibold text-lg mb-4 text-neon">{copy.blogArticles}</h2>
           <ul className="grid sm:grid-cols-2 gap-2">
             {blogPosts.map((post) => (
               <li key={post.slug}>

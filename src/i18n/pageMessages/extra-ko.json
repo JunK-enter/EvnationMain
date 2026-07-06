@@ -1,0 +1,581 @@
+{
+  "about": {
+    "teamTitle": "우리 팀",
+    "visitUs": "방문하기",
+    "readyElectric": "전기차로 전환할 준비가 되셨나요?",
+    "freeEstimateDesc": "오늘 무료로 부담 없는 견적을 받아보세요.",
+    "freeEstimate": "무료 견적 받기",
+    "readBlog": "블로그 읽기",
+    "whoP2finance": "최저 2.99%의 쉬운 자격 조건의 금융과 무이자 다운페이먼트로, 전기차 전환이 그 어느 때보다 쉬워졌습니다."
+  },
+  "evCharger": {
+    "hero": {
+      "badge": "가장 인기",
+      "from": "부터",
+      "title": "가정용 EV",
+      "titleAccent": "충전",
+      "subtitle": "C10 면허 전기기사가 차고나 진입로에 Level 2 충전기를 설치해 시간당 25–40마일 주행거리를 충전합니다.",
+      "getQuote": "견적 받기",
+      "seeChargers": "충전기 보기",
+      "overlay": "Level 2 · 240V · 25–40 mi/hr",
+      "imageAlt": "가정용 EV 충전기 설치"
+    },
+    "metrics": {
+      "m1": { "value": "40 mi/hr", "label": "충전 속도" },
+      "m2": { "value": "3–6 hrs", "label": "설치 시간" },
+      "m3": { "value": "2,000+", "label": "시공 가구" },
+      "m4": { "value": "C10", "label": "면허 보유" }
+    },
+    "valueProps": {
+      "v1": { "title": "Level 2 속도", "desc": "밤새 완충 — 공공 충전소 대기 없이." },
+      "v2": { "title": "규정 준수", "desc": "허가, 검사 및 전용 회로 포함." },
+      "v3": { "title": "깔끔한 설치", "desc": "성능만큼 보기 좋은 배관 라우팅." }
+    },
+    "chargers": {
+      "eyebrow": "Level 2",
+      "title": "설치하는 충전기",
+      "subtitle": "Tesla, Emporia, ChargePoint, Mercedes-Benz, Wallbox, SolarEdge — 패널과 주차 환경에 맞춰 선택합니다.",
+      "quoteThis": "이 충전기 견적"
+    },
+    "included": {
+      "eyebrow": "턴키",
+      "title": "포함 사항",
+      "i1": "하드와이어 또는 플러그인 Level 2 설치",
+      "i2": "시간당 최대 40마일 주행거리",
+      "i3": "깔끔한 배관 라우팅 및 케이블 정리",
+      "i4": "전용 240V 회로 및 차단기 용량 산정",
+      "i5": "패널 평가 및 부하 계산",
+      "i6": "허가, 검사 및 규정 준수"
+    },
+    "steps": {
+      "eyebrow": "프로세스",
+      "title": "견적부터 플러그인까지",
+      "s1": { "title": "견적", "desc": "패널, 주차 위치, 충전기 선호도를 알려주세요." },
+      "s2": { "title": "현장 방문", "desc": "라우팅, 부하, 하드웨어 적합성을 확인합니다." },
+      "s3": { "title": "설치", "desc": "C10 전기기사가 배선, 설치, 테스트를 진행합니다." },
+      "s4": { "title": "인도", "desc": "허가 마감 — 플러그인하고 출발하세요." }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": { "q": "설치에 얼마나 걸리나요?", "a": "대부분의 Level 2 설치는 하루 만에 완료됩니다. 복잡한 패널이나 배관 작업은 이틀이 걸릴 수 있으며, 사전에 견적을 드립니다." },
+      "q2": { "q": "패널 업그레이드가 필요한가요?", "a": "항상 그런 것은 아닙니다. 현장에서 부하를 평가합니다. 용량이 있으면 전용 회로를 추가하고, 없으면 업그레이드 견적을 드립니다." },
+      "q3": { "q": "제가 구매한 충전기도 설치해 주시나요?", "a": "네 — 하드웨어가 UL 인증이고 호환되는 경우 가능합니다. 주요 브랜드 공급 및 설치도 제공합니다." }
+    },
+    "cta": {
+      "title": "집에서 충전할 준비가 되셨나요?",
+      "desc": "무료 견적 — 보통 영업일 기준 하루 이내.",
+      "getQuote": "견적 받기",
+      "contact": "문의"
+    }
+  },
+  "biDirectional": {
+    "hero": {
+      "badge": "V2H 준비",
+      "level2Link": "Level 2 충전 →",
+      "title": "양방향",
+      "titleAccent": "충전",
+      "subtitle": "진입로에서 집에 전력을 공급하세요. C10 면허 전기기사가 지원 Tesla 및 GM 구성을 위한 차량-주택(V2H) 하드웨어를 설치합니다.",
+      "getQuote": "견적 받기",
+      "seeHardware": "하드웨어 보기",
+      "overlay": "V2H · EV로 백업 전력",
+      "imageAlt": "양방향 EV 충전기"
+    },
+    "metrics": {
+      "m1": { "value": "V2H", "label": "차량-주택" },
+      "m2": { "value": "Tesla", "label": "및 GM 지원" },
+      "m3": { "value": "C10", "label": "면허 설치" },
+      "m4": { "value": "24hr", "label": "견적 회신" }
+    },
+    "valueProps": {
+      "v1": { "title": "가정 백업", "desc": "정전 시 필수 전력을 유지합니다." },
+      "v2": { "title": "양방향 전력", "desc": "계통에서 충전 — 지원 시 집으로 방전." },
+      "v3": { "title": "면허 및 허가", "desc": "C10 전기기사, 부하 계산, 전력회사 협조." }
+    },
+    "explainer": {
+      "eyebrow": "쉬운 설명",
+      "title": "차량-주택(V2H) 충전이란?",
+      "intro": "전기차는 이미 큰 배터리입니다. 양방향 충전은 그 배터리가 충전만 받는 것이 아니라, 필요할 때 집에 전력을 공급할 수 있게 합니다. 평소에는 일반 충전과 같고, 정전 시(지원 구성일 때) 저장된 전력으로 조명, 냉장고, Wi‑Fi 등 필수 회로를 유지할 수 있습니다.",
+      "compare": {
+        "normalTitle": "일반 충전",
+        "normalDesc": "전력은 한 방향으로 흐릅니다: 계통 → 분전반 → 충전기 → 차량 배터리.",
+        "v2hTitle": "차량-주택(V2H)",
+        "v2hDesc": "정전 시 호환 시스템은 방향을 바꿀 수 있습니다: 차량 배터리 → 충전기 → 선택한 가정 회로 — 계통과 안전하게 분리된 상태로."
+      },
+      "stepsTitle": "정전 시 어떻게 되나요",
+      "steps": {
+        "s1": { "title": "정전 발생", "desc": "폭풍, 전력회사 장애, 롤링 블랙아웃 등으로 동네 전력이 끊깁니다." },
+        "s2": { "title": "시스템이 감지", "desc": "Powershare Gateway 등 전환 장비가 정전을 감지하고, 전력이 계통으로 역류하지 않도록 집을 분리합니다." },
+        "s3": { "title": "EV가 백업 전력 공급", "desc": "연결된 차량의 에너지가 양방향 충전기를 통해 미리 계획한 백업 회로로 공급됩니다 — 보통 1분 내외, 발전기 소음·배기 없이." },
+        "s4": { "title": "복전 후 충전 재개", "desc": "전력이 복구되면 자동으로 일반 모드로 돌아가 평소처럼 충전합니다." }
+      },
+      "powershareTitle": "Tesla Powershare — Tesla가 설명하는 V2H",
+      "powershareBody": "Tesla Powershare는 Tesla의 차량-주택 솔루션입니다. 완전 충전된 Cybertruck 기준 Tesla는 Powershare Home Backup으로 약 11.5kW 연속 전력을 제공할 수 있다고 설명합니다 — 어떤 부하를 쓰느냐와 배터리 잔량에 따라 다르지만, 많은 가정에서 필수 전력을 3일 이상 유지할 수 있습니다. Powerwall이 없는 집은 보통 Tesla Universal Wall Connector와 Powershare Gateway가 필요합니다. Powerwall이 있는 구성은 다른 경로를 사용할 수 있으며, Tesla는 소프트웨어·하드웨어 호환을 계속 확장 중입니다 — evNation이 현장에서 귀하의 집에 맞는 구성을 확인합니다.",
+      "stats": {
+        "st1": { "value": "11.5 kW", "label": "연속 백업 (Cybertruck, Tesla 기준)" },
+        "st2": { "value": "3일+", "label": "완충 시 필수 부하 기준" },
+        "st3": { "value": "~1분", "label": "정전 시 자동 전환" }
+      },
+      "needsTitle": "일반적으로 필요한 것",
+      "needs": {
+        "n1": "양방향을 지원하는 전기차(모델, 트림, 소프트웨어 모두 중요)",
+        "n2": "호환 가정용 충전기 — 예: Powershare 구성의 Tesla Universal Wall Connector",
+        "n3": "백업 전력을 안전하게 공급하는 Gateway 또는 전환 스위치",
+        "n4": "C-10 면허 설치, 허가, 부하 설계, 전력회사 협조 — evNation이 처리"
+      },
+      "note": "V2H는 정전 백업용입니다 — 전력회사 프로그램이 명시적으로 허용하지 않는 한 일상적인 요금 절감용이 아닙니다. 백업 시간은 차량 충전량, 사용 부하, 설치 설계에 따라 달라집니다. Tesla, Powershare, Powerwall, Cybertruck은 Tesla, Inc. 상표입니다. evNation은 독립 설치업체이며 Tesla와 제휴 관계가 없습니다."
+    },
+    "chargers": {
+      "eyebrow": "하드웨어",
+      "title": "설치하는 양방향 충전기",
+      "subtitle": "현재 Tesla 및 GM — 차량, 패널, 백업 목표에 맞춰 구성합니다.",
+      "quoteThis": "이 구성 견적",
+      "disclaimer": "V2H는 차량, 하드웨어, 전력회사에 따라 달라집니다 — 현장 방문 시 확인합니다."
+    },
+    "included": {
+      "eyebrow": "턴키",
+      "title": "포함 사항",
+      "i1": "양방향 충전기 하드웨어 평가 및 설치",
+      "i2": "차량 및 전력회사 허용 시 차량-주택 백업",
+      "i3": "패널 부하 조사 및 규정 준수 배선",
+      "i4": "전력회사 연계 및 허가 협조",
+      "i5": "지원 Tesla 구성에서 Powerwall 연동",
+      "i6": "시운전, 테스트 및 주택주 안내"
+    },
+    "steps": {
+      "eyebrow": "프로세스",
+      "title": "견적부터 백업 준비까지",
+      "s1": { "title": "견적", "desc": "차량, 패널, 백업 목표를 알려주세요." },
+      "s2": { "title": "자격 확인", "desc": "V2H 하드웨어, 차량 모델, 전력회사 규정을 확인합니다." },
+      "s3": { "title": "설치", "desc": "면허 전기기사가 양방향 하드웨어를 설치, 배선, 테스트합니다." },
+      "s4": { "title": "인도", "desc": "앱 설정, 백업 모드 설명 — 정전 시 바로 사용 가능." }
+    },
+    "faq": {
+      "title": "FAQ",
+      "q1": { "q": "양방향(V2H) 충전이란 무엇인가요?", "a": "양방향 충전은 호환 EV가 정전이나 피크 요금 시간대에 집으로 전력을 되돌려 보낼 수 있게 합니다 — 차량, 충전기, 전력회사 프로그램이 지원할 때." },
+      "q2": { "q": "현재 어떤 브랜드를 설치하나요?", "a": "Powerwall과 연동된 Tesla Wall Connector 구성과 GM Ultium V2H 준비 하드웨어를 설치합니다. 서비스 지역에서 이용 가능해지면 더 많은 브랜드를 추가합니다." },
+      "q3": { "q": "V2H에 Powerwall이 필요한가요?", "a": "항상 그런 것은 아닙니다. 브랜드와 차량에 따라 요구사항이 다릅니다. Tesla V2H는 종종 Powerwall과 함께 사용하고, GM Ultium은 자체 하드웨어 경로가 있습니다. 현장에서 범위를 확인합니다." },
+      "q4": { "q": "전력회사가 차량-주택을 허용하나요?", "a": "전력회사 규정은 지역마다 다릅니다. 현장 평가 시 연계 요건을 확인하고, 필요한 서류를 처리합니다." },
+      "q5": { "q": "발전기나 Powerwall만 쓰는 것과 무엇이 다른가요?", "a": "발전기는 연료와 정비가 필요합니다. Powerwall은 고정형 가정 저장 장치입니다. V2H는 이미 진입로에 있는 큰 배터리를 활용합니다 — 평소처럼 충전하고, 정전 시 사용합니다. Powerwall과 V2H를 함께 쓰면 더 긴 백업도 가능합니다. 목표와 예산에 맞게 설계해 드립니다." }
+    },
+    "cta": {
+      "title": "차량-주택 전력 준비가 되셨나요?",
+      "desc": "무료 견적 — 현장에서 V2H 자격을 확인합니다.",
+      "getQuote": "견적 받기",
+      "contact": "문의"
+    }
+  },
+  "panelUpgrade": {
+    "hero": {
+      "badge": "전기 업그레이드",
+      "title": "패널 업그레이드",
+      "description": "오래된 패널은 태양광이 이미 연결된 상태에서 EV 충전기와 기존 부하를 안전하게 함께 감당하기 어렵습니다. 충전, 저장, 향후 전기화를 위해 200A 서비스로 업그레이드합니다.",
+      "getQuote": "견적 받기",
+      "imageAlt": "면허 전기기사가 주택 전기 패널을 업그레이드하는 모습"
+    },
+    "programs": {
+      "eyebrow": "프로그램 및 금융",
+      "title": "GoGreen 금융 — 리베이트 적용 가능",
+      "intro": "패널 업그레이드는 EV 충전, 태양광, 배터리 저장 전에 자주 필요한 첫 단계입니다. 부하를 정확히 설계하고, 허가·전력회사 협조를 처리하며, 비용을 줄여줄 프로그램을 함께 검토합니다.",
+      "stat1Value": "최대 $4,200",
+      "stat1Label": "패널 업그레이드 지원",
+      "stat1Desc": "자격을 갖춘 경우 그린 에너지 프로그램을 통해 가정용 전기 패널 업그레이드에 최대 $4,200까지 지원받을 수 있습니다.",
+      "stat2Value": "GoGreen",
+      "stat2Label": "Financing",
+      "stat2Desc": "쉬운 자격 조건의 금융, 즉시 승인 — 소프트 신용 조회, 신용 점수에 영향 없음.",
+      "stat3Value": "Rebate",
+      "stat3Label": "주 에너지 프로그램",
+      "stat3Desc": "지역·주 전기화 인센티브 및 HEA 관련 옵션 자격 여부를 함께 확인해 드립니다.",
+      "note": "리베이트 및 금융 자격은 부지, 전력회사 지역, 프로그램 가용성에 따라 달라지며 현장 방문 시 확인합니다."
+    },
+    "beforeAfter": {
+      "eyebrow": "실제 설치 사례",
+      "title": "전후 비교",
+      "dragHint": "좌우 비교 · 계량기 및 메인 · Costa Mesa, CA",
+      "meterMain": "계량기 및 메인",
+      "breakerPanel": "차단기 패널",
+      "galleryLink": "전체 프로젝트 상세는",
+      "gallery": "갤러리"
+    },
+    "whyUpgrade": {
+      "eyebrow": "왜 업그레이드?",
+      "title": "패널이 발목을 잡을 때",
+      "intro": "Level 2 EV 충전기, 태양광, 배터리, 히트펌프는 모두 전용 용량이 필요합니다. 서비스 용량이 부족하거나 차단기 공간이 가득 차면, 안전하게 부하를 추가하려면 패널·서비스 업그레이드부터 시작해야 합니다.",
+      "reasonsTitle": "업그레이드가 필요할 수 있는 신호",
+      "reasons": {
+        "r1": "EV 충전기, 에어컨, 주방 부하를 동시에 쓰면 차단기가 자주 내려감",
+        "r2": "40A–50A EV 전용 회로를 넣을 빈 슬롯이 없거나 패널이 이미 용량 초과",
+        "r3": "태양광은 연결됐지만 충전기나 배터리 백업을 넣을 여유가 거의 없음",
+        "r4": "100A 서비스, 퓨즈형 패널 등 구식 장비로 검사·허가에 걸림"
+      },
+      "benefitsTitle": "얻게 되는 것",
+      "benefits": {
+        "b1": "200A 서비스와 깔끔한 차단기 공간 — EV 충전 시 잦은 차단 없이",
+        "b2": "허가, 라벨링, 전력회사 협조까지 포함한 코드 준수 설치",
+        "b3": "Powerwall, 태양광 확장, 히트펌프, 인덕션 등 미래 부하 대비",
+        "b4": "더 안전하고 정리된 패널 — 재판매 가치와 보험·안심에도 도움"
+      }
+    },
+    "features": {
+      "title": "포함 사항",
+      "f1": "전기 패널 전체 교체 또는 업그레이드",
+      "f2": "현대적 전력 수요를 위한 200A 서비스 업그레이드",
+      "f3": "EV 준비 차단기 공간 배치",
+      "f4": "허가를 포함한 규정 준수 설치",
+      "f5": "태양광, 배터리, 히트펌프를 위한 미래 대비",
+      "f6": "필요 시 전력회사와의 협조"
+    }
+  },
+  "solar": {
+    "eyebrow": "Southern California Solar",
+    "title": "EV와 집에",
+    "highlight": "전력을 공급하는 태양광",
+    "description": "태양광과 EV 충전기를 함께하면 요금 절감과 더 깨끗한 주행이 가능합니다. 해안 Newport Beach부터 내륙 Riverside까지 Southern California 지붕에 맞춘 시스템을 설계합니다.",
+    "tagline": "상담 → 설계 → 허가 → 설치 → 가동",
+    "imageAlt": "Southern California 주택의 주거용 태양광 패널",
+    "primaryCta": "맞춤 견적 만들기",
+    "secondaryCta": "평가 일정 잡기",
+    "stats": {
+      "s1": { "value": "30%", "label": "평균 요금 절감" },
+      "s2": { "value": "25 yr", "label": "패널 보증" },
+      "s3": { "value": "CA", "label": "인센티브 전문" }
+    },
+    "features": {
+      "f1": "현장 평가 및 그림자 분석",
+      "f2": "허가 및 전력회사 연계 지원",
+      "f3": "프리미엄 패널 옵션 (REC, Qcells 등)",
+      "f4": "배터리 준비 인버터 구성",
+      "f5": "모니터링 앱 설정 및 안내",
+      "f6": "연방 및 California 인센티브 안내"
+    },
+    "whySolar": {
+      "title": "태양광 + EV를 선택하는 이유",
+      "w1": { "title": "태양으로 충전", "desc": "주간 발전으로 충전 비용을 상쇄합니다." },
+      "w2": { "title": "배터리 준비", "desc": "백업 전력이 필요할 때 저장 장치를 추가하세요." },
+      "w3": { "title": "패널 시너지", "desc": "패널 업그레이드와 결합해 완전 전기화를 실현합니다." },
+      "w4": { "title": "리베이트 및 세액공제", "desc": "연방 ITC와 California 전용 프로그램." }
+    }
+  },
+  "warranty": {
+    "badge": "신뢰할 수 있는 보호",
+    "title": "EVnation",
+    "highlight": "보증",
+    "description": "모든 EVnation 설치는 시공 보증과 전담 지원으로 뒷받침됩니다. 설치 당일 이후에도 충전기, 배터리, 그리고 안심을 보호합니다.",
+    "tagline": "장기간 뒷받침",
+    "imageAlt": "빛나는 방패로 보호되는 EV 충전기",
+    "stats": {
+      "s1": { "value": "Workmanship", "label": "보장" },
+      "s2": { "value": "Priority", "label": "지원 라인" },
+      "s3": { "value": "Certified", "label": "면허 설치" },
+      "s4": { "value": "Transferable", "label": "재판매 가치" }
+    },
+    "features": {
+      "f1": "수행하는 모든 설치에 대한 시공 보증",
+      "f2": "인증 설치로 제조사 보증 유지",
+      "f3": "문제 발생 시 빠르고 번거로움 없는 서비스 방문",
+      "f4": "보증 대상 고객을 위한 우선 지원 라인",
+      "f5": "문서화된 검사 및 규정 준수 기록",
+      "f6": "매각 시 가치를 더하는 양도 가능 보장"
+    },
+    "tiers": {
+      "eyebrow": "보장 범위",
+      "title": "든든한 보장",
+      "t1": { "title": "시공", "desc": "우리 노동에 자신합니다. 설치 문제가 발생하면 책임지고 해결합니다 — 책임 전가 없이." },
+      "t2": { "title": "부품 및 장비", "desc": "면허 전문가가 시공했기 때문에 제조사 보장이 그대로 유지됩니다." },
+      "t3": { "title": "우선 지원", "desc": "보장 대상 고객은 전용 라인과 우선 일정 배정을 받습니다." },
+      "t4": { "title": "양도 가능", "desc": "보장은 다음 주택 소유자에게 양도할 수 있어 재판매 매력을 높입니다." }
+    }
+  },
+  "battery": {
+    "hero": {
+      "pageTitle": "Powerwall 및 배터리",
+      "badge": "Tesla · 추천",
+      "from": "부터",
+      "title": "Tesla Powerwall",
+      "tagline": "모든 것에 전력 공급",
+      "description": "Tesla Powerwall은 가장 추천하는 가정용 배터리입니다 — 전체 주택 백업, 더 스마트한 에너지 사용, evNation 면허 전기기사의 깔끔한 올인원 설치.",
+      "getQuote": "견적 받기",
+      "seeFeatures": "기능 보기",
+      "otherBrands": "다른 브랜드",
+      "overlay": "Tesla Powerwall · 13.5 kWh · 전체 주택 백업",
+      "imageAlt": "Tesla Powerwall 가정용 배터리",
+      "allBrandsLabel": "설치하는 모든 브랜드",
+      "specsLabel": "Tesla Powerwall 3 사양"
+    },
+    "metrics": {
+      "m1": { "value": "13.5", "unit": "kWh", "label": "에너지 용량" },
+      "m2": { "value": "11.5", "unit": "kW", "label": "백업 전력" },
+      "m3": { "value": "97.5", "unit": "%", "label": "태양광 효율" },
+      "m4": { "value": "10", "unit": "yr", "label": "보증" }
+    },
+    "pillars": {
+      "title": "Tesla Powerwall을 선택하는 이유",
+      "p1": { "label": "더 많은 전력", "desc": "단일 유닛 전체 주택 백업" },
+      "p2": { "label": "더 긴 백업", "desc": "정전 시 거의 즉시 전력 공급" },
+      "p3": { "label": "더 많은 절약", "desc": "태양광 저장 및 피크 요금 시간대 외 사용" }
+    },
+    "stories": {
+      "title": "실제 주택을 위해 설계",
+      "subtitle": "Tesla Powerwall의 일상 사용.",
+      "s1": { "index": "01", "title": "정전 시에도 전력 유지", "body": "Powerwall 3은 정전을 감지하고 순식간에 백업으로 전환합니다 — 조명, HVAC, Wi‑Fi, EV 충전기를 계속 가동합니다.", "imageAlt": "정전 중 Powerwall으로 주택 백업" },
+      "s2": { "index": "02", "title": "비용이 적을 때 에너지 사용", "body": "태양광 또는 비피크 계통 전력을 저장하고, 요금이 급등할 때 방전합니다. Powerwall은 사용 패턴과 전력 요금제에 따라 자동으로 최적화합니다.", "imageAlt": "태양광과 Powerwall 에너지 저장이 있는 주택" },
+      "s3": { "index": "03", "title": "하나의 유닛. 모든 것 포함.", "body": "배터리, 인버터, 사이트 관리, 태양광 연동이 단일 외함에 — 박스 수 감소, 배선 감소, 빠른 설치.", "imageAlt": "Tesla Powerwall 단일 유닛 외함" }
+    },
+    "sellingPoints": {
+      "sectionLabel": "Tesla Powerwall",
+      "title": "Tesla Powerwall 3 살펴보기",
+      "subtitle": "Tesla Powerwall — 전체 주택 백업, 더 스마트한 에너지 사용, EV 연동을 하나의 유닛으로.",
+      "sp1": { "title": "전체 주택 백업", "summary": "Powerwall 3 하나로 전체 주택을 백업할 수 있습니다.", "b1": "정전 시 필수 전력 — EV 충전기 포함 — 유지", "b2": "순식간에 자동 전환", "b3": "조용하고 실내/실외 등급 외함" },
+      "sp2": { "title": "전기 요금 절감", "summary": "에너지를 더 스마트하게 사용하세요.", "b1": "저녁 사용을 위해 더 많은 태양광 생산 저장", "b2": "시간대별 요금에 맞춰 충·방전 최적화", "b3": "월간 전력 비용 절감에 기여" },
+      "sp3": { "title": "완전 통합 설계", "summary": "배터리, 인버터, 사이트 관리, 태양광 — 하나의 시스템.", "b1": "벽면 박스와 배선 감소", "b2": "더 빠른 설치와 간편한 유지보수", "b3": "차고 및 외부 설치에 깔끔한 외관" },
+      "sp4": { "title": "실제 환경을 위한 설계", "summary": "까다로운 환경에서도 성능을 발휘하도록 설계.", "b1": "극한 고온·저온 내성", "b2": "고습도 운전", "b3": "약 28인치 수심까지 침수 내성" },
+      "sp5": { "title": "EV 충전 연동", "summary": "가정에서 Tesla 에너지 생태계의 일부.", "b1": "태양광과 함께할 때 태양광 EV 충전", "b2": "오프그리드 충전 기능", "b3": "지원 구성에서 Powershare 기능" }
+    },
+    "evFeatures": {
+      "e1": { "title": "태양광 EV 충전", "desc": "피크 요금 시간대에 계통 대신 저장된 태양광으로 EV를 충전하세요." },
+      "e2": { "title": "오프그리드 충전", "desc": "전력회사 전력을 사용할 수 없을 때도 충전 기능을 유지합니다." },
+      "e3": { "title": "Powershare", "desc": "가정에서 지원 Tesla 에너지 제품 간 저장 에너지를 공유합니다." }
+    },
+    "install": {
+      "eyebrow": "evNation과 함께 설치",
+      "title": "견적부터 스위치 ON까지",
+      "subtitle": "C-10 면허 설치, 허가, 검사 — Tesla Powerwall 또는 GM, ATG, Enphase 시스템.",
+      "exampleLabel": "예시: Tesla Powerwall 설치",
+      "includedEyebrow": "턴키",
+      "includedTitle": "포함 사항",
+      "i1": "주택을 위한 현장 평가 및 시스템 용량 산정",
+      "i2": "C-10 면허 전기기사의 Tesla Powerwall 3 설치",
+      "i3": "허가, 전력회사 연계, 검사 일정 협조",
+      "i4": "깔끔한 설치, 라벨링, 전문적 마감",
+      "i5": "모니터링 및 백업 설정을 위한 앱 안내",
+      "i6": "EV 충전기 및 패널 업그레이드 선택적 연동",
+      "startQuote": "견적 시작하기",
+      "howItWorks": "진행 방식",
+      "stepLabel": "단계 {n}",
+      "s1": { "title": "현장 방문", "desc": "패널, 백업 목표, 최적 설치 위치를 평가합니다." },
+      "s2": { "title": "설계 및 허가", "desc": "시스템 용량 산정, 전력회사 서류, 검사 일정." },
+      "s3": { "title": "설치 당일", "desc": "면허 전기기사 — 깔끔한 배선, 라벨링, 테스트." },
+      "s4": { "title": "인도", "desc": "앱 설정, 백업 설정, evNation의 지속 지원." }
+    },
+    "otherBatteries": {
+      "eyebrow": "추가 옵션",
+      "title": "더 많은 가정용 배터리 옵션",
+      "subtitle": "Tesla Powerwall이 최우선 추천입니다 — 주택에 더 적합할 때 GM, ATG, Enphase도 설치합니다.",
+      "photoSoon": "사진 준비 중",
+      "quoteBrand": "{brand} 견적"
+    },
+    "faq": {
+      "title": "FAQ",
+      "subtitle": "Tesla Powerwall 및 가정용 배터리 설치",
+      "q1": { "q": "Powerwall 하나로 전체 주택을 백업할 수 있나요?", "a": "Powerwall 3은 단일 유닛으로 많은 주택의 전체 백업을 제공하도록 설계되었습니다. 최종 범위는 부하, 패널, 백업 우선순위에 따라 달라집니다 — 현장에서 확인합니다." },
+      "q2": { "q": "Powerwall에 태양광이 필요한가요?", "a": "아니요. Powerwall은 태양광 유무와 관계없이 작동합니다. 태양광과 함께하면 생산 전력을 더 많이 저장하고, 없어도 계통 에너지를 저렴한 시간대로 이동하고 백업 전력을 유지할 수 있습니다." },
+      "q3": { "q": "evNation은 일반 건설업체와 어떻게 다른가요?", "a": "우리는 EV 및 가정 에너지 설치에 특화된 면허 전기기사입니다 — 잡일꾼이 아닙니다. 규정 준수 시공, 명확한 소통, 자랑스러운 설치를 제공합니다." },
+      "q4": { "q": "정전 시 어떻게 되나요?", "a": "Powerwall이 정전을 감지하고 거의 즉시 백업 전력으로 전환합니다 — 일반적으로 전자기기가 중단 없이 계속 작동할 만큼 빠릅니다." },
+      "q5": { "q": "Tesla 외 다른 배터리 브랜드도 설치하나요?", "a": "네. GM Ultium Home Energy, ATG, Enphase IQ Battery 시스템도 설치합니다. Tesla Powerwall은 전체 주택 백업의 주요 추천 제품입니다 — 현장에서 적합한 선택을 도와드립니다." }
+    },
+    "cta": {
+      "title": "자신 있게 집에 전력을 공급하세요",
+      "desc": "무료 견적 · Tesla Powerwall 및 GM, ATG, Enphase 옵션 · C10 면허 설치",
+      "getQuote": "견적 받기",
+      "contact": "문의",
+      "trademark": "Tesla, Powerwall, Tesla Energy는 Tesla, Inc.의 상표입니다. evNation은 독립 설치업체이며 Tesla, Inc.와 제휴 관계가 없습니다."
+    }
+  },
+  "autoDealer": {
+    "hero": {
+      "eyebrow": "자동차 딜러용",
+      "title": "자동차 딜러",
+      "titleAccent": "파트너",
+      "subtitle": "모든 EV 구매자에게 완전한 가정 충전 솔루션을 제공하세요. evNation과 파트너십을 맺고 충전 불안을 계약 성사의 강점으로 바꾸세요."
+    },
+    "benefits": {
+      "b1": { "title": "턴키 가정 충전", "text": "EV 구매자에게 구매 경험의 일부로 원활한 가정 충전기 설치를 제공하세요." },
+      "b2": { "title": "컨시어지 인계", "text": "일정, 허가, 설치를 고객과 직접 조율합니다 — 영업팀은 판매에 집중할 수 있습니다." },
+      "b3": { "title": "EV 판매 증대", "text": "판매 시점에 주행거리 및 충전 불안을 해소하고 더 많은 전기차 거래를 성사하세요." },
+      "b4": { "title": "공동 브랜딩 옵션", "text": "딜러십 브랜드에 맞는 맞춤 추천 프로그램 및 공동 브랜딩 자료." }
+    },
+    "steps": {
+      "title": "파트너십 진행 방식",
+      "s1": { "step": "01", "title": "파트너 온보딩", "text": "간단한 추천 워크플로와 전담 담당자로 딜러십을 설정합니다." },
+      "s2": { "step": "02", "title": "고객 추천", "text": "판매 시점에 EV 구매자를 evNation 가정 충전으로 추천합니다." },
+      "s3": { "step": "03", "title": "나머지는 우리가 처리", "text": "견적, 허가, 면허 설치, 검사 — 전체를 우리 팀이 관리합니다." },
+      "s4": { "step": "04", "title": "만족한 EV 소유자", "text": "고객은 충전 준비가 된 상태로 집에 돌아가며, 딜러 브랜드와 연결된 훌륭한 경험을 합니다." }
+    },
+    "form": {
+      "title": "파트너 되기",
+      "dealership": "딜러십명",
+      "dealershipPlaceholder": "ABC Motors",
+      "contactName": "담당자명",
+      "contactPlaceholder": "Jane Doe",
+      "email": "이메일",
+      "emailPlaceholder": "jane@dealer.com",
+      "phone": "전화번호",
+      "phonePlaceholder": "(555) 123-4567",
+      "submit": "파트너십 정보 요청",
+      "successTitle": "문의해 주셔서 감사합니다!",
+      "successDesc": "파트너십 팀이 곧 연락드려 딜러십 설정을 도와드리겠습니다.",
+      "preferTalk": "직접 상담을 원하시나요? 이메일",
+      "orCall": "또는 전화",
+      "contactLink": "여기서 문의하기"
+    }
+  },
+  "serviceAreas": {
+    "hero": {
+      "eyebrow": "서비스 지역",
+      "title": "EV 충전기 설치 서비스",
+      "titleAccent": "Southern California, Central California & Nevada",
+      "subtitle": "evNation은 {counties}개 카운티와 {cities}+개 도시 전역에서 Level 2 EV 충전기 설치, 패널 업그레이드, 태양광을 제공합니다 — Orange County, Los Angeles부터 San Diego, San Luis Obispo, Clark County Nevada, Maricopa County Arizona까지.",
+      "getQuote": "견적 받기",
+      "contact": "문의하기"
+    }
+  },
+  "county": {
+    "backLink": "전체 서비스 지역",
+    "title": "{county}, {state} EV 충전기 설치",
+    "getQuote": "무료 견적 받기",
+    "evServices": "EV 충전 서비스",
+    "citiesHeading": "{county} 서비스 도시",
+    "citiesMeta": "{count}개 지역사회 · 면허 전기기사 · 허가 및 검사 처리",
+    "related": {
+      "ev": { "title": "주거용 EV 충전", "desc": "Level 2 가정용 충전기 설치" },
+      "panel": { "title": "패널 업그레이드", "desc": "안전한 충전을 위한 200A 서비스" },
+      "solar": { "title": "태양광", "desc": "태양으로 충전기에 전력 공급" }
+    }
+  },
+  "blog": {
+    "badge": "{region} Energy Journal",
+    "title": "EV, 태양광 &",
+    "titleAccent": "가정 전력",
+    "subtitle": "서비스 지역 전역 evNation 팀의 현장 노트, 리베이트 가이드, 설치 인사이트.",
+    "articlesMeta": "{count}개 기사 · {date} 업데이트",
+    "loading": "기사 불러오는 중…",
+    "newPost": "새 글",
+    "manage": "관리",
+    "signOut": "로그아웃",
+    "editorSignIn": "에디터 로그인",
+    "latestStories": "최신 기사",
+    "emptyCategory": "이 카테고리에 아직 기사가 없습니다.",
+    "ctaTitle": "전기차로 전환할 준비가 되셨나요?",
+    "ctaDesc": "서비스 지역에서 EV 충전, 태양광, 패널 업그레이드 맞춤 설치 견적을 만드세요.",
+    "ctaButton": "맞춤 견적 만들기",
+    "editorTitle": "블로그 에디터",
+    "close": "닫기",
+    "allCategory": "전체"
+  },
+  "sitemap": {
+    "eyebrow": "내비게이션",
+    "title": "사이트맵",
+    "subtitle": "evNation 사이트의 모든 페이지를 한곳에서.",
+    "groups": {
+      "main": "메인",
+      "services": "서비스",
+      "serviceAreas": "서비스 지역",
+      "company": "회사",
+      "internal": "내부"
+    },
+    "links": {
+      "home": "홈",
+      "getQuote": "견적 받기",
+      "gallery": "갤러리",
+      "contact": "문의",
+      "residentialEv": "주거용 EV 충전",
+      "biDirectional": "양방향 충전",
+      "solar": "태양광",
+      "panelUpgrades": "패널 업그레이드",
+      "commercial": "상업용",
+      "battery": "배터리 저장",
+      "warranty": "보증",
+      "shop": "전체 서비스",
+      "allServiceAreas": "전체 서비스 지역",
+      "orangeCounty": "Orange County, CA",
+      "losAngeles": "Los Angeles, CA",
+      "sanDiego": "San Diego, CA",
+      "clarkCounty": "Clark County, NV",
+      "sanLuisObispo": "San Luis Obispo, CA",
+      "about": "회사 소개",
+      "autoDealer": "자동차 딜러 파트너",
+      "blog": "블로그",
+      "customerIntake": "고객 접수",
+      "adminIntake": "관리 · 고객 접수",
+      "siteMap": "사이트맵"
+    },
+    "blogArticles": "블로그 기사"
+  },
+  "projects": {
+    "heroEyebrow": "현장 아카이브 · {count}건 설치",
+    "heroTitle1": "설치",
+    "heroTitle2": "아카이브",
+    "heroDesc": "각 카드의 핸들을 스와이프하여 전후를 비교하세요. 실제 현장 사진이 준비되면 추가됩니다.",
+    "getSimilarQuote": "유사 견적 받기",
+    "index": "목록",
+    "emptyCategory": "이 카테고리에 아직 프로젝트가 없습니다.",
+    "ctaTitle": "다음 설치는 여러분 차례일 수 있습니다.",
+    "startProject": "프로젝트 시작하기",
+    "serviceAreas": "서비스 지역",
+    "types": {
+      "all": "전체 프로젝트",
+      "ev": "EV 충전기",
+      "panel": "패널 업그레이드",
+      "solar": "태양광 + EV",
+      "commercial": "상업용"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "eyebrow": "법적 고지",
+      "title": "개인정보 처리방침",
+      "lastUpdated": "2026년 6월",
+      "intro": "고객님의 개인정보는 우리에게 중요합니다. 본 방침은 수집하는 정보, 사용 방법, 그리고 고객님이 가진 선택권을 설명합니다.",
+      "s1": { "heading": "1. 수집하는 정보", "p1": "견적 요청, 고객 접수 양식 제출, 또는 문의 시 제공하시는 이름, 전화번호, 이메일, 주소, 차량 정보, 설치 선호도 등의 정보를 수집합니다.", "p2": "웹사이트 경험 개선을 위해 브라우저 유형, 방문 페이지 등 제한적인 기술 정보도 자동으로 수집할 수 있습니다." },
+      "s2": { "heading": "2. 정보 사용 방법", "p1": "정보는 견적 제공, 설치 일정 및 완료, 금융 및 리베이트 신청 처리, 고객과의 소통, 서비스 개선에 사용됩니다. 요청 이행을 위해 신뢰할 수 있는 설치 및 금융 파트너와만 정보를 공유할 수 있습니다." },
+      "s3": { "heading": "3. 정보 공유", "p1": "개인정보를 판매하지 않습니다. 요청하신 서비스 제공에 필요한 경우에만 서비스 파트너(태양광 설치업체, 금융 제공업체, 전력회사 리베이트 프로그램 등)와 공유하거나, 법률에 따라 공유합니다." },
+      "s4": { "heading": "4. 데이터 보안", "p1": "정보 보호를 위해 합리적인 관리, 기술, 물리적 안전장치를 구현합니다. 다만 전송 또는 저장 방법이 완전히 안전하지는 않으며, 절대적 보안을 보장할 수 없습니다." },
+      "s5": { "heading": "5. 고객님의 선택권", "p1": "언제든지 문의하여 개인정보에 대한 열람, 정정, 삭제를 요청할 수 있습니다. 이메일의 수신 거부 안내를 따라 마케팅 커뮤니케이션에서도 탈퇴할 수 있습니다." },
+      "s6": { "heading": "6. 문의", "p1": "본 개인정보 처리방침 또는 데이터 처리에 대한 질문이 있으시면 GoGreen@evnation.us 또는 866-913-6199로 문의해 주세요." }
+    },
+    "terms": {
+      "eyebrow": "법적 고지",
+      "title": "이용약관",
+      "lastUpdated": "2026년 6월",
+      "intro": "EVnation 웹사이트를 이용하거나 서비스를 이용하기 전에 본 이용약관을 주의 깊게 읽어 주세요.",
+      "s1": { "heading": "1. 약관 동의", "p1": "EVnation 웹사이트 및 서비스에 접속하거나 이용함으로써 본 이용약관 및 모든 관련 법률과 규정에 동의하는 것으로 간주됩니다. 약관의 일부에 동의하지 않으면 서비스를 이용할 수 없습니다." },
+      "s2": { "heading": "2. 서비스", "p1": "EVnation은 C10 Electrical Contractor 면허를 보유한 EV 충전기 및 태양광 설치 서비스, 견적, 관련 상담을 제공합니다. 모든 견적은 참고용이며, 최종 가격은 현장 평가 후 결정됩니다.", "p2": "일정, 허가, 설치 일정은 지역 관할 요건, 전력회사 협조, 장비 가용성에 따라 달라질 수 있습니다." },
+      "s3": { "heading": "3. 견적 및 금융", "p1": "절감 견적, 세액공제 정보, 금융 조건(2.99% 등 광고 금리 포함)은 설명용이며 개인 자격, 신용 승인, 현재 프로그램 가용성에 따라 달라집니다. EVnation은 특정 재정적 결과를 보장하지 않습니다." },
+      "s4": { "heading": "4. 고객 책임", "p1": "고객은 부동산, 전기 시스템, 차량에 대한 정확한 정보를 제공하고 설치 구역에 안전하게 접근할 수 있도록 해야 합니다. 부정확한 정보는 가격 및 일정에 영향을 줄 수 있습니다." },
+      "s5": { "heading": "5. 책임 제한", "p1": "법률이 허용하는 최대 범위 내에서 EVnation은 웹사이트 또는 서비스 이용으로 인한 간접, 부수, 결과적 손해에 대해 책임지지 않습니다. 총 책임은 해당 서비스에 대해 지불한 금액을 초과하지 않습니다." },
+      "s6": { "heading": "6. 약관 변경", "p1": "EVnation은 언제든지 본 이용약관을 업데이트할 권리를 보유합니다. 변경 게시 후 서비스를 계속 이용하면 개정된 약관에 동의한 것으로 간주됩니다." }
+    },
+    "disclaimer": {
+      "eyebrow": "법적 고지",
+      "title": "면책 조항",
+      "lastUpdated": "2026년 6월",
+      "intro": "본 웹사이트의 정보는 일반적인 안내 목적으로 제공됩니다. 콘텐츠나 견적에 의존하기 전에 본 면책 조항을 읽어 주세요.",
+      "s1": { "heading": "1. 일반 정보", "p1": "evNation 웹사이트의 콘텐츠 — 가격 범위, 절감 견적, 제품 설명 포함 — 은 일반적인 안내용이며, 특정 프로젝트 범위, 지역 규정, 전력회사 요건을 반영하지 않을 수 있습니다." },
+      "s2": { "heading": "2. 전문적 조언 아님", "p1": "본 사이트의 어떤 내용도 전기, 재정, 세무, 법률 조언을 구성하지 않습니다. 최종 시스템 설계, 허가, 가격은 evNation 또는 공인 파트너의 면허 현장 평가 후 결정됩니다." },
+      "s3": { "heading": "3. 견적 및 인센티브", "p1": "온라인 견적 및 계산기 결과는 시작 견적일 뿐입니다. 세액공제, 리베이트, 금융 혜택은 자격, 프로그램 가용성, 제3자 승인에 따라 달라집니다. EVnation은 특정 절감액이나 인센티브 금액을 보장하지 않습니다." },
+      "s4": { "heading": "4. 상표 및 브랜드", "p1": "제품 및 브랜드명(Tesla, Powerwall, ChargePoint, GM Ultium 등)은 각 소유자의 상표입니다. evNation은 독립 설치업체이며, 명시적으로 밝히지 않는 한 이러한 브랜드와 제휴하거나 보증받지 않습니다." },
+      "s5": { "heading": "5. 외부 링크", "p1": "웹사이트에는 리베이트, 전력회사, 제조사 자료를 위한 제3자 사이트 링크가 포함될 수 있습니다. 외부 웹사이트의 콘텐츠, 정확성, 개인정보 관행에 대해 책임지지 않습니다." },
+      "s6": { "heading": "6. 문의", "p1": "본 면책 조항에 대한 질문이 있으시면 GoGreen@evnation.us 또는 866-913-6199로 문의해 주세요." }
+    },
+    "lastUpdatedLabel": "최종 수정: {date}",
+    "disclaimerFooter": "본 페이지는 일반적인 정보 제공 목적으로 제공되며, 게시 전 법률 자문을 받아야 합니다.",
+    "disclaimerContact": "문의: GoGreen@evnation.us"
+  },
+  "aiAssistant": {
+    "title": "EVnation Assistant",
+    "subtitle": "EV 충전 및 가정 전기화",
+    "closeChat": "채팅 닫기",
+    "openAssistant": "AI 어시스턴트 열기",
+    "closeAssistant": "AI 어시스턴트 닫기",
+    "thinking": "생각 중…",
+    "sendMessage": "메시지 보내기",
+    "placeholder": "EV 충전에 대해 질문하세요…",
+    "welcome": "안녕하세요! EVnation 어시스턴트입니다. EV 충전기 설치, 패널 업그레이드, 가격, 리베이트, 견적 받는 방법에 대해 질문해 주세요 — 쉽게 설명해 드리겠습니다.",
+    "welcomeLink": "견적 받기",
+    "prompts": {
+      "p1": "설치 비용은 얼마인가요?",
+      "p2": "패널 업그레이드가 필요한가요?",
+      "p3": "어떤 지역을 서비스하나요?",
+      "p4": "견적은 어떻게 받나요?"
+    }
+  }
+}

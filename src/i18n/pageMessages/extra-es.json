@@ -1,0 +1,581 @@
+{
+  "about": {
+    "teamTitle": "Nuestro equipo",
+    "visitUs": "Visítenos",
+    "readyElectric": "¿Listo para electrificarse?",
+    "freeEstimateDesc": "Obtenga hoy una estimación gratuita y sin compromiso.",
+    "freeEstimate": "Obtener una estimación gratuita",
+    "readBlog": "Leer el blog",
+    "whoP2finance": "Con financiamiento fácil de calificar desde 2.99% y sin pago inicial, electrificarse nunca ha sido tan accesible."
+  },
+  "evCharger": {
+    "hero": {
+      "badge": "Más popular",
+      "from": "desde",
+      "title": "Carga de VE",
+      "titleAccent": "en el hogar",
+      "subtitle": "Electricistas con licencia C10 instalan cargadores de Nivel 2 que agregan 25–40 millas de autonomía por hora — en su garaje o entrada.",
+      "getQuote": "Obtener cotización",
+      "seeChargers": "Ver cargadores",
+      "overlay": "Nivel 2 · 240V · 25–40 mi/hr",
+      "imageAlt": "Instalación de cargador de VE en el hogar"
+    },
+    "metrics": {
+      "m1": { "value": "40 mi/hr", "label": "Velocidad de carga" },
+      "m2": { "value": "3–6 hrs", "label": "Tiempo de instalación" },
+      "m3": { "value": "2,000+", "label": "Hogares atendidos" },
+      "m4": { "value": "C10", "label": "Con licencia" }
+    },
+    "valueProps": {
+      "v1": { "title": "Velocidad Nivel 2", "desc": "Carga completa durante la noche — sin esperar en estaciones públicas." },
+      "v2": { "title": "Cumple con el código", "desc": "Permisos, inspección y circuito dedicado incluidos." },
+      "v3": { "title": "Instalación limpia", "desc": "Canalización que se ve tan bien como funciona." }
+    },
+    "chargers": {
+      "eyebrow": "Nivel 2",
+      "title": "Cargadores que instalamos",
+      "subtitle": "Tesla, Emporia, ChargePoint, Mercedes-Benz, Wallbox y SolarEdge — adaptados a su panel y configuración de estacionamiento.",
+      "quoteThis": "Cotizar este cargador"
+    },
+    "included": {
+      "eyebrow": "Llave en mano",
+      "title": "Qué incluye",
+      "i1": "Instalación de Nivel 2 cableada o enchufable",
+      "i2": "Hasta 40 millas de autonomía por hora",
+      "i3": "Canalización limpia y gestión de cables",
+      "i4": "Circuito dedicado de 240V y dimensionamiento del interruptor",
+      "i5": "Evaluación del panel y cálculo de carga",
+      "i6": "Permisos, inspección y cumplimiento del código"
+    },
+    "steps": {
+      "eyebrow": "Proceso",
+      "title": "De la cotización al enchufe",
+      "s1": { "title": "Cotización", "desc": "Comparta su panel, lugar de estacionamiento y preferencia de cargador." },
+      "s2": { "title": "Visita al sitio", "desc": "Confirmamos canalización, carga y compatibilidad del hardware." },
+      "s3": { "title": "Instalación", "desc": "Electricistas C10 cablean, montan y prueban." },
+      "s4": { "title": "Entrega", "desc": "Permisos cerrados — enchufe y listo." }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "q1": { "q": "¿Cuánto tiempo toma la instalación?", "a": "La mayoría de las instalaciones de Nivel 2 se completan en un día. Trabajos complejos de panel o canalización pueden tomar dos — cotizamos de antemano." },
+      "q2": { "q": "¿Necesito actualizar el panel?", "a": "No siempre. Evaluamos la carga en el sitio. Si hay capacidad, agregamos un circuito dedicado. Si no, cotizamos una actualización." },
+      "q3": { "q": "¿Pueden instalar mi propio cargador?", "a": "Sí — cuando el hardware tiene certificación UL y es compatible. También suministramos e instalamos marcas líderes." }
+    },
+    "cta": {
+      "title": "¿Listo para cargar en casa?",
+      "desc": "Estimación gratuita — generalmente en un día hábil.",
+      "getQuote": "Obtener cotización",
+      "contact": "Contacto"
+    }
+  },
+  "biDirectional": {
+    "hero": {
+      "badge": "Listo para V2H",
+      "level2Link": "Carga Nivel 2 →",
+      "title": "Carga",
+      "titleAccent": "bidireccional",
+      "subtitle": "Alimente su hogar desde su entrada. Electricistas con licencia C10 instalan hardware vehículo-a-hogar para configuraciones compatibles de Tesla y GM.",
+      "getQuote": "Obtener cotización",
+      "seeHardware": "Ver hardware",
+      "overlay": "V2H · Respaldo desde su VE",
+      "imageAlt": "Cargador de VE bidireccional"
+    },
+    "metrics": {
+      "m1": { "value": "V2H", "label": "Vehículo a hogar" },
+      "m2": { "value": "Tesla", "label": "y GM hoy" },
+      "m3": { "value": "C10", "label": "Instalación con licencia" },
+      "m4": { "value": "24hr", "label": "Respuesta de cotización" }
+    },
+    "valueProps": {
+      "v1": { "title": "Respaldo del hogar", "desc": "Mantenga lo esencial funcionando cuando falla la red." },
+      "v2": { "title": "Energía bidireccional", "desc": "Cargue desde la red — descargue a su hogar cuando sea compatible." },
+      "v3": { "title": "Con licencia y permisos", "desc": "Electricistas C10, cálculos de carga y coordinación con la compañía eléctrica." }
+    },
+    "explainer": {
+      "eyebrow": "En palabras simples",
+      "title": "¿Qué es vehículo-a-hogar (V2H)?",
+      "intro": "Su VE ya es una batería grande. La carga bidireccional permite que esa batería ayude a alimentar su hogar — no solo recibir carga. Con la red activa, carga como siempre. Cuando la red falla (y su configuración lo soporta), la energía almacenada puede volver a fluir para mantener luces, refrigerador, Wi‑Fi y otros circuitos esenciales.",
+      "compare": {
+        "normalTitle": "Carga normal",
+        "normalDesc": "La electricidad fluye en una dirección: red → panel eléctrico → cargador → batería del vehículo.",
+        "v2hTitle": "Vehículo-a-hogar (V2H)",
+        "v2hDesc": "Durante un corte, los sistemas compatibles pueden invertir el flujo: batería del vehículo → cargador → circuitos domésticos seleccionados — aislados de forma segura de la red."
+      },
+      "stepsTitle": "Qué ocurre en un corte",
+      "steps": {
+        "s1": { "title": "La red falla", "desc": "Una tormenta, problema de la compañía eléctrica o apagón programado corta la energía en su vecindario." },
+        "s2": { "title": "El sistema lo detecta", "desc": "Un Powershare Gateway u equipo de transferencia similar detecta el corte y desconecta su hogar de la red para que la energía no retroalimente las líneas de la compañía." },
+        "s3": { "title": "Su VE suministra respaldo", "desc": "La energía fluye desde su vehículo conectado a través de un cargador bidireccional hacia los circuitos planificados para respaldo — a menudo en aproximadamente un minuto, sin ruido ni humos de generador." },
+        "s4": { "title": "La red vuelve — se reanuda la carga", "desc": "Cuando se restablece la energía de la compañía, el sistema vuelve automáticamente al modo normal y continúa la carga habitual." }
+      },
+      "powershareTitle": "Tesla Powershare — cómo Tesla describe V2H",
+      "powershareBody": "La tecnología Powershare de Tesla es su solución vehículo-a-hogar. En un Cybertruck completamente cargado, Tesla indica que Powershare Home Backup puede entregar unos 11.5 kW de potencia continua — suficiente para que muchos hogares mantengan lo esencial durante tres días o más, según lo que alimente y el nivel de batería. Los hogares sin Powerwall suelen necesitar un Tesla Universal Wall Connector más un Powershare Gateway. Los hogares con Powerwall pueden usar otra ruta; Tesla sigue ampliando la compatibilidad de software y hardware — confirmamos qué funciona en su propiedad en el sitio.",
+      "stats": {
+        "st1": { "value": "11.5 kW", "label": "Respaldo continuo (Cybertruck, según Tesla)" },
+        "st2": { "value": "3+ días", "label": "Esenciales típicos con carga completa" },
+        "st3": { "value": "~1 min", "label": "Conmutación automática en corte" }
+      },
+      "needsTitle": "Lo que normalmente necesita",
+      "needs": {
+        "n1": "Un vehículo eléctrico compatible con bidireccional (modelo, versión y software importan)",
+        "n2": "Un cargador doméstico compatible — p. ej. Tesla Universal Wall Connector para configuraciones Powershare",
+        "n3": "Gateway o equipo de transferencia para entregar el respaldo de forma segura",
+        "n4": "Instalación C-10 con licencia, permisos, planificación de carga y coordinación con la compañía eléctrica — gestionado por evNation"
+      },
+      "note": "V2H está pensado para respaldo en cortes — no para arbitraje energético diario salvo que su programa de la compañía eléctrica lo permita explícitamente. El tiempo de respaldo depende de la carga del vehículo, las cargas que use y el diseño de la instalación. Tesla, Powershare, Powerwall y Cybertruck son marcas de Tesla, Inc. evNation es un instalador independiente y no está afiliado a Tesla."
+    },
+    "chargers": {
+      "eyebrow": "Hardware",
+      "title": "Cargadores bidireccionales que instalamos",
+      "subtitle": "Tesla y GM hoy — adaptados a su vehículo, panel y objetivos de respaldo.",
+      "quoteThis": "Cotizar esta configuración",
+      "disclaimer": "V2H depende del vehículo, hardware y compañía eléctrica — confirmado en la visita al sitio."
+    },
+    "included": {
+      "eyebrow": "Llave en mano",
+      "title": "Qué incluye",
+      "i1": "Evaluación e instalación de hardware de cargador bidireccional",
+      "i2": "Respaldo vehículo-a-hogar cuando el vehículo y la compañía eléctrica lo permiten",
+      "i3": "Estudio de carga del panel y cableado conforme al código",
+      "i4": "Interconexión con la compañía eléctrica y coordinación de permisos",
+      "i5": "Integración con Powerwall en configuraciones compatibles de Tesla",
+      "i6": "Puesta en marcha, pruebas y recorrido con el propietario"
+    },
+    "steps": {
+      "eyebrow": "Proceso",
+      "title": "De la cotización al respaldo listo",
+      "s1": { "title": "Cotización", "desc": "Comparta su vehículo, panel y objetivos de respaldo." },
+      "s2": { "title": "Verificación de elegibilidad", "desc": "Confirmamos hardware V2H, modelo de vehículo y reglas de la compañía eléctrica." },
+      "s3": { "title": "Instalación", "desc": "Electricistas con licencia montan, cablean y prueban el hardware bidireccional." },
+      "s4": { "title": "Entrega", "desc": "Configuración de la app, modos de respaldo explicados — listo cuando falla la red." }
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "q1": { "q": "¿Qué es la carga bidireccional (V2H)?", "a": "La carga bidireccional permite que un VE compatible envíe energía de vuelta a su hogar durante cortes o ventanas de tarifa pico — cuando su vehículo, cargador y programa de la compañía eléctrica lo soportan." },
+      "q2": { "q": "¿Qué marcas instalan hoy?", "a": "Instalamos configuraciones de Tesla Wall Connector integradas con Powerwall, y hardware GM Ultium listo para V2H. Se agregan más marcas a medida que estén disponibles en nuestras áreas de servicio." },
+      "q3": { "q": "¿Necesito Powerwall para V2H?", "a": "No siempre. Los requisitos varían según la marca y el vehículo. V2H de Tesla a menudo se combina con Powerwall; GM Ultium tiene su propia ruta de hardware. Confirmamos el alcance en el sitio." },
+      "q4": { "q": "¿Mi compañía eléctrica permitirá vehículo-a-hogar?", "a": "Las reglas de las compañías eléctricas varían. Verificamos los requisitos de interconexión durante la evaluación del sitio y gestionamos la documentación cuando sea necesario." },
+      "q5": { "q": "¿En qué se diferencia de un generador o solo Powerwall?", "a": "Un generador necesita combustible y mantenimiento. Powerwall es almacenamiento fijo en el hogar. V2H usa la batería grande que ya tiene en su entrada — la carga como siempre y la usa cuando falla la red. Algunos hogares combinan Powerwall más V2H para un respaldo total más largo. Diseñamos según sus objetivos y presupuesto." }
+    },
+    "cta": {
+      "title": "¿Listo para vehículo-a-hogar?",
+      "desc": "Estimación gratuita — confirmamos la elegibilidad V2H en el sitio.",
+      "getQuote": "Obtener cotización",
+      "contact": "Contacto"
+    }
+  },
+  "panelUpgrade": {
+    "hero": {
+      "badge": "Actualización eléctrica",
+      "title": "Actualización de panel",
+      "description": "Los paneles antiguos a menudo no pueden soportar de forma segura un cargador de VE junto con las cargas existentes — especialmente cuando ya hay solar conectado. Actualizamos a servicio de 200A para carga, almacenamiento y futura electrificación.",
+      "getQuote": "Obtener su cotización",
+      "imageAlt": "Electricista con licencia actualizando un panel eléctrico residencial"
+    },
+    "programs": {
+      "eyebrow": "Programas y financiamiento",
+      "title": "Financiamiento GoGreen — pueden aplicar reembolsos",
+      "intro": "La actualización del panel suele ser el primer paso antes de carga EV, solar o batería. Dimensionamos su servicio, gestionamos permisos y la utility, y le ayudamos a explorar programas que pueden reducir el costo.",
+      "stat1Value": "Hasta $4,200",
+      "stat1Label": "Apoyo para actualización de panel",
+      "stat1Desc": "Reciba hasta $4,200 para actualizar el panel eléctrico de su hogar si califica en programas de energía verde disponibles.",
+      "stat2Value": "GoGreen",
+      "stat2Label": "Financing",
+      "stat2Desc": "Financiamiento fácil de calificar con aprobación instantánea — verificación de crédito suave sin afectar su puntaje.",
+      "stat3Value": "Rebate",
+      "stat3Label": "Programas estatales de energía",
+      "stat3Desc": "Le ayudamos a determinar si su propiedad califica para incentivos locales o estatales y opciones relacionadas con HEA.",
+      "note": "La elegibilidad para reembolsos y financiamiento varía según la propiedad, territorio de la utility y disponibilidad del programa — confirmado en la visita al sitio."
+    },
+    "beforeAfter": {
+      "eyebrow": "Ejemplo de instalación real",
+      "title": "Antes y después",
+      "dragHint": "Comparación lado a lado · medidor y principal · Costa Mesa, CA",
+      "meterMain": "Medidor y principal",
+      "breakerPanel": "Panel de interruptores",
+      "galleryLink": "Detalles completos del proyecto en nuestra",
+      "gallery": "galería"
+    },
+    "whyUpgrade": {
+      "eyebrow": "¿Por qué actualizar?",
+      "title": "Cuando su panel lo está limitando",
+      "intro": "Un cargador Level 2, solar, batería o bomba de calor necesitan capacidad dedicada. Si el servicio es insuficiente o no hay espacio en el panel, agregar carga de forma segura comienza con una actualización de panel y servicio.",
+      "reasonsTitle": "Señales de que puede necesitar una actualización",
+      "reasons": {
+        "r1": "Los interruptores saltan cuando el cargador EV, el A/C y la cocina funcionan juntos",
+        "r2": "No hay espacio para un circuito EV de 40A–50A — o el panel ya está al límite",
+        "r3": "Hay solar conectado pero poco margen para un cargador o respaldo con batería",
+        "r4": "La vivienda aún tiene servicio de 100A, paneles con fusibles o equipo obsoleto que no pasa inspección"
+      },
+      "benefitsTitle": "Lo que gana",
+      "benefits": {
+        "b1": "Servicio de 200A con espacio ordenado para carga EV — sin cortes constantes",
+        "b2": "Instalación conforme al código con permisos, etiquetado y coordinación con la utility",
+        "b3": "Capacidad preparada para Powerwall, más solar, bombas de calor e inducción",
+        "b4": "Un panel más seguro y organizado — mejor valor de reventa y tranquilidad con seguros"
+      }
+    },
+    "features": {
+      "title": "Qué incluye",
+      "f1": "Reemplazo o actualización completa del panel eléctrico",
+      "f2": "Actualización de servicio a 200A para demandas modernas de energía",
+      "f3": "Asignación de espacio para interruptor listo para VE",
+      "f4": "Instalación conforme al código con permiso",
+      "f5": "Preparado para solar, batería y bomba de calor",
+      "f6": "Coordinación con la compañía eléctrica si es necesario"
+    }
+  },
+  "solar": {
+    "eyebrow": "Solar del sur de California",
+    "title": "Solar que alimenta",
+    "highlight": "su VE y su hogar",
+    "description": "Combine solar con su cargador de VE para facturas más bajas y millas más limpias. Diseñamos sistemas dimensionados para techos del sur de California — desde la costa de Newport Beach hasta el interior de Riverside.",
+    "tagline": "Consulta → Diseño → Permiso → Instalación → Activación",
+    "imageAlt": "Paneles solares residenciales en un hogar del sur de California",
+    "primaryCta": "Crear su cotización",
+    "secondaryCta": "Programar evaluación",
+    "stats": {
+      "s1": { "value": "30%", "label": "Reducción prom. de factura" },
+      "s2": { "value": "25 yr", "label": "Garantía de paneles" },
+      "s3": { "value": "CA", "label": "Expertos en incentivos" }
+    },
+    "features": {
+      "f1": "Evaluación del sitio y análisis de sombra",
+      "f2": "Soporte de permisos e interconexión con la compañía eléctrica",
+      "f3": "Opciones de paneles premium (REC, Qcells, etc.)",
+      "f4": "Configuraciones de inversor listas para batería",
+      "f5": "Configuración de app de monitoreo y recorrido",
+      "f6": "Orientación sobre incentivos federales y de California"
+    },
+    "whySolar": {
+      "title": "¿Por qué solar + VE?",
+      "w1": { "title": "Cargue con el sol", "desc": "Compense los costos de carga con producción diurna." },
+      "w2": { "title": "Listo para batería", "desc": "Agregue almacenamiento cuando esté listo para energía de respaldo." },
+      "w3": { "title": "Sinergia con el panel", "desc": "Combine con actualizaciones de panel para electrificación completa." },
+      "w4": { "title": "Reembolsos y créditos", "desc": "ITC federal más programas específicos de California." }
+    }
+  },
+  "warranty": {
+    "badge": "Protección en la que puede confiar",
+    "title": "EVnation",
+    "highlight": "Garantía",
+    "description": "Cada instalación de EVnation está respaldada por una garantía de mano de obra y soporte dedicado. Protegemos su cargador, su batería y su tranquilidad mucho después del día de instalación.",
+    "tagline": "Respaldado a largo plazo",
+    "imageAlt": "Cargador de VE protegido por un escudo luminoso",
+    "stats": {
+      "s1": { "value": "Mano de obra", "label": "Garantizada" },
+      "s2": { "value": "Prioridad", "label": "Línea de soporte" },
+      "s3": { "value": "Certificado", "label": "Instalación con licencia" },
+      "s4": { "value": "Transferible", "label": "Agrega valor de reventa" }
+    },
+    "features": {
+      "f1": "Garantía de mano de obra en cada instalación que realizamos",
+      "f2": "Garantías del fabricante preservadas con instalación certificada",
+      "f3": "Visitas de servicio rápidas y sin complicaciones si algo requiere atención",
+      "f4": "Línea de soporte prioritaria para clientes con cobertura de garantía",
+      "f5": "Registros documentados de inspección y cumplimiento del código",
+      "f6": "Cobertura transferible que agrega valor cuando vende"
+    },
+    "tiers": {
+      "eyebrow": "Qué cubre",
+      "title": "Cobertura que lo respalda",
+      "t1": { "title": "Mano de obra", "desc": "Respaldamos nuestro trabajo. Si surge un problema de instalación, lo resolvemos — sin buscar culpables." },
+      "t2": { "title": "Partes y equipo", "desc": "La cobertura del fabricante se mantiene intacta porque el trabajo fue realizado por profesionales con licencia." },
+      "t3": { "title": "Soporte prioritario", "desc": "Los clientes cubiertos obtienen una línea dedicada y programación prioritaria." },
+      "t4": { "title": "Transferible", "desc": "La cobertura puede transferirse al próximo propietario, aumentando el atractivo de reventa." }
+    }
+  },
+  "battery": {
+    "hero": {
+      "pageTitle": "PowerWall y batería",
+      "badge": "Tesla · Destacado",
+      "from": "desde",
+      "title": "Tesla Powerwall",
+      "tagline": "Alimente todo",
+      "description": "Tesla Powerwall es nuestra batería doméstica más recomendada — respaldo de todo el hogar, uso inteligente de energía e instalación limpia todo en uno por los electricistas con licencia de evNation.",
+      "getQuote": "Obtener cotización",
+      "seeFeatures": "Ver características",
+      "otherBrands": "Otras marcas",
+      "overlay": "Tesla Powerwall · 13.5 kWh · Respaldo de todo el hogar",
+      "imageAlt": "Batería doméstica Tesla Powerwall",
+      "allBrandsLabel": "Todas las marcas que instalamos",
+      "specsLabel": "Especificaciones de Tesla Powerwall 3"
+    },
+    "metrics": {
+      "m1": { "value": "13.5", "unit": "kWh", "label": "Capacidad de energía" },
+      "m2": { "value": "11.5", "unit": "kW", "label": "Energía de respaldo" },
+      "m3": { "value": "97.5", "unit": "%", "label": "Eficiencia solar" },
+      "m4": { "value": "10", "unit": "yr", "label": "Garantía" }
+    },
+    "pillars": {
+      "title": "Por qué Tesla Powerwall",
+      "p1": { "label": "Más potencia", "desc": "Respaldo de todo el hogar en una sola unidad" },
+      "p2": { "label": "Más respaldo", "desc": "Energía casi instantánea cuando falla la red" },
+      "p3": { "label": "Más ahorro", "desc": "Almacene solar y desplace el uso fuera de tarifas pico" }
+    },
+    "stories": {
+      "title": "Diseñado para hogares reales",
+      "subtitle": "Cómo funciona Tesla Powerwall en el uso diario.",
+      "s1": { "index": "01", "title": "Cuando falla la red, usted sigue conectado", "body": "Powerwall 3 detecta cortes y cambia a respaldo en una fracción de segundo — manteniendo luces, HVAC, Wi‑Fi y su cargador de VE en línea.", "imageAlt": "Powerwall respaldando un hogar durante un corte" },
+      "s2": { "index": "02", "title": "Use energía cuando cuesta menos", "body": "Almacene energía solar o de la red en horas valle, luego descargue cuando las tarifas suben. Powerwall optimiza automáticamente según su uso y plan de la compañía eléctrica.", "imageAlt": "Hogar con solar y almacenamiento de energía Powerwall" },
+      "s3": { "index": "03", "title": "Una unidad. Todo incluido.", "body": "Batería, inversor, gestión del sitio e integración solar en un solo gabinete — menos cajas, menos cableado, instalación más rápida.", "imageAlt": "Gabinete de una sola unidad Tesla Powerwall" }
+    },
+    "sellingPoints": {
+      "sectionLabel": "Tesla Powerwall",
+      "title": "Explore Tesla Powerwall 3",
+      "subtitle": "Tesla Powerwall — respaldo de todo el hogar, uso inteligente de energía e integración con VE en una sola unidad.",
+      "sp1": { "title": "Respaldo de todo el hogar", "summary": "Un Powerwall 3 puede respaldar todo su hogar.", "b1": "Mantiene lo esencial — y su cargador de VE — funcionando durante cortes", "b2": "Cambio automático en una fracción de segundo", "b3": "Gabinete silencioso, clasificado para interior/exterior" },
+      "sp2": { "title": "Facturas de electricidad más bajas", "summary": "Use su energía de forma más inteligente, no más intensa.", "b1": "Almacena más producción solar para uso nocturno", "b2": "Optimiza carga y descarga según tarifas por horario de uso", "b3": "Ayuda a reducir el gasto mensual de servicios con el tiempo" },
+      "sp3": { "title": "Diseño totalmente integrado", "summary": "Batería, inversor, gestión del sitio y solar — en un solo sistema.", "b1": "Menos cajas en la pared y menos cableado", "b2": "Instalación más rápida y mantenimiento más simple", "b3": "Aspecto más limpio para garajes y montajes exteriores" },
+      "sp4": { "title": "Diseñado para condiciones reales", "summary": "Diseñado para rendir cuando el entorno se pone difícil.", "b1": "Tolerancia a calor y frío extremos", "b2": "Operación en alta humedad", "b3": "Resistencia a inundaciones hasta ~28 pulgadas de agua" },
+      "sp5": { "title": "Integración con carga de VE", "summary": "Parte del ecosistema de energía Tesla en el hogar.", "b1": "Carga de VE con solar cuando se combina con solar", "b2": "Capacidad de carga fuera de la red", "b3": "Funcionalidad Powershare para configuraciones compatibles" }
+    },
+    "evFeatures": {
+      "e1": { "title": "Carga de VE con solar", "desc": "Cargue su VE con solar almacenado en lugar de extraer de la red en tarifas pico." },
+      "e2": { "title": "Carga fuera de la red", "desc": "Mantenga la capacidad de carga cuando la energía de la compañía eléctrica no está disponible." },
+      "e3": { "title": "Powershare", "desc": "Comparta energía almacenada entre productos de energía Tesla compatibles en el hogar." }
+    },
+    "install": {
+      "eyebrow": "Instale con evNation",
+      "title": "De la cotización al encendido",
+      "subtitle": "Instalación con licencia C-10, permisos e inspección — Tesla Powerwall o sistemas GM, ATG y Enphase.",
+      "exampleLabel": "Ejemplo: instalación de Tesla Powerwall",
+      "includedEyebrow": "Llave en mano",
+      "includedTitle": "Qué incluye",
+      "i1": "Evaluación del sitio y dimensionamiento del sistema para su hogar",
+      "i2": "Instalación de Tesla Powerwall 3 por electricistas con licencia C-10",
+      "i3": "Permisos, interconexión con la compañía eléctrica y coordinación de inspección",
+      "i4": "Montaje limpio, etiquetado y acabado profesional",
+      "i5": "Recorrido de la app para monitoreo y configuración de respaldo",
+      "i6": "Emparejamiento opcional con cargador de VE y actualización de panel",
+      "startQuote": "Iniciar su cotización",
+      "howItWorks": "Cómo funciona",
+      "stepLabel": "Paso {n}",
+      "s1": { "title": "Visita al sitio", "desc": "Evaluamos su panel, objetivos de respaldo y la mejor ubicación de montaje." },
+      "s2": { "title": "Diseño y permisos", "desc": "Dimensionamiento del sistema, documentación con la compañía eléctrica y programación de inspección." },
+      "s3": { "title": "Día de instalación", "desc": "Electricistas con licencia — canalización limpia, etiquetado y pruebas." },
+      "s4": { "title": "Entrega", "desc": "Configuración de la app, ajustes de respaldo y soporte continuo de evNation." }
+    },
+    "otherBatteries": {
+      "eyebrow": "También disponible",
+      "title": "Más opciones de batería doméstica",
+      "subtitle": "Tesla Powerwall es nuestra principal recomendación — también instalamos GM, ATG y Enphase cuando son la mejor opción para su hogar.",
+      "photoSoon": "Foto próximamente",
+      "quoteBrand": "Cotizar {brand}"
+    },
+    "faq": {
+      "title": "Preguntas frecuentes",
+      "subtitle": "Tesla Powerwall e instalación de batería doméstica",
+      "q1": { "q": "¿Puede un Powerwall respaldar todo mi hogar?", "a": "Powerwall 3 está diseñado para que una sola unidad pueda proporcionar respaldo de todo el hogar en muchos hogares. El alcance final depende de sus cargas, panel y prioridades de respaldo — confirmamos en el sitio." },
+      "q2": { "q": "¿Necesito solar para obtener un Powerwall?", "a": "No. Powerwall funciona con o sin solar. Con solar, almacena más de lo que produce; sin él, aún puede desplazar energía de la red a horas de menor costo y mantener energía de respaldo." },
+      "q3": { "q": "¿En qué se diferencia evNation de un contratista general?", "a": "Somos electricistas con licencia enfocados en instalaciones de VE y energía doméstica — no manitas. Obtiene trabajo conforme al código, comunicación clara e instalaciones diseñadas para lucir bien." },
+      "q4": { "q": "¿Qué sucede durante un corte de la red?", "a": "Powerwall detecta el corte y cambia a energía de respaldo casi al instante — generalmente lo suficientemente rápido para que los electrónicos permanezcan encendidos sin interrupción." },
+      "q5": { "q": "¿Instalan otras marcas de batería además de Tesla?", "a": "Sí. También instalamos sistemas GM Ultium Home Energy, ATG y Enphase IQ Battery. Tesla Powerwall sigue siendo nuestra recomendación principal para respaldo de todo el hogar — le ayudamos a elegir la opción correcta en el sitio." }
+    },
+    "cta": {
+      "title": "Alimente su hogar con confianza",
+      "desc": "Cotización gratuita · Tesla Powerwall y opciones GM, ATG, Enphase · Instalación con licencia C10",
+      "getQuote": "Obtener cotización",
+      "contact": "Contacto",
+      "trademark": "Tesla, Powerwall y Tesla Energy son marcas registradas de Tesla, Inc. evNation es un instalador independiente y no está afiliado a Tesla, Inc."
+    }
+  },
+  "autoDealer": {
+    "hero": {
+      "eyebrow": "Para concesionarios de autos",
+      "title": "Socios para",
+      "titleAccent": "concesionarios",
+      "subtitle": "Ofrezca a cada comprador de VE una solución completa de carga en el hogar. Asóciese con evNation y convierta la ansiedad por la carga en una ventaja al cerrar la venta."
+    },
+    "benefits": {
+      "b1": { "title": "Carga doméstica llave en mano", "text": "Ofrezca a sus compradores de VE una instalación de cargador doméstico sin complicaciones como parte de la experiencia de compra." },
+      "b2": { "title": "Entrega con conserjería", "text": "Coordinamos directamente con sus clientes — programación, permisos e instalación — para que su equipo se enfoque en vender." },
+      "b3": { "title": "Impulse las ventas de VE", "text": "Elimine la ansiedad por autonomía y carga en el punto de venta y cierre más acuerdos de vehículos eléctricos." },
+      "b4": { "title": "Opciones co-branded", "text": "Programas de referidos personalizados y materiales co-branded que se adaptan a la marca de su concesionario." }
+    },
+    "steps": {
+      "title": "Cómo funciona la asociación",
+      "s1": { "step": "01", "title": "Incorporación del socio", "text": "Configuramos su concesionario con un flujo de referidos simple y un punto de contacto dedicado." },
+      "s2": { "step": "02", "title": "Referido del cliente", "text": "En el punto de venta, su equipo refiere a los compradores de VE a evNation para carga doméstica." },
+      "s3": { "step": "03", "title": "Nosotros nos encargamos del resto", "text": "Estimación, permisos, instalación con licencia e inspección — totalmente gestionado por nuestro equipo." },
+      "s4": { "step": "04", "title": "Propietario de VE satisfecho", "text": "Su cliente se va listo para cargar, con una excelente experiencia vinculada a su marca." }
+    },
+    "form": {
+      "title": "Conviértase en socio",
+      "dealership": "Nombre del concesionario",
+      "dealershipPlaceholder": "ABC Motors",
+      "contactName": "Nombre de contacto",
+      "contactPlaceholder": "Jane Doe",
+      "email": "Correo electrónico",
+      "emailPlaceholder": "jane@dealer.com",
+      "phone": "Teléfono",
+      "phonePlaceholder": "(555) 123-4567",
+      "submit": "Solicitar información de asociación",
+      "successTitle": "¡Gracias por contactarnos!",
+      "successDesc": "Nuestro equipo de asociaciones se comunicará con usted pronto para configurar su concesionario.",
+      "preferTalk": "¿Prefiere hablar? Envíe un correo a",
+      "orCall": "o llame al",
+      "contactLink": "contáctenos aquí"
+    }
+  },
+  "serviceAreas": {
+    "hero": {
+      "eyebrow": "Cobertura de servicio",
+      "title": "Instalación de cargadores de VE en",
+      "titleAccent": "el sur de California, el centro de California y Nevada",
+      "subtitle": "evNation proporciona instalación con licencia de cargadores de VE Nivel 2, actualizaciones de panel y solar en {counties} condados y más de {cities} ciudades — desde Orange County y Los Angeles hasta San Diego, San Luis Obispo, Clark County Nevada y Maricopa County Arizona.",
+      "getQuote": "Obtener cotización",
+      "contact": "Contáctenos"
+    }
+  },
+  "county": {
+    "backLink": "Todas las áreas de servicio",
+    "title": "Instalación de cargadores de VE en {county}, {state}",
+    "getQuote": "Obtener cotización gratuita",
+    "evServices": "Servicios de carga de VE",
+    "citiesHeading": "Ciudades que atendemos en {county}",
+    "citiesMeta": "{count} comunidades · Electricistas con licencia · Permisos e inspecciones gestionados",
+    "related": {
+      "ev": { "title": "Carga de VE residencial", "desc": "Instalación de cargador doméstico Nivel 2" },
+      "panel": { "title": "Actualizaciones de panel", "desc": "Servicio de 200A para carga segura" },
+      "solar": { "title": "Solar", "desc": "Alimente su cargador con el sol" }
+    }
+  },
+  "blog": {
+    "badge": "Diario de energía de {region}",
+    "title": "VE, solar y",
+    "titleAccent": "energía doméstica",
+    "subtitle": "Notas de campo, guías de reembolsos e información de instalación del equipo de evNation en nuestras áreas de servicio.",
+    "articlesMeta": "{count} artículos · Actualizado {date}",
+    "loading": "Cargando historias…",
+    "newPost": "Nueva publicación",
+    "manage": "Administrar",
+    "signOut": "Cerrar sesión",
+    "editorSignIn": "Inicio de sesión del editor",
+    "latestStories": "Últimas historias",
+    "emptyCategory": "Aún no hay artículos en esta categoría.",
+    "ctaTitle": "¿Listo para electrificarse?",
+    "ctaDesc": "Cree su cotización personalizada de instalación para carga de VE, solar o actualizaciones de panel en su área de servicio.",
+    "ctaButton": "Crear su cotización",
+    "editorTitle": "Editor del blog",
+    "close": "Cerrar",
+    "allCategory": "Todos"
+  },
+  "sitemap": {
+    "eyebrow": "Navegación",
+    "title": "Mapa del sitio",
+    "subtitle": "Todas las páginas del sitio de evNation, en un solo lugar.",
+    "groups": {
+      "main": "Principal",
+      "services": "Servicios",
+      "serviceAreas": "Áreas de servicio",
+      "company": "Empresa",
+      "internal": "Interno"
+    },
+    "links": {
+      "home": "Inicio",
+      "getQuote": "Obtener cotización",
+      "gallery": "Galería",
+      "contact": "Contacto",
+      "residentialEv": "Carga de VE residencial",
+      "biDirectional": "Carga bidireccional",
+      "solar": "Solar",
+      "panelUpgrades": "Actualizaciones de panel",
+      "commercial": "Comercial",
+      "battery": "Almacenamiento de batería",
+      "warranty": "Garantía",
+      "shop": "Todos los servicios",
+      "allServiceAreas": "Todas las áreas de servicio",
+      "orangeCounty": "Orange County, CA",
+      "losAngeles": "Los Angeles, CA",
+      "sanDiego": "San Diego, CA",
+      "clarkCounty": "Clark County, NV",
+      "sanLuisObispo": "San Luis Obispo, CA",
+      "about": "Acerca de",
+      "autoDealer": "Socios para concesionarios",
+      "blog": "Blog",
+      "customerIntake": "Registro de clientes",
+      "adminIntake": "Admin · Registro de clientes",
+      "siteMap": "Mapa del sitio"
+    },
+    "blogArticles": "Artículos del blog"
+  },
+  "projects": {
+    "heroEyebrow": "Archivo de campo · {count} instalaciones",
+    "heroTitle1": "ARCHIVO",
+    "heroTitle2": "DE INSTALACIONES",
+    "heroDesc": "Deslice el control en cada tarjeta para comparar antes y después. Las fotos reales del equipo se agregan cuando estén disponibles.",
+    "getSimilarQuote": "Obtener una cotización similar",
+    "index": "Índice",
+    "emptyCategory": "Aún no hay proyectos en esta categoría.",
+    "ctaTitle": "Su instalación podría ser la próxima.",
+    "startProject": "Iniciar su proyecto",
+    "serviceAreas": "Áreas de servicio",
+    "types": {
+      "all": "Todos los proyectos",
+      "ev": "Cargador de VE",
+      "panel": "Actualización de panel",
+      "solar": "Solar + VE",
+      "commercial": "Comercial"
+    }
+  },
+  "legal": {
+    "privacy": {
+      "eyebrow": "Legal",
+      "title": "Política de privacidad",
+      "lastUpdated": "June 2026",
+      "intro": "Su privacidad es importante para nosotros. Esta política explica qué información recopilamos, cómo la usamos y las opciones que tiene.",
+      "s1": { "heading": "1. Información que recopilamos", "p1": "Recopilamos la información que nos proporciona directamente, como su nombre, número de teléfono, correo electrónico, dirección del hogar, detalles del vehículo y preferencias de instalación cuando solicita una estimación, envía un formulario de registro de clientes o nos contacta.", "p2": "También podemos recopilar información técnica limitada automáticamente, como el tipo de navegador y las páginas visitadas, para mejorar la experiencia de nuestro sitio web." },
+      "s2": { "heading": "2. Cómo usamos su información", "p1": "Usamos su información para proporcionar estimaciones, programar y completar instalaciones, procesar solicitudes de financiamiento y reembolsos, comunicarnos con usted y mejorar nuestros servicios. Podemos compartir información con socios de instalación y financiamiento de confianza únicamente para cumplir con su solicitud." },
+      "s3": { "heading": "3. Cómo compartimos la información", "p1": "No vendemos su información personal. Compartimos datos solo con socios de servicio (como instaladores de solar, proveedores de financiamiento y programas de reembolso de compañías eléctricas) según sea necesario para entregar los servicios que solicita, o cuando lo exige la ley." },
+      "s4": { "heading": "4. Seguridad de datos", "p1": "Implementamos salvaguardas administrativas, técnicas y físicas razonables para proteger su información. Sin embargo, ningún método de transmisión o almacenamiento es completamente seguro, y no podemos garantizar seguridad absoluta." },
+      "s5": { "heading": "5. Sus opciones", "p1": "Puede solicitar acceso, corrección o eliminación de su información personal en cualquier momento contactándonos. También puede optar por no recibir comunicaciones de marketing siguiendo las instrucciones de cancelación de suscripción en nuestros correos electrónicos." },
+      "s6": { "heading": "6. Contáctenos", "p1": "Si tiene preguntas sobre esta Política de privacidad o cómo manejamos sus datos, contáctenos en GoGreen@evnation.us o al 866-913-6199." }
+    },
+    "terms": {
+      "eyebrow": "Legal",
+      "title": "Términos y condiciones",
+      "lastUpdated": "June 2026",
+      "intro": "Lea estos Términos y condiciones cuidadosamente antes de usar el sitio web de EVnation o contratar nuestros servicios.",
+      "s1": { "heading": "1. Aceptación de los términos", "p1": "Al acceder o usar el sitio web y los servicios de EVnation, usted acepta estar sujeto a estos Términos y condiciones y a todas las leyes y regulaciones aplicables. Si no está de acuerdo con alguna parte de estos términos, no podrá usar nuestros servicios." },
+      "s2": { "heading": "2. Servicios", "p1": "EVnation proporciona servicios de instalación de cargadores de VE y solar, estimaciones y consultas relacionadas como Contratista Eléctrico con licencia C10. Todas las estimaciones se proporcionan con fines informativos y el precio final está sujeto a una evaluación del sitio.", "p2": "Los plazos de programación, permisos e instalación pueden variar según los requisitos de la jurisdicción local, la coordinación con la compañía eléctrica y la disponibilidad de equipos." },
+      "s3": { "heading": "3. Estimaciones y financiamiento", "p1": "Las estimaciones de ahorro, información de créditos fiscales y términos de financiamiento (incluidas tasas anunciadas como 2.99%) son ilustrativas y dependen de la elegibilidad individual, aprobación de crédito y disponibilidad actual del programa. EVnation no garantiza resultados financieros específicos." },
+      "s4": { "heading": "4. Responsabilidades del cliente", "p1": "Los clientes son responsables de proporcionar información precisa sobre su propiedad, sistema eléctrico y vehículo, y de garantizar acceso seguro al área de instalación. La información inexacta puede afectar el precio y la programación." },
+      "s5": { "heading": "5. Limitación de responsabilidad", "p1": "En la máxima medida permitida por la ley, EVnation no será responsable de daños indirectos, incidentales o consecuentes derivados del uso de nuestro sitio web o servicios. Nuestra responsabilidad total no excederá el monto pagado por el servicio específico en cuestión." },
+      "s6": { "heading": "6. Cambios a estos términos", "p1": "EVnation se reserva el derecho de actualizar estos Términos y condiciones en cualquier momento. El uso continuado de nuestros servicios después de que se publiquen los cambios constituye la aceptación de los términos revisados." }
+    },
+    "disclaimer": {
+      "eyebrow": "Legal",
+      "title": "Aviso legal",
+      "lastUpdated": "June 2026",
+      "intro": "La información en este sitio web se proporciona con fines informativos generales. Lea este aviso legal antes de confiar en cualquier contenido o estimación.",
+      "s1": { "heading": "1. Información general", "p1": "El contenido en el sitio web de evNation — incluidos rangos de precios, estimaciones de ahorro y descripciones de productos — se proporciona solo como orientación general y puede no reflejar el alcance específico de su proyecto, códigos locales o requisitos de la compañía eléctrica." },
+      "s2": { "heading": "2. No es asesoramiento profesional", "p1": "Nada en este sitio constituye asesoramiento eléctrico, financiero, fiscal o legal. El diseño final del sistema, permisos y precios se determinan después de una evaluación del sitio con licencia por evNation o sus socios autorizados." },
+      "s3": { "heading": "3. Estimaciones e incentivos", "p1": "Las cotizaciones en línea y los resultados de calculadoras son solo estimaciones iniciales. Los créditos fiscales, reembolsos y ofertas de financiamiento dependen de la elegibilidad, disponibilidad del programa y aprobación de terceros. EVnation no garantiza ahorros específicos ni montos de incentivos." },
+      "s4": { "heading": "4. Marcas registradas y marcas", "p1": "Los nombres de productos y marcas (incluidos Tesla, Powerwall, ChargePoint, GM Ultium y otros) son marcas registradas de sus respectivos propietarios. evNation es un instalador independiente y no está afiliado ni respaldado por estas marcas a menos que se indique explícitamente." },
+      "s5": { "heading": "5. Enlaces externos", "p1": "Nuestro sitio web puede enlazar a sitios de terceros para reembolsos, compañías eléctricas o recursos de fabricantes. No somos responsables del contenido, precisión o prácticas de privacidad de sitios web externos." },
+      "s6": { "heading": "6. Contacto", "p1": "¿Preguntas sobre este aviso legal? Contáctenos en GoGreen@evnation.us o al 866-913-6199." }
+    },
+    "lastUpdatedLabel": "Última actualización: {date}",
+    "disclaimerFooter": "Esta página se proporciona con fines informativos generales y debe ser revisada por un asesor legal antes de su publicación.",
+    "disclaimerContact": "Para preguntas, contacte GoGreen@evnation.us."
+  },
+  "aiAssistant": {
+    "title": "Asistente EVnation",
+    "subtitle": "Carga de VE y electrificación del hogar",
+    "closeChat": "Cerrar chat",
+    "openAssistant": "Abrir asistente de IA",
+    "closeAssistant": "Cerrar asistente de IA",
+    "thinking": "Pensando…",
+    "sendMessage": "Enviar mensaje",
+    "placeholder": "Pregunte sobre carga de VE…",
+    "welcome": "¡Hola! Soy el asistente de EVnation. Pregúnteme sobre instalación de cargadores de VE, actualizaciones de panel, precios, reembolsos o cómo obtener una cotización — lo mantendré simple.",
+    "welcomeLink": "Obtener cotización",
+    "prompts": {
+      "p1": "¿Cuánto cuesta la instalación?",
+      "p2": "¿Necesito actualizar el panel?",
+      "p3": "¿Qué áreas atienden?",
+      "p4": "¿Cómo obtengo una cotización?"
+    }
+  }
+}

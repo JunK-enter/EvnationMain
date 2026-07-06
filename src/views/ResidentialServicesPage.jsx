@@ -21,15 +21,14 @@ export default function ResidentialServicesPage() {
       {
         title: t('servicesHub.residential.biDirectionalTitle'),
         desc: t('servicesHub.residential.biDirectionalDesc'),
-        img: '/images/chargers/tesla-wall-connector.png',
+        img: '/images/solutions/tesla-bidirectional-charging.png',
         to: '/bi-directional-charging',
         icon: ArrowLeftRight,
-        imgFit: 'contain',
       },
       {
         title: t('servicesHub.residential.panelTitle'),
         desc: t('servicesHub.residential.panelDesc'),
-        img: '/images/projects/costa-mesa-panel/after-interior.png',
+        img: '/images/solutions/panel-upgrade.jpg',
         to: '/panel-upgrades',
         icon: LayoutGrid,
       },
@@ -45,7 +44,7 @@ export default function ResidentialServicesPage() {
   )
 
   return (
-    <div className="pt-24 pb-20">
+    <div className="page-top page-bottom lg:pb-20">
       <section className="relative overflow-hidden">
         <div className="glow-orb w-[420px] h-[420px] bg-neon/8 top-[-10%] right-[-5%]" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">

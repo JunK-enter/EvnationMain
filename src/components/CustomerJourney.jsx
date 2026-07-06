@@ -9,19 +9,19 @@ import Reveal from '@/lib/Reveal'
 
 function MobileStepCard({ step, index, className = '' }) {
   return (
-    <Reveal delay={index * 0.08} y={16} className={`glass rounded-2xl p-5 sm:p-6 ${className}`}>
-      <div className="flex items-start gap-4">
-        <div className="shrink-0 flex flex-col items-center gap-2">
-          <span className="w-8 h-8 rounded-full bg-neon text-navy-950 text-sm font-bold flex items-center justify-center">
+    <Reveal delay={index * 0.08} y={16} className={`mobile-card glass rounded-xl sm:rounded-2xl p-3.5 sm:p-6 ${className}`}>
+      <div className="flex items-start gap-3 sm:gap-4">
+        <div className="shrink-0 flex flex-col items-center gap-1.5 sm:gap-2">
+          <span className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-neon text-navy-950 text-xs sm:text-sm font-bold flex items-center justify-center">
             {index + 1}
           </span>
-          <div className="w-12 h-12 rounded-xl bg-neon/10 border border-neon/15 flex items-center justify-center">
-            <step.icon className="w-6 h-6 text-neon" />
+          <div className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-neon/10 border border-neon/15 flex items-center justify-center">
+            <step.icon className="w-4 h-4 sm:w-6 sm:h-6 text-neon" />
           </div>
         </div>
         <div className="min-w-0 pt-0.5">
-          <h3 className="font-display font-semibold text-base sm:text-lg mb-2 leading-snug">{step.title}</h3>
-          <p className="text-sm text-slate-400 leading-relaxed">{step.desc}</p>
+          <h3 className="font-display font-semibold text-sm sm:text-lg mb-1 sm:mb-2 leading-snug">{step.title}</h3>
+          <p className="text-xs sm:text-sm text-slate-400 leading-relaxed">{step.desc}</p>
         </div>
       </div>
     </Reveal>

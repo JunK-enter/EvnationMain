@@ -12,6 +12,7 @@ import {
 import { useQuote } from '../context/QuoteContext'
 import { useNavLinks, isServiceNavActive } from '@/i18n/useNavLinks'
 import { useTranslation } from '@/i18n/LocaleProvider'
+import { useIsMobile } from '@/lib/useMediaQuery'
 import Logo from './Logo'
 import QuoteCartDrawer from './QuoteCartDrawer'
 import LanguageSwitcher from './LanguageSwitcher'
@@ -64,9 +65,9 @@ function NavDropdown({ label, children, align = 'left' }) {
   )
 }
 
-function NavLink({ to, label, icon: Icon, scrollTop = false }) {
+function NavLink({ to, label, icon: Icon, scrollTop = false, matchPrefix = false }) {
   const pathname = usePathname()
-  const active = pathname === to
+  const active = matchPrefix ? pathname.startsWith(to) : pathname === to
 
   return (
     <Link
@@ -92,9 +93,9 @@ function NavLink({ to, label, icon: Icon, scrollTop = false }) {
 }
 
 export default function Navbar() {
+  const isMobile = useIsMobile()
   const [mobileOpen, setMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
-  const [servicesOpen, setServicesOpen] = useState(false)
   const [cartOpen, setCartOpen] = useState(false)
   const pathname = usePathname()
   const { cart } = useQuote()
@@ -125,32 +126,25 @@ export default function Navbar() {
 
   useEffect(() => {
     setMobileOpen(false)
-    setServicesOpen(false)
     setCartOpen(false)
   }, [pathname])
-
-  useEffect(() => {
-    if (mobileOpen) setServicesOpen(true)
-  }, [mobileOpen])
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? 'hidden' : ''
     return () => { document.body.style.overflow = '' }
   }, [mobileOpen])
 
-  const servicesActive = serviceLinks.some((l) => isServiceNavActive(pathname, l.to))
-
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 pt-[env(safe-area-inset-top,0px)] max-lg:bg-navy-950/95 max-lg:border-b max-lg:border-white/[0.06] ${
+        className={`fixed top-0 left-0 right-0 z-50 pt-[env(safe-area-inset-top,0px)] max-lg:bg-navy-950 max-lg:border-b max-lg:border-white/[0.06] ${
           scrolled
-            ? 'lg:bg-navy-950/92 lg:border-b lg:border-white/[0.06] lg:shadow-lg lg:shadow-black/20'
-            : 'lg:bg-transparent lg:border-b lg:border-transparent'
+            ? 'lg:transition-all lg:duration-300 lg:bg-navy-950/92 lg:border-b lg:border-white/[0.06] lg:shadow-lg lg:shadow-black/20'
+            : 'lg:transition-all lg:duration-300 lg:bg-transparent lg:border-b lg:border-transparent'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-5 lg:px-8">
-          <div className="flex items-center justify-between h-16 lg:h-[72px] gap-3">
+        <div className="max-w-[1400px] mx-auto px-3.5 sm:px-5 lg:px-8">
+          <div className="flex items-center justify-between h-[3.75rem] sm:h-16 lg:h-[72px] gap-2 sm:gap-3">
 
             {/* Logo */}
             <Link to="/" onClick={scrollToTop} className="group min-w-0 shrink">
@@ -187,7 +181,7 @@ export default function Navbar() {
                 </NavDropdown>
 
                 {mainLinks.map((link) => (
-                  <NavLink key={link.to} to={link.to} label={link.label} icon={link.icon} />
+                  <NavLink key={link.to} to={link.to} label={link.label} icon={link.icon} matchPrefix={link.matchPrefix} />
                 ))}
 
                 <NavDropdown label={t('nav.company')}>
@@ -285,75 +279,58 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 bg-black/75 lg:hidden"
+              transition={{ duration: isMobile ? 0.15 : 0.2 }}
+              className="fixed inset-0 z-40 bg-black/70 lg:hidden"
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: 'spring', stiffness: 320, damping: 32 }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-sm bg-navy-950 border-l border-white/10 lg:hidden overflow-y-auto scroll-touch pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
+              transition={isMobile ? { duration: 0.22, ease: [0.32, 0.72, 0, 1] } : { type: 'spring', stiffness: 320, damping: 32 }}
+              className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-[min(100%,20rem)] bg-navy-950 border-l border-white/10 lg:hidden overflow-y-auto scroll-touch pt-[env(safe-area-inset-top,0px)] pb-[env(safe-area-inset-bottom,0px)]"
             >
-              <div className="flex items-center justify-between p-5 border-b border-white/5">
+              <div className="flex items-center justify-between px-4 py-4 border-b border-white/5">
                 <Logo size="sm" />
-                <button type="button" onClick={() => setMobileOpen(false)} className="p-2 rounded-full hover:bg-white/5">
+                <button type="button" onClick={() => setMobileOpen(false)} className="p-2 rounded-full hover:bg-white/5 active:scale-95">
                   <X className="w-5 h-5" />
                 </button>
               </div>
 
-              <div className="p-5 space-y-6 pb-8">
+              <div className="px-4 py-4 space-y-5 pb-6">
                 <Link
                   to="/quote"
                   onClick={() => setMobileOpen(false)}
-                  className="flex items-center justify-between w-full px-4 py-3.5 rounded-2xl bg-neon text-navy-950 font-semibold"
+                  className="flex items-center justify-between w-full px-4 py-3 rounded-xl bg-neon text-navy-950 font-semibold text-sm active:scale-[0.98]"
                 >
                   {t('nav.getQuote')}
                   <ArrowRight className="w-4 h-4" />
                 </Link>
 
                 <div>
-                  <button
-                    type="button"
-                    onClick={() => setServicesOpen(!servicesOpen)}
-                    className={`flex items-center justify-between w-full px-1 mb-3 ${
-                      servicesActive ? 'text-neon' : 'text-slate-500'
-                    }`}
-                  >
-                    <p className="text-[11px] uppercase tracking-widest font-semibold">{t('nav.services')}</p>
-                    <ChevronDown className={`w-4 h-4 transition-transform ${servicesOpen ? 'rotate-180' : ''}`} />
-                  </button>
-                  <AnimatePresence initial={false}>
-                    {servicesOpen && (
-                      <motion.div
-                        initial={{ height: 0, opacity: 0 }}
-                        animate={{ height: 'auto', opacity: 1 }}
-                        exit={{ height: 0, opacity: 0 }}
-                        className="overflow-hidden"
+                  <p className="text-[10px] uppercase tracking-[0.18em] font-semibold text-slate-500 mb-2 px-1">
+                    {t('nav.services')}
+                  </p>
+                  <div className="space-y-0.5">
+                    {serviceLinks.map((link) => (
+                      <Link
+                        key={link.to}
+                        to={link.to}
+                        onClick={() => setMobileOpen(false)}
+                        className={`flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium active:scale-[0.99] ${
+                          isServiceNavActive(pathname, link.to) ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                        }`}
                       >
-                        <div className="space-y-1">
-                          {serviceLinks.map((link) => (
-                            <Link
-                              key={link.to}
-                              to={link.to}
-                              onClick={() => setMobileOpen(false)}
-                              className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
-                                isServiceNavActive(pathname, link.to) ? 'bg-neon/10 text-neon' : 'text-slate-300'
-                              }`}
-                            >
-                              <link.icon className="w-4 h-4 opacity-70 shrink-0" />
-                              <span>{link.label}</span>
-                            </Link>
-                          ))}
-                        </div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                        <link.icon className="w-4 h-4 opacity-70 shrink-0" />
+                        <span>{link.label}</span>
+                      </Link>
+                    ))}
+                  </div>
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">{t('nav.explore')}</p>
-                  <div className="space-y-1">
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500 mb-2 px-1">{t('nav.explore')}</p>
+                  <div className="space-y-0.5">
                     <Link
                       to="/"
                       onClick={() => { scrollToTop(); setMobileOpen(false) }}
@@ -369,7 +346,9 @@ export default function Navbar() {
                         to={link.to}
                         onClick={() => setMobileOpen(false)}
                         className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium ${
-                          pathname === link.to ? 'bg-neon/10 text-neon' : 'text-slate-300'
+                          (link.matchPrefix ? pathname.startsWith(link.to) : pathname === link.to)
+                            ? 'bg-neon/10 text-neon'
+                            : 'text-slate-300'
                         }`}
                       >
                         {link.icon && <link.icon className="w-4 h-4 opacity-70 shrink-0" />}
@@ -393,8 +372,8 @@ export default function Navbar() {
                 </div>
 
                 <div>
-                  <p className="text-[11px] uppercase tracking-widest text-slate-500 mb-3 px-1">{t('nav.company')}</p>
-                  <div className="space-y-1">
+                  <p className="text-[10px] uppercase tracking-[0.18em] text-slate-500 mb-2 px-1">{t('nav.company')}</p>
+                  <div className="space-y-0.5">
                     {companyLinks.map((link) => (
                       <Link
                         key={link.to}

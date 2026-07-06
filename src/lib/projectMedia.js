@@ -4,9 +4,9 @@ import { projects } from '@/data/projects'
 /** Stock imagery by project type until real photos are uploaded */
 export const PROJECT_STOCK_COVERS = {
   ev: '/images/solutions/residential-ev-charger.jpg',
-  panel: '/images/projects/costa-mesa-panel/after-interior.png',
+  panel: '/images/solutions/panel-upgrade.jpg',
   solar: '/images/projects/costa-mesa-panel/after-exterior.png',
-  commercial: '/images/solutions/commercial-ev-charger-768x308.jpg',
+  commercial: '/images/solutions/commercial-ev-charging.png',
 }
 
 export function enrichProjectMedia(project) {
