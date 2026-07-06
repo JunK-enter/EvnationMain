@@ -178,7 +178,7 @@ function GalleryCard({ photo, index, onOpen, compact, animate, t }) {
   )
 }
 
-function Lightbox({ photoId, onClose, onNavigate, compact, animate }) {
+function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
   const photos = useMemo(() => getGalleryByCategory('all'), [])
   const index = photos.findIndex((p) => p.id === photoId)
   const photo = photos[index]
@@ -316,7 +316,7 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate }) {
           {photo.categories.map((catId) => {
             const cat = GALLERY_CATEGORIES.find((c) => c.id === catId)
             if (!cat || catId === 'all') return null
-            const label = compact ? (MOBILE_CATEGORY_LABELS[catId] || cat.label) : cat.label
+            const label = compact ? getCategoryLabel(t, catId, true) : cat.label
             return (
               <span
                 key={catId}
@@ -446,7 +446,7 @@ export default function GalleryPage() {
               <HeroCopy isMobile={isMobile} t={t} />
             </motion.div>
           ) : (
-            <HeroCopy isMobile={isMobile} />
+            <HeroCopy isMobile={isMobile} t={t} />
           )}
         </div>
       </section>
@@ -533,6 +533,7 @@ export default function GalleryPage() {
             onNavigate={setLightboxId}
             compact={isMobile}
             animate={animate}
+            t={t}
           />
         )}
       </AnimatePresence>
