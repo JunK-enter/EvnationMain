@@ -2,6 +2,8 @@ import { siteConfig } from '@/lib/site'
 import { blogPosts } from '@/data/blogPosts'
 import { getAllCountySlugs } from '@/data/serviceAreasSeo'
 
+export const dynamic = 'force-static'
+
 const staticRoutes = [
   '',
   '/about',
