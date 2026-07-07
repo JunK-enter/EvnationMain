@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 .next
+out
+.static-build-skip
 *.local
 
 # Editor directories and files

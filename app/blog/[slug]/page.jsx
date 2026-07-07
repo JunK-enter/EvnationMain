@@ -2,8 +2,6 @@ import { pageMetadata } from '@/lib/site'
 import { blogPosts } from '@/data/blogPosts'
 import BlogPostPage from '@/views/BlogPostPage'
 
-export const dynamic = 'force-dynamic'
-
 export async function generateStaticParams() {
   return blogPosts.map((post) => ({ slug: post.slug }))
 }
