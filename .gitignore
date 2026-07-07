@@ -15,6 +15,10 @@ out
 .static-build-skip
 *.local
 
+# Large media — host externally (YouTube/CDN); IONOS has tight disk quota
+public/videos/*.mov
+public/videos/*.mp4
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json
