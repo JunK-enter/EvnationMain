@@ -58,6 +58,9 @@ export default function QuotePage() {
       submission.pipedriveLeadId = pipedrive.leadId
     } else if (!pipedrive.skipped) {
       console.warn('[quote] Pipedrive sync failed:', pipedrive.error)
+      submission.pipedriveError = pipedrive.error || 'Pipedrive sync failed'
+    } else {
+      submission.pipedriveSkipped = true
     }
 
     await sendNotificationEmail(submission)
