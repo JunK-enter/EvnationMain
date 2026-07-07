@@ -1,4 +1,5 @@
 import { getChatbotReply, getChatbotSystemPrompt } from '@/lib/chatbotEngine'
+import { jsonWithCors, optionsResponse } from '@/lib/apiCors'
 
 export const runtime = 'nodejs'
 
@@ -34,6 +35,10 @@ async function getOpenAIReply(messages, apiKey) {
   return { text, links: [{ label: 'Get a quote', href: '/quote' }] }
 }
 
+export async function OPTIONS(request) {
+  return optionsResponse(request)
+}
+
 export async function POST(request) {
   try {
     const body = await request.json()
@@ -41,23 +46,23 @@ export async function POST(request) {
     const lastUser = [...messages].reverse().find((m) => m.role === 'user' && m.content?.trim())
 
     if (!lastUser) {
-      return Response.json({ error: 'Message required' }, { status: 400 })
+      return jsonWithCors(request, { error: 'Message required' }, { status: 400 })
     }
 
     const apiKey = process.env.OPENAI_API_KEY
     if (apiKey) {
       try {
         const reply = await getOpenAIReply(messages, apiKey)
-        return Response.json({ reply, source: 'openai' })
+        return jsonWithCors(request, { reply, source: 'openai' })
       } catch (err) {
         console.error('[chat] OpenAI fallback:', err.message)
       }
     }
 
     const reply = getChatbotReply(lastUser.content)
-    return Response.json({ reply, source: 'local' })
+    return jsonWithCors(request, { reply, source: 'local' })
   } catch (err) {
     console.error('[chat]', err)
-    return Response.json({ error: 'Chat failed' }, { status: 500 })
+    return jsonWithCors(request, { error: 'Chat failed' }, { status: 500 })
   }
 }

@@ -1,6 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
+import { createPortal } from 'react-dom'
 import { motion, AnimatePresence } from 'framer-motion'
 import Link from '@/components/Link'
 import {
@@ -185,6 +186,11 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
   const hasPrev = index > 0
   const hasNext = index < photos.length - 1
   const touchStartX = useRef(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const goPrev = useCallback(() => {
     if (hasPrev) onNavigate(photos[index - 1].id)
@@ -221,7 +227,7 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
     else goNext()
   }
 
-  if (!photo) return null
+  if (!photo || !mounted) return null
 
   const accent = CATEGORY_ACCENT[photo.categories[0]] || CATEGORY_ACCENT.all
 
@@ -230,7 +236,7 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
       className={`relative w-full flex flex-col overflow-hidden bg-navy-950 ${
         compact
           ? 'h-[100dvh] max-h-[100dvh] rounded-none border-0'
-          : 'max-w-5xl max-h-[min(92vh,900px)] rounded-2xl border border-white/10 bg-navy-900 shadow-2xl'
+          : 'mx-auto max-w-5xl max-h-[min(92vh,900px)] rounded-2xl border border-white/10 bg-navy-900 shadow-2xl'
       }`}
     >
       <div
@@ -353,21 +359,17 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
     </div>
   )
 
-  if (!animate) {
-    return (
-      <div className="fixed inset-0 z-50 flex items-center justify-center" role="dialog" aria-modal="true" aria-label={photo.title}>
-        <button type="button" className="absolute inset-0 bg-navy-950/95" onClick={onClose} aria-label="Close gallery" />
-        <div className={`relative z-10 ${compact ? 'w-full h-full' : 'w-full p-4 sm:p-6'}`}>{panel}</div>
-      </div>
-    )
-  }
-
-  return (
+  const overlay = !animate ? (
+    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-6" role="dialog" aria-modal="true" aria-label={photo.title}>
+      <button type="button" className="absolute inset-0 bg-navy-950/95" onClick={onClose} aria-label="Close gallery" />
+      <div className={`relative z-10 w-full ${compact ? 'h-full max-w-none' : 'max-w-5xl mx-auto'}`}>{panel}</div>
+    </div>
+  ) : (
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className={`fixed inset-0 z-50 flex items-center justify-center ${compact ? '' : 'p-4 sm:p-6'}`}
+      className={`fixed inset-0 z-[100] flex items-center justify-center ${compact ? '' : 'p-4 sm:p-6'}`}
       role="dialog"
       aria-modal="true"
       aria-label={photo.title}
@@ -382,12 +384,14 @@ function Lightbox({ photoId, onClose, onNavigate, compact, animate, t }) {
         initial={compact ? { opacity: 0 } : { opacity: 0, y: 12, scale: 0.98 }}
         animate={compact ? { opacity: 1 } : { opacity: 1, y: 0, scale: 1 }}
         exit={compact ? { opacity: 0 } : { opacity: 0, y: 8, scale: 0.98 }}
-        className={`relative z-10 ${compact ? 'w-full h-full' : 'w-full'}`}
+        className={`relative z-10 w-full ${compact ? 'h-full max-w-none' : 'max-w-5xl mx-auto'}`}
       >
         {panel}
       </motion.div>
     </motion.div>
   )
+
+  return createPortal(overlay, document.body)
 }
 
 export default function GalleryPage() {

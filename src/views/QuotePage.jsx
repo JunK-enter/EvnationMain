@@ -5,7 +5,8 @@ import Link from '@/components/Link'
 import QuoteQuizFunnel from '@/components/QuoteQuizFunnel'
 import StatusTracker from '@/components/StatusTracker'
 import { useQuote } from '@/context/QuoteContext'
-import { createSubmission, sendNotificationEmail } from '@/services/api'
+import { createSubmission, sendNotificationEmail, patchSubmission } from '@/services/api'
+import { submitQuoteToPipedrive } from '@/services/quotePipedrive'
 import { getZoneStateCode, getZoneLabel } from '@/data/serviceZones'
 import { useQuoteQuizCopy } from '@/i18n/useQuoteQuizCopy'
 import { CheckCircle } from 'lucide-react'
@@ -46,6 +47,18 @@ export default function QuotePage() {
       },
       estimatedTotal: data.estimatedTotal,
     })
+
+    const pipedrive = await submitQuoteToPipedrive(submission)
+    if (pipedrive.ok && pipedrive.leadId) {
+      await patchSubmission(submission.id, {
+        pipedriveLeadId: pipedrive.leadId,
+        pipedrivePersonId: pipedrive.personId,
+        pipedriveSyncedAt: new Date().toISOString(),
+      })
+      submission.pipedriveLeadId = pipedrive.leadId
+    } else if (!pipedrive.skipped) {
+      console.warn('[quote] Pipedrive sync failed:', pipedrive.error)
+    }
 
     await sendNotificationEmail(submission)
     setSubmitted(submission)

@@ -6,6 +6,7 @@ import { usePathname } from 'next/navigation'
 import { Bot, Loader2, Send, Sparkles, X } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { getChatbotReply } from '@/lib/chatbotEngine'
+import { getPublicApiUrl } from '@/lib/publicApi'
 import { useIsMobile } from '@/lib/useMediaQuery'
 import { useAIAssistantCopy } from '@/i18n/hooks/useExtraPages'
 import { useTranslation } from '@/i18n/LocaleProvider'
@@ -93,7 +94,7 @@ export default function AIAssistant() {
       setLoading(true)
 
       try {
-        const res = await fetch('/api/chat', {
+        const res = await fetch(getPublicApiUrl('/api/chat'), {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({

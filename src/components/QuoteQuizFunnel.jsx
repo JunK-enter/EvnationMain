@@ -33,7 +33,7 @@ import {
 } from '@/data/quoteQuizSteps'
 import { useQuoteQuizCopy } from '@/i18n/useQuoteQuizCopy'
 import { useTranslation } from '@/i18n/LocaleProvider'
-import { DEFAULT_ZONE_ID, getZoneLabel } from '@/data/serviceZones'
+import { DEFAULT_ZONE_ID, getZoneLabel, getZoneStateCode } from '@/data/serviceZones'
 import { calculateQuizBaseEstimate, shouldSuggestPanelUpgrade } from '@/services/quoteCalculator'
 import { useQuote } from '@/context/QuoteContext'
 import { stats } from '@/data/localSeo'
@@ -60,6 +60,21 @@ const STEP_ICONS = {
 
 const inputClass =
   'mobile-input w-full bg-navy-900/80 border border-white/10 rounded-xl px-4 py-3.5 text-sm text-white placeholder:text-slate-600 focus:border-neon/40 focus:ring-2 focus:ring-neon/10 transition-all'
+
+function getStepValidationHint(stepId, answers) {
+  if (stepId === 'info') {
+    if (answers.fullName.trim().length <= 1) return 'Enter your full name to continue.'
+    if (answers.phone.trim().length < 7) return 'Enter a valid phone number to continue.'
+    if (!/\S+@\S+\.\S+/.test(answers.email)) return 'Enter a valid email address to continue.'
+  }
+  if (stepId === 'location') {
+    if (answers.street.trim().length <= 2) return 'Enter a street address to continue.'
+    if (answers.city.trim().length <= 1) return 'Enter a city to continue.'
+    if (answers.state.trim().length < 2) return 'Enter a 2-letter state code (e.g. CA).'
+    if (!/^\d{5}$/.test(answers.zip)) return 'Enter a 5-digit ZIP code to continue.'
+  }
+  return ''
+}
 
 const slide = {
   initial: { opacity: 0, y: 20 },
@@ -273,13 +288,14 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
     email: '',
     street: '',
     city: '',
-    state: 'CA',
+    state: getZoneStateCode(DEFAULT_ZONE_ID),
     zip: '',
     mainServiceAmps: '',
     breakerSize: '',
     panelLocation: '',
     notes: '',
   })
+  const [stepHint, setStepHint] = useState('')
 
   useEffect(() => {
     try {
@@ -331,6 +347,27 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
     })
   }, [answers, setAssessment])
 
+  useEffect(() => {
+    const zoneState = getZoneStateCode(answers.zone)
+    setAnswers((prev) => {
+      if ((prev.state || '').trim().length >= 2) return prev
+      return prev.state === zoneState ? prev : { ...prev, state: zoneState }
+    })
+  }, [answers.zone])
+
+  useEffect(() => {
+    if (step?.id !== 'location') return
+    const zoneState = getZoneStateCode(answers.zone)
+    setAnswers((prev) => {
+      if ((prev.state || '').trim().length >= 2) return prev
+      return prev.state === zoneState ? prev : { ...prev, state: zoneState }
+    })
+  }, [stepIndex, answers.zone, step?.id])
+
+  useEffect(() => {
+    setStepHint('')
+  }, [stepIndex])
+
   const setField = useCallback((field, value) => {
     setAnswers((prev) => ({ ...prev, [field]: value }))
   }, [])
@@ -367,8 +404,27 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
     }
   }, [step, answers])
 
+  const validationHint = useMemo(() => {
+    if (canContinue) return ''
+    const hint = getStepValidationHint(step?.id, answers)
+    if (!hint) return ''
+    if (step?.id === 'location') {
+      const started = answers.street.trim() || answers.city.trim() || answers.zip.trim() || answers.state.trim()
+      return started ? hint : ''
+    }
+    if (step?.id === 'info') {
+      const started = answers.fullName.trim() || answers.phone.trim() || answers.email.trim()
+      return started ? hint : ''
+    }
+    return ''
+  }, [canContinue, step?.id, answers])
+
   const goNext = () => {
-    if (!canContinue) return
+    if (!canContinue) {
+      setStepHint(getStepValidationHint(step?.id, answers))
+      return
+    }
+    setStepHint('')
     if (step.id === 'detail') {
       const { firstName, lastName } = parseFullName(answers.fullName)
       onSubmit?.({
@@ -581,7 +637,13 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                             <input
                               type="text"
                               value={answers.state}
-                              onChange={(e) => setField('state', e.target.value.toUpperCase().slice(0, 2))}
+                              onChange={(e) => setField('state', e.target.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 2))}
+                              onBlur={() => {
+                                const zoneState = getZoneStateCode(answers.zone)
+                                if ((answers.state || '').trim().length === 1 && zoneState.startsWith(answers.state)) {
+                                  setField('state', zoneState)
+                                }
+                              }}
                               placeholder="CA"
                               className={inputClass}
                               maxLength={2}
@@ -652,6 +714,11 @@ export default function QuoteQuizFunnel({ onSubmit, submitting = false }) {
                     )}
 
                     {/* Footer */}
+                    {(stepHint || validationHint) && (
+                      <p className="mt-6 text-sm text-amber-300/90 text-center" role="alert">
+                        {stepHint || validationHint}
+                      </p>
+                    )}
                     <div className="flex items-center gap-3 mt-10 pt-6 border-t border-white/[0.06]">
                       <button
                         type="button"
