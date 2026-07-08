@@ -560,18 +560,22 @@ export function useLegalCopy(type) {
   const { t } = useTranslation()
   return useMemo(() => {
     const base = `legal.${type}`
+    const sectionKeys = type === 'terms'
+      ? ['s1', 's2', 's3', 's4', 's5', 's6', 's7']
+      : ['s1', 's2', 's3', 's4', 's5', 's6']
     return {
       eyebrow: t(`${base}.eyebrow`),
       title: t(`${base}.title`),
       lastUpdated: t(`${base}.lastUpdated`),
       intro: t(`${base}.intro`),
-      sections: ['s1', 's2', 's3', 's4', 's5', 's6'].map((k) => {
+      sections: sectionKeys.map((k) => {
         const heading = t(`${base}.${k}.heading`)
         const paragraphs = []
-        const p1 = t(`${base}.${k}.p1`)
-        if (p1 && !p1.startsWith('legal.')) paragraphs.push(p1)
-        const p2 = t(`${base}.${k}.p2`)
-        if (p2 && !p2.startsWith('legal.')) paragraphs.push(p2)
+        for (let i = 1; i <= 6; i += 1) {
+          const p = t(`${base}.${k}.p${i}`)
+          if (!p || p.startsWith('legal.')) break
+          paragraphs.push(p)
+        }
         return { heading, paragraphs }
       }),
       disclaimer: t('legal.disclaimerFooter'),
