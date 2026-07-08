@@ -21,6 +21,8 @@ const staticRoutes = [
   '/battery',
   '/warranty',
   '/auto-dealer',
+  '/privacy',
+  '/terms',
   '/sitemap',
 ]
 

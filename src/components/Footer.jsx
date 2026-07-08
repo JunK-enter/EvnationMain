@@ -105,9 +105,20 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/[0.04] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4 text-[10px] sm:text-xs text-slate-500">
-          <p>{headings.copyright}</p>
-          <p>{headings.license}</p>
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-white/[0.04] flex flex-col gap-3 sm:gap-4 text-[10px] sm:text-xs text-slate-500">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link href="/privacy" className="hover:text-neon transition-colors">
+              {t('legal.privacyTitle')}
+            </Link>
+            <span aria-hidden="true" className="text-slate-600">·</span>
+            <Link href="/terms" className="hover:text-neon transition-colors">
+              {t('legal.termsTitle')}
+            </Link>
+          </div>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-4">
+            <p>{headings.copyright}</p>
+            <p>{headings.license}</p>
+          </div>
         </div>
       </div>
     </footer>
