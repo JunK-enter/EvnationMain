@@ -1,0 +1,18 @@
+# Next.js static export on Apache (IONOS Deploy Now)
+Options -MultiViews
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # /service-areas/ etc. — folder exists but no index.html; serve sibling *.html
+  RewriteCond %{REQUEST_URI} ^/(.+)/$
+  RewriteCond %{DOCUMENT_ROOT}/%1/index.html !-f
+  RewriteCond %{DOCUMENT_ROOT}/%1.html -f
+  RewriteRule ^(.+)/$ /$1.html [L]
+
+  # Extensionless paths → *.html
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
+  RewriteRule ^(.+)$ $1.html [L]
+</IfModule>
