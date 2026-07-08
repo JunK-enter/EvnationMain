@@ -1,4 +1,4 @@
-import { complexityLevels } from '../data/services'
+import { complexityLevels, PRICING } from '../data/services'
 import { DEFAULT_ZONE_ID, getMasterZoneKey } from '../data/serviceZones'
 import {
   formatFromPrice,
@@ -185,26 +185,30 @@ export function calculateQuote({
   }
 }
 
-/** Quiz funnel — base starting price only (no cable run, permits, or add-ons) */
+/** Quiz funnel — published starting prices (matches All Services / shop) */
 const QUIZ_CUSTOM_ESTIMATE = new Set(['multifamily', 'commercial-project'])
 
-const QUIZ_SERVICE_LINE_ITEM = {
+const QUIZ_STARTING_BY_SERVICE = {
+  'ev-charger': PRICING.l2Charger.starting,
+  'nema-outlet': PRICING.l2Charger.starting,
+  'panel-upgrade': PRICING.panelUpgrade.starting,
+  'ev-panel': PRICING.l2Charger.starting + PRICING.panelUpgrade.starting,
+  'charger-swap': PRICING.l2Charger.starting,
+  'tesla-powerwall': PRICING.teslaPowerwall.starting,
+  'not-sure': PRICING.l2Charger.starting,
+}
+
+const QUIZ_LINE_ITEM_LABEL = {
   'ev-charger': 'Base Installation',
   'nema-outlet': 'Base Installation',
   'panel-upgrade': 'Panel Upgrade',
-  'ev-panel': 'Base Installation',
+  'ev-panel': 'Install + panel upgrade',
   'charger-swap': 'Base Installation',
   'tesla-powerwall': 'Tesla Powerwall',
   'not-sure': 'Base Installation',
 }
 
-const QUIZ_LINE_FALLBACK = {
-  'Base Installation': { low: 575, high: 575 },
-  'Panel Upgrade': { low: 3500, high: 4500 },
-  'Tesla Powerwall': { low: 9995, high: 9995 },
-}
-
-export function calculateQuizBaseEstimate(zoneId, serviceNeedId) {
+export function calculateQuizBaseEstimate(_zoneId, serviceNeedId) {
   if (QUIZ_CUSTOM_ESTIMATE.has(serviceNeedId)) {
     return {
       lineItem: 'Custom scope',
@@ -214,23 +218,11 @@ export function calculateQuizBaseEstimate(zoneId, serviceNeedId) {
     }
   }
 
-  if (serviceNeedId === 'ev-panel') {
-    const base = getRetailLineItem(zoneId, 'Base Installation') || QUIZ_LINE_FALLBACK['Base Installation']
-    const panel = getRetailLineItem(zoneId, 'Panel Upgrade') || QUIZ_LINE_FALLBACK['Panel Upgrade']
-    const from = { low: base.low + panel.low, high: base.high + panel.high }
-    return {
-      lineItem: 'Install + panel upgrade',
-      from,
-      display: formatFromPrice(from),
-      custom: false,
-    }
-  }
+  const amount = QUIZ_STARTING_BY_SERVICE[serviceNeedId] ?? PRICING.l2Charger.starting
+  const from = { low: amount, high: amount }
 
-  const lineItem = QUIZ_SERVICE_LINE_ITEM[serviceNeedId] || 'Base Installation'
-  const raw = getRetailLineItem(zoneId, lineItem) || QUIZ_LINE_FALLBACK[lineItem] || { low: 575, high: 575 }
-  const from = { low: Math.round(raw.low), high: Math.round(raw.high) }
   return {
-    lineItem,
+    lineItem: QUIZ_LINE_ITEM_LABEL[serviceNeedId] || 'Base Installation',
     from,
     display: formatFromPrice(from),
     custom: false,
