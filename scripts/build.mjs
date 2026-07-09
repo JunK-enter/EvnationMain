@@ -39,22 +39,6 @@ function restorePaths() {
   if (fs.existsSync(skipRoot)) fs.rmSync(skipRoot, { recursive: true, force: true })
 }
 
-/** Next export creates page.html plus page/ sub-routes — Apache 403s on /page/ without index.html */
-function fixStaticExportDirectoryIndexes(outDir) {
-  if (!fs.existsSync(outDir)) return
-  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith('.html')) continue
-    const base = entry.name.slice(0, -5)
-    if (base === 'index' || base === '404') continue
-    const dirPath = path.join(outDir, base)
-    if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) continue
-    const indexPath = path.join(dirPath, 'index.html')
-    if (fs.existsSync(indexPath)) continue
-    fs.copyFileSync(path.join(outDir, entry.name), indexPath)
-    console.log(`[build] Added ${base}/index.html for Apache`)
-  }
-}
-
 /** Next RSC *.txt artifacts trigger Apache 300 Multiple Choices next to *.html */
 function pruneNextRscTxtFiles(outDir) {
   if (!fs.existsSync(outDir)) return
@@ -85,9 +69,7 @@ const env = {
 try {
   execSync('npx next build', { stdio: 'inherit', env, cwd: root })
   if (isStaticExport) {
-    const outDir = path.join(root, 'out')
-    fixStaticExportDirectoryIndexes(outDir)
-    pruneNextRscTxtFiles(outDir)
+    pruneNextRscTxtFiles(path.join(root, 'out'))
   }
 } finally {
   restorePaths()

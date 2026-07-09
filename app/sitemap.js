@@ -31,21 +31,21 @@ export default function sitemap() {
   const now = new Date()
 
   const pages = staticRoutes.map((path) => ({
-    url: `${base}${path}`,
+    url: path ? `${base}${path}/` : `${base}/`,
     lastModified: now,
     changeFrequency: path === '' || path === '/blog' ? 'weekly' : 'monthly',
     priority: path === '' ? 1 : path === '/quote' ? 0.9 : 0.7,
   }))
 
   const posts = blogPosts.map((post) => ({
-    url: `${base}/blog/${post.slug}`,
+    url: `${base}/blog/${post.slug}/`,
     lastModified: new Date(post.date),
     changeFrequency: 'monthly',
     priority: 0.6,
   }))
 
   const counties = getAllCountySlugs().map((slug) => ({
-    url: `${base}/service-areas/${slug}`,
+    url: `${base}/service-areas/${slug}/`,
     lastModified: now,
     changeFrequency: 'monthly',
     priority: 0.75,

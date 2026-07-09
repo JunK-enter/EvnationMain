@@ -1,18 +1,3 @@
-# Next.js static export on Apache (IONOS Deploy Now)
+# IONOS Apache — static export uses folder/index.html (trailingSlash build)
 Options -MultiViews -Indexes
-
-<IfModule mod_rewrite.c>
-  RewriteEngine On
-
-  # Prefer *.html over Next.js *.txt RSC artifacts (avoids 300 Multiple Choices)
-  RewriteCond %{REQUEST_FILENAME} !-f
-  RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteCond %{DOCUMENT_ROOT}%{REQUEST_URI}.html -f
-  RewriteRule ^(.+)$ $1.html [L]
-
-  # /service-areas/ etc. — folder exists but no index.html; serve sibling *.html
-  RewriteCond %{REQUEST_URI} ^/(.+)/$
-  RewriteCond %{DOCUMENT_ROOT}/%1/index.html !-f
-  RewriteCond %{DOCUMENT_ROOT}/%1.html -f
-  RewriteRule ^(.+)/$ /$1.html [L]
-</IfModule>
+DirectoryIndex index.html
