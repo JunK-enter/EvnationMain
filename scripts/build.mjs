@@ -39,6 +39,22 @@ function restorePaths() {
   if (fs.existsSync(skipRoot)) fs.rmSync(skipRoot, { recursive: true, force: true })
 }
 
+/** Next export creates page.html plus page/ sub-routes — Apache 403s on /page/ without index.html */
+function fixStaticExportDirectoryIndexes(outDir) {
+  if (!fs.existsSync(outDir)) return
+  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
+    if (!entry.isFile() || !entry.name.endsWith('.html')) continue
+    const base = entry.name.slice(0, -5)
+    if (base === 'index' || base === '404') continue
+    const dirPath = path.join(outDir, base)
+    if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) continue
+    const indexPath = path.join(dirPath, 'index.html')
+    if (fs.existsSync(indexPath)) continue
+    fs.copyFileSync(path.join(outDir, entry.name), indexPath)
+    console.log(`[build] Added ${base}/index.html for Apache`)
+  }
+}
+
 /** Next RSC *.txt artifacts trigger Apache 300 Multiple Choices next to *.html */
 function pruneNextRscTxtFiles(outDir) {
   if (!fs.existsSync(outDir)) return
@@ -59,41 +75,20 @@ function pruneNextRscTxtFiles(outDir) {
   if (removed) console.log(`[build] Removed ${removed} Next.js .txt artifacts for Apache`)
 }
 
-const IONOS_SKIP_DIRS = new Set(['_next', 'images', 'logos', 'videos', 'icons'])
+/** One-time IONOS manual cleanup after reverting trailingSlash deploys */
+function writeIonosCleanupNotes(outDir) {
+  const note = `IONOS one-time cleanup (File Manager / FTP)
+=====================================
+Delete these STALE files/folders left by older deploys if pages show 300 or redirect loops:
 
-/** Collect /path/ routes from folder/index.html export layout */
-function collectDirectoryRoutes(outDir, prefix = '') {
-  const routes = []
-  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
-    if (!entry.isDirectory() || IONOS_SKIP_DIRS.has(entry.name)) continue
-    const indexPath = path.join(outDir, entry.name, 'index.html')
-    if (!fs.existsSync(indexPath)) continue
-    const route = `${prefix}/${entry.name}/`.replace(/\/+/g, '/')
-    routes.push(route)
-    routes.push(...collectDirectoryRoutes(path.join(outDir, entry.name), `${prefix}/${entry.name}`.replace(/\/+/g, '/')))
-  }
-  return routes
-}
+1. All *.txt files in htdocs (e.g. about.txt, gallery.txt) — except robots.txt
+2. Empty or duplicate folders that mirror a .html file:
+   gallery/, residential/, about/, quote/, contact/, etc.
+   KEEP: service-areas/ (county pages live here), blog/, _next/, images/
 
-/**
- * IONOS rsync keeps stale page.html + page.txt from older deploys next to page/index.html.
- * mod_alias Redirect works even when mod_rewrite is ignored.
- */
-function writeIonosHtaccess(outDir) {
-  const templatePath = path.join(root, 'public', '.htaccess')
-  const base = fs.existsSync(templatePath) ? fs.readFileSync(templatePath, 'utf8').trim() : ''
-  const routes = collectDirectoryRoutes(outDir)
-  const lines = ['# Auto-generated — extensionless + legacy .html → trailing slash folders']
-  for (const route of routes) {
-    const bare = route.replace(/\/$/, '')
-    if (!bare) continue
-    lines.push(`Redirect 301 ${bare} ${route}`)
-    lines.push(`Redirect 301 ${bare}.html ${route}`)
-  }
-  lines.push('Redirect 301 /projects /gallery/')
-  lines.push('Redirect 301 /projects.html /gallery/')
-  fs.writeFileSync(path.join(outDir, '.htaccess'), `${base}\n\n${lines.join('\n')}\n`)
-  console.log(`[build] Wrote Apache redirects for ${routes.length} routes`)
+After cleanup, redeploy or hard-refresh. New builds only ship .html (no .txt).
+`
+  fs.writeFileSync(path.join(outDir, 'IONOS-CLEANUP-README.txt'), note)
 }
 
 if (isStaticExport) movePathsAside()
@@ -108,7 +103,8 @@ try {
   if (isStaticExport) {
     const outDir = path.join(root, 'out')
     pruneNextRscTxtFiles(outDir)
-    writeIonosHtaccess(outDir)
+    fixStaticExportDirectoryIndexes(outDir)
+    writeIonosCleanupNotes(outDir)
   }
 } finally {
   restorePaths()

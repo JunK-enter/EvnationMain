@@ -8,8 +8,7 @@ const staticExport = process.env.NEXT_STATIC_EXPORT === 'true'
   || (process.env.CI === 'true' && !process.env.VERCEL)
 
 const nextConfig = {
-  // IONOS Apache ignores most rewrite rules — folder/index.html is the reliable pattern.
-  ...(staticExport ? { output: 'export', trailingSlash: true } : {}),
+  ...(staticExport ? { output: 'export' } : {}),
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   images: {
