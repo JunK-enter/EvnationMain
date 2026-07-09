@@ -59,6 +59,43 @@ function pruneNextRscTxtFiles(outDir) {
   if (removed) console.log(`[build] Removed ${removed} Next.js .txt artifacts for Apache`)
 }
 
+const IONOS_SKIP_DIRS = new Set(['_next', 'images', 'logos', 'videos', 'icons'])
+
+/** Collect /path/ routes from folder/index.html export layout */
+function collectDirectoryRoutes(outDir, prefix = '') {
+  const routes = []
+  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
+    if (!entry.isDirectory() || IONOS_SKIP_DIRS.has(entry.name)) continue
+    const indexPath = path.join(outDir, entry.name, 'index.html')
+    if (!fs.existsSync(indexPath)) continue
+    const route = `${prefix}/${entry.name}/`.replace(/\/+/g, '/')
+    routes.push(route)
+    routes.push(...collectDirectoryRoutes(path.join(outDir, entry.name), `${prefix}/${entry.name}`.replace(/\/+/g, '/')))
+  }
+  return routes
+}
+
+/**
+ * IONOS rsync keeps stale page.html + page.txt from older deploys next to page/index.html.
+ * mod_alias Redirect works even when mod_rewrite is ignored.
+ */
+function writeIonosHtaccess(outDir) {
+  const templatePath = path.join(root, 'public', '.htaccess')
+  const base = fs.existsSync(templatePath) ? fs.readFileSync(templatePath, 'utf8').trim() : ''
+  const routes = collectDirectoryRoutes(outDir)
+  const lines = ['# Auto-generated — extensionless + legacy .html → trailing slash folders']
+  for (const route of routes) {
+    const bare = route.replace(/\/$/, '')
+    if (!bare) continue
+    lines.push(`Redirect 301 ${bare} ${route}`)
+    lines.push(`Redirect 301 ${bare}.html ${route}`)
+  }
+  lines.push('Redirect 301 /projects /gallery/')
+  lines.push('Redirect 301 /projects.html /gallery/')
+  fs.writeFileSync(path.join(outDir, '.htaccess'), `${base}\n\n${lines.join('\n')}\n`)
+  console.log(`[build] Wrote Apache redirects for ${routes.length} routes`)
+}
+
 if (isStaticExport) movePathsAside()
 
 const env = {
@@ -69,7 +106,9 @@ const env = {
 try {
   execSync('npx next build', { stdio: 'inherit', env, cwd: root })
   if (isStaticExport) {
-    pruneNextRscTxtFiles(path.join(root, 'out'))
+    const outDir = path.join(root, 'out')
+    pruneNextRscTxtFiles(outDir)
+    writeIonosHtaccess(outDir)
   }
 } finally {
   restorePaths()
