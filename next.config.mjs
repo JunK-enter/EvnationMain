@@ -5,7 +5,6 @@ import { legacyRedirects } from './src/data/redirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const staticExport = process.env.NEXT_STATIC_EXPORT === 'true'
-  || (process.env.CI === 'true' && !process.env.VERCEL)
 
 const nextConfig = {
   ...(staticExport ? { output: 'export' } : {}),

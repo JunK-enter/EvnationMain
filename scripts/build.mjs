@@ -39,58 +39,6 @@ function restorePaths() {
   if (fs.existsSync(skipRoot)) fs.rmSync(skipRoot, { recursive: true, force: true })
 }
 
-/** Next export creates page.html plus page/ sub-routes — Apache 403s on /page/ without index.html */
-function fixStaticExportDirectoryIndexes(outDir) {
-  if (!fs.existsSync(outDir)) return
-  for (const entry of fs.readdirSync(outDir, { withFileTypes: true })) {
-    if (!entry.isFile() || !entry.name.endsWith('.html')) continue
-    const base = entry.name.slice(0, -5)
-    if (base === 'index' || base === '404') continue
-    const dirPath = path.join(outDir, base)
-    if (!fs.existsSync(dirPath) || !fs.statSync(dirPath).isDirectory()) continue
-    const indexPath = path.join(dirPath, 'index.html')
-    if (fs.existsSync(indexPath)) continue
-    fs.copyFileSync(path.join(outDir, entry.name), indexPath)
-    console.log(`[build] Added ${base}/index.html for Apache`)
-  }
-}
-
-/** Next RSC *.txt artifacts trigger Apache 300 Multiple Choices next to *.html */
-function pruneNextRscTxtFiles(outDir) {
-  if (!fs.existsSync(outDir)) return
-  let removed = 0
-  const walk = (dir) => {
-    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
-      const full = path.join(dir, entry.name)
-      if (entry.isDirectory()) {
-        walk(full)
-        continue
-      }
-      if (!entry.name.endsWith('.txt')) continue
-      fs.rmSync(full, { force: true })
-      removed += 1
-    }
-  }
-  walk(outDir)
-  if (removed) console.log(`[build] Removed ${removed} Next.js .txt artifacts for Apache`)
-}
-
-/** One-time IONOS manual cleanup after reverting trailingSlash deploys */
-function writeIonosCleanupNotes(outDir) {
-  const note = `IONOS one-time cleanup (File Manager / FTP)
-=====================================
-Delete these STALE files/folders left by older deploys if pages show 300 or redirect loops:
-
-1. All *.txt files in htdocs (e.g. about.txt, gallery.txt) — except robots.txt
-2. Empty or duplicate folders that mirror a .html file:
-   gallery/, residential/, about/, quote/, contact/, etc.
-   KEEP: service-areas/ (county pages live here), blog/, _next/, images/
-
-After cleanup, redeploy or hard-refresh. New builds only ship .html (no .txt).
-`
-  fs.writeFileSync(path.join(outDir, 'IONOS-CLEANUP-README.txt'), note)
-}
-
 if (isStaticExport) movePathsAside()
 
 const env = {
@@ -100,12 +48,6 @@ const env = {
 
 try {
   execSync('npx next build', { stdio: 'inherit', env, cwd: root })
-  if (isStaticExport) {
-    const outDir = path.join(root, 'out')
-    pruneNextRscTxtFiles(outDir)
-    fixStaticExportDirectoryIndexes(outDir)
-    writeIonosCleanupNotes(outDir)
-  }
 } finally {
   restorePaths()
 }
