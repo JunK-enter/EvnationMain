@@ -55,6 +55,26 @@ function fixStaticExportDirectoryIndexes(outDir) {
   }
 }
 
+/** Next RSC *.txt artifacts trigger Apache 300 Multiple Choices next to *.html */
+function pruneNextRscTxtFiles(outDir) {
+  if (!fs.existsSync(outDir)) return
+  let removed = 0
+  const walk = (dir) => {
+    for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+      const full = path.join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(full)
+        continue
+      }
+      if (!entry.name.endsWith('.txt')) continue
+      fs.rmSync(full, { force: true })
+      removed += 1
+    }
+  }
+  walk(outDir)
+  if (removed) console.log(`[build] Removed ${removed} Next.js .txt artifacts for Apache`)
+}
+
 if (isStaticExport) movePathsAside()
 
 const env = {
@@ -65,7 +85,9 @@ const env = {
 try {
   execSync('npx next build', { stdio: 'inherit', env, cwd: root })
   if (isStaticExport) {
-    fixStaticExportDirectoryIndexes(path.join(root, 'out'))
+    const outDir = path.join(root, 'out')
+    fixStaticExportDirectoryIndexes(outDir)
+    pruneNextRscTxtFiles(outDir)
   }
 } finally {
   restorePaths()
