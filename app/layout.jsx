@@ -1,5 +1,6 @@
 import { defaultMetadata } from '@/lib/site'
 import AppProviders from '@/components/AppProviders'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import './globals.css'
 
 export const metadata = defaultMetadata
@@ -16,6 +17,7 @@ export default function RootLayout({ children }) {
       data-js-focus-visible={isDev ? '' : undefined}
     >
       <body suppressHydrationWarning>
+        <GoogleAnalytics />
         <AppProviders>{children}</AppProviders>
       </body>
     </html>
