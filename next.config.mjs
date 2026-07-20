@@ -4,10 +4,12 @@ import { fileURLToPath } from 'url'
 import { legacyRedirects } from './src/data/redirects.js'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
-const staticExport = process.env.NEXT_STATIC_EXPORT === 'true'
+const staticExport =
+  process.env.NEXT_STATIC_EXPORT === 'true' ||
+  (process.env.CI === 'true' && !process.env.VERCEL)
 
 const nextConfig = {
-  ...(staticExport ? { output: 'export' } : {}),
+  ...(staticExport ? { output: 'export', trailingSlash: true } : {}),
   reactStrictMode: true,
   outputFileTracingRoot: __dirname,
   images: {
