@@ -30,7 +30,7 @@ jobs:
       - name: Run script
         env:
           NEXT_PUBLIC_GA_MEASUREMENT_ID: G-Z7HNQTWT35
-          NEXT_PUBLIC_SITE_URL: ${{ inputs.site-url }}
+          NEXT_PUBLIC_SITE_URL: https://evnation.us
         run: npm install && npm run build
 
 # Please do not touch the following action

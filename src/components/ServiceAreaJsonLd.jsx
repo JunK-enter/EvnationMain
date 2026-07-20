@@ -13,10 +13,6 @@ export default function ServiceAreaJsonLd({ counties = SERVICE_COUNTIES }) {
     areaServed: counties.map((county) => ({
       '@type': 'AdministrativeArea',
       name: `${county.name}, ${county.state}`,
-      containsPlace: county.cities.map((city) => ({
-        '@type': 'City',
-        name: city,
-      })),
     })),
   }
 
