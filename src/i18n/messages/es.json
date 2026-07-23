@@ -328,6 +328,10 @@
       "co2Stat3Label": "CO₂ evitado por vehículo de flota",
       "co2Stat3Desc": "Cambiar una van comercial o camión de servicio típico a eléctrico puede evitar varias toneladas métricas de CO₂ al año, según el kilometraje.",
       "co2Note": "Las cifras son ilustrativas y varían según tipo de vehículo, millas, uso del cargador y mezcla eléctrica local. Diseñamos instalaciones que apoyan electrificación real — no solo señalización verde.",
+      "profitCalcEyebrow": "Calculadora de ganancias",
+      "profitCalcTitle": "EVnation Interactive Profit Calculator",
+      "profitCalcDesc": "Estime los ingresos potenciales al instalar cargadores comerciales — tarifas por sesión, utilización y economía del sitio en una herramienta interactiva.",
+      "profitCalcButton": "See your potential profit",
       "ctaTitle": "¿Planeas una instalación comercial?",
       "ctaDesc": "Cuéntanos sobre tu propiedad, estacionamiento y plazos — evaluaremos opciones Level 2/3 y requisitos de la utility.",
       "contactUs": "Contáctanos"

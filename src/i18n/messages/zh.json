@@ -328,6 +328,10 @@
       "co2Stat3Label": "每辆车队车可避免的 CO₂",
       "co2Stat3Desc": "将典型商业厢式车或服务卡车换为电动，每年可避免数吨 CO₂（视年行驶里程而定）。",
       "co2Note": "数据为示意，因车型、里程、充电桩利用率及当地电网结构而异。我们设计支持真实电气化的安装 — 而非仅绿色标识。",
+      "profitCalcEyebrow": "收益计算器",
+      "profitCalcTitle": "EVnation Interactive Profit Calculator",
+      "profitCalcDesc": "估算商业 EV 充电桩安装的潜在收益 — 在互动工具中查看单次收费、利用率和站点经济性。",
+      "profitCalcButton": "See your potential profit",
       "ctaTitle": "正在规划商业安装？",
       "ctaDesc": "告诉我们物业、停车布局与时间表 — 我们将评估二/三级方案及电力公司要求。",
       "contactUs": "联系我们"

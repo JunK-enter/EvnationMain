@@ -328,6 +328,10 @@
       "co2Stat3Label": "CO₂ avoided per fleet vehicle",
       "co2Stat3Desc": "Switching a typical commercial van or service truck to electric can avoid multiple metric tons of CO₂ each year, depending on annual mileage.",
       "co2Note": "Figures are illustrative and vary by vehicle type, miles driven, charger utilization, and local utility mix. We design installs that support real electrification — not just signage.",
+      "profitCalcEyebrow": "Profit Calculator",
+      "profitCalcTitle": "EVnation Interactive Profit Calculator",
+      "profitCalcDesc": "Model potential revenue from commercial EV charger installs — session fees, utilization, and site economics in one interactive tool.",
+      "profitCalcButton": "See your potential profit",
       "ctaTitle": "Planning a commercial install?",
       "ctaDesc": "Tell us about your property, parking layout, and timeline — our team will scope Level 2/3 options and utility requirements.",
       "contactUs": "Contact Us"

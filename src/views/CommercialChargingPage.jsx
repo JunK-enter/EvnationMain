@@ -2,9 +2,12 @@
 
 import { useMemo } from 'react'
 import Link from '@/components/Link'
-import { Building2, Zap, Gauge, Users, Truck, ArrowRight, Phone, Leaf } from 'lucide-react'
+import { Building2, Zap, Gauge, Users, Truck, ArrowRight, Phone, Leaf, Calculator } from 'lucide-react'
 import SectionHeader from '@/components/SectionHeader'
 import { useTranslation } from '@/i18n/LocaleProvider'
+
+const COMMERCIAL_PROFIT_CALCULATOR_URL =
+  'https://cdn.creatify.ai/agent/ads/e11bcf41-a62a-4d2d-a40b-e9e041c2ad74/final-calculator.html'
 
 function OfferBlock({ icon: Icon, title, desc }) {
   return (
@@ -108,6 +111,32 @@ export default function CommercialChargingPage() {
             {offers.map((offer) => (
               <OfferBlock key={offer.title} {...offer} />
             ))}
+          </div>
+
+          <div className="mb-14 rounded-3xl border border-neon/25 bg-gradient-to-br from-neon/[0.08] via-white/[0.02] to-transparent overflow-hidden">
+            <div className="h-px bg-gradient-to-r from-transparent via-neon/50 to-transparent" />
+            <div className="p-6 sm:p-8 lg:p-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+              <div className="max-w-2xl">
+                <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-neon/10 border border-neon/20 text-neon text-xs font-semibold uppercase tracking-wider mb-4">
+                  <Calculator className="w-3.5 h-3.5" />
+                  {t('servicesHub.commercial.profitCalcEyebrow')}
+                </div>
+                <h2 className="font-display text-2xl sm:text-3xl font-bold text-white mb-3">
+                  {t('servicesHub.commercial.profitCalcTitle')}
+                </h2>
+                <p className="text-sm sm:text-base text-slate-400 leading-relaxed">
+                  {t('servicesHub.commercial.profitCalcDesc')}
+                </p>
+              </div>
+              <a
+                href={COMMERCIAL_PROFIT_CALCULATOR_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-primary justify-center shrink-0 inline-flex items-center gap-2"
+              >
+                {t('servicesHub.commercial.profitCalcButton')} <ArrowRight className="w-4 h-4" />
+              </a>
+            </div>
           </div>
 
           <div className="mb-14 rounded-3xl border border-white/[0.08] bg-white/[0.02] overflow-hidden">
