@@ -1,6 +1,6 @@
 'use client'
 
-import { Suspense, useEffect } from 'react'
+import { Suspense, useEffect, useRef } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
@@ -22,9 +22,16 @@ function sendPageView(pathname, searchParams) {
 function PageViewTrackerInner() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
+  const isFirstView = useRef(true)
 
   useEffect(() => {
     if (!GA_ID) return undefined
+
+    // Initial page_view is sent by the gtag snippet in layout <head>.
+    if (isFirstView.current) {
+      isFirstView.current = false
+      return undefined
+    }
 
     let cancelled = false
     let attempts = 0
@@ -32,9 +39,7 @@ function PageViewTrackerInner() {
     const track = () => {
       if (cancelled) return
 
-      if (sendPageView(pathname, searchParams)) {
-        return
-      }
+      if (sendPageView(pathname, searchParams)) return
 
       attempts += 1
       if (attempts < 40) {
@@ -52,7 +57,7 @@ function PageViewTrackerInner() {
   return null
 }
 
-/** Tracks client-side route changes after gtag loads (initial HTML bootstraps GA in layout). */
+/** SPA route changes only — first hit comes from static gtag in layout head. */
 export default function GoogleAnalyticsPageView() {
   if (!GA_ID) return null
 
